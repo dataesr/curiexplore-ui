@@ -8,14 +8,13 @@ import CountryBadgeList from './components/country-badge-list';
 export default function Fiche() {
   const { isoCode } = useParams();
   const { pathname } = useLocation();
-  const selected = pathname.split('/')?.[0];
+  const selected = pathname.split('/').pop();
   const { data: fetchedData, isLoading, error } = useFetchData(isoCode);
 
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
   const data = fetchedData['curiexplore-pays']?.[0]?.fields;
-
   if (!data) return null;
   return (
     <Container spacing="pb-6w">
