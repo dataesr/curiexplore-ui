@@ -9,6 +9,7 @@ export default function Fiche() {
   const pathname = useNavigate();
   const selected = pathname.split('/')?.[0];
   const { data, isLoading, error } = useFetchData(isoCode);
+
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
