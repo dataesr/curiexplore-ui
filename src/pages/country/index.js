@@ -6,6 +6,7 @@ export default function Fiche() {
   const { isoCode } = useParams();
   const selected = 'profile';
   const { data, isLoading, error } = useFetchData(isoCode);
+
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
