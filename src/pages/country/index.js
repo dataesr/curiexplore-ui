@@ -15,6 +15,7 @@ export default function Fiche() {
   if (error) return <div>Error ...</div>;
 
   const data = fetchedData['curiexplore-pays']?.[0]?.fields;
+
   if (!data) return null;
   return (
     <Container spacing="pb-6w">
@@ -90,11 +91,12 @@ export default function Fiche() {
                 />
               </ButtonGroup>
             </Row>
-            <Row>
-              <Title spacing="mb-1v mr-auto" as="h2">
+            <Row spacing="mb-3v" alignItems="middle">
+              <Title spacing="mb-1v" as="h2">
                 {data.name_fr}
               </Title>
-              <Text spacing="mb-1v" as="span" size="xs" bold={false}>
+              <img alt="Drapeau" className="fr-ml-2w" src={data.flag} height="40px" />
+              <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
                 {' '}
                 mis à jour le
                 {' '}
