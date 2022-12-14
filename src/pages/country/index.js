@@ -1,20 +1,21 @@
-import { Badge, BadgeGroup, Breadcrumb, BreadcrumbItem, ButtonGroup, Col, Container, Icon, Row, SideMenu, SideMenuLink, Text, Title } from '@dataesr/react-dsfr';
+import { Breadcrumb, BreadcrumbItem, ButtonGroup, Col, Container, Icon, Row, SideMenu, SideMenuLink, Text, Title } from '@dataesr/react-dsfr';
 import { FormattedDate } from 'react-intl';
-import { useParams, useNavigate, Link as RouterLink, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Link as RouterLink, Outlet } from 'react-router-dom';
 import Button from '../../components/button';
 import useFetchData from './hooks/useFetchData';
+import CountryBadgeList from './components/country-badge-list';
 
 export default function Fiche() {
   const { isoCode } = useParams();
-  const pathname = useNavigate();
+  const { pathname } = useLocation();
   const selected = pathname.split('/')?.[0];
-  const { data, isLoading, error } = useFetchData(isoCode);
+  const { data: fetchedData, isLoading, error } = useFetchData(isoCode);
 
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
-  console.log(data['curiexplore-annuaire-ambassade']);
-
+  const data = fetchedData['curiexplore-pays']?.[0]?.fields;
+  if (!data) return null;
   return (
     <Container spacing="pb-6w">
       <Row>
@@ -66,7 +67,7 @@ export default function Fiche() {
                   Accueil
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                  {data.countryName}
+                  {data.name_fr}
                 </BreadcrumbItem>
               </Breadcrumb>
 
@@ -91,14 +92,14 @@ export default function Fiche() {
             </Row>
             <Row>
               <Title spacing="mb-1v mr-auto" as="h2">
-                {data.countryName}
+                {data.name_fr}
               </Title>
               <Text spacing="mb-1v" as="span" size="xs" bold={false}>
                 {' '}
                 mis à jour le
                 {' '}
                 <FormattedDate
-                  value={data.updatedAt}
+                  value="2020-12-01"
                   day="numeric"
                   month="long"
                   year="numeric"
@@ -106,11 +107,10 @@ export default function Fiche() {
               </Text>
             </Row>
             <Row>
-              <BadgeGroup>
-                {data?.countryGeographyInfo?.map(
-                  (geoInfo) => <Badge key={geoInfo} isSmall type="info" text={geoInfo} />,
-                )}
-              </BadgeGroup>
+              <CountryBadgeList data={data} geographic />
+            </Row>
+            <Row>
+              <CountryBadgeList type="info" data={data} policy />
             </Row>
           </Container>
           <Container fluid>
