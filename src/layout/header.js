@@ -38,14 +38,15 @@ export default function Header({ switchTheme }) {
               {headerTag && <Badge text={headerTag} type={(!headerTagColor) ? 'info' : undefined} isSmall colorFamily={headerTagColor} />}
             </>
           )}
-          description="La plateforme d'exploration dessystèmes d'enseignement supérieur,
-          de recherche et d'innovationà l'international"
+          description="La plateforme d'exploration des systèmes d'enseignement supérieur,
+          de recherche et d'innovation à l'international"
         />
         <Tool closeButtonLabel="fermer" className="extend">
           <ToolItemGroup>
             <ToolItem
+              as="button"
               type="button"
-              className="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+              className="fr-btn fr-btn--icon-left fr-icon-theme-fill"
               aria-controls="fr-theme-modal"
               data-fr-opened={isOpen}
               onClick={() => setIsOpen(true)}

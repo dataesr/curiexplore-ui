@@ -1,4 +1,4 @@
-export default function CountryHighEducationPage() {
+export default function CountryHigherEducationPage() {
   return (
     <div>
       CountryHighEducationPage

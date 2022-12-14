@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '@dataesr/react-dsfr';
+import Button from '../components/button';
 import styles from './scroll-to-top-button.module.scss';
 
 export default function ScrollToTop() {

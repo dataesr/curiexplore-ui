@@ -1,10 +1,13 @@
-import { Col, Container, Icon, Row, SideMenu, SideMenuLink } from '@dataesr/react-dsfr';
-import { useParams, Link as RouterLink, Outlet } from 'react-router-dom';
+import { Badge, BadgeGroup, Breadcrumb, BreadcrumbItem, ButtonGroup, Col, Container, Icon, Row, SideMenu, SideMenuLink, Text, Title } from '@dataesr/react-dsfr';
+import { FormattedDate } from 'react-intl';
+import { useParams, useNavigate, Link as RouterLink, Outlet } from 'react-router-dom';
+import Button from '../../components/button';
 import useFetchData from './hooks/useFetchData';
 
 export default function Fiche() {
   const { isoCode } = useParams();
-  const selected = 'profile';
+  const pathname = useNavigate();
+  const selected = pathname.split('/')?.[0];
   const { data, isLoading, error } = useFetchData(isoCode);
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
@@ -18,42 +21,98 @@ export default function Fiche() {
               <Icon name="ri-eye-2-line" size="1x" />
               Connaitre le pays
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="policy" replace />} current={(selected === 'policy')}>
+            <SideMenuLink asLink={<RouterLink to="politique-esri" replace />} current={(selected === 'policy')}>
               <Icon name="ri-newspaper-line" size="1x" />
-              Politique d'enseignement supérieur, de recherche et d'innovation
+              Politique ESRI
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="high-education" replace />} current={(selected === 'high-education')}>
+            <SideMenuLink asLink={<RouterLink to="enseignement-sup" replace />} current={(selected === 'high-education')}>
               <Icon name="ri-team-line" size="1x" />
-              Paysage de l'enseignement supérieur
+              Enseignement supérieur
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="research" replace />} current={(selected === 'research')}>
+            <SideMenuLink asLink={<RouterLink to="recherche" replace />} current={(selected === 'research')}>
               <Icon name="ri-calendar-line" size="1x" />
-              Paysage de la recherche et de l'innovation
+              Recherche et innovation
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="actors" replace />} current={(selected === 'actors')}>
+            <SideMenuLink asLink={<RouterLink to="acteurs" replace />} current={(selected === 'actors')}>
               <Icon name="ri-folders-line" size="1x" />
               Les acteurs
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="links-with-france" replace />} current={(selected === 'links-with-france')}>
+            <SideMenuLink asLink={<RouterLink to="cooperation-avec-la-france" replace />} current={(selected === 'links-with-france')}>
               <Icon name="ri-folders-line" size="1x" />
               Liens avec la France
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="international-cooperation" replace />} current={(selected === 'international-cooperation')}>
+            <SideMenuLink asLink={<RouterLink to="cooperation-internationale" replace />} current={(selected === 'international-cooperation')}>
               <Icon name="ri-folders-line" size="1x" />
-              Coopération internationale
+              Coopérations internationale
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="student-mobility" replace />} current={(selected === 'student-mobility')}>
+            <SideMenuLink asLink={<RouterLink to="mobilite-etudiante" replace />} current={(selected === 'student-mobility')}>
               <Icon name="ri-folders-line" size="1x" />
               Mobilité étudiante
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="contacts-and-resources" replace />} current={(selected === 'contacts-and-resources')}>
+            <SideMenuLink asLink={<RouterLink to="contacts-et-ressources" replace />} current={(selected === 'contacts-and-resources')}>
               <Icon name="ri-folders-line" size="1x" />
               Contacts et ressources
             </SideMenuLink>
           </SideMenu>
         </Col>
         <Col n="12 md-9">
-          <Outlet />
+          <Container fluid spacing="mb-5w">
+            <Row className="fr-mt-1w stick">
+              <Breadcrumb>
+                <BreadcrumbItem asLink={<RouterLink to="/" />}>
+                  Accueil
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  {data.countryName}
+                </BreadcrumbItem>
+              </Breadcrumb>
+
+              <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">
+                <Button
+                  tertiary
+                  borderless
+                  rounded
+                  title="Télécharger la synthèse"
+                  // onClick={() => setIsExportOpen(true)}
+                  icon="ri-download-2-fill"
+                />
+                <Button
+                  tertiary
+                  borderless
+                  rounded
+                  title="Télécharger les données"
+                  // onClick={() => toggle()}
+                  icon="ri-file-excel-line"
+                />
+              </ButtonGroup>
+            </Row>
+            <Row>
+              <Title spacing="mb-1v mr-auto" as="h2">
+                {data.countryName}
+              </Title>
+              <Text spacing="mb-1v" as="span" size="xs" bold={false}>
+                {' '}
+                mis à jour le
+                {' '}
+                <FormattedDate
+                  value={data.updatedAt}
+                  day="numeric"
+                  month="long"
+                  year="numeric"
+                />
+              </Text>
+            </Row>
+            <Row>
+              <BadgeGroup>
+                {data?.countryGeographyInfo?.map(
+                  (geoInfo) => <Badge key={geoInfo} isSmall type="info" text={geoInfo} />,
+                )}
+              </BadgeGroup>
+            </Row>
+          </Container>
+          <Container fluid>
+            <Outlet context={data} />
+          </Container>
         </Col>
       </Row>
     </Container>

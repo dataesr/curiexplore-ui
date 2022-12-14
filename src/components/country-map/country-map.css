@@ -1,0 +1,12 @@
+.capital-name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.label-style {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-top: 20px;
+  direction: 'center';
+}
