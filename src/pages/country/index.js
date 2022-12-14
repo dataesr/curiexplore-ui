@@ -33,7 +33,7 @@ export default function Fiche() {
               <Icon name="ri-team-line" size="1x" />
               Enseignement supérieur
             </SideMenuLink>
-            <SideMenuLink asLink={<RouterLink to="recherche" replace />} current={(selected === 'enseignement-sup')}>
+            <SideMenuLink asLink={<RouterLink to="recherche" replace />} current={(selected === 'recherche')}>
               <Icon name="ri-calendar-line" size="1x" />
               Recherche et innovation
             </SideMenuLink>
