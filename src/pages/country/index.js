@@ -13,6 +13,8 @@ export default function Fiche() {
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
+  console.log(data['curiexplore-annuaire-ambassade']);
+
   return (
     <Container spacing="pb-6w">
       <Row>
