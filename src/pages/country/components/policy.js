@@ -1,7 +1,37 @@
+import { useOutletContext } from 'react-router-dom';
+import Parser from 'html-react-parser';
+import { Col, Container, Highlight, Row, Title } from '@dataesr/react-dsfr';
+
 export default function CountryPolicyPage() {
+  const contextData = useOutletContext();
+  const data = contextData['curiexplore-analyse'];
+
+  const blocs = [];
+  blocs.push(data.find((el) => (el.fields.thematique === 'Orientations stratégiques')).fields || null);
+  blocs.push(data.find((el) => (el.fields.thematique === 'Financement')).fields || null);
+  blocs.push(data.find((el) => (el.fields.thematique === 'Evaluations')).fields || null);
+  blocs.push(data.find((el) => (el.fields.thematique === 'Politique francophone')).fields || null);
+
   return (
-    <div>
-      CountryPolicyPage
-    </div>
+    <>
+      {blocs.map((bloc) => (
+        <Container>
+          <Row>
+            <Col>
+              <Title as="h2">
+                {bloc.thematique}
+              </Title>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Highlight>
+                {Parser(bloc.description)}
+              </Highlight>
+            </Col>
+          </Row>
+        </Container>
+      ))}
+    </>
   );
 }

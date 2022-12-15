@@ -9,13 +9,15 @@ export default function Fiche() {
   const { isoCode } = useParams();
   const { pathname } = useLocation();
   const selected = pathname.split('/').pop();
-  const { data: fetchedData, isLoading, error } = useFetchData(isoCode);
+  const { data, isLoading, error } = useFetchData(isoCode);
 
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
-  const data = fetchedData['curiexplore-pays']?.[0]?.fields;
-  if (!data) return null;
+  const dataPays = data['curiexplore-pays']?.[0]?.fields;
+  const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
+
+  if (!dataPays) return null;
   return (
     <Container spacing="pb-6w">
       <Row>
@@ -67,7 +69,7 @@ export default function Fiche() {
                   Accueil
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                  {data.name_fr}
+                  {dataPays.name_fr}
                 </BreadcrumbItem>
               </Breadcrumb>
 
@@ -92,15 +94,15 @@ export default function Fiche() {
             </Row>
             <Row spacing="mb-3v" alignItems="middle">
               <Title spacing="mb-1v" as="h2">
-                {data.name_fr}
+                {dataPays.name_fr}
               </Title>
-              <img alt="Drapeau" className="fr-ml-2w" src={data.flag} height="40px" />
+              <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
               <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
                 {' '}
                 mis à jour le
                 {' '}
                 <FormattedDate
-                  value="2020-12-01"
+                  value={dataTimestamp.submitdate}
                   day="numeric"
                   month="long"
                   year="numeric"
@@ -108,13 +110,13 @@ export default function Fiche() {
               </Text>
             </Row>
             <Row>
-              <CountryBadgeList data={data} geographic />
+              <CountryBadgeList data={dataPays} geographic />
             </Row>
             <Row>
-              <CountryBadgeList type="info" data={data} policy />
+              <CountryBadgeList type="info" data={dataPays} policy />
             </Row>
           </Container>
-          <Container fluid>
+          <Container fluid as="section">
             <Outlet context={data} />
           </Container>
         </Col>
