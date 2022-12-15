@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import HtmlAmbassyBloc from '../../../components/HtmlAmbassyBloc';
 
 export default function CountryPolicyPage() {
@@ -14,7 +15,7 @@ export default function CountryPolicyPage() {
   return (
     <>
       {blocs.map((bloc) => (
-        <HtmlAmbassyBloc data={bloc} />
+        <HtmlAmbassyBloc data={bloc} key={uuidv4()} />
       ))}
     </>
   );

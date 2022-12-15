@@ -44,7 +44,6 @@ export default function Header({ switchTheme }) {
         <Tool closeButtonLabel="fermer" className="extend">
           <ToolItemGroup>
             <ToolItem
-              as="button"
               type="button"
               className="fr-btn fr-btn--icon-left fr-icon-theme-fill"
               aria-controls="fr-theme-modal"
