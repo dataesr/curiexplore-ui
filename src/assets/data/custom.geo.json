@@ -302,7 +302,8 @@
         {
             "type": "Feature",
             "properties": {
-                "iso_a3": "AUT"
+                "iso_a3": "AUT",
+                "adm0_a3": "AUT"
             },
             "geometry": {
                 "type": "Polygon",

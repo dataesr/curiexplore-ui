@@ -70,9 +70,12 @@ export default function Fiche() {
                 </BreadcrumbItem>
                 <BreadcrumbItem>
                   {dataPays.name_fr}
+                  {' '}
+                  (
+                  {dataPays.name_native}
+                  )
                 </BreadcrumbItem>
               </Breadcrumb>
-
               <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">
                 <Button
                   tertiary
@@ -95,6 +98,10 @@ export default function Fiche() {
             <Row spacing="mb-3v" alignItems="middle">
               <Title spacing="mb-1v" as="h2">
                 {dataPays.name_fr}
+                {' '}
+                (
+                {dataPays.name_native}
+                )
               </Title>
               <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
               <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
