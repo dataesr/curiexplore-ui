@@ -1,6 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
-import Parser from 'html-react-parser';
-import { Col, Container, Highlight, Row, Title } from '@dataesr/react-dsfr';
+import HtmlAmbassyBloc from '../../../components/HtmlAmbassyBloc';
 
 export default function CountryPolicyPage() {
   const contextData = useOutletContext();
@@ -15,22 +14,7 @@ export default function CountryPolicyPage() {
   return (
     <>
       {blocs.map((bloc) => (
-        <Container>
-          <Row>
-            <Col>
-              <Title as="h2">
-                {bloc.thematique}
-              </Title>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Highlight>
-                {Parser(bloc.description)}
-              </Highlight>
-            </Col>
-          </Row>
-        </Container>
+        <HtmlAmbassyBloc data={bloc} />
       ))}
     </>
   );
