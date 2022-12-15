@@ -4,6 +4,8 @@ import Parser from 'html-react-parser';
 import { Col, Container, Highlight, Row, Title } from '@dataesr/react-dsfr';
 
 export default function HtmlAmbassyBloc({ data }) {
+  if (!data) return null;
+
   return (
     <Container>
       <Row>
