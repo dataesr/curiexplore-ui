@@ -1,7 +1,13 @@
+import { useOutletContext } from 'react-router-dom';
+import HtmlAmbassyBloc from '../../../components/HtmlAmbassyBloc';
+
 export default function CountryResearchPage() {
+  const contextData = useOutletContext();
+  const data = contextData['curiexplore-analyse'];
+
+  const dataES = data.find((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
+
   return (
-    <div>
-      CountryResearchPage
-    </div>
+    <HtmlAmbassyBloc data={dataES} />
   );
 }
