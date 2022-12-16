@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Row, Col } from '@dataesr/react-dsfr';
 import { MapContainer } from 'react-leaflet';
-import CountryMap from './country-map';
+import CountryMap from '../../../components/country-map';
 import { GraphContainer, GraphTitle } from '../../../components/graph';
 
 export default function CountryProfilePage() {

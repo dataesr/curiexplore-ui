@@ -26,7 +26,7 @@ export default function CountryList({ region }) {
           <Text className="fr-mb-1v" size="lead" bold>{letter.toUpperCase()}</Text>
           <hr />
           {countries.map((country) => (
-            <Row>
+            <Row key={country.iso}>
               <Link to={`/pays/${country.iso}`}>{country.name}</Link>
             </Row>
           ))}

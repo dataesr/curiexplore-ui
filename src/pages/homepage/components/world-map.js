@@ -14,7 +14,7 @@ export default function WorldMap({ region, color, fillColor }) {
     layer.on({
       mouseover: () => { layer.setStyle({ fillColor: '#fff' }); },
       mouseout: () => { if (feature.properties.region_wb !== region) { layer.setStyle({ fillColor }); } },
-      click: () => { navigate(`/pays/${feature.properties.iso_a3}`); },
+      click: () => { if (feature.properties.iso_a3 !== 'FRA') { navigate(`/pays/${feature.properties.iso_a3}`); } },
     });
   };
   const regionGeoJSON = {

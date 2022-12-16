@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
-import worldGeoJSON from '../../../../assets/data/custom.geo.json';
-import capitalsList from '../../../../assets/data/capitalsList.json';
+import worldGeoJSON from '../../assets/data/custom.geo.json';
+import capitalsList from '../../assets/data/capitalsList.json';
 
 import 'leaflet/dist/leaflet.css';
 import './country-map.css';
@@ -37,7 +37,7 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
     .geoJson(countryGeoJSON, { style: { ...defaultStyle, fillColor: '#fff' } })
     .addTo(map)
     .getBounds();
-  if (mapper) map.fitBounds(mapper);
+  if (Object.keys(mapper)?.length) map.fitBounds(mapper);
   if (hasCapital) {
     const { city: capitalName, lat, lng } = capitalsList.find(
       (capital) => (capital.iso3 === isoCode && capital.capital === 'primary'),
@@ -65,7 +65,7 @@ CountryMap.defaultProps = {
 
 CountryMap.propTypes = {
   isoCode: PropTypes.string.isRequired,
-  markers: PropTypes.object,
+  markers: PropTypes.array,
   color: PropTypes.string,
   fillColor: PropTypes.string,
   hasCapital: PropTypes.bool,

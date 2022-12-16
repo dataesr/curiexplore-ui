@@ -4,6 +4,7 @@ import { MapContainer } from 'react-leaflet';
 import WorldMap from './components/world-map';
 import RegionFilters from './components/region-filters';
 import CountryList from './components/country-list';
+import LastUpdated from './components/last-updated';
 
 export default function HomePage() {
   const [region, setRegion] = useState('world');
@@ -35,6 +36,9 @@ export default function HomePage() {
       </Container>
       <Container>
         <CountryList region={region} />
+      </Container>
+      <Container>
+        <LastUpdated />
       </Container>
     </>
 
