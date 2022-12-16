@@ -109,7 +109,7 @@ export default function Fiche() {
                 mis à jour le
                 {' '}
                 <FormattedDate
-                  value={dataTimestamp.submitdate}
+                  value={dataTimestamp?.submitdate}
                   day="numeric"
                   month="long"
                   year="numeric"
