@@ -49,7 +49,7 @@ export default function Fiche() {
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="cooperation-internationale" replace />} current={(selected === 'cooperation-internationale')}>
               <Icon name="ri-folders-line" size="1x" />
-              Coopérations internationale
+              Coopérations internationales
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="mobilite-etudiante" replace />} current={(selected === 'mobilite-etudiante')}>
               <Icon name="ri-folders-line" size="1x" />
@@ -106,7 +106,7 @@ export default function Fiche() {
               <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
               <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
                 {' '}
-                mis à jour le
+                Mis à jour le
                 {' '}
                 <FormattedDate
                   value={dataTimestamp?.submitdate}
