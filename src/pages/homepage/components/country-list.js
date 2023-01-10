@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import worldGeoJSON from '../../../assets/data/custom.geo.json';
 
 const groupByLetters = (arr) => arr.reduce((acc, cur) => {
-  const firstLetter = cur.name?.[0]?.toLowerCase();
+  const firstLetter = cur.name_fr?.[0]?.toLowerCase();
   if (firstLetter) return { ...acc, [firstLetter]: [...(acc[firstLetter] || []), cur] };
   return { ...acc };
 }, {});
@@ -16,7 +16,7 @@ export default function CountryList({ region }) {
       if (region === 'world') return true;
       return (el.properties.region_wb === region);
     })
-    .map((el) => ({ name: el.properties.name, iso: el.properties.iso_a3 }));
+    .map((el) => ({ name_fr: el.properties.name_fr, iso: el.properties.iso_a3 }));
   const byLettersCountries = groupByLetters(filteredCountries);
   const orderedCountries = Object.entries(byLettersCountries).sort(([a], [b]) => a.localeCompare(b));
   return (
@@ -27,7 +27,7 @@ export default function CountryList({ region }) {
           <hr />
           {countries.map((country) => (
             <Row key={country.iso}>
-              <Link to={`/pays/${country.iso}`}>{country.name}</Link>
+              <Link to={`/pays/${country.iso}`}>{country.name_fr}</Link>
             </Row>
           ))}
         </Col>
