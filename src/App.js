@@ -15,6 +15,7 @@ import FranceCooperationPage from './pages/country/components/france-cooperation
 import InternationalCooperationPage from './pages/country/components/international-cooperation';
 import StudentsMobilityPage from './pages/country/components/students-mobility';
 import ContactsAndResourcesPage from './pages/country/components/contacts-and-resources';
+import DirectoryPage from './pages/directory';
 
 const messages = {
   'fr-FR': messagesFR,
@@ -42,6 +43,7 @@ export default function App() {
               <Route path="mobilite-etudiante" element={<StudentsMobilityPage />} />
               <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
             </Route>
+            <Route path="/annuaire" element={<DirectoryPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

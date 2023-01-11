@@ -1,0 +1,38 @@
+.fr-card {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+}
+.country {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.structure {
+ text-align: center;
+ justify-content: center;
+}
+.structureName {
+  text-align: center;
+}
+
+.flag {
+display: flex;
+align-items: center;
+width: 15%;
+margin-bottom: 10px;
+}
+.container {
+background-color: #D2D2D2;
+}
+
+$objects: CCI, campus-france, embassy;
+
+@each $object in $objects {
+  .card-#{$object} {
+    border-right: .25rem solid var(--#{$object}-color) !important;
+    border-bottom: .25rem solid var(--#{$object}-color) !important;
+  }
+}
