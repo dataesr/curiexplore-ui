@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 const API_ODS_ENDPOINT = 'https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search';
 // const API_ODS_ENDPOINT_V2 = 'https://data.enseignementsup-recherche.gouv.fr/api/v2/catalog/datasets';
+const API_ACTEURS_ENDPOINT = 'https://curiexplore-api.staging.dataesr.ovh/paysage';
 const { REACT_APP_ODS_API_KEY } = process.env;
 const ENDPOINT_V1 = `${API_ODS_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
 
@@ -22,6 +23,7 @@ export default function useFetchData(isoCode) {
       `${ENDPOINT_V1}&dataset=curiexplore-policy-ocde&q=&rows=-1&sort=startdate&facet=iso3&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-ressources&q=&rows=-1&facet=isoa3&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
+      `${API_ACTEURS_ENDPOINT}/${isoCode}`,
     ];
 
     const getData = async () => {
@@ -31,7 +33,8 @@ export default function useFetchData(isoCode) {
         const allData = await Promise.all(queriesFetch);
         const saveData = {};
         allData.forEach((dataset) => {
-          saveData[dataset.parameters.dataset] = dataset.records;
+          if (dataset?.parameters?.dataset) saveData[dataset.parameters.dataset] = dataset.records;
+          else saveData['actors-data'] = dataset;
         });
         setData(saveData);
         setIsLoading(false);

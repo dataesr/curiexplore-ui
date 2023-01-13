@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
@@ -23,21 +24,35 @@ const getIcon = (color = '#0078f3') => L.divIcon({
 
 export default function CountryMap({ isoCode, color, fillColor, hasCapital, markers }) {
   const map = useMap();
+
+  // L.mapper();
+  useEffect(() => {
+    if (markers?.length) {
+      markers.map((marker) => L.marker([marker.lat, marker.lng], { icon: getIcon(marker.color) }).addTo(map));
+    }
+  }, [markers]);
+
   const countryGeoJSON = {
     ...worldGeoJSON,
     features: worldGeoJSON.features.filter((el) => (el.properties.iso_a3 === isoCode)),
   };
+
   const allCountriesGeoJSON = {
     ...worldGeoJSON,
     features: worldGeoJSON.features.filter((el) => (el.properties.iso_a3 !== isoCode)),
   };
+
   const defaultStyle = { color, weight: 1, fillOpacity: 1, fillColor };
+
   L.geoJson(allCountriesGeoJSON, { style: defaultStyle }).addTo(map);
+
   const mapper = L
     .geoJson(countryGeoJSON, { style: { ...defaultStyle, fillColor: '#fff' } })
     .addTo(map)
     .getBounds();
+
   if (Object.keys(mapper)?.length) map.fitBounds(mapper);
+
   if (hasCapital) {
     const { city: capitalName, lat, lng } = capitalsList.find(
       (capital) => (capital.iso3 === isoCode && capital.capital === 'primary'),
@@ -51,11 +66,14 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
       })
       .addTo(map);
   }
-  if (markers?.length) {
-    markers.map((marker) => L.marker([marker.lat, marker.lng], { icon: getIcon(marker.color) }).addTo(map));
-  }
+
+  // if (markers?.length) {
+  //   markers.map((marker) => L.marker([marker.lat, marker.lng], { icon: getIcon(marker.color) }).addTo(map));
+  // }
+
   return null;
 }
+
 CountryMap.defaultProps = {
   color: '#FFCA00',
   fillColor: '#FCD17B',

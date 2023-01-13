@@ -11,6 +11,7 @@ import CountryHigherEducationPage from './pages/country/components/higher-educat
 import CountryResearchPage from './pages/country/components/research';
 import CountryPolicyPage from './pages/country/components/policy';
 import ActorsPage from './pages/country/components/actors';
+import ActorPage from './pages/country/components/actors/[id]';
 import FranceCooperationPage from './pages/country/components/france-cooperation';
 import InternationalCooperationPage from './pages/country/components/international-cooperation';
 import StudentsMobilityPage from './pages/country/components/students-mobility';
@@ -37,6 +38,7 @@ export default function App() {
               <Route path="recherche" element={<CountryResearchPage />} />
               <Route path="politique-esri" element={<CountryPolicyPage />} />
               <Route path="acteurs" element={<ActorsPage />} />
+              <Route path="acteurs/:actorId" element={<ActorPage />} />
 
               <Route path="cooperation-avec-la-france" element={<FranceCooperationPage />} />
               <Route path="cooperation-internationale" element={<InternationalCooperationPage />} />
