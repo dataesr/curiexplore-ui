@@ -1,15 +1,28 @@
-import { Button } from '@dataesr/react-dsfr';
+import { Button, Title } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
 export default function StructureCard({ name, address, postalCode, phoneNumber, website, city, type, country }) {
+  let cardTitle;
+  switch (type) {
+  case 'embassy':
+    cardTitle = 'Ambassade';
+    break;
+  case 'campusFrance':
+    cardTitle = 'Campus France';
+    break;
+  case 'cci':
+    cardTitle = 'CCI';
+    break;
+  default:
+    cardTitle = null;
+  }
   return (
-    <div className={`fr-card card-${type}`}>
-      <p className="structure">{name}</p>
-      <p>{address}</p>
-      <p>{city}</p>
-      <p>{postalCode}</p>
-      <p>{phoneNumber}</p>
-      <p className="country">{country}</p>
+    <div className="fr-card fr-card--grey">
+      <Title as="h3">{cardTitle}</Title>
+      <div>{name}</div>
+      <div>{address}</div>
+      <div>{`${city} ${postalCode}`}</div>
+      <div>{phoneNumber}</div>
       <div>
         {website ? (
           <Button icon="ri-external-link-line">

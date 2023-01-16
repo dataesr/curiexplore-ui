@@ -4,29 +4,24 @@ import PropTypes from 'prop-types';
 import StructureCard from './structure-card';
 
 function EmbassyBloc({ data, website }) {
+  if (data.length === 0) return null;
   return (
-    <>
-      <h2 className="structureName">Ambassade de France</h2>
-      {data.length > 0 ? (
-        <Row className="container" gutters>
-          {data.map(({ currentLocalisation }) => (
-            <Col>
-              <StructureCard
-                address={currentLocalisation.address}
-                city={currentLocalisation.city}
-                country={currentLocalisation.country}
-                link={currentLocalisation.link}
-                postalCode={currentLocalisation.postalCode}
-                phoneNumber={currentLocalisation.telephone}
-                type="embassy"
-                website={website}
-              />
-            </Col>
-          ))}
-        </Row>
-      ) : null}
-
-    </>
+    <Row>
+      {data.map(({ currentLocalisation }) => (
+        <Col>
+          <StructureCard
+            address={currentLocalisation.address}
+            city={currentLocalisation.city}
+            country={currentLocalisation.country}
+            link={currentLocalisation.link}
+            postalCode={currentLocalisation.postalCode}
+            phoneNumber={currentLocalisation.telephone}
+            type="embassy"
+            website={website}
+          />
+        </Col>
+      ))}
+    </Row>
   );
 }
 export default EmbassyBloc;
