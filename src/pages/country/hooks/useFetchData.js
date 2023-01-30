@@ -21,7 +21,8 @@ export default function useFetchData(isoCode) {
       `${ENDPOINT_V1}&dataset=curiexplore-annuaire-cci&q=&rows=-1&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-pays&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-policy-ocde&q=&rows=-1&sort=startdate&facet=iso3&refine.iso3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-ressources&q=&rows=-1&facet=isoa3&refine.iso3=${isoCode}`,
+      `${ENDPOINT_V1}&dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
+      `${ENDPOINT_V1}&dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
       `${API_ACTEURS_ENDPOINT}/${isoCode}`,
     ];
