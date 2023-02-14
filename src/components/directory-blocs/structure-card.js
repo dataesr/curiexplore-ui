@@ -1,62 +1,150 @@
-import { Button, Title } from '@dataesr/react-dsfr';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Button,
+  Col,
+  Container,
+  Icon,
+  Row,
+  Text,
+  Title,
+  Modal, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 
-export default function StructureCard({ name, address, postalCode, phoneNumber, website, city, type, country }) {
-  let cardTitle;
-  switch (type) {
-  case 'embassy':
-    cardTitle = 'Ambassade';
-    break;
-  case 'campusFrance':
-    cardTitle = 'Campus France';
-    break;
-  case 'cci':
-    cardTitle = 'CCI';
-    break;
-  default:
-    cardTitle = null;
-  }
+function AddressCard({ address, displayName }) {
   return (
-    <div className="fr-card fr-card--grey">
-      <Title as="h3">{cardTitle}</Title>
-      <div>{name}</div>
-      <div>{address}</div>
-      <div>{`${city} ${postalCode}`}</div>
-      <div>{phoneNumber}</div>
-      <div>
-        {website ? (
-          <Button icon="ri-external-link-line">
-            <a
-              href={website}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Voir le site
-            </a>
-          </Button>
-        ) : ''}
+    <div className="fr-card fr-card--grey fr-mb-2w">
+      <div className="fr-card__body">
+        <div className="fr-card__content">
+          <Icon name="ri-map-pin-line" size="xl">
+            <strong>{displayName}</strong>
+          </Icon>
+          <div className="fr-pt-3w">
+            {address.address && <Text className="d-inline">{address.address}</Text>}
+            {' - '}
+            {address.city && <Text className="d-inline" bold>{address.city}</Text>}
+          </div>
+          <div>
+            {address.phonenumber && (
+              <Text className="d-inline">
+                <Icon name="ri-phone-fill">
+                  {address.phonenumber}
+                </Icon>
+              </Text>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
+export default function StructureCard({ data, type, website }) {
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+
+  const labels = {};
+  switch (type) {
+  case 'embassy':
+    labels.cardTitle = 'Ambassade de France';
+    labels.modalTitle = 'Ambassades de France';
+    labels.typeLabel = 'ambassades de France';
+    break;
+  case 'campusFrance':
+    labels.cardTitle = 'Campus France';
+    labels.modalTitle = 'Campus France';
+    labels.typeLabel = 'Campus France';
+    break;
+  case 'cci':
+    labels.cardTitle = "Chambres de commerce et d'industrie";
+    labels.modalTitle = "Chambres de commerce et d'industrie";
+    labels.typeLabel = "chambres de commerce et d'industrie";
+    break;
+  default:
+    labels.cardTitle = null;
+  }
+
+  const onOpenModalHandler = () => {
+    console.log(data);
+    const content = data.map((el) => (
+      <AddressCard address={el.currentLocalisation} displayName={el.displayName} />
+    ));
+    setModalContent(
+      <div>
+        {content}
+      </div>,
+    );
+    setShowModal(true);
+  };
+
+  return (
+    <>
+      <Container className={`fr-card fr-card--grey ${type}-border-card fr-pb-1w`}>
+        <Row className="fr-pt-1w">
+          <Col>
+            <Title as="h3" look="h4">{labels.cardTitle}</Title>
+          </Col>
+          {website ? (
+            <Col n="4" className="text-right">
+              <Button tertiary>
+                <a
+                  href={website}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Voir le site
+                </a>
+              </Button>
+            </Col>
+          ) : ''}
+        </Row>
+        <Row>
+          <Col>
+            {data?.length === 1 && (
+              <>
+                <div>
+                  <i>
+                    <Text className="d-inline">
+                      {data[0].currentLocalisation.address}
+                    </Text>
+                    {' - '}
+                    <Text className="d-inline" bold>
+                      {data[0].currentLocalisation.city}
+                    </Text>
+                  </i>
+                </div>
+                {data[0].currentLocalisation.phonenumber && (
+                  <Text className="d-inline">
+                    <Icon name="ri-phone-fill">
+                      {data[0].currentLocalisation.phonenumber}
+                    </Icon>
+                  </Text>
+                )}
+              </>
+            )}
+            {data?.length > 1 && (
+              <div className="fr-mb-1w">
+                <Button secondary onClick={() => onOpenModalHandler()}>
+                  {`Voir les ${data.length} ${labels.typeLabel}`}
+                </Button>
+              </div>
+            )}
+          </Col>
+        </Row>
+      </Container>
+      <Modal isOpen={showModal} size="lg" hide={() => setShowModal(false)}>
+        <ModalTitle>{labels.modalTitle}</ModalTitle>
+        <ModalContent>{modalContent}</ModalContent>
+      </Modal>
+    </>
+  );
+}
 StructureCard.propTypes = {
-  address: PropTypes.string,
-  city: PropTypes.string,
-  country: PropTypes.string,
-  name: PropTypes.string,
-  phoneNumber: PropTypes.number,
-  postalCode: PropTypes.string,
+  data: PropTypes.array.isRequired,
   type: PropTypes.string,
   website: PropTypes.string,
 };
 
 StructureCard.defaultProps = {
-  address: PropTypes.string,
-  city: PropTypes.string,
-  country: PropTypes.string,
-  name: PropTypes.string,
-  postalCode: PropTypes.string,
-  phoneNumber: PropTypes.number,
   type: PropTypes.string,
   website: PropTypes.string,
 };

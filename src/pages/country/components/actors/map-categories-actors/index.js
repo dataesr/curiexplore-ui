@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from '@dataesr/react-dsfr';
 
-import MapWithMarkers from './map-with-markers';
+import MapWithMarkers from '../../../../../components/map-with-markers';
 import List from './list';
 
 function MapList({

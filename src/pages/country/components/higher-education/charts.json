@@ -1,0 +1,128 @@
+[
+  {
+    "title": "Effectif total scolarisé en cycle court (niveau 5 de la CITE)",
+    "code": "25051",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Effectif total scolarisé en licence ou équivalent (niveau 6 de la CITE)",
+    "code": "42654",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Effectif total scolarisé en master ou équivalent (niveau 7 de la CITE)",
+    "code": "42656",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Effectif total scolarisé en doctorat ou équivalent (niveau 8 de la CITE)",
+    "code": "25052",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Effectif total scolarisé dans l'enseignement supérieur",
+    "code": "25053",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans d'autres domaines d'études que les Sciences",
+    "code": "FOSGP_5T8_FNON500600700",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Agriculture, sylviculture, halieutique et sciences vétérinaire\"",
+    "code": "FOSGP_5T8_F800",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Commerce, administration et droit\"",
+    "code": "FOSGP_5T8_F400",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés au domaine d'études non-spécifié",
+    "code": "FOSGP_5T8_FUK",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Education\"",
+    "code": "FOSGP_5T8_F110",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Ingénierie, industries de transformation et construction\"",
+    "code": "FOSGP_5T8_F700",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Lettres et Arts\"",
+    "code": "FOSGP_5T8_F200",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Santé et Protection sociale\"",
+    "code": "FOSGP_5T8_F900",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Sciences naturelles, mathématiques et statistiques\"",
+    "code": "FOSGP_5T8_F500",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Sciences sociales, journalisme et information\"",
+    "code": "",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Sciences, Technologies, Ingénierie et Mathématiques\"",
+    "code": "FOSGP_5T8_F500600700",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Services\"",
+    "code": "FOSGP_5T8_F1000",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  },
+  {
+    "title": "Part des diplômés dans le domaine d'études \"Technologies de l’information et de la communication\"",
+    "code": "FOSGP_5T8_F600",
+    "sort": "-year",
+    "color": "#FFCA00",
+    "type": "column"
+  }
+]

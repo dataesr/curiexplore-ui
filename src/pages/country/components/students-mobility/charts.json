@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Taux de mobilité vers le pays d'accueil (part des étudiants provenant de l'étranger dans l'ensemble des étudiants du pays d'accueil)",
+    "code": "MSEP_5T8",
+    "sort": "-year",
+    "type": "column"
+  },
+  {
+    "title": "Taux net de flux des étudiants en mobilité internationale (étudiants provenant de l'étranger dans le pays d'accueil - étudiants du pays à l'étranger)",
+    "code": "MENFR_5T8",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Afrique subsaharienne",
+    "code": "OE_5T8_40540",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Amerique du Nord et Europe occidentale",
+    "code": "OE_5T8_40500",
+    "sort": "-year",
+    "type": "column"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Amérique latine et les Caraïbes",
+    "code": "OE_5T8_40520",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Asie centrale",
+    "code": "OE_5T8_40505",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Asie du Sud et de l'Ouest",
+    "code": "OE_5T8_40535",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Asie orientale et Pacifique",
+    "code": "OE_5T8_40515",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits à l'étrange",
+    "code": "OE_5T8_40510",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits en Europe centrale et orientale",
+    "code": "OE_5T8_40530",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Etudiants nationaux inscrits dans les Etats arabes",
+    "code": "OE_5T8_40525",
+    "sort": "-year",
+    "type": "line"
+  }
+]

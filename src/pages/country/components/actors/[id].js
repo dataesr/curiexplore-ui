@@ -1,6 +1,6 @@
 import { useOutletContext, useParams } from 'react-router-dom';
 import { Row, Col, Title, Text, Link, Badge, Icon, Highlight } from '@dataesr/react-dsfr';
-import MapWithMarkers from './map-categories-actors/map-with-markers';
+import MapWithMarkers from '../../../../components/map-with-markers';
 
 import useGetActors from './hooks/useGetActors';
 
@@ -88,7 +88,7 @@ function AddressCard({ address }) {
     </div>
   );
 }
-
+// TODO AJOUTER identifiantq (ROR, PIC, WIKI)
 export default function Actor() {
   const contextData = useOutletContext();
   const data = contextData['actors-data'];

@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Evolution du produit intérieur brut",
+    "code": "NY.GDP.MKTP.PP.CD",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Croissance de la population",
+    "code": "SP.POP.GROW",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Densité de la population",
+    "code": "EN.POP.DNST",
+    "sort": "-year",
+    "type": "line"
+  },
+  {
+    "title": "Population",
+    "code": "SP.POP.TOTL",
+    "sort": "-year",
+    "type": "column"
+  },
+  {
+    "title": "Population active",
+    "code": "SL.TLF.TOTL.IN",
+    "sort": "-year",
+    "type": "column"
+  },
+  {
+    "title": "Population rurale",
+    "code": "SP.RUR.TOTL",
+    "sort": "-year",
+    "type": "column"
+  }
+]

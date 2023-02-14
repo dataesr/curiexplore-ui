@@ -47,7 +47,28 @@ code {
   -webkit-mask-image: url('../public/icons/system/arrow-right-s-line.svg') !important;
 }
 :root {
-  --CCI-color: #3A5794;
-  --embassy-color: #F7017A;
-  --campus-france-color: #05c31e;
+  --campus-france-color: #2f71a0;
+  --CCI-color: #3e3e3E;
+  --embassy-color: #cac426;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+.campusFrance-border-card {
+  border-bottom: 3px solid var(--campus-france-color);
+}
+
+.cci-border-card {
+  border-bottom: 3px solid var(--CCI-color);
+}
+
+.embassy-border-card {
+  border-bottom: 3px solid var(--embassy-color);
 }
