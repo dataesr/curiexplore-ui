@@ -10,7 +10,7 @@ export default function WorldMap({ region, color, fillColor }) {
   const navigate = useNavigate();
   const map = useMap();
   const onEachFeature = (feature, layer) => {
-    layer.bindTooltip(feature.properties?.name || '');
+    layer.bindTooltip(feature.properties?.name_fr || '');
     layer.on({
       mouseover: () => { layer.setStyle({ fillColor: '#fff' }); },
       mouseout: () => { if (feature.properties.region_wb !== region) { layer.setStyle({ fillColor }); } },
