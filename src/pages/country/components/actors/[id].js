@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { useOutletContext, useParams } from 'react-router-dom';
-import { Row, Col, Title, Text, Link, Badge, Icon, Highlight } from '@dataesr/react-dsfr';
+import { Row, Col, Title, Text, Link, Badge, Icon } from '@dataesr/react-dsfr';
 import MapWithMarkers from '../../../../components/map-with-markers';
 
 import useGetActors from './hooks/useGetActors';
 
-function WebSiteCard({ language = null, link, name }) {
+function WebSiteCard({ language, link, name }) {
   return (
     <div className="fr-card fr-card--grey">
       <div className="fr-card__body">
@@ -20,6 +21,15 @@ function WebSiteCard({ language = null, link, name }) {
     </div>
   );
 }
+
+WebSiteCard.propTypes = {
+  language: PropTypes.string,
+  link: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
+WebSiteCard.defaultProps = {
+  language: null,
+};
 
 function SocialNetworkCard({ link, name }) {
   return (
@@ -37,6 +47,10 @@ function SocialNetworkCard({ link, name }) {
     </div>
   );
 }
+SocialNetworkCard.propTypes = {
+  link: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 function RankingCard({ link, name }) {
   let rankingName = '';
@@ -68,6 +82,10 @@ function RankingCard({ link, name }) {
     </div>
   );
 }
+RankingCard.propTypes = {
+  link: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 function AddressCard({ address }) {
   return (
@@ -88,7 +106,11 @@ function AddressCard({ address }) {
     </div>
   );
 }
-// TODO AJOUTER identifiantq (ROR, PIC, WIKI)
+AddressCard.propTypes = {
+  address: PropTypes.object.isRequired,
+};
+
+// TODO AJOUTER identifiants (ROR, PIC, WIKI)
 export default function Actor() {
   const contextData = useOutletContext();
   const data = contextData['actors-data'];

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import useFetchData from './hooks/useFetchData';
 
 export default function Chart({ data, isoCodes }) {
-  const { options, isLoading, error } = useFetchData({
+  const { options } = useFetchData({
     code: data.code,
     sort: data.sort,
     title: data.title,

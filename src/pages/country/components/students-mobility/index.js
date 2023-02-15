@@ -7,7 +7,7 @@ import charts from './charts.json';
 
 export default function StudentsMobilityPage() {
   const { isoCode } = useParams();
-  const { data, isLoading, error } = useFetchData(isoCode);
+  const { data } = useFetchData(isoCode);
 
   const dataMobilite = data['mobilite-internationale-etudiants'];
   const latestYear = data['mobilite-internationale-etudiants']?.[0]?.fields.year;

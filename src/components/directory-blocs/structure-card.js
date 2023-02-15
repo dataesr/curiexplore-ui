@@ -38,6 +38,11 @@ function AddressCard({ address, displayName }) {
   );
 }
 
+AddressCard.propTypes = {
+  address: PropTypes.object.isRequired,
+  displayName: PropTypes.string.isRequired,
+};
+
 export default function StructureCard({ data, type, website }) {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
@@ -64,7 +69,6 @@ export default function StructureCard({ data, type, website }) {
   }
 
   const onOpenModalHandler = () => {
-    console.log(data);
     const content = data.map((el) => (
       <AddressCard address={el.currentLocalisation} displayName={el.displayName} />
     ));

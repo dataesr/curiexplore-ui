@@ -2,10 +2,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Title, Tag, TagGroup, Button } from '@dataesr/react-dsfr';
 import { v4 as uuidV4 } from 'uuid';
-
 import countriesList from '../../../../assets/data/countriesList.json';
-
-const getLabel = (isoCode) => countriesList.find((el) => el.ISO_alpha3 === isoCode).Pays;
+import getLabel from '../../../../utils/getLabel';
 
 function ListCountries({ isoCodes, selectedIsoCodes, title, onChangeFilters }) {
   const [max, setMax] = useState(10);
