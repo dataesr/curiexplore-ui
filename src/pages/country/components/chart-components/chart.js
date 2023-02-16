@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import useFetchData from './hooks/useFetchData';
 
-export default function Chart({ data, otherCodes, countryCode }) {
+export default function Chart({ data, otherCodes, countryCode, hasDataHandler }) {
   const { options } = useFetchData({
     code: data.code,
     sort: data.sort,
@@ -21,7 +21,10 @@ export default function Chart({ data, otherCodes, countryCode }) {
   options.series.forEach((el) => {
     if (el.data.length === 0) nbEmpty += 1;
   });
-  if (nbEmpty === options.series.length) return null;
+  if (nbEmpty === options.series.length) {
+    return null;
+  }
+  hasDataHandler(true);
 
   return (
     <Col n="6">
@@ -37,4 +40,5 @@ Chart.propTypes = {
   data: PropTypes.object.isRequired,
   otherCodes: PropTypes.array.isRequired,
   countryCode: PropTypes.string.isRequired,
+  hasDataHandler: PropTypes.func.isRequired,
 };

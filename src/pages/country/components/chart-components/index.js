@@ -17,19 +17,22 @@ export default function ChartComponents({ charts }) {
   const bordersIsoCodes = dataCounrty[0].fields.borders || [];
   const [isoCodes, setIsoCodes] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showFilters, setShowFilters] = useState(false); // seulement si au moins 1 graph d'affiché
   const onChangeFilters = (newIsoCodes) => {
     setIsoCodes(newIsoCodes);
   };
 
   return (
     <GraphContainer>
-      <Row>
-        <Col>
-          <Button onClick={() => setShowModal(true)}>
-            Comparer avec d'autres pays
-          </Button>
-        </Col>
-      </Row>
+      {(showFilters) && (
+        <Row>
+          <Col>
+            <Button onClick={() => setShowModal(true)}>
+              Comparer avec d'autres pays
+            </Button>
+          </Col>
+        </Row>
+      )}
       <Row>
         {charts.map((chart) => (
           <Chart
@@ -37,6 +40,7 @@ export default function ChartComponents({ charts }) {
             data={chart}
             otherCodes={isoCodes}
             countryCode={isoCode}
+            hasDataHandler={setShowFilters}
           />
         ))}
       </Row>
