@@ -10,11 +10,11 @@ export default function useFetchData(data) {
     const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY } = process.env;
     const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
     const baseUrl = '&dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true';
-    let query = `${ENDPOINT_V1}${baseUrl}&refine.code=${data.code}&sort=${data.sort}`;
+    let query = `${ENDPOINT_V1}${baseUrl}&refine.code=${data.code}&sort=${data.sort}&refine.country_code=${data.countryCode}`;
 
     // ajout des isoCode demandés par l'utilisateur
-    for (let index = 0; index < data.isoCodes.length; index += 1) {
-      query += `&refine.country_code=${data.isoCodes[index]}`;
+    for (let index = 0; index < data.otherCodes.length; index += 1) {
+      query += `&refine.country_code=${data.otherCodes[index]}`;
     }
 
     const getData = async () => {
@@ -24,8 +24,28 @@ export default function useFetchData(data) {
         const json = await response.json();
         const s = [];
 
-        for (let index = 0; index < data.isoCodes.length; index += 1) {
-          const dataSerie = json?.records?.filter((el) => el.fields.country_code === data.isoCodes[index])
+        // Ajout des données du pays en cours
+        const countryYears = [];
+        const dataSerieCurrentCountry = json?.records?.filter((el) => el.fields.country_code === data.countryCode)
+          .sort((a, b) => a.fields.year - b.fields.year)
+          .map((el) => {
+            countryYears.push(el.fields.year);
+            return ({
+              x: Number(el.fields.year),
+              y: el.fields.value,
+            });
+          });
+
+        s.push({
+          name: getLabel(data.countryCode),
+          // data: countrySerie,
+          data: dataSerieCurrentCountry,
+          color: '#FFCA00',
+        });
+
+        // Ajout des données des autres pays (comparaison) en fonction des années du pays en cours
+        for (let index = 0; index < data.otherCodes.length; index += 1) {
+          const dataSerie = json?.records?.filter((el) => el.fields.country_code === data.otherCodes[index] && countryYears.includes(el.fields.year))
             .sort((a, b) => a.fields.year - b.fields.year)
             .map((el) => ({
               x: Number(el.fields.year),
@@ -33,12 +53,11 @@ export default function useFetchData(data) {
             }));
 
           const obj = {
-            name: getLabel(data.isoCodes[index]),
+            name: getLabel(data.otherCodes[index]),
             // data: countrySerie,
             data: dataSerie,
           };
-          if (data.isoCodes[index] === 'FRA') obj.color = '#000091';
-          if (index === (data.isoCodes.length - 1)) obj.color = '#FFCA00';
+          if (data.otherCodes[index] === 'FRA') obj.color = '#000091';
           s.push(obj);
         }
         setSeries(s);
@@ -48,7 +67,7 @@ export default function useFetchData(data) {
       setIsLoading(false);
     };
     getData();
-  }, [data.code, data.isoCodes, data.sort]);
+  }, [data.code, data.otherCodes, data.countryCode, data.sort]);
 
   const options = {
     credits: {

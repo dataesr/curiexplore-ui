@@ -62,7 +62,7 @@ export default function StudentsMobilityPage() {
       </Row>
       <Row>
         <Col n="12">
-          <ChartComponents charts={charts} isoCode={isoCode} />
+          <ChartComponents charts={charts} />
         </Col>
       </Row>
     </Container>

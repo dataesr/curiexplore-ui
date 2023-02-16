@@ -6,13 +6,14 @@ import PropTypes from 'prop-types';
 
 import useFetchData from './hooks/useFetchData';
 
-export default function Chart({ data, isoCodes }) {
+export default function Chart({ data, otherCodes, countryCode }) {
   const { options } = useFetchData({
     code: data.code,
     sort: data.sort,
     title: data.title,
     type: data.type,
-    isoCodes,
+    otherCodes,
+    countryCode,
   });
 
   // test des données
@@ -34,5 +35,6 @@ export default function Chart({ data, isoCodes }) {
 
 Chart.propTypes = {
   data: PropTypes.object.isRequired,
-  isoCodes: PropTypes.string.isRequired,
+  otherCodes: PropTypes.array.isRequired,
+  countryCode: PropTypes.string.isRequired,
 };

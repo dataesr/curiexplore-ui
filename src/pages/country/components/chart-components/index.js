@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useParams } from 'react-router-dom';
 
 import { Button, Col, Row, Modal, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
@@ -9,7 +9,9 @@ import Chart from './chart';
 import Filters from './filters';
 import { GraphContainer } from '../../../../components/graph';
 
-export default function ChartComponents({ charts, isoCode }) {
+export default function ChartComponents({ charts }) {
+  const { isoCode } = useParams();
+
   const contextData = useOutletContext();
   const dataCounrty = contextData['curiexplore-pays'];
   const bordersIsoCodes = dataCounrty[0].fields.borders || [];
@@ -30,7 +32,12 @@ export default function ChartComponents({ charts, isoCode }) {
       </Row>
       <Row>
         {charts.map((chart) => (
-          <Chart key={uuidV4()} data={chart} isoCodes={isoCodes.concat([isoCode])} />
+          <Chart
+            key={uuidV4()}
+            data={chart}
+            otherCodes={isoCodes}
+            countryCode={isoCode}
+          />
         ))}
       </Row>
       <Modal isOpen={showModal} size="lg" hide={() => setShowModal(false)}>
@@ -50,5 +57,4 @@ export default function ChartComponents({ charts, isoCode }) {
 
 ChartComponents.propTypes = {
   charts: PropTypes.array.isRequired,
-  isoCode: PropTypes.string.isRequired,
 };

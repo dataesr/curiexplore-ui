@@ -1,4 +1,4 @@
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import { Container, Col, Row, Title } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/HtmlAmbassyBloc';
@@ -7,8 +7,6 @@ import ScimagoChart from './components/scimago';
 import charts from './charts.json';
 
 export default function CountryResearchPage() {
-  const { isoCode } = useParams();
-
   const contextData = useOutletContext();
   const data = contextData['curiexplore-analyse'];
 
@@ -29,7 +27,7 @@ export default function CountryResearchPage() {
       <Row>
         <Col>
           <Title as="h3">Données quantitatives</Title>
-          <ChartComponents charts={charts} isoCode={isoCode} />
+          <ChartComponents charts={charts} />
         </Col>
       </Row>
     </Container>
