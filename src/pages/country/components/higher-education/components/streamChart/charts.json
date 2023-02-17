@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Education",
+    "code": "FOSGP.5T8.F110"
+  },
+  {
+    "title": "Lettres et Arts",
+    "code": "FOSGP.5T8.F200"
+  },
+  {
+    "title": "Sciences sociales, journalisme et information",
+    "code": "FOSGP.5T8.F300"
+  },
+  {
+    "title": "Commerce, administration et droit",
+    "code": "FOSGP.5T8.F400"
+  },
+  {
+    "title": "Sciences naturelles, mathématiques et statistiques",
+    "code": "FOSGP.5T8.F500"
+  },
+  {
+    "title": "Technologies de l’information et de la communication",
+    "code": "FOSGP.5T8.F600"
+  },
+  {
+    "title": "Ingénierie, industries de transformation et construction",
+    "code": "FOSGP.5T8.F700"
+  },
+  {
+    "title": "Agriculture, sylviculture, halieutique et sciences vétérinaire",
+    "code": "FOSGP.5T8.F800"
+  },
+  {
+    "title": "Santé et Protection sociale",
+    "code": "FOSGP.5T8.F900"
+  },
+  {
+    "title": "Services",
+    "code": "FOSGP.5T8.F1000"
+  },
+  {
+    "title": "non-spécifié",
+    "code": "FOSGP.5T8.FUK"
+  }
+]

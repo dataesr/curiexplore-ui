@@ -33,6 +33,8 @@ export default function useFetchData(data) {
             return ({
               x: Number(el.fields.year),
               y: el.fields.value,
+              source: el.fields.source,
+              date: el.fields.date_et_origine_moissonnage,
             });
           });
 
@@ -50,6 +52,7 @@ export default function useFetchData(data) {
             .map((el) => ({
               x: Number(el.fields.year),
               y: el.fields.value,
+
             }));
 
           const obj = {
@@ -81,6 +84,9 @@ export default function useFetchData(data) {
       verticalAlign: 'bottom',
       x: 0,
       y: 0,
+    },
+    subtitle: {
+      text: `Source: ${ series.source } ${ series.date}`,
     },
     series,
     title: {

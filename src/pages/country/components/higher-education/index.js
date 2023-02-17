@@ -4,6 +4,7 @@ import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/HtmlAmbassyBloc';
 
 import charts from './charts.json';
+import StreamChartComponent from './components/streamChart/index';
 
 export default function CountryHigherEducationPage() {
   const contextData = useOutletContext();
@@ -18,11 +19,11 @@ export default function CountryHigherEducationPage() {
           <HtmlAmbassyBloc data={dataES} />
         </Col>
       </Row>
-      {/* <Row>
+      <Row>
         <Col>
           <StreamChartComponent />
         </Col>
-      </Row> */}
+      </Row>
       <Row>
         <Col>
           <ChartComponents charts={charts} />
