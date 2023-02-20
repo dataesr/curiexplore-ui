@@ -3,36 +3,48 @@
     "title": "Evolution du produit intérieur brut",
     "code": "NY.GDP.MKTP.PP.CD",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "source": "Banque mondiale",
+    "definition": "Le PIB en PPA est le produit intérieur brut converti en dollars internationaux courants au moyen des taux de parité des pouvoirs d'achat (PPA). Un dollar international a le même pouvoir d'achat sur le PIB du pays déclarant qu'un dollar américain aux États-Unis. Le PIB est la somme de la valeur ajoutée brute de tous les producteurs résidents d'une économie plus toutes taxes sur les produits et moins les subventions non incluses dans la valeur des produits. Elle est calculée sans effectuer de déductions pour la dépréciation des biens fabriqués ou la perte de valeur ou la dégradation des ressources naturelles. Les données sont en dollars internationaux courants."
   },
   {
     "title": "Croissance de la population",
     "code": "SP.POP.GROW",
     "sort": "-year",
-    "type": "line"
-  },
-  {
-    "title": "Densité de la population",
-    "code": "EN.POP.DNST",
-    "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "source": "Banque mondiale",
+    "definition": "Le taux de croissance annuel de la population pour l'année t est le taux exponentiel de croissance de la population à mi-année de l'année t-1 à t, exprimé en pourcentage . La population est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut légal ou de leur citoyenneté."
   },
   {
     "title": "Population",
     "code": "SP.POP.TOTL",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "source": "Banque mondiale",
+    "definition": "La population totale est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut légal ou de leur citoyenneté. Les valeurs indiquées sont des estimations à mi-année."
   },
   {
     "title": "Population active",
     "code": "SL.TLF.TOTL.IN",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "source": "Banque mondiale",
+    "definition": "La population active totale comprend les personnes âgées de 15 ans et plus qui correspondent à la définition de la population active économiquement de l'Organisation internationale du Travail : toutes les personnes qui fournissent du travail pour la production de biens et de services au cours d'une période donnée. Cette définition comprend à la fois les travailleurs et les demandeurs d'emploi. Alors que les pratiques nationales varient dans le traitement des groupes tels que le personnel des forces armées et les ouvriers saisonniers ou à temps partiel, en général, la population active comprend le personnel des forces armées, les demandeurs d'emploi et les personnes à la recherche d'un premier emploi, mais exclue les femmes au foyer et les autres personnels soignants et ouvriers du secteur informel qui ne sont pas payés."
   },
   {
     "title": "Population rurale",
     "code": "SP.RUR.TOTL",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "source": "Banque mondiale",
+    "definition": "La population rurale fait référence aux personnes vivant en milieu rural tel que défini par les bureaux nationaux de statistiques. Elle est calculée en faisant la différence entre la population totale et la la population urbaine."
+  },
+  {
+    "title": "Indice de développement humain",
+    "code": "IDH",
+    "sort": "-year",
+    "type": "column",
+    "source": "PNUD",
+    "definition": "Un indice composite mesurant la réalisation moyenne dans trois dimensions fondamentales du développement humain - une vie longue et saine, le savoir et un niveau de vie décent. Voir la note technique 1 sur <a target=\"_blank\">http://hdr.undp.org/sites/default/files/hdr2022_technical_notes.pdf</a> pour plus de détails sur le mode de calcul de l'IDH."
   }
 ]
