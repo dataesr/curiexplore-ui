@@ -6,6 +6,7 @@ import CountryMap from '../../../../components/country-map';
 import ChartComponents from '../chart-components';
 
 import charts from './charts.json';
+import PopulationComponent from '../chart-components/population';
 
 export default function CountryProfilePage() {
   const { isoCode } = useParams();
@@ -28,9 +29,20 @@ export default function CountryProfilePage() {
           </MapContainer>
         </Col>
       </Row>
+      <Row gutters>
+        {
+          charts.filter((chart) => chart.type.split('-')[0] === 'custom'
+            && chart.type.split('-')[0] !== 'population')
+            .map((el) => (
+              <Col n="4">
+                <PopulationComponent isoCode={isoCode} data={el} />
+              </Col>
+            ))
+        }
+      </Row>
       <Row>
         <Col n="12">
-          <ChartComponents charts={charts} />
+          <ChartComponents charts={charts.filter((chart) => chart.type.split('-')[0] !== 'custom')} />
         </Col>
       </Row>
     </Container>

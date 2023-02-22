@@ -19,7 +19,7 @@
     "title": "Population",
     "code": "SP.POP.TOTL",
     "sort": "-year",
-    "type": "column",
+    "type": "custom-population",
     "source": "Banque mondiale",
     "definition": "La population totale est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut légal ou de leur citoyenneté. Les valeurs indiquées sont des estimations à mi-année."
   },
@@ -27,7 +27,7 @@
     "title": "Population active",
     "code": "SL.TLF.TOTL.IN",
     "sort": "-year",
-    "type": "column",
+    "type": "custom-population",
     "source": "Banque mondiale",
     "definition": "La population active totale comprend les personnes âgées de 15 ans et plus qui correspondent à la définition de la population active économiquement de l'Organisation internationale du Travail : toutes les personnes qui fournissent du travail pour la production de biens et de services au cours d'une période donnée. Cette définition comprend à la fois les travailleurs et les demandeurs d'emploi. Alors que les pratiques nationales varient dans le traitement des groupes tels que le personnel des forces armées et les ouvriers saisonniers ou à temps partiel, en général, la population active comprend le personnel des forces armées, les demandeurs d'emploi et les personnes à la recherche d'un premier emploi, mais exclue les femmes au foyer et les autres personnels soignants et ouvriers du secteur informel qui ne sont pas payés."
   },
@@ -35,7 +35,7 @@
     "title": "Population rurale",
     "code": "SP.RUR.TOTL",
     "sort": "-year",
-    "type": "column",
+    "type": "custom-population",
     "source": "Banque mondiale",
     "definition": "La population rurale fait référence aux personnes vivant en milieu rural tel que défini par les bureaux nationaux de statistiques. Elle est calculée en faisant la différence entre la population totale et la la population urbaine."
   },
