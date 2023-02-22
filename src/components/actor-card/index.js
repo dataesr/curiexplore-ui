@@ -12,7 +12,7 @@ export default function ActorCard({
 
     <div className="fr-card fr-enlarge-link">
       <div className="fr-card__body">
-        <div className="fr-card__content">
+        <div className="fr-card__content fr-pb-1w">
           <h6 className="fr-card__title">
             <Link to={url}>{title}</Link>
           </h6>
