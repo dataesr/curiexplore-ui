@@ -1,9 +1,19 @@
-import { Row, Col, ButtonGroup, Title, Icon, Text, Button } from '@dataesr/react-dsfr';
+import {
+  Badge,
+  Col,
+  Icon,
+  Row,
+  Tag,
+  TagGroup,
+  Text,
+  Title,
+} from '@dataesr/react-dsfr';
 import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/custom.scss';
 import useGetActors from './hooks/useGetActors';
+import List from './list';
 
 import MapCategoriesActors from './map-categories-actors';
 
@@ -70,28 +80,41 @@ export default function ActorsPage() {
         </Col>
       </Row>
       <Row gutters>
-        {
-          data.Categories
-            .filter((category) => category.title !== 'Implantation de structures étrangères en France')
-            .map((category) => (
-              <Col n="3" key={uuidv4()}>
-                <ButtonGroup>
-                  <Button tertiary onClick={() => setCategoryFilter(category.id)} className={(category.id === selectedCategory) ? 'selectedFilter' : null}>
+        <Col n="3" key={uuidv4()}>
+          <TagGroup>
+            {
+              data.Categories
+                .filter((category) => category.title !== 'Implantation de structures étrangères en France')
+                .map((category) => (
+                  <Tag
+                    key={uuidv4()}
+                    colorFamily="yellow-tournesol"
+                    onClick={() => setCategoryFilter(category.id)}
+                    selected={(category.id === selectedCategory)}
+                  >
                     {getLabel(category.title)}
-                  </Button>
-                </ButtonGroup>
-              </Col>
-            ))
-        }
-      </Row>
-      <Row>
-        <Col n="12">
+                    &nbsp;
+                    <Badge
+                      text={actorsWithCategoriesLabels.filter((el) => el.membershipCategories.includes(category.id)).length}
+                    />
+                  </Tag>
+                ))
+            }
+          </TagGroup>
+
+        </Col>
+        <Col n="9" className="fr-pt-1w">
           <MapCategoriesActors
             subTitle="Tous les acteurs"
             actors={actorsWithCategoriesLabels}
             categories={data.Categories}
             isoCode={data.Structures.iso}
           />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <List actors={actorsWithCategoriesLabels} />
         </Col>
       </Row>
     </>

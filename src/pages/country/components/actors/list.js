@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Row, Col, Title, Badge, Icon } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
-import ActorCard from '../../../../../components/actor-card';
+import ActorCard from '../../../../components/actor-card';
 
 function List({ actors }) {
   return (
