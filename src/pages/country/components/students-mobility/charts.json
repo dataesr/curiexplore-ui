@@ -4,7 +4,8 @@
     "code": "MSEP_5T8",
     "sort": "-year",
     "type": "column",
-    "source": "Unesco"
+    "source": "Unesco",
+    "definition": "Nombre d'étudiants étrangers étudiant dans un pays donné, exprimé en pourcentage du total des inscriptions dans l'enseignement supérieur dans ce pays."
   },
   {
     "title": "Taux net de flux des étudiants en mobilité internationale (étudiants provenant de l'étranger dans le pays d'accueil - étudiants du pays à l'étranger)",

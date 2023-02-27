@@ -4,7 +4,8 @@ import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/HtmlAmbassyBloc';
 
 import charts from './charts.json';
-import StreamChartComponent from './components/streamChart/index';
+// import StreamChartComponent from './components/streamChart/index';
+import PieChart from './components/donut/index';
 
 export default function CountryHigherEducationPage() {
   const contextData = useOutletContext();
@@ -21,7 +22,7 @@ export default function CountryHigherEducationPage() {
       </Row>
       <Row>
         <Col>
-          <StreamChartComponent />
+          <PieChart />
         </Col>
       </Row>
       <Row>
