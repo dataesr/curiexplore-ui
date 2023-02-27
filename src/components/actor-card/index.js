@@ -9,8 +9,7 @@ export default function ActorCard({
   url,
 }) {
   return (
-
-    <div className="fr-card fr-enlarge-link">
+    <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey ">
       <div className="fr-card__body">
         <div className="fr-card__content fr-pb-1w">
           <h6 className="fr-card__title">
@@ -26,7 +25,6 @@ export default function ActorCard({
         </div>
       </div>
     </div>
-
   );
 }
 
