@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Effectif total scolarisé en cycle court (niveau 5 de la CITE)",
+        "code": "25051",
+        "sort": "-year",
+        "color": "#FFCA00",
+        "type": "column",
+        "source": "Unesco"
+      },
+      {
+        "title": "Effectif total scolarisé en licence ou équivalent (niveau 6 de la CITE)",
+        "code": "42654",
+        "sort": "-year",
+        "color": "#FFCA00",
+        "type": "column",
+        "source": "Unesco"
+      },
+      {
+        "title": "Effectif total scolarisé en master ou équivalent (niveau 7 de la CITE)",
+        "code": "42656",
+        "sort": "-year",
+        "color": "#FFCA00",
+        "type": "column",
+        "source": "Unesco"
+      },
+      {
+        "title": "Effectif total scolarisé en doctorat ou équivalent (niveau 8 de la CITE)",
+        "code": "25052",
+        "sort": "-year",
+        "color": "#FFCA00",
+        "type": "column",
+        "source": "Unesco"
+      },
+      {
+        "title": "Effectif total scolarisé dans l'enseignement supérieur",
+        "code": "25053",
+        "sort": "-year",
+        "color": "#FFCA00",
+        "type": "column",
+        "source": "Unesco"
+      }
+]

@@ -68,7 +68,7 @@ export default function useFetchData({ charts, countryCode }) {
             align: 'right',
           },
           title: {
-            text: "Part des diplômés en fonction du domaine d'études",
+            text: `Répartition des diplômés par domaine d'études, ${ latestYear }`,
           },
           subtitle: {
             text: 'Source: <a href="https://www.unesco.org/fr">UNESCO</a>',
@@ -91,14 +91,13 @@ export default function useFetchData({ charts, countryCode }) {
               distance: -30,
             },
           }, {
-            name: 'Sous domaines',
+            name: 'Part des étudiants diplômés',
             data: subDomains,
             innerSize: '60%',
             dataLabels: {
               formatter() {
                 // display only if larger than 1
-                return this.y > 1 ? `<b>${ this.point.name }:</b> ${
-                  this.y }%` : null;
+                return this.y > 1 ? `<b>${ this.point.name }:</b>` : null;
               },
             },
           }],
