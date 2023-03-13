@@ -14,6 +14,7 @@ export default function Chart({ data, otherCodes, countryCode, hasDataHandler })
     type: data.type,
     otherCodes,
     countryCode,
+    source: data.source,
   });
 
   // test des données

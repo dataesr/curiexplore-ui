@@ -86,7 +86,7 @@ export default function useFetchData(data) {
       y: 0,
     },
     subtitle: {
-      text: `Source: ${ series.source } ${ series.date}`,
+      text: `Source: ${data.source}`,
     },
     series,
     title: {
