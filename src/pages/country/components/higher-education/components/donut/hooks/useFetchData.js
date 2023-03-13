@@ -5,6 +5,7 @@ export default function useFetchData({ charts, countryCode }) {
   const [options, setOptions] = useState({});
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [title, setTitle] = useState(null);
 
   useEffect(() => {
     const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY } = process.env;
@@ -26,6 +27,7 @@ export default function useFetchData({ charts, countryCode }) {
         const subDomains = [];
         let brightness = [];
         const latestYear = json.records?.[0]?.fields.year;
+        setTitle(`Répartition des diplômés par domaine d'études, ${latestYear}`);
 
         for (let index = 0; index < charts.length; index += 1) {
           domains.push({
@@ -38,7 +40,7 @@ export default function useFetchData({ charts, countryCode }) {
         }
 
         domains = Object.values(domains.reduce((acc, { name, color, y }) => {
-          const key = `${name }_${ color}`;
+          const key = `${name}_${color}`;
           acc[key] = acc[key] || { name, color, y: 0 };
           acc[key].y += y;
           return acc;
@@ -68,10 +70,7 @@ export default function useFetchData({ charts, countryCode }) {
             align: 'right',
           },
           title: {
-            text: `Répartition des diplômés par domaine d'études, ${ latestYear }`,
-          },
-          subtitle: {
-            text: 'Source: <a href="https://www.unesco.org/fr">UNESCO</a>',
+            text: '',
           },
           plotOptions: {
             pie: {
@@ -97,7 +96,7 @@ export default function useFetchData({ charts, countryCode }) {
             dataLabels: {
               formatter() {
                 // display only if larger than 1
-                return this.y > 1 ? `<b>${ this.point.name }:</b>` : null;
+                return this.y > 1 ? `<b>${this.point.name}:</b>` : null;
               },
             },
           }],
@@ -110,5 +109,5 @@ export default function useFetchData({ charts, countryCode }) {
     getData();
   }, [charts, countryCode]);
 
-  return { options, isLoading, error };
+  return { options, title, isLoading, error };
 }
