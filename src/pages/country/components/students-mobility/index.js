@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { Container, Col, Row, Callout, CalloutText, CalloutTitle } from '@dataesr/react-dsfr';
+import { Container, Col, Row, Callout, CalloutText, CalloutTitle, Text } from '@dataesr/react-dsfr';
+import { v4 as uuidv4 } from 'uuid';
 import useFetchData from '../../hooks/useFetchData';
 import ChartComponents from '../chart-components';
 
@@ -37,25 +38,23 @@ export default function StudentsMobilityPage() {
         <Col>
           <Callout hasInfoIcon={false}>
             <CalloutTitle>
-              La mobilité étudiante du pays en&nbsp;
-              {latestYear}
+              {`Top 5 de la mobilité étudiante du pays en ${latestYear}`}
             </CalloutTitle>
             <CalloutText>
-              <p>
+              <Text>
                 En&nbsp;
                 {latestYear}
                 , on compte&nbsp;
-                {sumStudents}
-               &nbsp;étudiants internationaux soit [X]% des étudiants aux Etats-Unis
-              </p>
-              {orderedData.map((el) => (
-                <ul>
-                  {el.fields.origin_country_fr}
-                 &nbsp;:&nbsp;
-                  {el.fields.value}
-                 &nbsp;étudiants
-                </ul>
-              ))}
+                {sumStudents.toLocaleString()}
+                &nbsp;étudiants internationaux soit [X]% des étudiants aux Etats-Unis
+              </Text>
+              <ol>
+                {orderedData.map((el) => (
+                  <li key={uuidv4()}>
+                    {`${el.fields.origin_country_fr} : ${el.fields.value.toLocaleString()} étudiants`}
+                  </li>
+                ))}
+              </ol>
             </CalloutText>
           </Callout>
         </Col>
