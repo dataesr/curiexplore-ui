@@ -1,5 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
-import { Container, Col, Row, Title } from '@dataesr/react-dsfr';
+import { Container, Col, Row } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/HtmlAmbassyBloc';
 import ScimagoChart from './components/scimago';

@@ -1,5 +1,5 @@
 import { useState, createRef } from 'react';
-import { Title, Select, Container, Row, Col } from '@dataesr/react-dsfr';
+import { Select, Container, Row, Col } from '@dataesr/react-dsfr';
 import { useParams } from 'react-router-dom';
 
 import Highcharts from 'highcharts';
