@@ -5,6 +5,7 @@ import HtmlAmbassyBloc from '../../../../components/HtmlAmbassyBloc';
 import ScimagoChart from './components/scimago';
 
 import charts from './charts.json';
+import ChartTitle from '../../../../components/chart-title';
 
 export default function CountryResearchPage() {
   const contextData = useOutletContext();
@@ -26,7 +27,7 @@ export default function CountryResearchPage() {
       </Row>
       <Row>
         <Col>
-          <Title as="h3">Données quantitatives</Title>
+          <ChartTitle title="Données quantitatives" icon="ri-bar-chart-fill" />
           <ChartComponents charts={charts} />
         </Col>
       </Row>

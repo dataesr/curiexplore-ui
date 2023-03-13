@@ -6,6 +6,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 import useFetchData from './hooks/useFetchData';
+import ChartTitle from '../../../../../../components/chart-title';
 
 const allColumns = ['documents', 'citable_documents', 'citations', 'self_citations', 'citations_per_document', 'h_index'];
 
@@ -50,9 +51,6 @@ export default function ScimagoGraphComponent() {
     },
     title: {
       text: null,
-    },
-    subtitle: {
-      text: 'Source: SCImago, (n.d.). SJR — SCImago Journal & Country Rank [Portal]',
     },
     xAxis: {
       title: {
@@ -107,7 +105,11 @@ export default function ScimagoGraphComponent() {
   // return 'scimago';
   return (
     <>
-      <Title as="h3">Classement SCImago</Title>
+      <ChartTitle
+        title="Classement SCImago"
+        icon="ri-bar-chart-horizontal-fill"
+        subTitile="Source: SCImago, (n.d.). SJR — SCImago Journal & Country Rank [Portal]"
+      />
       <form>
         <Container>
           <Row gutters>
