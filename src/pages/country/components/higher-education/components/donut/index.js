@@ -24,7 +24,7 @@ export default function PieChartComponent() {
   );
   return (
     <section>
-      <ChartTitle title={title} subTitile={source} />
+      <ChartTitle title={title} subTitle={source} />
       <HighchartsReact
         highcharts={Highcharts}
         options={options}

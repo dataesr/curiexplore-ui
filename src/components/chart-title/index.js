@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Icon, Text, Title } from '@dataesr/react-dsfr';
 
-export default function ChartTitle({ icon, title, subTitile }) {
+export default function ChartTitle({ icon, title, subTitle }) {
   return (
     <>
       <Title as="h3" className="fr-mb-0">
@@ -9,8 +9,8 @@ export default function ChartTitle({ icon, title, subTitile }) {
         {title}
       </Title>
       {
-        (subTitile) ? (
-          <Text className="fr-mb-0">{subTitile}</Text>
+        (subTitle) ? (
+          <Text className="fr-mb-0">{subTitle}</Text>
         ) : null
       }
     </>
@@ -20,10 +20,10 @@ export default function ChartTitle({ icon, title, subTitile }) {
 ChartTitle.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string.isRequired,
-  subTitile: PropTypes.string,
+  subTitle: PropTypes.string,
 };
 
 ChartTitle.defaultProps = {
   icon: 'ri-pie-chart-2-fill',
-  subTitile: '',
+  subTitle: '',
 };

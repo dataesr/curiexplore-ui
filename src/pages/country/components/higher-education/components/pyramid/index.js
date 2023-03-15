@@ -1,6 +1,6 @@
 import { createRef } from 'react';
-import { Title } from '@dataesr/react-dsfr';
 import { useParams } from 'react-router-dom';
+import { Link } from '@dataesr/react-dsfr';
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -8,20 +8,29 @@ import HighchartsReact from 'highcharts-react-official';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
+import ChartTitle from '../../../../../../components/chart-title';
 
 export default function PyramidComponent() {
   const { isoCode } = useParams();
-  const { options } = useFetchData({ charts, countryCode: isoCode });
+  const { options, title } = useFetchData({ charts, countryCode: isoCode });
   const chart = createRef();
 
-  return (
+  const source = (
     <>
-      <Title as="h3">Titre</Title>
+      Source :
+      &nbsp;
+      <Link href="https://www.unesco.org/fr" target="_blank">UNESCO</Link>
+    </>
+  );
+
+  return (
+    <section>
+      <ChartTitle icon="ri-bar-chart-2-fill" title={title} subTitle={source} />
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
         ref={chart}
       />
-    </>
+    </section>
   );
 }

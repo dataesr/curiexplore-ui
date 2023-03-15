@@ -69,9 +69,6 @@ export default function useFetchData({ charts, countryCode }) {
           legend: {
             align: 'right',
           },
-          title: {
-            text: '',
-          },
           plotOptions: {
             pie: {
               shadow: false,
