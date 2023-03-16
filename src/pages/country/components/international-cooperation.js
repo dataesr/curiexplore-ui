@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import HtmlAmbassyBloc from '../../../components/HtmlAmbassyBloc';
+import HtmlAmbassyBloc from '../../../components/html-ambassy-bloc';
 
 export default function InternationalCooperationPage() {
   const contextData = useOutletContext();
