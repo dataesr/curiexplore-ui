@@ -25,6 +25,7 @@ export default function useFetchData(isoCode) {
       `${ENDPOINT_V1}&dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
       `${API_ACTEURS_ENDPOINT}/${isoCode}`,
+      `${ENDPOINT_V1}&dataset=curiexplore-donnees-quantitatives&q=&rows=-1&facet=country_code&refine.country_code=${isoCode}`,
     ];
 
     const getData = async () => {

@@ -5,7 +5,7 @@ import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import ScimagoChart from './components/scimago';
 
 import charts from './charts.json';
-import ChartTitle from '../../../../components/chart-title';
+import ChartTitle from '../../../../components/title';
 
 export default function CountryResearchPage() {
   const contextData = useOutletContext();

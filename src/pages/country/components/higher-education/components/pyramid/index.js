@@ -8,7 +8,7 @@ import HighchartsReact from 'highcharts-react-official';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
-import ChartTitle from '../../../../../../components/chart-title';
+import ChartTitle from '../../../../../../components/title';
 
 export default function PyramidComponent() {
   const { isoCode } = useParams();

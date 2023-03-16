@@ -6,7 +6,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 import useFetchData from './hooks/useFetchData';
-import ChartTitle from '../../../../../../components/chart-title';
+import ChartTitle from '../../../../../../components/title';
 
 const allColumns = ['documents', 'citable_documents', 'citations', 'self_citations', 'citations_per_document', 'h_index'];
 
