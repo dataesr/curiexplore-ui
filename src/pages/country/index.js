@@ -32,32 +32,36 @@ export default function Fiche() {
               Politique ESRI
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="enseignement-sup" replace />} current={(selected === 'enseignement-sup')}>
-              <Icon name="ri-team-line" size="1x" />
+              <Icon name="ri-government-line" size="1x" />
               Enseignement supérieur
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="recherche" replace />} current={(selected === 'recherche')}>
-              <Icon name="ri-calendar-line" size="1x" />
+              <Icon name="ri-flask-line" size="1x" />
               Recherche et innovation
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="acteurs" replace />} current={(selected === 'acteurs')}>
-              <Icon name="ri-folders-line" size="1x" />
+              <Icon name="ri-team-line" size="1x" />
               Les acteurs
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="cooperation-avec-la-france" replace />} current={(selected === 'cooperation-avec-la-france')}>
-              <Icon name="ri-folders-line" size="1x" />
+              <Icon name="ri-map-pin-3-line" size="1x" />
               Liens avec la France
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="cooperation-internationale" replace />} current={(selected === 'cooperation-internationale')}>
-              <Icon name="ri-folders-line" size="1x" />
+              <Icon name="ri-global-line" size="1x" />
               Coopérations internationales
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="mobilite-etudiante" replace />} current={(selected === 'mobilite-etudiante')}>
-              <Icon name="ri-folders-line" size="1x" />
+              <Icon name="ri-drag-move-line" size="1x" />
               Mobilité étudiante
             </SideMenuLink>
             <SideMenuLink asLink={<RouterLink to="contacts-et-ressources" replace />} current={(selected === 'contacts-et-ressources')}>
-              <Icon name="ri-folders-line" size="1x" />
+              <Icon name="ri-contacts-book-line" size="1x" />
               Contacts et ressources
+            </SideMenuLink>
+            <SideMenuLink asLink={<RouterLink to="pays-similaires" replace />} current={(selected === 'pays-similaires')}>
+              <Icon name="ri-earth-line" size="1x" />
+              Pays similaires
             </SideMenuLink>
           </SideMenu>
         </Col>
