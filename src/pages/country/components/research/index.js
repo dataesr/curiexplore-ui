@@ -11,7 +11,7 @@ export default function CountryResearchPage() {
   const contextData = useOutletContext();
   const data = contextData['curiexplore-analyse'];
 
-  const dataRI = data.find((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
+  const dataRI = data.filter((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
 
   return (
     <Container>

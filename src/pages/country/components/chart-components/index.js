@@ -13,8 +13,8 @@ export default function ChartComponents({ charts }) {
   const { isoCode } = useParams();
 
   const contextData = useOutletContext();
-  const dataCounrty = contextData['curiexplore-pays'];
-  const bordersIsoCodes = (dataCounrty[0].fields.border?.length > 0) ? dataCounrty[0].fields.border.split(',') : [];
+  const dataCountry = contextData['curiexplore-pays'];
+  const bordersIsoCodes = dataCountry[0].fields.borders || [];
   const [isoCodes, setIsoCodes] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showFilters, setShowFilters] = useState(false); // seulement si au moins 1 graph d'affiché

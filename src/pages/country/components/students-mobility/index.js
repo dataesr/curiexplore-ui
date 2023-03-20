@@ -1,14 +1,23 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useOutletContext } from 'react-router-dom';
 import { Container, Col, Row, Callout, CalloutText, CalloutTitle, Text } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
 import useFetchData from '../../hooks/useFetchData';
 import ChartComponents from '../chart-components';
 
+import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import charts from './charts.json';
 
 export default function StudentsMobilityPage() {
   const { isoCode } = useParams();
   const { data } = useFetchData(isoCode);
+  const contextData = useOutletContext();
+  const analyse = contextData['curiexplore-analyse'];
+
+  const blocs = [];
+  if (analyse.length !== 0) {
+    blocs.push(analyse.find((el) => (el.fields.thematique === 'Mobilité entrante')).fields || null);
+    blocs.push(analyse.find((el) => (el.fields.thematique === 'Mobilité sortante')).fields || null);
+  }
 
   const dataMobilite = data['mobilite-internationale-etudiants'];
   const latestYear = data['mobilite-internationale-etudiants']?.[0]?.fields.year;
@@ -46,7 +55,7 @@ export default function StudentsMobilityPage() {
                 {latestYear}
                 , on compte&nbsp;
                 {sumStudents.toLocaleString()}
-                &nbsp;étudiants internationaux soit [X]% des étudiants aux Etats-Unis
+                &nbsp;étudiants internationaux soit [X]% des étudiants
               </Text>
               <ol>
                 {orderedData.map((el) => (
@@ -57,6 +66,13 @@ export default function StudentsMobilityPage() {
               </ol>
             </CalloutText>
           </Callout>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {blocs.map((bloc) => (
+            <HtmlAmbassyBloc data={bloc} />
+          ))}
         </Col>
       </Row>
       <Row>
