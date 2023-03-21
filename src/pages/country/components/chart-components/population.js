@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Title, Text, Icon } from '@dataesr/react-dsfr';
 
 import useFetchDataPopulation from './hooks/useFetchDataPopulation';
-import PopulationCard from '../../../../components/population-card/index';
+import PopulationCard from '../../../../components/generic-card/index';
 
 export default function PopulationComponent({ data, isoCode }) {
   const { lastYearData, evolution, lastYear } = useFetchDataPopulation({

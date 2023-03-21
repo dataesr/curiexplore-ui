@@ -7,8 +7,7 @@ import ChartComponents from '../chart-components';
 
 import charts from './charts.json';
 import PopulationComponent from '../chart-components/population';
-import IDHCard from '../../../../components/idh-card';
-import PopulationCard from '../../../../components/population-card';
+import GenericCard from '../../../../components/generic-card';
 
 export default function CountryProfilePage() {
   const { isoCode } = useParams();
@@ -74,21 +73,21 @@ export default function CountryProfilePage() {
       </Row>
       <Row gutters>
         <Col n="4">
-          <PopulationCard
+          <GenericCard
             badgeLabel={RNB.year}
             description={getDescription(RNB)}
             title={RNB.label}
           />
         </Col>
         <Col n="4">
-          <PopulationCard
+          <GenericCard
             badgeLabel={IDH.year}
             description={getDescription(IDH)}
             title={IDH.label}
           />
         </Col>
         <Col n="4">
-          <PopulationCard
+          <GenericCard
             badgeLabel={ESPVIE.year}
             description={getDescription(ESPVIE)}
             title={ESPVIE.label}
