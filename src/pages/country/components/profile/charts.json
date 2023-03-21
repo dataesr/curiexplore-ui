@@ -38,13 +38,5 @@
     "type": "custom-population",
     "source": "Banque mondiale",
     "definition": "La population rurale fait référence aux personnes vivant en milieu rural tel que défini par les bureaux nationaux de statistiques. Elle est calculée en faisant la différence entre la population totale et la la population urbaine."
-  },
-  {
-    "title": "Indice de développement humain",
-    "code": "IDH",
-    "sort": "-year",
-    "type": "column",
-    "source": "PNUD",
-    "definition": "Un indice composite mesurant la réalisation moyenne dans trois dimensions fondamentales du développement humain - une vie longue et saine, le savoir et un niveau de vie décent. Voir la note technique 1 sur <a target=\"_blank\">http://hdr.undp.org/sites/default/files/hdr2022_technical_notes.pdf</a> pour plus de détails sur le mode de calcul de l'IDH."
   }
 ]

@@ -1,21 +1,21 @@
 import { Icon } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
-export default function IDHCard({ group }) {
+export default function IDHCard({ data }) {
   return (
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey">
       <div className="fr-card__header">
         <div className="fr-card__img">
-          <Icon name="ri-government-line" size="10x" />
+          <Icon name="ri-government-line" size="5x" />
         </div>
       </div>
       <div className="fr-card__body">
         <div className="fr-card__content">
           <p className="fr-card__title">
-            {group}
+            {data.value}
           </p>
-          <div className="fr-card__desc">
-            "description"
+          <div className="fr-card__desc text-center">
+            {data.label}
           </div>
         </div>
       </div>
@@ -25,5 +25,5 @@ export default function IDHCard({ group }) {
 }
 
 IDHCard.propTypes = {
-  group: PropTypes.string.isRequired,
+  data: PropTypes.string.isRequired,
 };
