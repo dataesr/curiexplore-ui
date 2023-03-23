@@ -5,7 +5,8 @@
     "sort": "-year",
     "color": "#FFCA00",
     "type": "column",
-    "source": "Unesco"
+    "source": "Unesco",
+    "description": "explication du graph"
   },
   {
     "title": "Effectif total scolarisé en licence ou équivalent (niveau 6 de la CITE)",

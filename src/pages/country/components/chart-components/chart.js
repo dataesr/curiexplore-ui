@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 import useFetchData from './hooks/useFetchData';
 
+import './custom-style.scss';
+
 export default function Chart({ data, otherCodes, countryCode, hasDataHandler }) {
   const { options } = useFetchData({
     code: data.code,
@@ -33,6 +35,13 @@ export default function Chart({ data, otherCodes, countryCode, hasDataHandler })
         highcharts={Highcharts}
         options={options}
       />
+      {
+        data.description && (
+          <div className="chart-description">
+            {data.description}
+          </div>
+        )
+      }
     </Col>
   );
 }
