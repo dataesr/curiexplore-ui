@@ -29,7 +29,7 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
         const latestYear = json.records?.[0]?.fields?.year;
         const ID_TOTAL = '25053';
         const categories = ['cycle court', 'licence', 'master', 'doctorat'];
-        setTitle(`Répartition des diplômés par niveau d'études, ${latestYear}`);
+        setTitle(`Répartition de la part des diplômés par niveau d'études, ${latestYear}`);
 
         const total = json?.records?.filter((el) => (el.fields.country_code === countryCode && el.fields.year === latestYear && el.fields.code === ID_TOTAL))
           .map((el) => el?.fields?.value)[0];
