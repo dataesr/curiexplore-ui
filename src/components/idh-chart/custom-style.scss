@@ -1,0 +1,61 @@
+.IDHChart {
+    // background-color: #eee;
+
+    .column {
+        float: left;
+
+        P {
+            margin: 0;
+        }
+
+        STRONG {
+            display: block;
+        }
+    }
+
+    .selected {
+        // border-bottom: solid 4px #FFCA00;
+        color: #FFCA00;
+    }
+
+    .unselected {
+        // border-bottom: solid 4px #FFCA00;
+        color: #eee;
+    }
+
+    IMG {
+        width: 35px;
+    }
+
+    .faible-bg-color {
+        background-color: #F2F2B5;
+    }
+
+    .moyen-bg-color {
+        background-color: #CEE384;
+    }
+
+    .eleve-bg-color {
+        background-color: #8AC45B;
+    }
+
+    .tres-eleve-bg-color {
+        background-color: #19904C;
+    }
+
+    .country-gauge {
+        float: left;
+        background-color: #FFCA00;
+        height: 5px;
+        margin-left: 6px;
+        margin-top: 19px;
+    }
+
+    .average-gauge {
+        float: left;
+        height: 5px;
+        margin-left: 6px;
+        margin-top: 19px;
+        background-color: #000;
+    }
+}

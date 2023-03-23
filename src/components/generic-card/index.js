@@ -12,7 +12,7 @@ export default function PopulationCard({
         <div className="fr-card__content fr-pb-1w">
           <p className="fr-card__title">
             {title}
-            {' '}
+            &nbsp;
             <Badge text={badgeLabel} />
           </p>
           <div className="fr-card__desc text-center">

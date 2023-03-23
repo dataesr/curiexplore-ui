@@ -1,4 +1,4 @@
-import { Container, Row, Col, Title, Icon, Highlight } from '@dataesr/react-dsfr';
+import { Container, Row, Col, Title, Highlight } from '@dataesr/react-dsfr';
 import { useOutletContext } from 'react-router-dom';
 import Parser from 'html-react-parser';
 

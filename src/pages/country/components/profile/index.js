@@ -8,10 +8,12 @@ import ChartComponents from '../chart-components';
 import charts from './charts.json';
 import PopulationComponent from '../chart-components/population';
 import GenericCard from '../../../../components/generic-card';
+import IDHChart from '../../../../components/idh-chart';
 
 export default function CountryProfilePage() {
   const { isoCode } = useParams();
   const contextData = useOutletContext();
+  const dataCounrty = contextData['curiexplore-pays'];
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
 
   // Revenu national brut par habitant
@@ -91,6 +93,16 @@ export default function CountryProfilePage() {
             badgeLabel={ESPVIE.year}
             description={getDescription(ESPVIE)}
             title={ESPVIE.label}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col n="12">
+          <IDHChart
+            group={dataCounrty[0].fields.idh_group}
+            flagUrl={dataCounrty[0].fields.flag}
+            idhCountry={IDH.value}
+            idhAverage={0.732}
           />
         </Col>
       </Row>
