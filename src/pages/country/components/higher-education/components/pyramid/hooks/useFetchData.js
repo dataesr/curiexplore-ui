@@ -28,8 +28,8 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
         let seriesCountryCurrent = [];
         const latestYear = json.records?.[0]?.fields?.year;
         const ID_TOTAL = '25053';
-        setTitle(`Répartition des diplômés par niveau d'études, ${latestYear}`);
         const categories = ['cycle court', 'licence', 'master', 'doctorat'];
+        setTitle(`Répartition des diplômés par niveau d'études, ${latestYear}`);
 
         const total = json?.records?.filter((el) => (el.fields.country_code === countryCode && el.fields.year === latestYear && el.fields.code === ID_TOTAL))
           .map((el) => el?.fields?.value)[0];
@@ -46,10 +46,10 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
             ?.[0] || 0);
         }
 
-        seriesCountry = seriesCountry.filter((el) => Math.abs(el) !== 100)
-          .map((el) => parseFloat(el));
-        seriesCountryCurrent = seriesCountryCurrent.filter((el) => Math.abs(el) !== 100)
-          .map((el) => parseFloat(el));
+        seriesCountry = seriesCountry.map((el) => parseFloat(el));
+        seriesCountry.pop();
+        seriesCountryCurrent = seriesCountryCurrent.map((el) => parseFloat(el));
+        seriesCountryCurrent.pop();
 
         series = [
           {

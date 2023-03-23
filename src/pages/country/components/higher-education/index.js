@@ -12,8 +12,13 @@ export default function CountryHigherEducationPage() {
   const contextData = useOutletContext();
   const data = contextData['curiexplore-analyse'];
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
+  let dataES = [];
 
-  const dataES = data.find((el) => (el.fields.thematique === 'Enseignement supérieur')).fields || null;
+  if (data.length !== 0) {
+    dataES = data.find((el) => (el.fields.thematique === 'Enseignement supérieur')).fields || null;
+  } else {
+    dataES = '';
+  }
 
   // Nombre moyen d'années de scolarité
   const MOYSCO = { ...dataIDH.find((el) => el.fields.code === 'MOYSCO').fields };

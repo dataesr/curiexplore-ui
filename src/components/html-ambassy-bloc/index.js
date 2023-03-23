@@ -24,6 +24,10 @@ export default function HtmlAmbassyBloc({ data }) {
   );
 }
 
+HtmlAmbassyBloc.defaultProps = {
+  data: [],
+};
+
 HtmlAmbassyBloc.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
 };
