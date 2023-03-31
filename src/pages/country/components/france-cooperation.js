@@ -179,7 +179,7 @@ export default function FranceCooperationPage() {
       {
         (frenchStructureWithNbProjects.length > 0) ? (
           <>
-            <Row>
+            <Row className="fr-mt-1w">
               <Col n="12">
                 <Title
                   icon="ri-arrow-up-circle-line"
@@ -211,7 +211,7 @@ export default function FranceCooperationPage() {
       {
         (foreignStructureWithNbProjects.length > 0) ? (
           <>
-            <Row>
+            <Row className="fr-mt-3w">
               <Col n="12">
                 <Title
                   icon="ri-arrow-up-circle-line"
