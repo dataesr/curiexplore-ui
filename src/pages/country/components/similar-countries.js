@@ -1,31 +1,25 @@
-import { Container, Row, Col, Title, Highlight } from '@dataesr/react-dsfr';
-import { useOutletContext } from 'react-router-dom';
+import { Container, Row, Col, Highlight } from '@dataesr/react-dsfr';
+import { useOutletContext, useParams } from 'react-router-dom';
 import Parser from 'html-react-parser';
 
 import CountryCard from '../../../components/country-card';
 import getLabel from '../../../utils/getLabel';
 import TitleCurie from '../../../components/title';
+import checkGeographicItems from '../../../utils/checkGeographicItems';
+import checkPolicyItems from '../../../utils/checkPolicyItems';
 
 export default function SimilarCountriesPage() {
   const contextData = useOutletContext();
-  const dataCounrty = contextData['curiexplore-pays'];
+  const { isoCode } = useParams();
+
+  const dataCounrty = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
 
   const idh = dataIDH.find((el) => el.fields.code === 'IDH').fields;
-  const idhGroupCountries = dataCounrty[0].fields.idh_group_countries.split(',') || [];
+  const idhGroupCountries = dataCounrty.fields.idh_group_countries.split(',') || [];
 
   return (
     <Container fluid spacing="mb-6w">
-      <Row>
-        <Col n="12">
-          <Title as="h3" look="h4">
-            {idh.label}
-          </Title>
-          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-            {Parser(idh.definition)}
-          </Highlight>
-        </Col>
-      </Row>
       <Row>
         <Col>
           <TitleCurie
@@ -35,8 +29,15 @@ export default function SimilarCountriesPage() {
           />
         </Col>
       </Row>
+      <Row className="fr-mt-2w">
+        <Col n="12">
+          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+            {Parser(idh.definition)}
+          </Highlight>
+        </Col>
+      </Row>
       <Row gutters>
-        {idhGroupCountries.map((iso) => (
+        {idhGroupCountries.slice(0, 4).map((iso) => (
           <Col n="3" key={iso}>
             <CountryCard
               title={getLabel(iso)}
@@ -45,6 +46,31 @@ export default function SimilarCountriesPage() {
           </Col>
         ))}
       </Row>
+      {checkGeographicItems(dataCounrty.fields).map((item) => (
+        <>
+          <Row className="fr-mt-2w">
+            <Col>
+              <TitleCurie
+                icon="ri-earth-line"
+                title={`Liste des pays membres de "${item}"`}
+              />
+            </Col>
+          </Row>
+          <Row>
+            ...
+          </Row>
+        </>
+      ))}
+      {checkPolicyItems(dataCounrty.fields).map((item) => (
+        <Row className="fr-mt-2w">
+          <Col>
+            <TitleCurie
+              icon="ri-earth-line"
+              title={`Liste des pays membres de "${item}"`}
+            />
+          </Col>
+        </Row>
+      ))}
     </Container>
   );
 }

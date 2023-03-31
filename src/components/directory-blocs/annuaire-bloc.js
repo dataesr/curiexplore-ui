@@ -6,14 +6,12 @@ import {
   Title,
 } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
-// import { MapContainer } from 'react-leaflet';
 import { v4 as uuidv4 } from 'uuid';
 
 import StructureCard from './structure-card';
 
 import useFetchData from '../../pages/directory/hooks/useFetchData';
 import useFetchDataCountries from '../../pages/directory/hooks/useFetchDataCountry';
-// import CountryMap from '../country-map';
 import MapWithMarkers from '../map-with-markers';
 
 function AnnuaireBloc({ selectedLetter }) {
@@ -21,7 +19,8 @@ function AnnuaireBloc({ selectedLetter }) {
   const { dataCountries } = useFetchDataCountries();
   let filteredData = [];
   if (dataCountries && dataCountries['curiexplore-pays']?.length > 0) {
-    filteredData = dataCountries['curiexplore-pays'].filter((country) => country.fields.name_fr.charAt(0).toLowerCase() === selectedLetter);
+    filteredData = dataCountries['curiexplore-pays']
+      .filter((country) => country.fields.name_fr.charAt(0).toLowerCase() === selectedLetter);
   }
 
   if (filteredData.length === 0 || data.length === 0) { return 'Loading ...'; }
@@ -116,7 +115,7 @@ function AnnuaireBloc({ selectedLetter }) {
                 </Col>
               </Row>
             </>
-          ) : null }
+          ) : null}
         </Container>
       ))}
     </Container>

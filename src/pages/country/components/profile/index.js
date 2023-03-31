@@ -13,7 +13,7 @@ import IDHChart from '../../../../components/idh-chart';
 export default function CountryProfilePage() {
   const { isoCode } = useParams();
   const contextData = useOutletContext();
-  const dataCounrty = contextData['curiexplore-pays'];
+  const dataCounrty = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
 
   // Revenu national brut par habitant
@@ -99,8 +99,8 @@ export default function CountryProfilePage() {
       <Row>
         <Col n="12">
           <IDHChart
-            group={dataCounrty[0].fields.idh_group}
-            flagUrl={dataCounrty[0].fields.flag}
+            group={dataCounrty.fields.idh_group}
+            flagUrl={dataCounrty.fields.flag}
             idhCountry={IDH.value}
             idhAverage={0.732}
           />

@@ -14,7 +14,7 @@ export default function Fiche() {
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
 
-  const dataPays = data['curiexplore-pays']?.[0]?.fields;
+  const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
   const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
 
   if (!dataPays) return null;
