@@ -7,8 +7,8 @@ export default function CountryBadgeList({ data, geographic, policy, type }) {
   if (!data) return null;
   return (
     <BadgeGroup>
-      {(policy) && checkPolicyItems(data).map((item) => <Badge type={type} key={item} text={item} />)}
-      {(geographic) && checkGeographicItems(data).map((item) => <Badge type={type} key={item} text={item} />)}
+      {(policy) && checkPolicyItems(data).map((item) => <Badge type={type} key={item.code} text={item.label} />)}
+      {(geographic) && checkGeographicItems(data).map((item) => <Badge type={type} key={item.code} text={item.label} />)}
     </BadgeGroup>
   );
 }

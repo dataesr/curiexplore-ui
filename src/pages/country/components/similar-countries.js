@@ -52,24 +52,51 @@ export default function SimilarCountriesPage() {
             <Col>
               <TitleCurie
                 icon="ri-earth-line"
-                title={`Liste des pays membres de "${item}"`}
+                title={`Liste des pays membres de "${item.label}"`}
               />
             </Col>
           </Row>
-          <Row>
-            ...
+          <Row gutters>
+            {
+              contextData['curiexplore-pays']
+                .filter((country) => country.fields[item.code] === 'True')
+                .map((country) => (
+                  <Col n="3">
+                    <CountryCard
+                      title={getLabel(country.fields.iso3)}
+                      isoCode={country.fields.iso3}
+                    />
+                  </Col>
+                ))
+            }
           </Row>
         </>
       ))}
       {checkPolicyItems(dataCounrty.fields).map((item) => (
-        <Row className="fr-mt-2w">
-          <Col>
-            <TitleCurie
-              icon="ri-earth-line"
-              title={`Liste des pays membres de "${item}"`}
-            />
-          </Col>
-        </Row>
+        <>
+          <Row className="fr-mt-2w">
+            <Col>
+              <TitleCurie
+                icon="ri-earth-line"
+                title={`Liste des pays membres de "${item.label}"`}
+              />
+            </Col>
+          </Row>
+          <Row gutters>
+            {
+              contextData['curiexplore-pays']
+                .filter((country) => country.fields[item.code] === 'True')
+                .map((country) => (
+                  <Col n="3">
+                    <CountryCard
+                      title={getLabel(country.fields.iso3)}
+                      isoCode={country.fields.iso3}
+                    />
+                  </Col>
+                ))
+            }
+          </Row>
+        </>
       ))}
     </Container>
   );

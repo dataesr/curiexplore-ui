@@ -19,7 +19,7 @@ export default function useFetchData(isoCode) {
       `${ENDPOINT_V1}&dataset=curiexplore-annuaire-ambassade&q=&rows=-1&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-annuaire-campusfrance&q=&rows=-1&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-annuaire-cci&q=&rows=-1&refine.iso3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-pays&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
+      `${ENDPOINT_V1}&dataset=curiexplore-pays&q=&rows=-1&facet=iso3`,
       `${ENDPOINT_V1}&dataset=curiexplore-policy-ocde&q=&rows=-1&sort=startdate&facet=iso3&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
