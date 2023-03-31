@@ -14,9 +14,9 @@ export default function CountryBadgeList({ data, geographic, policy, type }) {
 }
 
 CountryBadgeList.defaultProps = {
+  data: null,
   geographic: false,
   policy: false,
-  data: null,
   type: 'new',
 };
 
@@ -24,5 +24,11 @@ CountryBadgeList.propTypes = {
   data: PropTypes.object,
   geographic: PropTypes.bool,
   policy: PropTypes.bool,
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'error',
+    'info',
+    'new',
+    'success',
+    'warning',
+  ]),
 };
