@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapContainer } from 'react-leaflet';
 import CountryMap from '../country-map';
 
-export default function CountryCard({ isoCode, title, description }) {
+export default function CountryCard({ isoCode, title, description, color, fillColor }) {
   return (
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey">
       <div className="fr-card__header">
@@ -14,11 +14,11 @@ export default function CountryCard({ isoCode, title, description }) {
             attributionControl={false}
             style={{
               height: '150px',
-              backgroundColor: '#21ab8e',
+              backgroundColor: color,
               position: 'relative',
             }}
           >
-            <CountryMap isoCode={isoCode} color="#21ab8e" fillColor="#34bab5" hasCapital={false} />
+            <CountryMap isoCode={isoCode} color={color} fillColor={fillColor} hasCapital={false} />
           </MapContainer>
         </div>
       </div>
@@ -38,10 +38,14 @@ export default function CountryCard({ isoCode, title, description }) {
 }
 
 CountryCard.defaultProps = {
+  color: '#21ab8e',
   description: '',
+  fillColor: '#34bab5',
 };
 CountryCard.propTypes = {
+  color: PropTypes.string,
+  description: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  fillColor: PropTypes.string,
   isoCode: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
 };
