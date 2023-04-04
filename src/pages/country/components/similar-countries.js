@@ -37,7 +37,7 @@ export default function SimilarCountriesPage() {
         </Col>
       </Row>
       <Row gutters>
-        {idhGroupCountries.slice(0, 4).map((iso) => (
+        {idhGroupCountries.map((iso) => (
           <Col n="3" key={iso}>
             <CountryCard
               title={getLabel(iso)}
