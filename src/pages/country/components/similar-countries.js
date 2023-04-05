@@ -7,6 +7,9 @@ import getLabel from '../../../utils/getLabel';
 import TitleCurie from '../../../components/title';
 import checkGeographicItems from '../../../utils/checkGeographicItems';
 import checkPolicyItems from '../../../utils/checkPolicyItems';
+import AdaptativeList from '../../../components/AdaptativeList';
+
+import groups from '../../../assets/data/groups.json';
 
 export default function SimilarCountriesPage() {
   const contextData = useOutletContext();
@@ -48,7 +51,7 @@ export default function SimilarCountriesPage() {
       </Row>
       {checkGeographicItems(dataCounrty.fields).map((item) => (
         <>
-          <Row className="fr-mt-2w">
+          <Row className="fr-mt-5w">
             <Col>
               <TitleCurie
                 icon="ri-earth-line"
@@ -56,25 +59,34 @@ export default function SimilarCountriesPage() {
               />
             </Col>
           </Row>
+          <Row className="fr-mt-2w">
+            <Col n="12">
+              <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                {groups.find((el) => el.code === item.code).definition}
+              </Highlight>
+            </Col>
+          </Row>
           <Row gutters>
-            {
-              contextData['curiexplore-pays']
+            <AdaptativeList
+              elements={contextData['curiexplore-pays']
                 .filter((country) => country.fields[item.code] === 'True')
                 .map((country) => (
                   <Col n="3">
                     <CountryCard
                       title={getLabel(country.fields.iso3)}
                       isoCode={country.fields.iso3}
+                      color={groups.find((el) => el.code === item.code).mapColor}
+                      fillColor={groups.find((el) => el.code === item.code).mapFillColor}
                     />
                   </Col>
-                ))
-            }
+                ))}
+            />
           </Row>
         </>
       ))}
       {checkPolicyItems(dataCounrty.fields).map((item) => (
         <>
-          <Row className="fr-mt-2w">
+          <Row className="fr-mt-5w">
             <Col>
               <TitleCurie
                 icon="ri-earth-line"
@@ -82,19 +94,29 @@ export default function SimilarCountriesPage() {
               />
             </Col>
           </Row>
+          <Row className="fr-mt-2w">
+            <Col n="12">
+              <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                {groups.find((el) => el.code === item.code).definition}
+              </Highlight>
+            </Col>
+          </Row>
           <Row gutters>
-            {
-              contextData['curiexplore-pays']
+            <AdaptativeList
+              elements={contextData['curiexplore-pays']
                 .filter((country) => country.fields[item.code] === 'True')
                 .map((country) => (
                   <Col n="3">
                     <CountryCard
                       title={getLabel(country.fields.iso3)}
                       isoCode={country.fields.iso3}
+                      color={groups.find((el) => el.code === item.code).mapColor}
+                      fillColor={groups.find((el) => el.code === item.code).mapFillColor}
                     />
                   </Col>
-                ))
-            }
+                ))}
+            />
+
           </Row>
         </>
       ))}

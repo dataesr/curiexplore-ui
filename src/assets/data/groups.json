@@ -1,0 +1,79 @@
+[
+  {
+    "code": "bologne",
+    "label": "Processus de bologne",
+    "definition": "blabla",
+    "mapColor": "#0063D0",
+    "mapFillColor": "#E8EDFF"
+  },
+  {
+    "code": "oecd_members",
+    "label": "Membre de l'OCDE",
+    "definition": "blabla",
+    "mapColor": "#0063D0",
+    "mapFillColor": "#E8EDFF"
+  },
+  {
+    "code": "euro_area",
+    "label": "Zone euro",
+    "definition": "blabla",
+    "mapColor": "#0063D0",
+    "mapFillColor": "#E8EDFF"
+  },
+  {
+    "code": "sub_saharan_africa",
+    "label": "Afrique et Océan Indien",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "middle_east_north_africa",
+    "label": "Afrique du Nord et Moyen-Orient",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "central_america_caraibes",
+    "label": "Amérique centrale et Caraïbes",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "asia_oceania",
+    "label": "Asie-Océanie",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "european_union",
+    "label": "Union européenne",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "continental_europe",
+    "label": "Europe continentale",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "south_america",
+    "label": "Amérique du sud",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "north_america",
+    "label": "Amérique du nord",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  }
+]
