@@ -1,19 +1,25 @@
 /* eslint-disable max-len */
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useOutletContext } from 'react-router-dom';
 import { Container, Row, Col, Highlight, Link, Badge, Tag } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
 import getLabel from '../../../utils/getLabel';
 import Title from '../../../components/title';
+import PublicationsChart from '../../../components/open-alex-charts/publications-chart';
 
 export default function FranceCooperationPage() {
   const { isoCode } = useParams();
+  const contextData = useOutletContext();
   const [dataProjects, setDataProjects] = useState([]);
   const [dataStructuresProjects, setDataStructuresProjects] = useState([]);
   const [pending, setPending] = useState(0);
-
+  const [iso2, setIso2] = useState('');
   const urlProjects = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/projects/search';
   const urlStructures = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/structures/search';
+
+  useEffect(() => {
+    setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);
+  }, [contextData, isoCode]);
 
   useEffect(() => {
     const years = [2017, 2018, 2019];
@@ -169,10 +175,11 @@ export default function FranceCooperationPage() {
           </Highlight>
         </Col>
       </Row>
-      {(pending !== 2) ? (
+      <PublicationsChart iso2={iso2} iso3={isoCode} />
+      {(pending < 2) ? (
         <Row>
           <Col n="12">
-            Récupération des données...
+            Récupération des données depuis scanR ...
           </Col>
         </Row>
       ) : null}
