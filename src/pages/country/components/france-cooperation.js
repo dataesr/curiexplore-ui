@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import getLabel from '../../../utils/getLabel';
 import Title from '../../../components/title';
 import PublicationsChart from '../../../components/open-alex-charts/publications-chart';
+import InstitutionsChart from '../../../components/open-alex-charts/institutions-chart';
 
 export default function FranceCooperationPage() {
   const { isoCode } = useParams();
@@ -176,6 +177,7 @@ export default function FranceCooperationPage() {
         </Col>
       </Row>
       <PublicationsChart iso2={iso2} iso3={isoCode} />
+      <InstitutionsChart iso2={iso2} iso3={isoCode} />
       {(pending < 2) ? (
         <Row>
           <Col n="12">
