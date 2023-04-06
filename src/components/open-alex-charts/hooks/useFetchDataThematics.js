@@ -8,7 +8,8 @@ export default function useFetchData(isoCode) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const query = `${API_OPEN_ALEX_ENDPOINT}?filter=publication_year:2000-2023,institutions.country_code:${isoCode},institutions.country_code:fr&group_by=authorships.institutions.id`;
+    const query = `${API_OPEN_ALEX_ENDPOINT}?filter=publication_year:2000-2023,institutions.country_code:${isoCode},institutions.country_code:fr&group_by=concepts.id`;
+
     const getData = async () => {
       try {
         setIsLoading(true);

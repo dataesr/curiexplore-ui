@@ -27,6 +27,7 @@ export default function BarChart({ categoriesText, data, height, slice, type }) 
     xAxis: { categories: top.map((item) => item.name), title: { text: categoriesText } },
     yAxis: { title: { text: 'Nombre de publications communes' } },
   };
+
   if (data?.length === 0) {
     return (
       <Highlight colorFamily="yellow-tournesol" size="sm" className="fr-ml-0 fr-my-1w">
