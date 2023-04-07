@@ -26,17 +26,17 @@ export default function ContactsAndResourcesPage() {
       </Title>
       <Highlight className="fr-mt-2w" colorFamily="yellow-tournesol">
         <Row gutters>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>RC</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>Grid</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>Wikidata</h2>
             </Tile>
@@ -48,52 +48,52 @@ export default function ContactsAndResourcesPage() {
       </Title>
       <Highlight className="fr-mt-2w" colorFamily="yellow-tournesol">
         <Row gutters>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>OpenData</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>OECD</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>Stipcompass</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>scanR</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>openAlex</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>SCImago</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>Academic ...</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>THE</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>UNESCO</h2>
             </Tile>
           </Col>
-          <Col n="3">
+          <Col n="4">
             <Tile color="#000">
               <h2>B.M.</h2>
             </Tile>
