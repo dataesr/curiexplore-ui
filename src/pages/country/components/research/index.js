@@ -13,10 +13,14 @@ export default function CountryResearchPage() {
   const { isoCode } = useParams();
   const contextData = useOutletContext();
   const [iso2, setIso2] = useState('');
-
   const data = contextData['curiexplore-analyse'];
+  let dataRI = [];
 
-  const dataRI = data.filter((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
+  if (data.length !== 0) {
+    dataRI = data.find((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
+  } else {
+    dataRI = '';
+  }
 
   useEffect(() => {
     setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);
