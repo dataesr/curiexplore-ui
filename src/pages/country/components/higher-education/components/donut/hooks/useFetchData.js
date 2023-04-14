@@ -23,23 +23,20 @@ export default function useFetchData({ charts, countryCode }) {
         setIsLoading(true);
         const response = await fetch(query);
         const json = await response.json();
-        let domains = [];
         const subDomains = [];
         let brightness = [];
         const latestYear = json.records?.[0]?.fields.year;
         setTitle(`Répartition des diplômés par domaine d'études, ${latestYear}`);
 
-        for (let index = 0; index < charts.length; index += 1) {
-          domains.push({
-            name: charts[index].domain,
-            y: json?.records?.filter((el) => (el.fields.code === charts[index].code) && (el.fields.year === latestYear))
-              .map((el) => Math.round(el.fields.value))
+        const domains = Object.values(charts.map((el) => (
+          {
+            name: el.domain,
+            y: json?.records?.filter((item) => (item.fields.code === el.code) && (item.fields.year === latestYear))
+              .map((item) => Math.round(item.fields.value))
               ?.[0] || 0,
-            color: charts[index].colorDomain,
-          });
-        }
-
-        domains = Object.values(domains.reduce((acc, { name, color, y }) => {
+            color: el.colorDomain,
+          }
+        )).reduce((acc, { name, color, y }) => {
           const key = `${name}_${color}`;
           acc[key] = acc[key] || { name, color, y: 0 };
           acc[key].y += y;
@@ -47,7 +44,7 @@ export default function useFetchData({ charts, countryCode }) {
         }, {}));
 
         for (let j = 0; j < charts.length; j += 1) {
-          brightness = 0.1 - (j / charts.length) / 5;
+          brightness = 0.1 - (j / charts.length) / 7;
           subDomains.push({
             name: charts[j].title,
             y: json?.records?.filter((el) => (el.fields.code === charts[j].code))
@@ -58,6 +55,8 @@ export default function useFetchData({ charts, countryCode }) {
           });
         }
 
+        const sciences = domains.find((el) => el.name === 'Sciences, Technologies, Ingénierie et Mathématiques').y;
+
         setOptions({
           credits: {
             enabled: false,
@@ -65,6 +64,9 @@ export default function useFetchData({ charts, countryCode }) {
           chart: {
             type: 'pie',
 
+          },
+          title: {
+            text: '',
           },
           legend: {
             align: 'right',
@@ -81,10 +83,9 @@ export default function useFetchData({ charts, countryCode }) {
             size: '60%',
             dataLabels: {
               formatter() {
-                return this.y > 5 ? this.point.name : null;
+                return this.y ? `<b>${this.point.name}: ${this.y} % </b>` : null;
               },
-              color: '#ffffff',
-              distance: -30,
+              distance: '60%',
             },
           }, {
             name: 'Part des étudiants diplômés',
@@ -92,8 +93,8 @@ export default function useFetchData({ charts, countryCode }) {
             innerSize: '60%',
             dataLabels: {
               formatter() {
-                // display only if larger than 1
-                return this.y > 1 ? `<b>${this.point.name}:</b>` : null;
+                // display only if around Sciences share
+                return this.y >= sciences - 1 ? `<b>${this.point.name}: ${this.y} % </b>` : null;
               },
             },
           }],

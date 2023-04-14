@@ -1,6 +1,5 @@
 import { createRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from '@dataesr/react-dsfr';
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -16,15 +15,34 @@ export default function PieChartComponent() {
   const chart = createRef();
 
   const source = (
-    <>
-      Source :
-      &nbsp;
-      <Link href="https://www.unesco.org/fr" target="_blank">UNESCO</Link>
-    </>
+    <p>
+      Les domaines d'études sont définis par la&nbps;
+      <strong>classification internationale type de l'éducation (CITE)</strong>
+      .
+      Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des
+      statistiques comparables à un niveau international. La dernière version date de 2013 et s'applique aux données à partir de
+      2016, voir le&nbsp;
+      <a
+        href="https://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-fr.pdf"
+        target="_blank"
+        rel="noreferrer"
+      >
+        détail
+      </a>
+      .
+      <br />
+      Source:
+      <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
+    </p>
   );
+
   return (
     <section>
-      <ChartTitle title={title} subTitle={source} />
+      <ChartTitle
+        title={title}
+        icon="ri-bar-chart-horizontal-fill"
+        subTitle={source}
+      />
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
