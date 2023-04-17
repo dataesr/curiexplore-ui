@@ -16,7 +16,7 @@ export default function PieChartComponent() {
 
   const source = (
     <p>
-      Les domaines d'études sont définis par la&nbps;
+      Les domaines d'études sont définis par la&nbsp;
       <strong>classification internationale type de l'éducation (CITE)</strong>
       .
       Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des

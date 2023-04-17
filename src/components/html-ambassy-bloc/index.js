@@ -17,6 +17,7 @@ export default function HtmlAmbassyBloc({ data }) {
       </Row>
       <Row>
         <Col n="12">
+          {console.log(Parser(data.description))}
           {Parser(data.description)}
         </Col>
       </Row>

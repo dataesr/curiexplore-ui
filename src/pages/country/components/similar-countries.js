@@ -15,11 +15,12 @@ export default function SimilarCountriesPage() {
   const contextData = useOutletContext();
   const { isoCode } = useParams();
 
-  const dataCounrty = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
+  const dataCountry = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
 
   const idh = dataIDH.find((el) => el.fields.code === 'IDH').fields;
-  const idhGroupCountries = dataCounrty.fields.idh_group_countries.split(',') || [];
+  const idhGroupCountries = dataCountry.fields.idh_group_countries.split(',') || [];
+  const borderCountries = dataCountry.fields.borders.split(',') || [];
 
   return (
     <Container fluid spacing="mb-6w">
@@ -27,7 +28,7 @@ export default function SimilarCountriesPage() {
         <Col>
           <TitleCurie
             icon="ri-earth-line"
-            title="Liste des pays ayant un Indice de Développement Humain (IDH) proche"
+            title="Liste des pays ayant un Indice de Développement Humain proche"
             subTitle={idh.date_et_origine_moissonnage}
           />
         </Col>
@@ -49,7 +50,32 @@ export default function SimilarCountriesPage() {
           </Col>
         ))}
       </Row>
-      {checkGeographicItems(dataCounrty.fields).map((item) => (
+      <Row className="fr-mt-5w">
+        <Col>
+          <TitleCurie
+            icon="ri-earth-line"
+            title="Liste des pays voisins"
+          />
+        </Col>
+      </Row>
+      <Row className="fr-mt-2w">
+        <Col n="12">
+          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+            test
+          </Highlight>
+        </Col>
+      </Row>
+      <Row gutters>
+        {borderCountries.map((iso) => (
+          <Col n="3" key={iso}>
+            <CountryCard
+              title={getLabel(iso)}
+              isoCode={iso}
+            />
+          </Col>
+        ))}
+      </Row>
+      {checkGeographicItems(dataCountry.fields).map((item) => (
         <>
           <Row className="fr-mt-5w">
             <Col>
@@ -62,7 +88,7 @@ export default function SimilarCountriesPage() {
           <Row className="fr-mt-2w">
             <Col n="12">
               <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-                {groups.find((el) => el.code === item.code).definition}
+                {Parser(groups.find((el) => el.code === item.code).definition)}
               </Highlight>
             </Col>
           </Row>
@@ -84,7 +110,7 @@ export default function SimilarCountriesPage() {
           </Row>
         </>
       ))}
-      {checkPolicyItems(dataCounrty.fields).map((item) => (
+      {checkPolicyItems(dataCountry.fields).map((item) => (
         <>
           <Row className="fr-mt-5w">
             <Col>

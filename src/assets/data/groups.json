@@ -2,8 +2,8 @@
   {
     "code": "bologne",
     "label": "Processus de bologne",
-    "definition": "blabla",
     "mapColor": "#0063D0",
+    "definition": "<p>Le processus de Bologne compte 48 états membres. Il permet la convergence des <strong>systèmes d'enseignement supérieur</strong> des états signataires de la Déclaration de Bologne, notamment en facilitant la reconnaissance des diplômes, aidant à une structuration des études supérieures comparables (licence et master), favorisant la mobilité, parmi d'autres objectifs. Parmi ses multiples actions, le programme Erasmus+ s'est développé au-delà des pays euroopéens et le recours au système des crédits (E.C.T.S.) s'est très largement diffusé. (voir <a href='https://www.enseignementsup-recherche.gouv.fr/fr/le-processus-de-bologne-questions-reponses-47254' target='_blank'>faq du MESR</a>)</p>",
     "mapFillColor": "#E8EDFF"
   },
   {
@@ -16,7 +16,6 @@
   {
     "code": "euro_area",
     "label": "Zone euro",
-    "definition": "blabla",
     "mapColor": "#0063D0",
     "mapFillColor": "#E8EDFF"
   },
