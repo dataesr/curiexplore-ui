@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
+import { Highlight } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
@@ -15,6 +16,13 @@ export default function PieChartComponent() {
   const chart = createRef();
 
   const source = (
+    <p>
+      Source:&nbsp;
+      <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
+    </p>
+  );
+
+  const explanation = (
     <p>
       Les domaines d'études sont définis par la&nbsp;
       <strong>classification internationale type de l'éducation (CITE)</strong>
@@ -30,9 +38,6 @@ export default function PieChartComponent() {
         détail
       </a>
       .
-      <br />
-      Source:
-      <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
     </p>
   );
 
@@ -40,14 +45,19 @@ export default function PieChartComponent() {
     <section>
       <ChartTitle
         title={title}
-        icon="ri-bar-chart-horizontal-fill"
+        icon="ri-donut-chart-fill"
         subTitle={source}
+        as="h4"
+        look="h4"
       />
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
         ref={chart}
       />
+      <Highlight>
+        {explanation}
+      </Highlight>
     </section>
   );
 }

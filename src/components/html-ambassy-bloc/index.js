@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
-
 import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 
 export default function HtmlAmbassyBloc({ data }) {
@@ -15,9 +14,13 @@ export default function HtmlAmbassyBloc({ data }) {
           </Title>
         </Col>
       </Row>
+      <Row className="fr-mb-1w">
+        Rédigé en&nbsp;
+        {data.submitdateclean}
+        &nbsp;sous la responsabilité éditoriale du poste diplomatique
+      </Row>
       <Row>
         <Col n="12">
-          {console.log(Parser(data.description))}
           {Parser(data.description)}
         </Col>
       </Row>

@@ -1,6 +1,6 @@
 import { Col, Container, Icon, Link, Row, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
-import Title from '../title';
+import ChartTitle from '../title';
 import './custom-style.scss';
 
 const IDH_CATEGORIES = [
@@ -55,7 +55,7 @@ export default function IDHChart({ group, flagUrl, idhCountry, idhAverage }) {
       <Container fluid className="fr-mt-2w">
         <Row>
           <Col>
-            <Title
+            <ChartTitle
               icon="ri-service-fill"
               title="Indice de développement humain"
               subTitle={subTitle}

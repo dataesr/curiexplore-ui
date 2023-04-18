@@ -1,12 +1,12 @@
+/* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
-import { Container, Col, Row } from '@dataesr/react-dsfr';
+import { Container, Col, Row, Title, Highlight } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import ScimagoChart from './components/scimago';
 
 import charts from './charts.json';
-import ChartTitle from '../../../../components/title';
 import ThematicsChart from '../../../../components/open-alex-charts/thematics-chart';
 
 export default function CountryResearchPage() {
@@ -34,6 +34,16 @@ export default function CountryResearchPage() {
         </Col>
       </Row>
       <Row>
+        <Title as="h3">
+          Les données de la recherche et de l'innovation
+        </Title>
+      </Row>
+      <Row>
+        <Highlight className="fr-mb-3w">
+          Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
+        </Highlight>
+      </Row>
+      <Row>
         <Col>
           <ScimagoChart />
         </Col>
@@ -41,7 +51,6 @@ export default function CountryResearchPage() {
       <ThematicsChart iso2={iso2} iso3={isoCode} />
       <Row>
         <Col>
-          <ChartTitle title="Données quantitatives" icon="ri-bar-chart-fill" />
           <ChartComponents charts={charts} />
         </Col>
       </Row>

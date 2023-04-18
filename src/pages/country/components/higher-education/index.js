@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import { useOutletContext } from 'react-router-dom';
-import { Container, Col, Row, Title } from '@dataesr/react-dsfr';
+import { Container, Col, Row, Title, Highlight, Link } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import GenericCard from '../../../../components/generic-card';
@@ -48,16 +49,34 @@ export default function CountryHigherEducationPage() {
         </Col>
       </Row>
       <Row>
+        <Title as="h3">
+          Les données de l'enseignement supérieur
+        </Title>
+      </Row>
+      <Row>
+        <Highlight className="fr-mb-1w">
+          Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
+        </Highlight>
+      </Row>
+      <Row className="fr-mb-1w">
         <Col>
           <PieChart />
         </Col>
       </Row>
-      <Row>
+      <Row className="fr-mb-1w">
         <Col>
           <Pyramid />
         </Col>
       </Row>
-      <Row gutters>
+      <Row>
+        <Title
+          as="h4"
+          look="h4"
+        >
+          L'indice d'éducation du pays
+        </Title>
+      </Row>
+      <Row gutters className="fr-mb-1w">
         <Col n="6">
           <GenericCard
             badgeLabel={MOYSCO.year}
@@ -72,6 +91,22 @@ export default function CountryHigherEducationPage() {
             title={ESPSCO.label}
           />
         </Col>
+      </Row>
+      <Row className="fr-mb-1w">
+        <Highlight>
+          Les 3 dimensions qui permettent le calcul de l'indice de développement humain (IDH) sont: l'espérance de vie en bonne santé, le savoir et le niveau de vie.
+          Le savoir est un indice d'éducation calculé à partir de l'espérance d'année de scolarisation et le nombre moyen d'années de scolarité.
+          Le nombre d'année effectif de scolarité est observé sur la population adulte de plus de 25 ans.
+          <br />
+          Voir le&nbsp;
+          <Link
+            href="https://hdr.undp.org/sites/default/files/data/2020/hdr2020_technical_notes.pdf"
+            target="_blank"
+          >
+            détail
+          </Link>
+          .
+        </Highlight>
       </Row>
       <Row>
         <Col>
