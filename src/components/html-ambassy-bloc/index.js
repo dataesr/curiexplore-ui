@@ -1,9 +1,15 @@
 import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
-import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Title, Button } from '@dataesr/react-dsfr';
+import { useState } from 'react';
 
 export default function HtmlAmbassyBloc({ data }) {
+  const [revealed, setRevealed] = useState(false);
   if (!data) return null;
+
+  const handleClick = () => {
+    setRevealed(!revealed);
+  };
 
   return (
     <Container fluid>
@@ -21,7 +27,17 @@ export default function HtmlAmbassyBloc({ data }) {
       </Row>
       <Row>
         <Col n="12">
-          {Parser(data.description)}
+          {revealed ? (
+            <>
+              {Parser(data.description)}
+              <Button onClick={handleClick}>Lire moins</Button>
+            </>
+          ) : (
+            <Col>
+              {Parser(data.description).slice(0, Math.floor(Parser(data.description).length / 4))}
+              <Button onClick={handleClick}>Lire plus</Button>
+            </Col>
+          )}
         </Col>
       </Row>
     </Container>
