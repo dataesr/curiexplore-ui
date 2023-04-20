@@ -24,45 +24,12 @@ export default function SimilarCountriesPage() {
 
   return (
     <Container fluid spacing="mb-6w">
-      <Row>
-        <Col>
-          <TitleCurie
-            icon="ri-earth-line"
-            title="Liste des pays ayant un Indice de Développement Humain proche"
-            subTitle={idh.date_et_origine_moissonnage}
-          />
-        </Col>
-      </Row>
-      <Row className="fr-mt-2w">
-        <Col n="12">
-          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-            {Parser(idh.definition)}
-          </Highlight>
-        </Col>
-      </Row>
-      <Row gutters>
-        {idhGroupCountries.map((iso) => (
-          <Col n="3" key={iso}>
-            <CountryCard
-              title={getLabel(iso)}
-              isoCode={iso}
-            />
-          </Col>
-        ))}
-      </Row>
       <Row className="fr-mt-5w">
         <Col>
           <TitleCurie
             icon="ri-earth-line"
             title="Liste des pays voisins"
           />
-        </Col>
-      </Row>
-      <Row className="fr-mt-2w">
-        <Col n="12">
-          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-            test
-          </Highlight>
         </Col>
       </Row>
       <Row gutters>
@@ -81,15 +48,20 @@ export default function SimilarCountriesPage() {
             <Col>
               <TitleCurie
                 icon="ri-earth-line"
-                title={`Liste des pays membres de "${item.label}"`}
+                title={`Liste des pays/territoires membres de "${item.label}"`}
               />
             </Col>
           </Row>
           <Row className="fr-mt-2w">
             <Col n="12">
-              <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-                {Parser(groups.find((el) => el.code === item.code).definition)}
-              </Highlight>
+              {groups.find((el) => el.code === item.code).definition ? (
+                <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                  {Parser(groups.find((el) => el.code === item.code).definition)}
+                </Highlight>
+              ) : (
+                ''
+              )}
+              {/* {Parser(groups.find((el) => el.code === item.code).definition)} */}
             </Col>
           </Row>
           <Row gutters>
@@ -116,15 +88,19 @@ export default function SimilarCountriesPage() {
             <Col>
               <TitleCurie
                 icon="ri-earth-line"
-                title={`Liste des pays membres de "${item.label}"`}
+                title={`Liste des pays/territoires membres de "${item.label}"`}
               />
             </Col>
           </Row>
           <Row className="fr-mt-2w">
             <Col n="12">
-              <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-                {groups.find((el) => el.code === item.code).definition}
-              </Highlight>
+              {groups.find((el) => el.code === item.code).definition ? (
+                <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                  {Parser(groups.find((el) => el.code === item.code).definition)}
+                </Highlight>
+              ) : (
+                ''
+              )}
             </Col>
           </Row>
           <Row gutters>
@@ -146,6 +122,32 @@ export default function SimilarCountriesPage() {
           </Row>
         </>
       ))}
+      <Row>
+        <Col>
+          <TitleCurie
+            icon="ri-earth-line"
+            title="Liste des pays/territoires ayant un Indice de Développement Humain proche"
+            subTitle={idh.date_et_origine_moissonnage}
+          />
+        </Col>
+      </Row>
+      <Row className="fr-mt-2w">
+        <Col n="12">
+          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+            {Parser(idh.definition)}
+          </Highlight>
+        </Col>
+      </Row>
+      <Row gutters>
+        {idhGroupCountries.map((iso) => (
+          <Col n="3" key={iso}>
+            <CountryCard
+              title={getLabel(iso)}
+              isoCode={iso}
+            />
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 }

@@ -1,5 +1,26 @@
 [
   {
+    "code": "ue27",
+    "label": "Europe des Vingt-Sept",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "g7",
+    "label": "G7",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
+    "code": "g20",
+    "label": "G20",
+    "definition": "blabla",
+    "mapColor": "#695453",
+    "mapFillColor": "#FEEBD0"
+  },
+  {
     "code": "bologne",
     "label": "Processus de bologne",
     "mapColor": "#0063D0",
@@ -22,28 +43,24 @@
   {
     "code": "sub_saharan_africa",
     "label": "Afrique et Océan Indien",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "middle_east_north_africa",
     "label": "Afrique du Nord et Moyen-Orient",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "central_america_caraibes",
     "label": "Amérique centrale et Caraïbes",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "asia_oceania",
     "label": "Asie-Océanie",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
@@ -57,21 +74,18 @@
   {
     "code": "continental_europe",
     "label": "Europe continentale",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "south_america",
     "label": "Amérique du sud",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "north_america",
     "label": "Amérique du nord",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   }
