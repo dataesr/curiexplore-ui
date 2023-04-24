@@ -25,15 +25,6 @@ export default function checkGeographicItems(fields) {
   if (fields.north_america === 'True') {
     items.push({ label: 'Amérique du nord', code: 'north_america' });
   }
-  if (fields.ue27 === 'True') {
-    items.push({ label: 'Europe des Vingt-sept', code: 'ue27' });
-  }
-  if (fields.g7 === 'True') {
-    items.push({ label: 'G7', code: 'g7' });
-  }
-  if (fields.g20 === 'True') {
-    items.push({ label: 'G20', code: 'g20' });
-  }
 
   return items;
 }

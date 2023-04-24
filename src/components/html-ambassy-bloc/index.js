@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
-import { Col, Container, Row, Title, Button } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Button } from '@dataesr/react-dsfr';
 import { useState } from 'react';
+
+import Title from '../title';
 
 export default function HtmlAmbassyBloc({ data }) {
   const [revealed, setRevealed] = useState(false);
@@ -11,21 +13,27 @@ export default function HtmlAmbassyBloc({ data }) {
     setRevealed(!revealed);
   };
 
+  const subtitle = (
+    <>
+      Rédigé en&nbsp;
+      {data.submitdateclean}
+      &nbsp;sous la responsabilité éditoriale du poste diplomatique
+    </>
+  );
+
   return (
     <Container fluid>
       <Row>
         <Col>
-          <Title as="h3">
-            {data.thematique}
-          </Title>
+          <Title
+            as="h3"
+            title={data.thematique}
+            subTitle={subtitle}
+            icon=""
+          />
         </Col>
       </Row>
-      <Row className="fr-mb-1w">
-        Rédigé en&nbsp;
-        {data.submitdateclean}
-        &nbsp;sous la responsabilité éditoriale du poste diplomatique
-      </Row>
-      <Row>
+      <Row className="fr-mb-3w">
         <Col n="12">
           {revealed ? (
             <>

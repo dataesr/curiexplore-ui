@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
-import { Container, Col, Row, Title, Highlight } from '@dataesr/react-dsfr';
+import { Col, Row } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import ScimagoChart from './components/scimago';
 
+import Title from '../../../../components/title';
 import charts from './charts.json';
 import ThematicsChart from '../../../../components/open-alex-charts/thematics-chart';
 
@@ -27,21 +28,19 @@ export default function CountryResearchPage() {
   }, [contextData, isoCode]);
 
   return (
-    <Container>
+    <>
       <Row>
         <Col n="12">
           <HtmlAmbassyBloc data={dataRI} />
         </Col>
       </Row>
       <Row>
-        <Title as="h3">
-          Les données de la recherche et de l'innovation
-        </Title>
-      </Row>
-      <Row>
-        <Highlight className="fr-mb-3w">
-          Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
-        </Highlight>
+        <Title
+          as="h3"
+          title="Les données de la recherche et de l'innovation"
+          subTitle="Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an."
+          icon=""
+        />
       </Row>
       <Row>
         <Col>
@@ -54,6 +53,6 @@ export default function CountryResearchPage() {
           <ChartComponents charts={charts} />
         </Col>
       </Row>
-    </Container>
+    </>
   );
 }

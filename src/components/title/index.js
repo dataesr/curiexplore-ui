@@ -2,15 +2,21 @@ import PropTypes from 'prop-types';
 import { Icon, Text, Title } from '@dataesr/react-dsfr';
 
 export default function TitleComponent({ icon, title, subTitle, as, look }) {
+  const spaces = ((subTitle) ? ('fr-mb-0') : ('fr-mb-2w'));
+
   return (
     <>
-      <Title as={as} look={look} className="fr-mb-0">
-        <Icon name={icon} />
+      <Title as={as} look={look} className={spaces}>
+        {
+          (icon) ? (
+            <Icon name={icon} />
+          ) : null
+        }
         {title}
       </Title>
       {
         (subTitle) ? (
-          <Text className="fr-mb-0">{subTitle}</Text>
+          <Text className="fr-mb-3w">{subTitle}</Text>
         ) : null
       }
     </>
@@ -26,7 +32,7 @@ TitleComponent.propTypes = {
 };
 
 TitleComponent.defaultProps = {
-  icon: 'ri-pie-chart-2-fill',
+  icon: '',
   subTitle: '',
   as: 'h3',
   look: 'h3',
