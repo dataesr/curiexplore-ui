@@ -18,6 +18,9 @@ import StudentsMobilityPage from './pages/country/components/students-mobility';
 import ContactsAndResourcesPage from './pages/country/components/contacts-and-resources';
 import DirectoryPage from './pages/directory';
 import SimilarCountriesPage from './pages/country/components/similar-countries';
+import ExportPage from './pages/country/components/export';
+import CountryLinksPages from './pages/country/components/country-links';
+import NotFound from './pages/not-found';
 
 const messages = {
   'fr-FR': messagesFR,
@@ -31,6 +34,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
+            <Route path="*" element={<NotFound />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/pays/:isoCode" element={<Country />}>
               <Route path="" element={<Navigate to="profile" replace />} />
@@ -40,12 +44,13 @@ export default function App() {
               <Route path="politique-esri" element={<CountryPolicyPage />} />
               <Route path="acteurs" element={<ActorsPage />} />
               <Route path="acteurs/:actorId" element={<ActorPage />} />
-
               <Route path="cooperation-avec-la-france" element={<FranceCooperationPage />} />
               <Route path="cooperation-internationale" element={<InternationalCooperationPage />} />
               <Route path="mobilite-etudiante" element={<StudentsMobilityPage />} />
               <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
               <Route path="pays-similaires" element={<SimilarCountriesPage />} />
+              <Route path="liens-utiles" element={<CountryLinksPages />} />
+              <Route path="export" element={<ExportPage />} />
             </Route>
             <Route path="/annuaire" element={<DirectoryPage />} />
           </Route>

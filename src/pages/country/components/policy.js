@@ -12,6 +12,12 @@ export default function CountryPolicyPage() {
     blocs.push(data.find((el) => (el.fields.thematique === 'Financement')).fields || null);
     blocs.push(data.find((el) => (el.fields.thematique === 'Evaluations')).fields || null);
     blocs.push(data.find((el) => (el.fields.thematique === 'Politique francophone')).fields || null);
+  } else {
+    return (
+      <div>
+        - Section vide -
+      </div>
+    );
   }
 
   return (
