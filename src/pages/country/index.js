@@ -98,7 +98,7 @@ export default function Fiche() {
                   <Icon name="ri-earth-line" size="1x" />
                   Pays similaires
                 </SideMenuLink>
-                <SideMenuLink asLink={<RouterLink to="liens-utiles" replace />} current={(selected === 'pays-similaires')}>
+                <SideMenuLink asLink={<RouterLink to="liens-utiles" replace />} current={(selected === 'liens-utiles')}>
                   <Icon name="ri-contacts-book-line" size="1x" />
                   Liens utiles
                 </SideMenuLink>
