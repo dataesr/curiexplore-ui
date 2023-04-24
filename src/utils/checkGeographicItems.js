@@ -29,10 +29,10 @@ export default function checkGeographicItems(fields) {
     items.push({ label: 'Europe des Vingt-sept', code: 'ue27' });
   }
   if (fields.g7 === 'True') {
-    items.push({ label: 'Groupe des sept', code: 'g7' });
+    items.push({ label: 'G7', code: 'g7' });
   }
   if (fields.g20 === 'True') {
-    items.push({ label: 'Groupe des vingt', code: 'g20' });
+    items.push({ label: 'G20', code: 'g20' });
   }
 
   return items;
