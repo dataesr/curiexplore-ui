@@ -33,11 +33,3 @@ export default function DirectoryPage() {
     </Container>
   );
 }
-DirectoryPage.propTypes = {
-
-};
-
-DirectoryPage.defaultProps = {
-  types: [],
-  title: 'Liens web',
-};
