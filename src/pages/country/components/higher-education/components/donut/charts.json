@@ -2,67 +2,56 @@
   {
     "title": "Education",
     "code": "FOSGP.5T8.F110",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#E18B76"
   },
   {
     "title": "Lettres et Arts",
     "code": "FOSGP.5T8.F200",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#417DC4"
   },
   {
     "title": "Sciences sociales, journalisme et information",
     "code": "FOSGP.5T8.F300",
-    "domain": "Autres",
     "colorDomain": "#FFCA00"
   },
   {
     "title": "Commerce, administration et droit",
     "code": "FOSGP.5T8.F400",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#009081"
   },
   {
     "title": "Agriculture, sylviculture, halieutique et sciences vétérinaire",
     "code": "FOSGP.5T8.F800",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#EA794A"
   },
   {
     "title": "Santé et Protection sociale",
     "code": "FOSGP.5T8.F900",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#465F9D"
   },
   {
     "title": "Services",
     "code": "FOSGP.5T8.F1000",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#A558A0"
   },
   {
     "title": "non-spécifié",
     "code": "FOSGP.5T8.FUK",
-    "domain": "Autres",
-    "colorDomain": "#FFCA00"
+    "colorDomain": "#D0C3B7"
   },
   {
     "title": "Sciences naturelles, mathématiques et statistiques",
     "code": "FOSGP.5T8.F500",
-    "domain": "Sciences, Technologies, Ingénierie et Mathématiques",
-    "colorDomain": "#F695240"
+    "colorDomain": "#00A95F"
   },
   {
     "title": "Technologies de l’information et de la communication",
     "code": "FOSGP.5T8.F600",
-    "domain": "Sciences, Technologies, Ingénierie et Mathématiques",
-    "colorDomain": "#F695240"
+    "colorDomain": "#FF732C"
   },
   {
     "title": "Ingénierie, industries de transformation et construction",
     "code": "FOSGP.5T8.F700",
-    "domain": "Sciences, Technologies, Ingénierie et Mathématiques",
-    "colorDomain": "#F695240"
+    "colorDomain": "#FFE552"
   }
 ]

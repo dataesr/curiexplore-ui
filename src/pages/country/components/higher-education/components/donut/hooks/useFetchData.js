@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Highcharts from 'highcharts';
 
 export default function useFetchData({ charts, countryCode }) {
   const [options, setOptions] = useState({});
@@ -24,38 +23,19 @@ export default function useFetchData({ charts, countryCode }) {
         const response = await fetch(query);
         const json = await response.json();
         const subDomains = [];
-        let brightness = [];
         const latestYear = json.records?.[0]?.fields.year;
-        setTitle(`Répartition des diplômés par domaine d'études, ${latestYear}`);
-
-        const domains = Object.values(charts.map((el) => (
-          {
-            name: el.domain,
-            y: json?.records?.filter((item) => (item.fields.code === el.code) && (item.fields.year === latestYear))
-              .map((item) => Math.round(item.fields.value))
-              ?.[0] || 0,
-            color: el.colorDomain,
-          }
-        )).reduce((acc, { name, color, y }) => {
-          const key = `${name}_${color}`;
-          acc[key] = acc[key] || { name, color, y: 0 };
-          acc[key].y += y;
-          return acc;
-        }, {}));
+        setTitle(`Répartition des étudiants diplômés par domaine d'études, ${latestYear}`);
 
         for (let j = 0; j < charts.length; j += 1) {
-          brightness = 0.1 - (j / charts.length) / 7;
           subDomains.push({
             name: charts[j].title,
             y: json?.records?.filter((el) => (el.fields.code === charts[j].code))
               .filter((el) => (el.fields.year === latestYear))
               .map((el) => Math.round(el.fields.value))
               ?.[0] || 0,
-            color: Highcharts.color(charts[j].colorDomain).brighten(brightness).get(),
+            color: charts[j].colorDomain,
           });
         }
-
-        const sciences = domains.find((el) => el.name === 'Sciences, Technologies, Ingénierie et Mathématiques').y;
 
         setOptions({
           credits: {
@@ -74,27 +54,18 @@ export default function useFetchData({ charts, countryCode }) {
           plotOptions: {
             pie: {
               shadow: false,
-              center: ['50%', '50%'],
             },
           },
+          tooltip: {
+            enabled: false,
+          },
           series: [{
-            name: 'Domaines',
-            data: domains,
-            size: '60%',
-            dataLabels: {
-              formatter() {
-                return this.y ? `<b>${this.point.name}: ${this.y} % </b>` : null;
-              },
-              distance: '60%',
-            },
-          }, {
             name: 'Part des étudiants diplômés',
             data: subDomains,
-            innerSize: '60%',
             dataLabels: {
               formatter() {
                 // display only if around Sciences share
-                return this.y >= sciences - 1 ? `<b>${this.point.name}: ${this.y} % </b>` : null;
+                return this.y > 0 ? `<b>${this.point.name}, ${this.y} % </b>` : null;
               },
             },
           }],
