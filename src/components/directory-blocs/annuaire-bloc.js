@@ -25,97 +25,87 @@ function AnnuaireBloc({ selectedLetter }) {
 
   if (filteredData.length === 0 || data.length === 0) { return 'Loading ...'; }
 
-  // creation des listes d'adresses pour les markers de la carte avec une couleur associée
-  const addressesList = data?.embassy?.map((el) => (
-    {
-      tokenPaysage: 'embassy',
-      addresses: [{
-        gps: [el.currentLocalisation?.geometry?.coordinates[1], el.currentLocalisation?.geometry?.coordinates[0]] || null,
-        countryIso3: el.currentLocalisation.iso3,
-      }],
-      membershipCategories: ['embassy'],
+  const getObjAddress = (el, tokenPaysage) => {
+    if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {
+      return ({
+        tokenPaysage,
+        addresses: [{
+          gps: [el.currentLocalisation.geometry.coordinates[1], el.currentLocalisation.geometry.coordinates[0]],
+          countryIso3: el.currentLocalisation.iso3,
+        }],
+        membershipCategories: [tokenPaysage],
+      });
     }
-  )).concat(
-    data?.campusFrance?.map((el) => (
-      {
-        tokenPaysage: 'campusFrance',
-        addresses: [{
-          gps: [el.currentLocalisation?.geometry?.coordinates[1], el.currentLocalisation?.geometry?.coordinates[0]] || null,
-          countryIso3: el.currentLocalisation.iso3,
-        }],
-        membershipCategories: ['campusFrance'],
-      }
-    )),
-  ).concat(
-    data?.CCI?.map((el) => (
-      {
-        tokenPaysage: 'cci',
-        addresses: [{
-          gps: [el.currentLocalisation?.geometry?.coordinates[1], el.currentLocalisation?.geometry?.coordinates[0]] || null,
-          countryIso3: el.currentLocalisation.iso3,
-        }],
-        membershipCategories: ['cci'],
-      }
-    )),
-  );
+    return null;
+  };
+
+  // creation des listes d'adresses pour les markers de la carte avec une couleur associée
+  const addressesList = data?.embassy?.map((el) => (getObjAddress(el, 'embassy')))
+    .concat(data?.campusFrance?.map((el) => (getObjAddress(el, 'campusFrance')))
+      .concat(data?.CCI?.map((el) => (getObjAddress(el, 'cci')))));
 
   return (
     <Container>
       {filteredData.map((el) => (
         <Container fluid spacing="mb-6w" key={uuidv4()}>
-          {el.fields.iso3.length <= 3 ? (
-            <>
-              <Row alignItems="middle" className="fr-pb-1w">
-                <Link href={`../pays/${el.fields.iso3}`}>
-                  <Title as="h2" className="d-inline">
-                    {`${el.fields.name_fr} (${el.fields.name_native})`}
-                  </Title>
-                  <img alt="Drapeau" className="fr-ml-2w" src={el.fields.flag} height="40px" />
-                </Link>
-              </Row>
-              <Row gutters>
-                <Col n="12 md-6">
-                  <MapWithMarkers
-                    data={addressesList.filter((item) => item.addresses[0].countryIso3 === el.fields.iso3)}
-                    style={{ height: '430px' }}
-                  />
-                </Col>
-                <Col n="12 md-6">
-                  <Row gutters>
-                    {(data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
-                      <Col n="12">
-                        <StructureCard
-                          data={data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
-                          type="embassy"
-                          website={el.fields.website}
-                        />
-                      </Col>
-                    ) : null}
+          {(el.fields.iso3.length <= 3 && (
+            data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0
+            || data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0
+            || data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0
+          ))
+            ? (
+              <>
+                <Row alignItems="middle" className="fr-pb-1w">
+                  <Link href={`../pays/${el.fields.iso3}`}>
+                    <Title as="h2" className="d-inline">
+                      {`${el.fields.name_fr} (${el.fields.name_native})`}
+                    </Title>
+                    <img alt="Drapeau" className="fr-ml-2w" src={el.fields.flag} height="40px" />
+                  </Link>
+                </Row>
+                <Row gutters>
+                  <Col n="12 md-6">
+                    <MapWithMarkers
+                      data={addressesList.filter((item) => item !== null && item.addresses[0].countryIso3 === el.fields.iso3)}
+                      style={{ height: '430px' }}
+                    />
+                  </Col>
+                  <Col n="12 md-6">
+                    <Row gutters>
+                      {(data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
+                        <Col n="12">
+                          <StructureCard
+                            data={data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
+                            type="embassy"
+                            website={el.fields.website}
+                          />
+                        </Col>
+                      ) : null}
 
-                    {(data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
-                      <Col n="12">
-                        <StructureCard
-                          data={data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
-                          type="campusFrance"
-                          website={el.fields.website}
-                        />
-                      </Col>
-                    ) : null}
+                      {(data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
+                        <Col n="12">
+                          <StructureCard
+                            data={data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
+                            type="campusFrance"
+                            website={el.fields.website}
+                          />
+                        </Col>
+                      ) : null}
 
-                    {(data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
-                      <Col n="12">
-                        <StructureCard
-                          data={data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
-                          type="cci"
-                          website={el.fields.website}
-                        />
-                      </Col>
-                    ) : null}
-                  </Row>
-                </Col>
-              </Row>
-            </>
-          ) : null}
+                      {(data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
+                        <Col n="12">
+                          <StructureCard
+                            data={data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
+                            type="cci"
+                            website={el.fields.website}
+                          />
+                        </Col>
+                      ) : null}
+                    </Row>
+                  </Col>
+                </Row>
+              </>
+            ) : null}
         </Container>
       ))}
     </Container>

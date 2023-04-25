@@ -30,7 +30,7 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
     if (markers?.length) {
       markers.map((marker) => L.marker([marker.lat, marker.lng], { icon: getIcon(marker.color) }).addTo(map));
     }
-  }, [markers]);
+  }, [map, markers]);
 
   const countryGeoJSON = {
     ...worldGeoJSON,
