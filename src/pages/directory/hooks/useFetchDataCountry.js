@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const API_ODS_ENDPOINT = 'https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search';
-const { REACT_APP_ODS_API_KEY } = process.env;
-const ENDPOINT_V1 = `${API_ODS_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
+const { REACT_APP_ODS_API_KEY, REACT_APP_ODS_API_ENDPOINT } = process.env;
+const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
 
 export default function useFetchDataCountries() {
   const [dataCountries, setDataCountries] = useState([]);

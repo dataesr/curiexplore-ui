@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_PAYSAGE_API_KEY } = process.env;
-const getEndPoint = (categoryId) => `https://api.paysage.staging.dataesr.ovh/relations?filters[relationTag]=structure-categorie&filters[relatedObjectId]=${categoryId}&limit=10000`;
-const campusFrance = 'yP0pO';
-const embassy = 'ydmvQ';
-const CCI = 'OuHFD';
-const categories = [campusFrance, embassy, CCI];
+const {
+  REACT_APP_PAYSAGE_API_KEY,
+  REACT_APP_PAYSAGE_API_ENDPOINT,
+  REACT_APP_CATEGORY_CAMPUSFRANCE,
+  REACT_APP_CATEGORY_EMBASSY,
+  REACT_APP_CATEGORY_CCI,
+} = process.env;
+
+const getEndPoint = (categoryId) => `${REACT_APP_PAYSAGE_API_ENDPOINT}&filters[relatedObjectId]=${categoryId}&limit=10000`;
+const categories = [REACT_APP_CATEGORY_CAMPUSFRANCE, REACT_APP_CATEGORY_EMBASSY, REACT_APP_CATEGORY_CCI];
 const categoriesName = ['campusFrance', 'embassy', 'CCI'];
 
 export default function useFetchData() {
