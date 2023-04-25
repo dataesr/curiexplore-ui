@@ -1,7 +1,8 @@
-import { Container, Col, Row, Title } from '@dataesr/react-dsfr';
+import { Col, Row } from '@dataesr/react-dsfr';
 import { MapContainer } from 'react-leaflet';
 import { useParams, useOutletContext } from 'react-router-dom';
 
+import Title from '../../../../components/title';
 import CountryMap from '../../../../components/country-map';
 import ChartComponents from '../chart-components';
 
@@ -28,24 +29,36 @@ export default function CountryProfilePage() {
   const getDescription = (code) => {
     if (code.code === 'RNB') {
       return (
-        <Title as="h3">{`${Math.floor(code.value)} ${code.unit}`}</Title>
+        <Title
+          as="h3"
+          title={`${Math.floor(code.value)} ${code.unit}`}
+          icon=""
+        />
       );
     }
     if (code.code === 'IDH') {
       return (
-        <Title as="h3">{code.value}</Title>
+        <Title
+          as="h3"
+          title={code.value}
+          icon=""
+        />
       );
     }
     if (code.code === 'ESPVIE') {
       return (
-        <Title as="h3">{`${code.value.toFixed(1)} ${code.unit}`}</Title>
+        <Title
+          as="h3"
+          title={`${code.value.toFixed(1)} ${code.unit}`}
+          icon=""
+        />
       );
     }
     return null;
   };
 
   return (
-    <Container>
+    <>
       <Row gutters>
         <Col n="12">
           <MapContainer
@@ -111,6 +124,6 @@ export default function CountryProfilePage() {
           <ChartComponents charts={charts.filter((chart) => chart.type.split('-')[0] !== 'custom')} />
         </Col>
       </Row>
-    </Container>
+    </>
   );
 }

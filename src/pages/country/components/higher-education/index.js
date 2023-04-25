@@ -1,10 +1,11 @@
 /* eslint-disable max-len */
 import { useOutletContext } from 'react-router-dom';
-import { Container, Col, Row, Title, Highlight, Link } from '@dataesr/react-dsfr';
+import { Col, Row, Highlight, Link } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import GenericCard from '../../../../components/generic-card';
 
+import Title from '../../../../components/title';
 import charts from './charts.json';
 import PieChart from './components/donut/index';
 import Pyramid from './components/pyramid/index';
@@ -30,51 +31,57 @@ export default function CountryHigherEducationPage() {
   const getDescription = (code) => {
     if (code.code === 'MOYSCO') {
       return (
-        <Title as="h3">{`${code.value.toFixed(1)} ${code.unit}`}</Title>
+        <Title
+          as="h3"
+          title={`${code.value.toFixed(1)} ${code.unit}`}
+          icon=""
+        />
       );
     }
     if (code.code === 'ESPSCO') {
       return (
-        <Title as="h3">{`${code.value.toFixed(1)} ${code.unit}`}</Title>
+        <Title
+          as="h3"
+          title={`${code.value.toFixed(1)} ${code.unit}`}
+          icon=""
+        />
       );
     }
     return null;
   };
 
   return (
-    <Container>
+    <>
       <Row>
         <Col>
           <HtmlAmbassyBloc data={dataES} />
         </Col>
       </Row>
       <Row>
-        <Title as="h3">
-          Les données de l'enseignement supérieur
-        </Title>
-      </Row>
-      <Row>
-        <Highlight className="fr-mb-1w">
-          Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
-        </Highlight>
-      </Row>
-      <Row className="fr-mb-1w">
-        <Col>
-          <PieChart />
-        </Col>
+        <Title
+          as="h3"
+          title="Les données de l'enseignement supérieur"
+          subTitle="Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an."
+          icon=""
+        />
       </Row>
       <Row className="fr-mb-1w">
         <Col>
           <Pyramid />
         </Col>
       </Row>
+      <Row className="fr-mb-1w">
+        <Col>
+          <PieChart />
+        </Col>
+      </Row>
       <Row>
         <Title
           as="h4"
           look="h4"
-        >
-          L'indice d'éducation du pays
-        </Title>
+          title="L'indice d'éducation du pays"
+          icon="ri-book-open-fill"
+        />
       </Row>
       <Row gutters className="fr-mb-1w">
         <Col n="6">
@@ -113,6 +120,6 @@ export default function CountryHigherEducationPage() {
           <ChartComponents charts={charts} />
         </Col>
       </Row>
-    </Container>
+    </>
   );
 }
