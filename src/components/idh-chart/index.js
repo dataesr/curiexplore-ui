@@ -2,6 +2,7 @@ import { Col, Container, Icon, Link, Row, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import ChartTitle from '../title';
 import './custom-style.scss';
+import Tooltip from '../tooltip';
 
 const IDH_CATEGORIES = [
   {
@@ -104,6 +105,9 @@ export default function IDHChart({ group, flagUrl, idhCountry, idhAverage }) {
           <Col>
             <img src={flagUrl} alt="" style={{ float: 'left' }} />
             <div className="country-gauge" style={{ width: `${idhCountry * 100}%` }} />
+            <Tooltip content={`${group} : ${idhCountry}`} className="circle">
+              <Icon name="ri-question-mark" />
+            </Tooltip>
           </Col>
         </Row>
         <Row className="fr-pr-5w">
@@ -112,6 +116,9 @@ export default function IDHChart({ group, flagUrl, idhCountry, idhAverage }) {
               <Icon name="ri-global-fill" size="lg" />
             </div>
             <div className="average-gauge" style={{ width: `${idhAverage * 100}%` }} />
+            <Tooltip content={`Indice de développement humain mondial moyen : ${idhAverage}`} className="circle">
+              <Icon name="ri-question-mark" />
+            </Tooltip>
           </Col>
         </Row>
       </Container>
