@@ -7,7 +7,7 @@ import getLabel from '../../../utils/getLabel';
 import TitleCurie from '../../../components/title';
 import checkGeographicItems from '../../../utils/checkGeographicItems';
 import checkPolicyItems from '../../../utils/checkPolicyItems';
-import AdaptativeList from '../../../components/AdaptativeList';
+import AdaptativeList from '../../../components/adaptative-list';
 
 import groups from '../../../assets/data/groups.json';
 
