@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-import { Highlight } from '@dataesr/react-dsfr';
+import { Callout, CalloutText, Text } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
@@ -16,15 +16,15 @@ export default function PieChartComponent() {
   const chart = createRef();
 
   const source = (
-    <p>
+    <Text>
       Source:&nbsp;
       <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
-    </p>
+    </Text>
   );
 
   const explanation = (
-    <p>
-      Les domaines d'études sont définis par la&nbsp;
+    <Text>
+      Les domaines d'études sont définis selon la&nbsp;
       <strong>classification internationale type de l'éducation (CITE)</strong>
       .
       Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des
@@ -38,7 +38,7 @@ export default function PieChartComponent() {
         détail
       </a>
       .
-    </p>
+    </Text>
   );
 
   return (
@@ -55,9 +55,12 @@ export default function PieChartComponent() {
         options={options}
         ref={chart}
       />
-      <Highlight>
-        {explanation}
-      </Highlight>
+      {/* TODO : régler le problème d'icone dans le react-dsfr */}
+      <Callout hasInfoIcon={false}>
+        <CalloutText>
+          {explanation}
+        </CalloutText>
+      </Callout>
     </section>
   );
 }

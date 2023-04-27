@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { useOutletContext } from 'react-router-dom';
-import { Col, Row, Highlight, Link } from '@dataesr/react-dsfr';
+import { Col, Row, Link, Callout } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import GenericCard from '../../../../components/generic-card';
@@ -100,7 +100,7 @@ export default function CountryHigherEducationPage() {
         </Col>
       </Row>
       <Row className="fr-mb-1w">
-        <Highlight>
+        <Callout hasInfoIcon={false}>
           Les 3 dimensions qui permettent le calcul de l'indice de développement humain (IDH) sont: l'espérance de vie en bonne santé, le savoir et le niveau de vie.
           Le savoir est un indice d'éducation calculé à partir de l'espérance d'année de scolarisation et le nombre moyen d'années de scolarité.
           Le nombre d'année effectif de scolarité est observé sur la population adulte de plus de 25 ans.
@@ -113,7 +113,7 @@ export default function CountryHigherEducationPage() {
             détail
           </Link>
           .
-        </Highlight>
+        </Callout>
       </Row>
       <Row>
         <Col>

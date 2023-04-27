@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-import { Highlight } from '@dataesr/react-dsfr';
+import { Callout, CalloutText, Text } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
@@ -16,14 +16,14 @@ export default function PyramidComponent() {
   const chart = createRef();
 
   const source = (
-    <p>
+    <Text>
       Source:&nbsp;
       <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
-    </p>
+    </Text>
   );
 
   const explanation = (
-    <p>
+    <Text>
       Les niveaux d'études sont définis par la&nbsp;
       <strong>classification internationale type de l'éducation (CITE)</strong>
       .
@@ -37,7 +37,7 @@ export default function PyramidComponent() {
         détail
       </a>
       .
-    </p>
+    </Text>
   );
 
   return (
@@ -54,9 +54,11 @@ export default function PyramidComponent() {
         options={options}
         ref={chart}
       />
-      <Highlight>
-        {explanation}
-      </Highlight>
+      <Callout hasInfoIcon={false}>
+        <CalloutText>
+          {explanation}
+        </CalloutText>
+      </Callout>
     </section>
   );
 }

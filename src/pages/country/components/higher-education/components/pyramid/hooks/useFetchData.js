@@ -26,22 +26,22 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
         let series = [];
         let seriesCountry = [];
         let seriesCountryCurrent = [];
-        const latestYear = json.records?.[0]?.fields?.year;
+        const latestYearCountry = json.records?.filter((el) => el.fields.country_code === countryCode).map((el) => el?.fields?.year)[0];
         const ID_TOTAL = '25053';
         const categories = ['cycle court', 'licence', 'master', 'doctorat'];
-        setTitle(`Répartition de la part des diplômés par niveau d'études, ${latestYear}`);
+        setTitle(`Répartition de la part des diplômés par niveau d'études, ${latestYearCountry}`);
 
-        const total = json?.records?.filter((el) => (el.fields.country_code === countryCode && el.fields.year === latestYear && el.fields.code === ID_TOTAL))
+        const total = json?.records?.filter((el) => (el.fields.country_code === countryCode && el.fields.year === latestYearCountry && el.fields.code === ID_TOTAL))
           .map((el) => el?.fields?.value)[0];
 
-        const totalCurrent = json?.records?.filter((el) => (el.fields.country_code === countryCodeCurrent && el.fields.year === latestYear && el.fields.code === ID_TOTAL))
+        const totalCurrent = json?.records?.filter((el) => (el.fields.country_code === countryCodeCurrent && el.fields.year === latestYearCountry && el.fields.code === ID_TOTAL))
           .map((el) => el?.fields?.value)[0];
 
         for (let index = 0; index < charts.length; index += 1) {
-          seriesCountry.push(json?.records?.filter((el) => (el.fields.country_code === countryCode && el.fields.code === charts[index].code && el.fields.year === latestYear))
+          seriesCountry.push(json?.records?.filter((el) => (el.fields.country_code === countryCode && el.fields.code === charts[index].code && el.fields.year === latestYearCountry))
             .map((el) => Number(-(el.fields.value * 100) / total).toFixed(2))
             ?.[0] || 0);
-          seriesCountryCurrent.push(json?.records?.filter((el) => (el.fields.country_code === countryCodeCurrent && el.fields.code === charts[index].code && el.fields.year === latestYear))
+          seriesCountryCurrent.push(json?.records?.filter((el) => (el.fields.country_code === countryCodeCurrent && el.fields.code === charts[index].code && el.fields.year === latestYearCountry))
             .map((el) => ((el.fields.value * 100) / totalCurrent).toFixed(2))
             ?.[0] || 0);
         }

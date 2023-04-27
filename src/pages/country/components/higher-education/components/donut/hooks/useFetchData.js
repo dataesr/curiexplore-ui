@@ -34,6 +34,7 @@ export default function useFetchData({ charts, countryCode }) {
               .map((el) => Math.round(el.fields.value))
               ?.[0] || 0,
             color: charts[j].colorDomain,
+            legend: charts[j].legend,
           });
         }
 
@@ -57,14 +58,17 @@ export default function useFetchData({ charts, countryCode }) {
             },
           },
           tooltip: {
-            enabled: false,
+            enabled: true,
+            formatter() {
+              return this.point.legend;
+            },
           },
           series: [{
             name: 'Part des étudiants diplômés',
             data: subDomains,
             dataLabels: {
               formatter() {
-                // display only if around Sciences share
+                // display only if not null
                 return this.y > 0 ? `<b>${this.point.name}, ${this.y} % </b>` : null;
               },
             },
