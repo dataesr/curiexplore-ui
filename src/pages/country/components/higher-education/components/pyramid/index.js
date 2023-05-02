@@ -27,7 +27,40 @@ export default function PyramidComponent() {
       Les niveaux d'études sont définis par la&nbsp;
       <strong>classification internationale type de l'éducation (CITE)</strong>
       .
-      L'enseignement supérieur est compris dans les niveaux 5, 6, 7 et 8 de la CITE. Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des
+      L'enseignement supérieur est compris dans les niveaux 5, 6, 7 et 8 de la CITE.
+      {' '}
+      <br />
+      <ul>
+        <li>
+          Le
+          {' '}
+          <strong>niveau 5</strong>
+          {' '}
+          de la CITE équivaut à un cycle court, c'est le plus bas niveau de l'enseignement supérieur
+        </li>
+        <li>
+          Le
+          {' '}
+          <strong>niveau 6</strong>
+          {' '}
+          de la CITE équivaut à niveau de licence
+        </li>
+        <li>
+          Le
+          {' '}
+          <strong>niveau 7</strong>
+          {' '}
+          de la CITE équivaut à un niveau de master
+        </li>
+        <li>
+          Le
+          {' '}
+          <strong>niveau 8</strong>
+          {' '}
+          de la CITE équivaut à un niveau de doctorat
+        </li>
+      </ul>
+      Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des
       statistiques comparables à un niveau international. Voir le&nbsp;
       <a
         href="https://uis.unesco.org/sites/default/files/documents/international-standard-classification-of-education-isced-2011-fr.pdf"
