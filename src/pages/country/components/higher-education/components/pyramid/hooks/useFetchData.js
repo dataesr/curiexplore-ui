@@ -60,7 +60,7 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
           {
             name: countryCodeCurrent,
             data: seriesCountryCurrent,
-            color: 'blue-france-main-525',
+            color: '#000091',
           },
         ];
 
