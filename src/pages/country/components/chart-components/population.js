@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Title, Text, Icon } from '@dataesr/react-dsfr';
+import { Title, Text, Icon, Col } from '@dataesr/react-dsfr';
 
 import useFetchDataPopulation from './hooks/useFetchDataPopulation';
 import PopulationCard from '../../../../components/generic-card/index';
@@ -25,11 +25,15 @@ export default function PopulationComponent({ data, isoCode }) {
   );
 
   return (
-    <PopulationCard
-      badgeLabel={lastYear}
-      description={description}
-      title={data.title}
-    />
+    (evolution.data !== null) ? (
+      <Col n="4">
+        <PopulationCard
+          badgeLabel={lastYear}
+          description={description}
+          title={data.title}
+        />
+      </Col>
+    ) : null
   );
 }
 

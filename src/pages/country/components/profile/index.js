@@ -14,17 +14,17 @@ import IDHChart from '../../../../components/idh-chart';
 export default function CountryProfilePage() {
   const { isoCode } = useParams();
   const contextData = useOutletContext();
-  const dataCounrty = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
+  const dataCountry = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
 
   // Revenu national brut par habitant
-  const RNB = { ...dataIDH.find((el) => el.fields.code === 'RNB').fields };
+  const RNB = { ...dataIDH.find((el) => el.fields.code === 'RNB')?.fields };
 
   // Indice de développement humain
-  const IDH = { ...dataIDH.find((el) => el.fields.code === 'IDH').fields };
+  const IDH = { ...dataIDH.find((el) => el.fields.code === 'IDH')?.fields };
 
   // Espérance de vie à la naissance
-  const ESPVIE = { ...dataIDH.find((el) => el.fields.code === 'ESPVIE').fields };
+  const ESPVIE = { ...dataIDH.find((el) => el.fields.code === 'ESPVIE')?.fields };
 
   const getDescription = (code) => {
     if (code.code === 'RNB') {
@@ -80,45 +80,57 @@ export default function CountryProfilePage() {
           charts.filter((chart) => chart.type.split('-')[0] === 'custom'
             && chart.type.split('-')[0] !== 'population')
             .map((el) => (
-              <Col n="4">
-                <PopulationComponent isoCode={isoCode} data={el} />
-              </Col>
+              <PopulationComponent isoCode={isoCode} data={el} />
             ))
         }
+        {
+          (Object.keys(RNB).length !== 0) ? (
+            <Col n="4">
+              <GenericCard
+                badgeLabel={RNB.year}
+                description={getDescription(RNB)}
+                title={RNB.label}
+              />
+            </Col>
+          ) : null
+        }
+        {
+          (Object.keys(IDH).length !== 0) ? (
+            <Col n="4">
+              <GenericCard
+                badgeLabel={IDH.year}
+                description={getDescription(IDH)}
+                title={IDH.label}
+              />
+            </Col>
+          ) : null
+        }
+        {
+          (Object.keys(ESPVIE).length !== 0) ? (
+            <Col n="4">
+              <GenericCard
+                badgeLabel={ESPVIE.year}
+                description={getDescription(ESPVIE)}
+                title={ESPVIE.label}
+              />
+            </Col>
+          ) : null
+        }
       </Row>
-      <Row gutters>
-        <Col n="4">
-          <GenericCard
-            badgeLabel={RNB.year}
-            description={getDescription(RNB)}
-            title={RNB.label}
-          />
-        </Col>
-        <Col n="4">
-          <GenericCard
-            badgeLabel={IDH.year}
-            description={getDescription(IDH)}
-            title={IDH.label}
-          />
-        </Col>
-        <Col n="4">
-          <GenericCard
-            badgeLabel={ESPVIE.year}
-            description={getDescription(ESPVIE)}
-            title={ESPVIE.label}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col n="12">
-          <IDHChart
-            group={dataCounrty.fields.idh_group}
-            flagUrl={dataCounrty.fields.flag}
-            idhCountry={IDH.value}
-            idhAverage={0.732}
-          />
-        </Col>
-      </Row>
+      {
+        (Object.keys(IDH).length !== 0) ? (
+          <Row>
+            <Col n="12">
+              <IDHChart
+                group={dataCountry.fields.idh_group}
+                flagUrl={dataCountry.fields.flag}
+                idhCountry={IDH.value}
+                idhAverage={0.732}
+              />
+            </Col>
+          </Row>
+        ) : null
+      }
       <Row>
         <Col n="12">
           <ChartComponents charts={charts.filter((chart) => chart.type.split('-')[0] !== 'custom')} />
