@@ -62,7 +62,7 @@ export default function Fiche() {
           {!isExport && (
             <Col n="12 md-3">
               <SideMenu buttonLabel="Navigation">
-                <SideMenuLink asLink={<RouterLink to="profile" replace />} current={(selected === 'profile')}>
+                <SideMenuLink asLink={<RouterLink to="profil" replace />} current={(selected === 'profil')}>
                   <Icon name="ri-eye-2-line" size="1x" />
                   Connaitre le pays
                 </SideMenuLink>
@@ -114,10 +114,9 @@ export default function Fiche() {
                   </BreadcrumbItem>
                   <BreadcrumbItem>
                     {dataPays.name_fr}
-                    {' '}
-                    (
-                    {dataPays.name_native}
-                    )
+                  </BreadcrumbItem>
+                  <BreadcrumbItem>
+                    {selected}
                   </BreadcrumbItem>
                 </Breadcrumb>
                 <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">

@@ -37,8 +37,8 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/pays/:isoCode" element={<Country />}>
-              <Route path="" element={<Navigate to="profile" replace />} />
-              <Route path="profile" element={<CountryProfilePage />} />
+              <Route path="" element={<Navigate to="profil" replace />} />
+              <Route path="profil" element={<CountryProfilePage />} />
               <Route path="enseignement-sup" element={<CountryHigherEducationPage />} />
               <Route path="recherche" element={<CountryResearchPage />} />
               <Route path="politique-esri" element={<CountryPolicyPage />} />
