@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
-import { Col, Container, Row, Button } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Button, Text } from '@dataesr/react-dsfr';
 import { useState } from 'react';
 
 import Title from '../title';
@@ -38,12 +38,26 @@ export default function HtmlAmbassyBloc({ data }) {
           {revealed ? (
             <>
               {Parser(data.description)}
-              <Button onClick={handleClick}>Lire moins</Button>
+              <Row>
+                <Button onClick={handleClick}>Lire moins</Button>
+              </Row>
             </>
           ) : (
             <Col>
-              {Parser(data.description).slice(0, Math.floor(Parser(data.description).length / 4))}
-              <Button onClick={handleClick}>Lire plus</Button>
+              {
+                (data.description.length >= 2200) ? (
+                  <Row>
+                    <Row className="overlay">
+                      <Text>
+                        {Parser(data.description.slice(0, 2200))}
+                      </Text>
+                    </Row>
+                    <Row>
+                      <Button onClick={handleClick}>Lire plus</Button>
+                    </Row>
+                  </Row>
+                ) : Parser(data.description)
+              }
             </Col>
           )}
         </Col>

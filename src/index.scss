@@ -79,3 +79,10 @@ code {
 .embassy-border-card {
   border-bottom: 3px solid var(--embassy-color);
 }
+
+.overlay {
+  background: var(--text-title-grey);
+  background: linear-gradient(to bottom, var(--text-title-grey) 0%, var(--text-title-grey) 60%, rgba(255,255,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
