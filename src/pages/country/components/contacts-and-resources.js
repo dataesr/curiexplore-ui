@@ -4,7 +4,7 @@ import { Col, Container, Highlight, Row, Tile, Title } from '@dataesr/react-dsfr
 export default function ContactsAndResourcesPage() {
   return (
     <Container>
-      <Title as="h2">
+      <Title as="h2" className="fr-mt-5w">
         <i>Contact</i>
       </Title>
       <Highlight className="fr-mt-2w" colorFamily="yellow-tournesol">
