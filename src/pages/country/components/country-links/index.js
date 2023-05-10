@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { Badge, Col, Container, Link, Row, Tile, Title } from '@dataesr/react-dsfr';
+import { Badge, Col, Container, Link, Row, Title } from '@dataesr/react-dsfr';
 import { v4 as uuidV4 } from 'uuid';
 import useFetchData from './hooks/useFetchData';
-import TitleComponent from '../../../../components/title';
 
 export default function CountryLinksPages() {
   const { isoCode } = useParams();
