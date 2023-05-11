@@ -47,12 +47,12 @@ export default function App() {
               <Route path="cooperation-avec-la-france" element={<FranceCooperationPage />} />
               <Route path="cooperation-internationale" element={<InternationalCooperationPage />} />
               <Route path="mobilite-etudiante" element={<StudentsMobilityPage />} />
-              <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
               <Route path="pays-similaires" element={<SimilarCountriesPage />} />
               <Route path="liens-utiles" element={<CountryLinksPages />} />
               <Route path="export" element={<ExportPage />} />
             </Route>
             <Route path="/annuaire" element={<DirectoryPage />} />
+            <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
