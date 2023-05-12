@@ -2,79 +2,101 @@
   {
     "title": "Taux de mobilité vers le pays d'accueil (part des étudiants provenant de l'étranger dans l'ensemble des étudiants du pays d'accueil)",
     "code": "MSEP.5T8",
+    "unit": "%",
     "sort": "-year",
-    "type": "column",
+    "type": "line",
     "source": "Unesco",
-    "definition": "Nombre d'étudiants étrangers étudiant dans un pays donné, exprimé en pourcentage du total des inscriptions dans l'enseignement supérieur dans ce pays."
+    "definition": "Nombre d'étudiants étrangers étudiant dans un pays donné, exprimé en pourcentage du total des inscriptions dans l'enseignement supérieur dans ce pays.",
+    "base100": false
   },
   {
     "title": "Taux net de flux des étudiants en mobilité internationale (étudiants provenant de l'étranger dans le pays d'accueil - étudiants du pays à l'étranger)",
     "code": "MENFR.5T8",
+    "unit": "%",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": false
   },
   {
     "title": "Etudiants nationaux inscrits en Afrique subsaharienne",
     "code": "OE.5T8.40540",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits en Amerique du Nord et Europe occidentale",
     "code": "OE.5T8.40500",
+    "unit": "étudiants",
     "sort": "-year",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits en Amérique latine et les Caraïbes",
     "code": "OE.5T8.40520",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits en Asie centrale",
     "code": "OE.5T8.40505",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits en Asie du Sud et de l'Ouest",
     "code": "OE.5T8.40535",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits en Asie orientale et Pacifique",
     "code": "OE.5T8.40515",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits à l'étrange",
     "code": "OE.5T8.40510",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits en Europe centrale et orientale",
     "code": "OE.5T8.40530",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Etudiants nationaux inscrits dans les Etats arabes",
     "code": "OE.5T8.40525",
+    "unit": "étudiants",
     "sort": "-year",
     "type": "line",
-    "source": "Unesco"
+    "source": "Unesco",
+    "base100": true
   }
 ]

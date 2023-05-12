@@ -5,7 +5,8 @@
     "sort": "-year",
     "type": "line",
     "source": "Banque mondiale",
-    "definition": "Le PIB en PPA est le produit intérieur brut converti en dollars internationaux courants au moyen des taux de parité des pouvoirs d'achat (PPA). Un dollar international a le même pouvoir d'achat sur le PIB du pays déclarant qu'un dollar américain aux États-Unis. Le PIB est la somme de la valeur ajoutée brute de tous les producteurs résidents d'une économie plus toutes taxes sur les produits et moins les subventions non incluses dans la valeur des produits. Elle est calculée sans effectuer de déductions pour la dépréciation des biens fabriqués ou la perte de valeur ou la dégradation des ressources naturelles. Les données sont en dollars internationaux courants."
+    "definition": "Le PIB en PPA est le produit intérieur brut converti en dollars internationaux courants au moyen des taux de parité des pouvoirs d'achat (PPA). Un dollar international a le même pouvoir d'achat sur le PIB du pays déclarant qu'un dollar américain aux États-Unis. Le PIB est la somme de la valeur ajoutée brute de tous les producteurs résidents d'une économie plus toutes taxes sur les produits et moins les subventions non incluses dans la valeur des produits. Elle est calculée sans effectuer de déductions pour la dépréciation des biens fabriqués ou la perte de valeur ou la dégradation des ressources naturelles. Les données sont en dollars internationaux courants.",
+    "base100": true
   },
   {
     "title": "Croissance de la population",

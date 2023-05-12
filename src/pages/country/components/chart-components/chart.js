@@ -18,6 +18,7 @@ export default function Chart({ data, otherCodes, countryCode, hasDataHandler })
     countryCode,
     source: data.source,
     base100: data.base100,
+    unit: data.unit,
   });
 
   // test des données

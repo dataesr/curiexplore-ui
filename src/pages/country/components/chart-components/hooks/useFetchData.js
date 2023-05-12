@@ -39,6 +39,7 @@ export default function useFetchData(data) {
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValueCurrentCountry) * 100 : el.fields.value,
               value: el.fields.value.toFixed(2),
+              unit: data.unit,
             });
           });
 
@@ -61,6 +62,7 @@ export default function useFetchData(data) {
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValue) * 100 : el.fields.value,
               value: el.fields.value.toFixed(2),
+              unit: data.unit,
             }));
 
           const obj = {
@@ -77,7 +79,7 @@ export default function useFetchData(data) {
       setIsLoading(false);
     };
     getData();
-  }, [data.code, data.otherCodes, data.countryCode, data.sort, data.base100]);
+  }, [data.code, data.otherCodes, data.countryCode, data.sort, data.base100, data.unit]);
 
   const options = {
     credits: {
@@ -98,7 +100,7 @@ export default function useFetchData(data) {
     tooltip: {
       enabled: true,
       formatter() {
-        return `<p>${this.point.x}<br/> Valeur: ${this.point.value}</p>`;
+        return `<p><b>${this.point.x}</b> : ${this.point.value} ${this.point.unit}</p>`;
       },
     },
     series,

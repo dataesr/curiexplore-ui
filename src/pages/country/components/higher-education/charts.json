@@ -2,146 +2,181 @@
   {
     "title": "Effectif total scolarisé en cycle court (niveau 5 de la CITE)",
     "code": "25051",
+    "unit": "étudiants",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
+    "type": "line",
     "source": "Unesco",
-    "description": "explication du graph"
+    "base100": true
   },
   {
     "title": "Effectif total scolarisé en licence ou équivalent (niveau 6 de la CITE)",
     "code": "42654",
+    "unit": "étudiants",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Effectif total scolarisé en master ou équivalent (niveau 7 de la CITE)",
     "code": "42656",
+    "unit": "étudiants",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Effectif total scolarisé en doctorat ou équivalent (niveau 8 de la CITE)",
     "code": "25052",
+    "unit": "étudiants",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Effectif total scolarisé dans l'enseignement supérieur",
     "code": "25053",
+    "unit": "étudiants",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans d'autres domaines d'études que les Sciences",
     "code": "FOSGP.5T8.FNON500600700",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Agriculture, sylviculture, halieutique et sciences vétérinaire\"",
     "code": "FOSGP.5T8.F800",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Commerce, administration et droit\"",
     "code": "FOSGP.5T8.F400",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés au domaine d'études non-spécifié",
     "code": "FOSGP.5T8.FUK",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Education\"",
     "code": "FOSGP.5T8.F110",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Ingénierie, industries de transformation et construction\"",
     "code": "FOSGP.5T8.F700",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Lettres et Arts\"",
     "code": "FOSGP.5T8.F200",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Santé et Protection sociale\"",
     "code": "FOSGP.5T8.F900",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences naturelles, mathématiques et statistiques\"",
     "code": "FOSGP.5T8.F500",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences sociales, journalisme et information\"",
     "code": "FOSGP.5T8.F300",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences, Technologies, Ingénierie et Mathématiques\"",
     "code": "FOSGP.5T8.F500600700",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Services\"",
     "code": "FOSGP.5T8.F1000",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Technologies de l’information et de la communication\"",
     "code": "FOSGP.5T8.F600",
+    "unit": "%",
     "sort": "-year",
     "color": "#FFCA00",
-    "type": "column",
-    "source": "Unesco"
+    "type": "line",
+    "source": "Unesco",
+    "base100": true
   }
 ]
