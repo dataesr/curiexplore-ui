@@ -14,8 +14,8 @@ export default function StudentsMobilityPage() {
 
   const blocs = [];
   if (analyse.length !== 0) {
-    blocs.push(analyse.find((el) => (el.fields.thematique === 'Mobilité entrante')).fields || null);
-    blocs.push(analyse.find((el) => (el.fields.thematique === 'Mobilité sortante')).fields || null);
+    blocs.push(analyse.find((el) => (el.fields.thematique === 'Mobilité entrante'))?.fields || null);
+    blocs.push(analyse.find((el) => (el.fields.thematique === 'Mobilité sortante'))?.fields || null);
   }
 
   return (
