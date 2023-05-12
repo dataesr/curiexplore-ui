@@ -3,168 +3,196 @@
     "title": "Crédits budgétaires publics de R-D, total",
     "code": "C_PPP",
     "sort": "-year",
-    "type": "column"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Dépenses en recherche fondamentale en pourcentage du PIB",
     "code": "G_BRXGDP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Dépenses intramuros de R-D du secteur de l'enseignement supérieur (DIRDES), à prix courants ($ PPA)",
     "code": "H_PPP",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Dépenses intramuros de R-D du secteur de l'État (DIRDET), à prix courants ($ PPA)",
     "code": "GV_PPP",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Dépenses intérieures de R-D du secteur des entreprises à prix courants, à prix courants ($ PPA)",
     "code": "B_PPP",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Dépenses intérieures de R-D en pourcentage du PIB",
     "code": "G_XGDP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Dépenses intérieures de R-D financée par les entreprises en pourcentage du PIB",
     "code": "G_FGXGDP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Dépenses intérieures de R-D par habitant, à prix courants ($PPA)",
     "code": "G_XPOP",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Dépenses intérieures de R-D des entreprises en pourcentage du PIB",
     "code": "B_XGDP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Dépenses intérieures de R-D des entreprises financées par les entreprises en pourcentage de la valeur ajoutée dans l'industrie",
     "code": "B_FBXVA",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Dépenses intérieures de R-D de l'enseignement supérieur (DIRDES) en pourcentage du PIB",
     "code": "H_XGDP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Dépenses intérieures de R-D de l'Etat en pourcentage du PIB",
     "code": "GV_XGDP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans les services",
     "code": "B_XSERV",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans l'industrie aérospatiale",
     "code": "B_XAERO",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans l'industrie des ordinateurs, articles électroniques et optiques",
     "code": "B_XCOMP",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans l'industrie pharmaceutique",
     "code": "B_XDRUG",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Femmes chercheurs (personnes physiques)",
     "code": "TH_WRS",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": false
   },
   {
     "title": "Femmes chercheurs en pourcentage du total des chercheurs (personnes physiques)",
     "code": "TH_WRXRS",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": false
   },
   {
     "title": "Pourcentage de la DIRD financée par d'autres sources nationales",
     "code": "G_XFON",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises financées par le reste du monde",
     "code": "B_XFA",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises financées par les entreprises",
     "code": "B_XFB",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises financées par l'État",
     "code": "B_XFG",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Personnel total de R-D (ETP)",
     "code": "20000",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": false
   },
   {
     "title": "Chercheurs (ETP)",
     "code": "20001",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Techniciens (ETP)",
     "code": "20002",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Personnel total de R-D des entreprises (EPT)",
     "code": "BP_TT",
     "sort": "-year",
-    "type": "line"
+    "type": "line",
+    "base100": true
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D de l'enseignement supérieur financées par les entreprises",
     "code": "H_XFB",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D de l'Etat financées par les entreprises",
     "code": "GV_XFB",
     "sort": "-year",
-    "type": "column"
+    "type": "column",
+    "base100": false
   }
 ]

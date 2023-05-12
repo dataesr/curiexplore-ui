@@ -26,38 +26,45 @@ export default function useFetchData(data) {
 
         // Ajout des données du pays en cours
         const countryYears = [];
+        const firstValueCurrentCountry = json?.records?.filter((el) => el.fields.country_code === data.countryCode)
+          .sort((a, b) => a.fields.year - b.fields.year)
+          .find((el) => el.fields.value)
+          .fields.value;
+
         const dataSerieCurrentCountry = json?.records?.filter((el) => el.fields.country_code === data.countryCode)
           .sort((a, b) => a.fields.year - b.fields.year)
           .map((el) => {
             countryYears.push(el.fields.year);
             return ({
               x: Number(el.fields.year),
-              y: el.fields.value,
-              source: el.fields.source,
-              date: el.fields.date_et_origine_moissonnage,
+              y: (data.base100 === true) ? (el.fields.value / firstValueCurrentCountry) * 100 : el.fields.value,
+              value: el.fields.value.toFixed(2),
             });
           });
 
         s.push({
           name: getLabel(data.countryCode),
-          // data: countrySerie,
           data: dataSerieCurrentCountry,
           color: '#FFCA00',
         });
 
         // Ajout des données des autres pays (comparaison) en fonction des années du pays en cours
         for (let index = 0; index < data.otherCodes.length; index += 1) {
+          const firstValue = json?.records?.filter((el) => el.fields.country_code === data.otherCodes[index] && countryYears.includes(el.fields.year))
+            .sort((a, b) => a.fields.year - b.fields.year)
+            .find((el) => el.fields.value)
+            .fields.value;
+
           const dataSerie = json?.records?.filter((el) => el.fields.country_code === data.otherCodes[index] && countryYears.includes(el.fields.year))
             .sort((a, b) => a.fields.year - b.fields.year)
             .map((el) => ({
               x: Number(el.fields.year),
-              y: el.fields.value,
-
+              y: (data.base100 === true) ? (el.fields.value / firstValue) * 100 : el.fields.value,
+              value: el.fields.value.toFixed(2),
             }));
 
           const obj = {
             name: getLabel(data.otherCodes[index]),
-            // data: countrySerie,
             data: dataSerie,
           };
           if (data.otherCodes[index] === 'FRA') obj.color = '#000091';
@@ -70,7 +77,7 @@ export default function useFetchData(data) {
       setIsLoading(false);
     };
     getData();
-  }, [data.code, data.otherCodes, data.countryCode, data.sort]);
+  }, [data.code, data.otherCodes, data.countryCode, data.sort, data.base100]);
 
   const options = {
     credits: {
@@ -87,6 +94,12 @@ export default function useFetchData(data) {
     },
     subtitle: {
       text: `Source: ${data.source}`,
+    },
+    tooltip: {
+      enabled: true,
+      formatter() {
+        return `<p>${this.point.x}<br/> Valeur: ${this.point.value}</p>`;
+      },
     },
     series,
     title: {
