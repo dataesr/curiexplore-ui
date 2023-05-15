@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { Row, Col } from '@dataesr/react-dsfr';
-import GenericCard from '../../../../../../components/generic-card';
+import IndicatorCard from '../../../../../../components/indicator-card';
 
 import Title from '../../../../../../components/title';
-import charts2 from '../donut/charts.json';
+// Récupération des données affichées dans le donut
+import charts from '../donut/charts.json';
 
 export default function Overview({ data }) {
   let seriesCountry = [];
@@ -19,11 +20,11 @@ export default function Overview({ data }) {
     .find((el) => el.fields.code === '25053')?.fields };
 
   // Effectif par domaine d'études
-  for (let j = 0; j < charts2.length; j += 1) {
+  for (let j = 0; j < charts.length; j += 1) {
     seriesCountry.push({
-      label: charts2[j].title,
-      code: charts2[j].code,
-      value: data?.filter((el) => (el.fields?.code === charts2[j].code && el.fields?.year === total.year))
+      label: charts[j].label,
+      code: charts[j].code,
+      value: data?.filter((el) => (el.fields?.code === charts[j].code && el.fields?.year === total.year))
         .map((el) => Math.round(el.fields?.value))
         ?.[0] || 0,
       year: total.year,
@@ -47,7 +48,7 @@ export default function Overview({ data }) {
       return (
         <Title
           as="h3"
-          title={`${code.value.toFixed(0)}`}
+          title={`${Math.floor(code.value).toLocaleString()} étudiants`}
           icon=""
         />
       );
@@ -56,7 +57,7 @@ export default function Overview({ data }) {
       return (
         <Title
           as="h3"
-          title={`${code.value.toFixed(0)}% de l'effectif total scolarisé`}
+          title={`${code.value.toFixed(0)} %`}
           icon=""
         />
       );
@@ -76,7 +77,7 @@ export default function Overview({ data }) {
         {
           (Object.keys(total).length !== 0) ? (
             <Col n="4">
-              <GenericCard
+              <IndicatorCard
                 badgeLabel={total.year}
                 description={getDescription(total)}
                 title={total.label}
@@ -87,7 +88,7 @@ export default function Overview({ data }) {
         {
           (Object.keys(seriesCountry[0]).length !== 0) ? (
             <Col n="4">
-              <GenericCard
+              <IndicatorCard
                 badgeLabel={seriesCountry[0].year}
                 description={getDescription(seriesCountry[0])}
                 title={seriesCountry[0].label}
@@ -98,7 +99,7 @@ export default function Overview({ data }) {
         {
           (Object.keys(MOYSCO).length !== 0) ? (
             <Col n="4">
-              <GenericCard
+              <IndicatorCard
                 badgeLabel={MOYSCO.year}
                 description={getDescription(MOYSCO)}
                 title={MOYSCO.label}

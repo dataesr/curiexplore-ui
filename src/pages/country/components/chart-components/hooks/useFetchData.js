@@ -38,7 +38,7 @@ export default function useFetchData(data) {
             return ({
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValueCurrentCountry) * 100 : el.fields.value,
-              value: el.fields.value.toFixed(2),
+              value: Math.fround(el.fields.value).toLocaleString(),
               unit: data.unit,
             });
           });
@@ -61,7 +61,7 @@ export default function useFetchData(data) {
             .map((el) => ({
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValue) * 100 : el.fields.value,
-              value: el.fields.value.toFixed(2),
+              value: (el.fields.value.toFixed(2)).toLocaleString(),
               unit: data.unit,
             }));
 

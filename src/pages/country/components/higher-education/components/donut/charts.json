@@ -1,66 +1,77 @@
 [
   {
     "title": "Education",
+    "label":"Part d'étudiants dans le domaine de l'Education",
     "code": "FOSGP.5T8.F110",
     "colorDomain": "#E18B76",
     "legend":"Sciences de l'éducation<br/>Formation des enseignants au niveau préscolaire<br/>Formation des enseignants sans spécialisation<br/>Formation des enseignants avec spécialisation"
   },
   {
     "title": "Lettres et Arts",
+    "label":"Part d'étudiants dans les domaines des Lettres et des Arts",
     "code": "FOSGP.5T8.F200",
     "colorDomain": "#417DC4",
     "legend": "<b>Arts</b>: Techniques audiovisuelles et production multimédia - Stylisme, décoration et design industriel - Beaux-arts - Artisanat - Musique, théâtre, danse, cirque <br/><b>Lettres</b>: Religion et théologie - Histoire et archéologie - Philosophie et morale<br/><b>Langues</b>: Acquisition d'une langue - Littérature et linguistique"
   },
   {
     "title": "Sciences sociales, journalisme et information",
+    "label":"Part d'étudiants dans les domaines des sciences sociales, journalisme et information",
     "code": "FOSGP.5T8.F300",
     "colorDomain": "#FFCA00",
     "legend": "<b>Sciences sociales et du comportement</b>: Economie - Sciences politiques et éducation civique - Psychologie - Sociologie et études culturelles<br/><b>Journalisme et information</b>: Journalisme et reportage -  Formation aux bibliothèques, à la documentation et à l’archivisme"
   },
   {
     "title": "Commerce, administration et droit",
+    "label": "Part d'étudiants dans les domaines du commerce, administration et droit",
     "code": "FOSGP.5T8.F400",
     "colorDomain": "#009081",
     "legend": "<b>Commerce et administration</b>: Comptabilité et fiscalité - Finance, banque et assurances - Gestion et administration - Marketing et publicité - Travail de secrétariat et de bureau - Vente en gros et au détail - Compétences professionnelles<br/><b>Droit</b>"    
   },
   {
     "title": "Agriculture, sylviculture, halieutique et sciences vétérinaire",
+    "label": "Part d'étudiants dans les domaines de l'agriculture, sylviculture, halieutique et sciences vétérinaire",
     "code": "FOSGP.5T8.F800",
     "colorDomain": "#EA794A",
     "legend": "<b>Agriculture</b>: Culture et élevage - Horticulture<br/><b>Sylviculture</b><br/><b>Halieutique</b><br/><b>Sciences vétérinaires</b>"
   },
   {
     "title": "Santé et Protection sociale",
+    "label": "Part d'étudiants dans les domaines de la santé et de la protection sociale",
     "code": "FOSGP.5T8.F900",
     "colorDomain": "#465F9D",
     "legend": "<b>Santé</b>: Etudes dentaires - Médecine - Soins infirmiers et formation de sages-femmes - Diagnostic médical et technologie de traitement - Thérapie et rééducation - Pharmacie - Médecine et thérapies traditionnelles et complémentaires<br/><b>Protection sociale</b>: Soins gérontologiques et aux adultes handicapés - Soins aux enfants et à la jeunesse - Travail social et orientation"
   },
   {
     "title": "Services",
+    "label": "Part d'étudiants dans le domaine des Services",
     "code": "FOSGP.5T8.F1000",
     "colorDomain": "#A558A0",
     "legend": "<b>Services aux particuliers</b><br/><b>Hygiène et services de santé au travail</b><br/><b>Services de sûreté</b>:  Sécurité militaire et défense - Protection des biens et des personnes<br/><b>Services de transport</b>"
   },
   {
     "title": "non-spécifié",
+    "label": "Part d'étudiants dans un domaine non-spécifié",
     "code": "FOSGP.5T8.FUK",
     "colorDomain": "#D0C3B7",
     "legend":null
   },
   {
     "title": "Sciences naturelles, mathématiques et statistiques",
+    "label": "Part d'étudiants dans les domaines des sciences naturelles, mathématiques et statistiques",
     "code": "FOSGP.5T8.F500",
     "colorDomain": "#00A95F",
     "legend": "<b>Sciences biologiques et apparentées</b>: Biologie - Biochimie<br/><b>Evironnement</b>: Sciences environnementales - Environnements naturels et faune et flore</br><b>Sciences physiques</b>: Chimie - Sciences de la Terre - Physique<br/><b>Mathématiques et statistiques</b>"
   },
   {
     "title": "Technologies de l’information et de la communication",
+    "label": "Part d'étudiants dans les domaines des technologies de l'information et de la communication",
     "code": "FOSGP.5T8.F600",
     "colorDomain": "#FF732C",
     "legend": "<b>Technologies de l'information et de la communication (TIC)</b>: Utilisation d'un ordinateur - Conception et administration de bases de données et de réseau - Développement et analyse de logiciels et d'applications"
   },
   {
     "title": "Ingénierie, industries de transformation et construction",
+    "label": "Part d'étudiants dans les domaines de l'ingénierie, industries de transformation et construction",
     "code": "FOSGP.5T8.F700",
     "colorDomain": "#FFE552",
     "legend": "<b>Ingénierie et techniques apparentées</b>: Ingénierie chimique et processus - Technologie de la protection de l'environnement - Electricité et énergie - Electronique et automatisation - Mécanique et techniques apparentées - Véhicules à moteur, bateaux et aéronefs<br/><b>Industries de transformation et de traitement</b>: Traitement des aliments - Matériaux (verre, papier, plastique et bois) - Textiles (vêtements, chaussures et cuir) - Exploitation minière et extraction<br/><b>Architecture et bâtiment</b>: Architecture et urbanisme - Construction et génie civil"

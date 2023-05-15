@@ -31,7 +31,7 @@ export default function CountryProfilePage() {
       return (
         <Title
           as="h3"
-          title={`${Math.floor(code.value)} ${code.unit}`}
+          title={`${Math.floor(code.value).toLocaleString()} ${code.unit}`}
           icon=""
         />
       );
