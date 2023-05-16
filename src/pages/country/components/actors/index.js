@@ -12,7 +12,6 @@ import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/custom.scss';
-import useGetActors from './hooks/useGetActors';
 import List from './list';
 
 import MapCategoriesActors from './map-categories-actors';
@@ -21,38 +20,61 @@ export default function ActorsPage() {
   const contextData = useOutletContext();
   const data = contextData['actors-data'];
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const actors = useGetActors(data?.Structures?.data || [], selectedCategory);
 
-  const getLabel = (longLabel) => {
-    switch (longLabel) {
-    case "Établissement d'enseignement supérieur étranger":
-      return 'Enseignement supérieur';
-    case "Instance étrangère de contrôle/d'évaluation":
-      return 'Contrôle/évaluation';
-    case "Institution étrangère active en matière de recherche et d'innovation":
-      return 'Recherche et innovation';
-    case "Institution étrangère d'expertise et d'aide à la décision":
-      return 'Expertise';
-    case "Institution étrangère en charge de la définition des politiques d'enseignement supérieur, de recherche et d'innovation":
-      return 'Politique publique';
-    case "Institution étrangère en charge des politiques de mobilité pour l'enseignement supérieur et la recherche":
-      return 'Mobilité étudiante';
-    case "Institution étrangère en charge du financement de l'enseignement supérieur, de la recherche et de l'innovation":
-      return "Financement de l'ESRI";
-    default:
-      return null;
+  const categoriesLabels = [
+    {
+      id: 'NsMkU',
+      label: "Établissement d'enseignement supérieur étranger",
+      shortLabel: 'Enseignement supérieur',
+    },
+    {
+      id: 'IqD8w',
+      label: "Instance étrangère de contrôle/d'évaluation",
+      shortLabel: 'Contrôle/évaluation',
+    },
+    {
+      id: 'P3XZB',
+      label: "Institution étrangère active en matière de recherche et d'innovation",
+      shortLabel: 'Recherche et innovation',
+    },
+    {
+      id: 'C9nJr',
+      label: "Institution étrangère d'expertise et d'aide à la décision",
+      shortLabel: 'Expertise',
+    },
+    {
+      id: 'XQE8E',
+      label: "Institution étrangère en charge de la définition des politiques d'enseignement supérieur, de recherche et d'innovation",
+      shortLabel: 'Politique publique',
+    },
+    {
+      id: 'am1T8',
+      label: "Institution étrangère en charge des politiques de mobilité pour l'enseignement supérieur et la recherche",
+      shortLabel: 'Mobilité étudiante',
+    },
+    {
+      id: 'E61CB',
+      label: "Institution étrangère en charge du financement de l'enseignement supérieur, de la recherche et de l'innovation",
+      shortLabel: "Financement de l'ESRI",
+    },
+  ];
+
+  // creation des categories en fonction de la variable curieCategories et des libellés dans categories
+  const categories = {};
+  for (let index = 0; index < data.length; index += 1) {
+    const actor = data[index];
+    if (actor.curieCategories) {
+      for (let i = 0; i < actor.curieCategories.length; i += 1) {
+        const category = actor.curieCategories[i];
+        if (!categories[category] && categoriesLabels.map((cat) => cat.id).includes(category)) {
+          categories[category] = [];
+          categories[category].push(actor);
+        } else if (categories[category] && categoriesLabels.map((cat) => cat.id).includes(category)) {
+          categories[category].push(actor);
+        }
+      }
     }
-  };
-
-  const getCategories = (needles) => {
-    const labelCategoriesArray = [];
-    needles.forEach((needle) => {
-      const findedLabel = data.Categories.find((el) => el.id === needle).title;
-
-      labelCategoriesArray.push(getLabel(findedLabel));
-    });
-    return labelCategoriesArray;
-  };
+  }
 
   const setCategoryFilter = (newCategoryId) => {
     if (selectedCategory !== newCategoryId) {
@@ -62,13 +84,7 @@ export default function ActorsPage() {
     }
   };
 
-  // Ajout des labels des catégories
-  const actorsWithCategoriesLabels = [...actors];
-  actorsWithCategoriesLabels.forEach((actor, index) => {
-    actorsWithCategoriesLabels[index].membershipCategoriesLabels = getCategories(actor.membershipCategories).map((category) => (category));
-  });
-
-  if (data.Categories.length === 0 || !data.Structures?.iso) {
+  if (data.length === 0) {
     return (
       <Row>
         <Col>
@@ -77,6 +93,27 @@ export default function ActorsPage() {
       </Row>
     );
   }
+
+  const filteredData = selectedCategory ? data.filter((el) => el.curieCategories.includes(selectedCategory)) : data;
+
+  // transformation des données pour le composant MapWithMarkers
+  const getObjAddress = (el, idCat) => {
+    if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {
+      return ({
+        id: idCat,
+        gps: el.currentLocalisation.geometry.coordinates,
+        label: el.currentName,
+        iconColor: el.curieCategories[0],
+      });
+    }
+    return null;
+  };
+
+  const addressesList = [];
+  filteredData.forEach((actor) => {
+    const address = getObjAddress(actor, actor.curieCategories[0]);
+    if (address) addressesList.push(address);
+  });
 
   return (
     <>
@@ -93,38 +130,33 @@ export default function ActorsPage() {
         <Col n="3" key={uuidv4()}>
           <TagGroup>
             {
-              data.Categories
-                .filter((category) => category.title !== 'Implantation de structures étrangères en France')
+              Object.keys(categories)
                 .map((category) => (
                   <Tag
                     key={uuidv4()}
                     colorFamily="yellow-tournesol"
-                    onClick={() => setCategoryFilter(category.id)}
-                    selected={(category.id === selectedCategory)}
+                    onClick={() => setCategoryFilter(category)}
+                    selected={(category === selectedCategory)}
                   >
-                    {getLabel(category.title)}
+                    {categoriesLabels.find((el) => el.id === category).shortLabel}
                     &nbsp;
                     <Badge
-                      text={actorsWithCategoriesLabels.filter((el) => el.membershipCategories.includes(category.id)).length}
+                      text={categories[category].length}
                     />
                   </Tag>
                 ))
             }
           </TagGroup>
-
         </Col>
         <Col n="9" className="fr-pt-1w">
           <MapCategoriesActors
-            subTitle="Tous les acteurs"
-            actors={actorsWithCategoriesLabels}
-            categories={data.Categories}
-            isoCode={data.Structures.iso}
+            actors={addressesList}
           />
         </Col>
       </Row>
       <Row>
         <Col>
-          <List actors={actorsWithCategoriesLabels} />
+          <List actors={filteredData} categoriesLabels={categoriesLabels} />
         </Col>
       </Row>
     </>

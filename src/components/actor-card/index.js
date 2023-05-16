@@ -17,9 +17,14 @@ export default function ActorCard({
           </h6>
           <p className="fr-card__desc">
             <BadgeGroup>
-              {categories.map((categoryLabel) => (
-                <Badge text={categoryLabel} key={uuidv4()} />
-              ))}
+              {categories.map((categoryLabel) => {
+                if (categoryLabel === undefined) {
+                  return null;
+                }
+                return (
+                  <Badge text={categoryLabel} key={uuidv4()} />
+                );
+              })}
             </BadgeGroup>
           </p>
         </div>

@@ -4,9 +4,7 @@ import { Row, Col } from '@dataesr/react-dsfr';
 
 import MapWithMarkers from '../../../../components/map-with-markers';
 
-function MapList({
-  actors,
-}) {
+function MapList({ actors }) {
   return (
     <Row>
       <Col>
