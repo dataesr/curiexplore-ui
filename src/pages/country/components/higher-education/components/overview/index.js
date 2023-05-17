@@ -34,11 +34,12 @@ export default function Overview({ data }) {
   seriesCountry.sort((a, b) => b.value - a.value);
   seriesCountry = seriesCountry.slice(0, 1);
 
-  const getDescription = (code) => {
+  const getIndicator = (code) => {
     if (code.code === 'MOYSCO') {
       return (
         <Title
-          as="h3"
+          as="h4"
+          look="h4"
           title={`${code.value.toFixed(1)} ${code.unit}`}
           icon=""
         />
@@ -47,7 +48,8 @@ export default function Overview({ data }) {
     if (code.code === ID_TOTAL_STU) {
       return (
         <Title
-          as="h3"
+          as="h4"
+          look="h4"
           title={`${Math.floor(code.value).toLocaleString()} étudiants`}
           icon=""
         />
@@ -56,7 +58,8 @@ export default function Overview({ data }) {
     if (code.code === seriesCountry[0].code) {
       return (
         <Title
-          as="h3"
+          as="h4"
+          look="h4"
           title={`${code.value.toFixed(0)} %`}
           icon=""
         />
@@ -65,7 +68,7 @@ export default function Overview({ data }) {
     return null;
   };
   return (
-    <>
+    <Row className="fr-mb-1w">
       <Row>
         <Title
           as="h3"
@@ -79,8 +82,8 @@ export default function Overview({ data }) {
             <Col n="4">
               <IndicatorCard
                 badgeLabel={total.year}
-                description={getDescription(total)}
-                title={total.label}
+                indicator={getIndicator(total)}
+                description={total.label}
               />
             </Col>
           ) : null
@@ -90,8 +93,8 @@ export default function Overview({ data }) {
             <Col n="4">
               <IndicatorCard
                 badgeLabel={seriesCountry[0].year}
-                description={getDescription(seriesCountry[0])}
-                title={seriesCountry[0].label}
+                indicator={getIndicator(seriesCountry[0])}
+                description={seriesCountry[0].label}
               />
             </Col>
           ) : null
@@ -101,14 +104,14 @@ export default function Overview({ data }) {
             <Col n="4">
               <IndicatorCard
                 badgeLabel={MOYSCO.year}
-                description={getDescription(MOYSCO)}
-                title={MOYSCO.label}
+                indicator={getIndicator(MOYSCO)}
+                description={MOYSCO.label}
               />
             </Col>
           ) : null
         }
       </Row>
-    </>
+    </Row>
 
   );
 }

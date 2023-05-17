@@ -22,7 +22,7 @@ export default function HtmlAmbassyBloc({ data }) {
   );
 
   return (
-    <Container fluid>
+    <Container fluid className="fr-mb-1w">
       <Row>
         <Col>
           <Title

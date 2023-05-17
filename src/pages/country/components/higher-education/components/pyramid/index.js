@@ -74,7 +74,7 @@ export default function PyramidComponent() {
   );
 
   return (
-    <section>
+    <section className="fr-mb-1w">
       <ChartTitle
         title={title}
         icon="ri-bar-chart-horizontal-fill"

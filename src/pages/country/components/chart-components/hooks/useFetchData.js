@@ -30,6 +30,10 @@ export default function useFetchData(data) {
           .sort((a, b) => a.fields.year - b.fields.year)
           .find((el) => el.fields.value)
           .fields.value;
+        const firstYearCurrentCountry = json?.records?.filter((el) => el.fields.country_code === data.countryCode)
+          .sort((a, b) => a.fields.year - b.fields.year)
+          .find((el) => el.fields.year)
+          .fields.year;
 
         const dataSerieCurrentCountry = json?.records?.filter((el) => el.fields.country_code === data.countryCode)
           .sort((a, b) => a.fields.year - b.fields.year)
@@ -40,6 +44,7 @@ export default function useFetchData(data) {
               y: (data.base100 === true) ? (el.fields.value / firstValueCurrentCountry) * 100 : el.fields.value,
               value: Math.fround(el.fields.value).toLocaleString(),
               unit: data.unit,
+              ref: firstYearCurrentCountry,
             });
           });
 
@@ -55,6 +60,10 @@ export default function useFetchData(data) {
             .sort((a, b) => a.fields.year - b.fields.year)
             .find((el) => el.fields.value)
             .fields.value;
+          const firstYear = json?.records?.filter((el) => el.fields.country_code === data.countryCode)
+            .sort((a, b) => a.fields.year - b.fields.year)
+            .find((el) => el.fields.year)
+            .fields.year;
 
           const dataSerie = json?.records?.filter((el) => el.fields.country_code === data.otherCodes[index] && countryYears.includes(el.fields.year))
             .sort((a, b) => a.fields.year - b.fields.year)
@@ -63,6 +72,7 @@ export default function useFetchData(data) {
               y: (data.base100 === true) ? (el.fields.value / firstValue) * 100 : el.fields.value,
               value: (el.fields.value.toFixed(2)).toLocaleString(),
               unit: data.unit,
+              ref: firstYear,
             }));
 
           const obj = {
@@ -105,7 +115,7 @@ export default function useFetchData(data) {
     },
     series,
     title: {
-      text: data.title,
+      text: `${data.title} ${(data.base100 === true) ? '(base 100)' : ''}`,
     },
     xAxis: {
       type: 'category',

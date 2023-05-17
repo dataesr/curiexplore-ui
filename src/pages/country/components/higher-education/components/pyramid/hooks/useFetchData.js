@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
+import getLabel from '../../../../../../../utils/getLabel';
 
 export default function useFetchData({ charts, countryCode, countryCodeCurrent = 'FRA' }) {
   const [options, setOptions] = useState({});
@@ -53,12 +54,12 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
 
         series = [
           {
-            name: countryCode,
+            name: getLabel(countryCode),
             data: seriesCountry,
             color: '#FFCA00',
           },
           {
-            name: countryCodeCurrent,
+            name: getLabel(countryCodeCurrent),
             data: seriesCountryCurrent,
             color: '#000091',
           },

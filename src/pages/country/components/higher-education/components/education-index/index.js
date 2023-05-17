@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Callout, Row, Col, Link } from '@dataesr/react-dsfr';
-import GenericCard from '../../../../../../components/generic-card';
+import IndicatorCard from '../../../../../../components/indicator-card';
 
 import Title from '../../../../../../components/title';
 
@@ -11,11 +11,12 @@ export default function EducationIndex({ data }) {
   // Espérance de scolarisation
   const ESPSCO = { ...data.find((el) => el.fields.code === 'ESPSCO')?.fields };
 
-  const getDescription = (code) => {
+  const getIndicator = (code) => {
     if (code.code === 'MOYSCO') {
       return (
         <Title
-          as="h3"
+          as="h4"
+          look="h4"
           title={`${code.value.toFixed(1)} ${code.unit}`}
           icon=""
         />
@@ -24,7 +25,8 @@ export default function EducationIndex({ data }) {
     if (code.code === 'ESPSCO') {
       return (
         <Title
-          as="h3"
+          as="h4"
+          look="h4"
           title={`${code.value.toFixed(1)} ${code.unit}`}
           icon=""
         />
@@ -45,17 +47,17 @@ export default function EducationIndex({ data }) {
       </Row>
       <Row gutters className="fr-mb-1w">
         <Col n="6">
-          <GenericCard
+          <IndicatorCard
             badgeLabel={MOYSCO.year}
-            description={getDescription(MOYSCO)}
-            title={MOYSCO.label}
+            description={MOYSCO.label}
+            indicator={getIndicator(MOYSCO)}
           />
         </Col>
         <Col n="6">
-          <GenericCard
+          <IndicatorCard
             badgeLabel={ESPSCO.year}
-            description={getDescription(ESPSCO)}
-            title={ESPSCO.label}
+            description={ESPSCO.label}
+            indicator={getIndicator(ESPSCO)}
           />
         </Col>
       </Row>

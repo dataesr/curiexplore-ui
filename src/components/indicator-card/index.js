@@ -4,18 +4,18 @@ import { Badge } from '@dataesr/react-dsfr';
 export default function IndicatorCard({
   badgeLabel,
   description,
-  title,
+  indicator,
+  style,
 }) {
   return (
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey ">
       <div className="fr-card__body">
         <div className="fr-card__content fr-pb-1w">
-          <div className="fr-card__desc">
-            {title}
-            &nbsp;
-          </div>
-          <div className="fr-card__title text-center">
+          <div className="fr-card__desc text-center">
             {description}
+          </div>
+          <div className={`fr-card__title ${style}`}>
+            {indicator}
           </div>
           <div>
             <Badge text={badgeLabel} />
@@ -29,11 +29,13 @@ export default function IndicatorCard({
 IndicatorCard.propTypes = {
   badgeLabel: PropTypes.string,
   description: PropTypes.string,
-  title: PropTypes.string,
+  indicator: PropTypes.number,
+  style: PropTypes.string,
 };
 
 IndicatorCard.defaultProps = {
   badgeLabel: null,
   description: null,
-  title: null,
+  indicator: null,
+  style: 'text-center',
 };
