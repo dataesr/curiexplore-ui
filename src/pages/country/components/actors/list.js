@@ -3,7 +3,13 @@ import { Row, Col, Title, Badge, Icon } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
 import ActorCard from '../../../../components/actor-card';
 
-function List({ actors }) {
+function List({ actors, categoriesLabels }) {
+  const sortedActors = actors.sort((a, b) => {
+    if (a.displayName.toLowerCase() < b.displayName.toLowerCase()) { return -1; }
+    if (a.displayName.toLowerCase() > b.displayName.toLowerCase()) { return 1; }
+    return 0;
+  });
+
   return (
     <>
       <Row className="fr-pt-3w">
@@ -17,14 +23,13 @@ function List({ actors }) {
         </Col>
       </Row>
       <Row gutters>
-        {actors.map((actor) => (
+        {sortedActors.map((actor) => (
           <Col n="6" key={uuidv4()}>
             <ActorCard
-              categories={actor.membershipCategoriesLabels}
-              title={actor.nameFr}
-              url={`./${actor.tokenPaysage }`}
+              categories={actor?.curieCategories.map((catId) => (categoriesLabels.find((el) => el.id === catId)?.shortLabel))}
+              title={actor.displayName}
+              url={`./${actor.id}`}
             />
-
           </Col>
         ))}
       </Row>
@@ -34,6 +39,7 @@ function List({ actors }) {
 
 List.propTypes = {
   actors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  categoriesLabels: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default List;

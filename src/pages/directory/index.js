@@ -21,7 +21,7 @@ export default function DirectoryPage() {
   );
 
   return (
-    <Container>
+    <Container as="section">
       <Row gutters>
         <Col n="12" className="fr-mt-3w text-center">
           {LettersBloc()}

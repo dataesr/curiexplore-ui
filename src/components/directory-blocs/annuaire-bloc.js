@@ -25,15 +25,14 @@ function AnnuaireBloc({ selectedLetter }) {
 
   if (filteredData.length === 0 || data.length === 0) { return 'Loading ...'; }
 
-  const getObjAddress = (el, tokenPaysage) => {
+  const getObjAddress = (el, idCat) => {
     if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {
       return ({
-        tokenPaysage,
-        addresses: [{
-          gps: [el.currentLocalisation.geometry.coordinates[1], el.currentLocalisation.geometry.coordinates[0]],
-          countryIso3: el.currentLocalisation.iso3,
-        }],
-        membershipCategories: [tokenPaysage],
+        id: idCat,
+        gps: el.currentLocalisation.geometry.coordinates,
+        label: el.currentName,
+        iconColor: el.curieCategories[0],
+        iso3: el.iso3,
       });
     }
     return null;
@@ -47,7 +46,7 @@ function AnnuaireBloc({ selectedLetter }) {
   return (
     <Container>
       {filteredData.map((el) => (
-        <Container fluid spacing="mb-6w" key={uuidv4()}>
+        <Container fluid spacing="mb-6w" key={uuidv4()} as="section">
           {(el.fields.iso3.length <= 3 && (
             data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0
             || data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0
@@ -66,36 +65,36 @@ function AnnuaireBloc({ selectedLetter }) {
                 <Row gutters>
                   <Col n="12 md-6">
                     <MapWithMarkers
-                      data={addressesList.filter((item) => item !== null && item.addresses[0].countryIso3 === el.fields.iso3)}
+                      data={addressesList.filter((item) => item !== null && item.iso3 === el.fields.iso3)}
                       style={{ height: '430px' }}
                     />
                   </Col>
                   <Col n="12 md-6">
                     <Row gutters>
-                      {(data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
+                      {(data?.embassy?.filter((item) => (item.iso3 === el.fields.iso3)).length > 0) ? (
                         <Col n="12">
                           <StructureCard
-                            data={data?.embassy?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
+                            data={data?.embassy?.filter((item) => (item.iso3 === el.fields.iso3))}
                             type="embassy"
                             website={el.fields.website}
                           />
                         </Col>
                       ) : null}
 
-                      {(data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
+                      {(data?.campusFrance?.filter((item) => (item.iso3 === el.fields.iso3)).length > 0) ? (
                         <Col n="12">
                           <StructureCard
-                            data={data?.campusFrance?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
+                            data={data?.campusFrance?.filter((item) => (item.iso3 === el.fields.iso3))}
                             type="campusFrance"
                             website={el.fields.website}
                           />
                         </Col>
                       ) : null}
 
-                      {(data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3)).length > 0) ? (
+                      {(data?.CCI?.filter((item) => (item.iso3 === el.fields.iso3)).length > 0) ? (
                         <Col n="12">
                           <StructureCard
-                            data={data?.CCI?.filter((item) => (item.currentLocalisation.iso3 === el.fields.iso3))}
+                            data={data?.CCI?.filter((item) => (item.iso3 === el.fields.iso3))}
                             type="cci"
                             website={el.fields.website}
                           />
