@@ -12,7 +12,7 @@ const groupByLetters = (arr) => arr.reduce((acc, cur) => {
 export default function CountryList({ region }) {
   const filteredCountries = worldGeoJSON.features
     .filter((el) => {
-      if (el.properties.iso_a3 === 'FRA') return false;
+      if (el.properties.curiexplore === false) return false;
       if (region === 'world') return true;
       return (el.properties.region_wb === region);
     })
