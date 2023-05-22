@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 import Title from '../title';
 
-export default function HtmlAmbassyBloc({ data }) {
-  const [revealed, setRevealed] = useState(false);
+export default function HtmlAmbassyBloc({ data, exportView }) {
+  const [revealed, setRevealed] = useState(exportView);
   if (!data) return null;
 
   const handleClick = () => {
@@ -38,9 +38,11 @@ export default function HtmlAmbassyBloc({ data }) {
           {revealed ? (
             <>
               {Parser(data.description)}
-              <Row>
-                <Button onClick={handleClick}>Lire moins</Button>
-              </Row>
+              {(!exportView) ? (
+                <Row>
+                  <Button onClick={handleClick}>Lire moins</Button>
+                </Row>
+              ) : null}
             </>
           ) : (
             <Col>
@@ -68,8 +70,10 @@ export default function HtmlAmbassyBloc({ data }) {
 
 HtmlAmbassyBloc.defaultProps = {
   data: [],
+  exportView: false,
 };
 
 HtmlAmbassyBloc.propTypes = {
   data: PropTypes.object,
+  exportView: PropTypes.bool,
 };

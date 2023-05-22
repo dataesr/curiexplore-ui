@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   Breadcrumb, BreadcrumbItem,
   ButtonGroup,
@@ -26,21 +27,26 @@ const listModules = [
   'Mobilité étudiante',
 ];
 
-export default function Fiche() {
+export default function Fiche({ exportState }) {
   const { isoCode } = useParams();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const selected = pathname.split('/').pop();
   const { data, isLoading, error, isUnknownCountry } = useFetchData(isoCode);
+  const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
+  const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [exportList, setExportList] = useState([]);
   const [isExport, setIsExport] = useState(false);
+
+  useEffect(() => {
+    setIsExport(exportState);
+  }, [exportState]);
+
   if (isUnknownCountry) navigate('/404');
   if (isLoading) return <div>Loading ...</div>;
   if (error) return <div>Error ...</div>;
-
-  const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
-  const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
 
   const onCheckBoxClick = (label) => {
     if (!exportList.includes(label)) {
@@ -52,14 +58,17 @@ export default function Fiche() {
 
   const exportAction = () => {
     setIsExport(true);
-    navigate('export', { state: { exportList } });
+    navigate('export', { state: { exportList, fromUrl: `/pays/${isoCode}/profil`, isoCode } });
+    setIsModalOpen(false);
+    setIsExport(false);
   };
+
   if (!dataPays) return null;
   return (
     <>
       <Container spacing="pb-6w">
-        <Row>
-          {!isExport && (
+        {!isExport && (
+          <Row>
             <Col n="12 md-3">
               <SideMenu buttonLabel="Navigation">
                 <SideMenuLink asLink={<RouterLink to="profil" replace />} current={(selected === 'profil')}>
@@ -104,73 +113,74 @@ export default function Fiche() {
                 </SideMenuLink>
               </SideMenu>
             </Col>
-          )}
-          <Col n={`12 ${(isExport) ? 'md-12' : 'md-9'}`}>
-            <Container fluid spacing="mb-5w">
-              <Row className="fr-mt-1w stick">
-                <Breadcrumb>
-                  <BreadcrumbItem asLink={<RouterLink to="/" />}>
-                    Accueil
-                  </BreadcrumbItem>
-                  <BreadcrumbItem>
+
+            <Col n={`12 ${(isExport) ? 'md-12' : 'md-9'}`}>
+              <Container fluid spacing="mb-5w">
+                <Row className="fr-mt-1w stick">
+                  <Breadcrumb>
+                    <BreadcrumbItem asLink={<RouterLink to="/" />}>
+                      Accueil
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                      {dataPays.name_fr}
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                      {selected}
+                    </BreadcrumbItem>
+                  </Breadcrumb>
+                  <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">
+                    <Button
+                      tertiary
+                      borderless
+                      rounded
+                      title="Télécharger la synthèse"
+                      onClick={() => setIsModalOpen(!isModalOpen)}
+                      icon="ri-download-2-fill"
+                    />
+                    <Button
+                      tertiary
+                      borderless
+                      rounded
+                      title="Télécharger les données"
+                      icon="ri-file-excel-line"
+                    />
+                  </ButtonGroup>
+                </Row>
+                <Row spacing="mb-3v" alignItems="middle">
+                  <Title spacing="mb-1v" as="h2">
                     {dataPays.name_fr}
-                  </BreadcrumbItem>
-                  <BreadcrumbItem>
-                    {selected}
-                  </BreadcrumbItem>
-                </Breadcrumb>
-                <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">
-                  <Button
-                    tertiary
-                    borderless
-                    rounded
-                    title="Télécharger la synthèse"
-                    onClick={() => setIsModalOpen(!isModalOpen)}
-                    icon="ri-download-2-fill"
-                  />
-                  <Button
-                    tertiary
-                    borderless
-                    rounded
-                    title="Télécharger les données"
-                    // onClick={() => toggle()}
-                    icon="ri-file-excel-line"
-                  />
-                </ButtonGroup>
-              </Row>
-              <Row spacing="mb-3v" alignItems="middle">
-                <Title spacing="mb-1v" as="h2">
-                  {dataPays.name_fr}
-                  {' '}
-                  (
-                  {dataPays.name_native}
-                  )
-                </Title>
-                <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
-                <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
-                  {' '}
-                  Mis à jour le
-                  {' '}
-                  <FormattedDate
-                    value={dataTimestamp?.submitdate}
-                    day="numeric"
-                    month="long"
-                    year="numeric"
-                  />
-                </Text>
-              </Row>
-              <Row>
-                <CountryBadgeList data={dataPays} geographic />
-              </Row>
-              <Row>
-                <CountryBadgeList type="info" data={dataPays} policy />
-              </Row>
-            </Container>
-            <Container fluid as="section">
-              <Outlet context={data} />
-            </Container>
-          </Col>
-        </Row>
+                    {' '}
+                    (
+                    {dataPays.name_native}
+                    )
+                  </Title>
+                  <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
+                  <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
+                    {' '}
+                    Mis à jour le
+                    {' '}
+                    <FormattedDate
+                      value={dataTimestamp?.submitdate}
+                      day="numeric"
+                      month="long"
+                      year="numeric"
+                    />
+                  </Text>
+                </Row>
+                <Row>
+                  <CountryBadgeList data={dataPays} geographic />
+                </Row>
+                <Row>
+                  <CountryBadgeList type="info" data={dataPays} policy />
+                </Row>
+              </Container>
+              <Container fluid as="section">
+                <Outlet context={data} />
+              </Container>
+            </Col>
+          </Row>
+        )}
+
       </Container>
       <Modal
         size="lg"
@@ -213,3 +223,11 @@ export default function Fiche() {
     </>
   );
 }
+
+Fiche.defaultProps = {
+  exportState: false,
+};
+
+Fiche.propTypes = {
+  exportState: PropTypes.bool,
+};

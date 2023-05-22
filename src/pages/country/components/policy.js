@@ -23,7 +23,7 @@ export default function CountryPolicyPage() {
   return (
     <>
       {blocs.map((bloc) => (
-        <HtmlAmbassyBloc data={bloc} key={uuidv4()} />
+        <HtmlAmbassyBloc data={bloc} key={uuidv4()} exportView />
       ))}
     </>
   );

@@ -24,7 +24,6 @@ import NotFound from './pages/not-found';
 
 const messages = {
   'fr-FR': messagesFR,
-  // TODO: verifier pour tous les navigateurs
 };
 
 export default function App() {
@@ -49,7 +48,7 @@ export default function App() {
               <Route path="mobilite-etudiante" element={<StudentsMobilityPage />} />
               <Route path="pays-similaires" element={<SimilarCountriesPage />} />
               <Route path="liens-utiles" element={<CountryLinksPages />} />
-              <Route path="export" element={<ExportPage />} />
+              <Route path="export" element={<ExportPage />} replace />
             </Route>
             <Route path="/annuaire" element={<DirectoryPage />} />
             <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
