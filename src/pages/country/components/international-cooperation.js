@@ -15,8 +15,8 @@ export default function InternationalCooperationPage() {
     );
   }
 
-  blocs.push(data.find((el) => (el.fields.thematique === "Politique d'attractivité"))?.fields || null);
-  blocs.push(data.find((el) => (el.fields.thematique === 'Partenariats étrangers'))?.fields || null);
+  blocs.push(data.find((el) => (el.fields.codethematique === 'A7'))?.fields || null);
+  blocs.push(data.find((el) => (el.fields.codethematique === 'A8'))?.fields || null);
 
   return (
     <>

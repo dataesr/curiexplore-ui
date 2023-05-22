@@ -32,18 +32,18 @@ export default function ExportPage() {
   const cooperationBlocs = [];
   const studentMobility = [];
   if (dataAnalyse.length !== 0) {
-    policyBlocs.push(dataAnalyse.find((el) => (el.fields.thematique === 'Orientations stratégiques'))?.fields || null);
-    policyBlocs.push(dataAnalyse.find((el) => (el.fields.thematique === 'Financement'))?.fields || null);
-    policyBlocs.push(dataAnalyse.find((el) => (el.fields.thematique === 'Evaluations'))?.fields || null);
-    policyBlocs.push(dataAnalyse.find((el) => (el.fields.thematique === 'Politique francophone'))?.fields || null);
-    dataES = dataAnalyse.find((el) => (el.fields.thematique === 'Enseignement supérieur'))?.fields || null;
-    dataRI = dataAnalyse.find((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
+    policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A1'))?.fields || null);
+    policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A2'))?.fields || null);
+    policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A3'))?.fields || null);
+    policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A4'))?.fields || null);
+    dataES = dataAnalyse.find((el) => (el.fields.codethematique === 'A5'))?.fields || null;
+    dataRI = dataAnalyse.find((el) => (el.fields.codethematique === 'A6')).fields || null;
 
-    cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.thematique === "Politique d'attractivité"))?.fields || null);
-    cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.thematique === 'Partenariats étrangers'))?.fields || null);
+    cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A7'))?.fields || null);
+    cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A8'))?.fields || null);
 
-    studentMobility.push(dataAnalyse.find((el) => (el.fields.thematique === 'Mobilité entrante'))?.fields || null);
-    studentMobility.push(dataAnalyse.find((el) => (el.fields.thematique === 'Mobilité sortante'))?.fields || null);
+    studentMobility.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A9'))?.fields || null);
+    studentMobility.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A10'))?.fields || null);
   }
 
   setTimeout(() => {

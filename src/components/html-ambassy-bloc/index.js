@@ -23,16 +23,30 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
 
   return (
     <Container fluid className="fr-mb-1w">
-      <Row>
-        <Col>
-          <Title
-            as="h3"
-            title={data.thematique}
-            subTitle={subtitle}
-            icon=""
-          />
-        </Col>
-      </Row>
+      {(!exportView) ? (
+        <Row>
+          <Col>
+            <Title
+              as="h3"
+              title={data.thematique}
+              subTitle={subtitle}
+              icon=""
+            />
+          </Col>
+        </Row>
+      ) : (
+        <Row>
+          <Col>
+            <Title
+              as="h3"
+              look="h4"
+              title={data.thematique}
+              subTitle={subtitle}
+              icon=""
+            />
+          </Col>
+        </Row>
+      )}
       <Row className="fr-mb-3w">
         <Col n="12">
           {revealed ? (

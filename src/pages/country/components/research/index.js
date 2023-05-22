@@ -18,7 +18,7 @@ export default function CountryResearchPage() {
   let dataRI = [];
 
   if (data.length !== 0) {
-    dataRI = data.find((el) => (el.fields.thematique === 'Recherche et innovation')).fields || null;
+    dataRI = data.find((el) => (el.fields.codethematique === 'A6')).fields || null;
   } else {
     dataRI = '';
   }

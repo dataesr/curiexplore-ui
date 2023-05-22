@@ -8,10 +8,10 @@ export default function CountryPolicyPage() {
 
   const blocs = [];
   if (data.length !== 0) {
-    blocs.push(data.find((el) => (el.fields.thematique === 'Orientations stratégiques'))?.fields || null);
-    blocs.push(data.find((el) => (el.fields.thematique === 'Financement'))?.fields || null);
-    blocs.push(data.find((el) => (el.fields.thematique === 'Evaluations'))?.fields || null);
-    blocs.push(data.find((el) => (el.fields.thematique === 'Politique francophone'))?.fields || null);
+    blocs.push(data.find((el) => (el.fields.codethematique === 'A1'))?.fields || null);
+    blocs.push(data.find((el) => (el.fields.codethematique === 'A2'))?.fields || null);
+    blocs.push(data.find((el) => (el.fields.codethematique === 'A3'))?.fields || null);
+    blocs.push(data.find((el) => (el.fields.codethematique === 'A4'))?.fields || null);
   } else {
     return (
       <div>

@@ -18,7 +18,7 @@ export default function CountryHigherEducationPage() {
   let dataES = [];
 
   if (data.length !== 0) {
-    dataES = data.find((el) => (el.fields.codeThematique === 'A5'))?.fields || null;
+    dataES = data.find((el) => (el.fields.codethematique === 'A5'))?.fields || null;
   } else {
     dataES = '';
   }
