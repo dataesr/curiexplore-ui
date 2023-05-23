@@ -147,10 +147,11 @@ export default function Actor() {
     );
   }
 
-  const wikidata = dataActor.identifiers.find((identifier) => identifier.type === 'wikidata').value || null;
+  const wikidata = dataActor.identifiers.find((identifier) => identifier?.type === 'wikidata')?.value || null;
 
   return (
     <>
+
       <Row>
         <Col>
           <Title as="h3" className="fr-mb-0">
@@ -174,19 +175,22 @@ export default function Actor() {
           </Row>
         )
       }
-
-      {
+      <Row gutters>
+        {
         dataActor.currentLocalisation && (
-          <Row gutters>
-            <Col n="4">
-              <AddressCard address={dataActor.currentLocalisation} />
-            </Col>
-            <Col>
-              <MapWithMarkers data={[{ gps: dataActor.currentLocalisation.geometry.coordinates, label: dataActor.displayName, iconColor: 'blue' }]} />
-            </Col>
-          </Row>
+        <Col n="4">
+          <AddressCard address={dataActor.currentLocalisation} />
+        </Col>
+          )
+        }
+        {
+        dataActor.currentLocalisation.geometry && (
+          <Col>
+            <MapWithMarkers data={[{ gps: dataActor.currentLocalisation.geometry.coordinates, label: dataActor.displayName, iconColor: 'blue' }]} />
+          </Col>
         )
       }
+      </Row>
 
       {
         (dataActor.websites.length > 0 || dataActor.socialmedias.length > 0 || wikidata) && (
@@ -194,12 +198,13 @@ export default function Actor() {
             <Col>
               <Title as="h3">
                 Présence sur le web &nbsp;
-                {/* <Badge text={dataActor.websites.length} colorFamily="green-menthe" /> */}
+                <Badge text={dataActor.websites.length} colorFamily="green-menthe" />
               </Title>
             </Col>
           </Row>
         )
       }
+
       {
         dataActor.websites.length > 0 && (
           <Row gutters>
@@ -211,6 +216,7 @@ export default function Actor() {
           </Row>
         )
       }
+
       {
         dataActor.socialmedias.length > 0 && (
           <Row gutters>
