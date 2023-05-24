@@ -46,20 +46,29 @@ export default function EducationIndex({ data }) {
         />
       </Row>
       <Row gutters className="fr-mb-1w">
-        <Col n="6">
-          <IndicatorCard
-            badgeLabel={MOYSCO.year}
-            description={MOYSCO.label}
-            indicator={getIndicator(MOYSCO)}
-          />
-        </Col>
-        <Col n="6">
-          <IndicatorCard
-            badgeLabel={ESPSCO.year}
-            description={ESPSCO.label}
-            indicator={getIndicator(ESPSCO)}
-          />
-        </Col>
+        {
+          MOYSCO.year && (
+            <Col n="6">
+              <IndicatorCard
+                badgeLabel={MOYSCO.year}
+                description={MOYSCO.label}
+                indicator={getIndicator(MOYSCO)}
+              />
+            </Col>
+          )
+        }
+        {
+          ESPSCO.year && (
+            <Col n="6">
+              <IndicatorCard
+                badgeLabel={ESPSCO.year}
+                description={ESPSCO.label}
+                indicator={getIndicator(ESPSCO)}
+              />
+            </Col>
+
+          )
+        }
       </Row>
       <Row className="fr-mb-1w">
         <Callout hasInfoIcon={false}>

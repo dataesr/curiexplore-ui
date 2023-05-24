@@ -129,6 +129,7 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
             },
           },
           series,
+          total,
         });
       } catch (err) {
         setError(err);

@@ -74,24 +74,26 @@ export default function PyramidComponent() {
   );
 
   return (
-    <section className="fr-mb-1w">
-      <ChartTitle
-        title={title}
-        icon="ri-bar-chart-horizontal-fill"
-        subTitle={source}
-        as="h4"
-        look="h4"
-      />
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={options}
-        ref={chart}
-      />
-      <Callout hasInfoIcon={false}>
-        <CalloutText>
-          {explanation}
-        </CalloutText>
-      </Callout>
-    </section>
+    options.total !== undefined && (
+      <section className="fr-mb-1w">
+        <ChartTitle
+          title={title}
+          icon="ri-bar-chart-horizontal-fill"
+          subTitle={source}
+          as="h4"
+          look="h4"
+        />
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={options}
+          ref={chart}
+        />
+        <Callout hasInfoIcon={false}>
+          <CalloutText>
+            {explanation}
+          </CalloutText>
+        </Callout>
+      </section>
+    )
   );
 }

@@ -67,15 +67,14 @@ export default function Overview({ data }) {
     }
     return null;
   };
+
   return (
-    <Row className="fr-mb-1w">
-      <Row>
-        <Title
-          as="h3"
-          title="En un clin d'oeil"
-          icon="ri-search-eye-line"
-        />
-      </Row>
+    <>
+      <Title
+        as="h3"
+        title="En un clin d'oeil"
+        icon="ri-search-eye-line"
+      />
       <Row gutters className="fr-mb-1w">
         {
           (Object.keys(total).length !== 0) ? (
@@ -89,7 +88,7 @@ export default function Overview({ data }) {
           ) : null
         }
         {
-          (Object.keys(seriesCountry[0]).length !== 0) ? (
+          ((Object.keys(seriesCountry[0]).length !== 0) && (seriesCountry[0].value !== 0)) ? (
             <Col n="4">
               <IndicatorCard
                 badgeLabel={seriesCountry[0].year}
@@ -111,7 +110,7 @@ export default function Overview({ data }) {
           ) : null
         }
       </Row>
-    </Row>
+    </>
 
   );
 }

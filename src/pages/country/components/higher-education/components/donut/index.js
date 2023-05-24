@@ -42,25 +42,27 @@ export default function PieChartComponent() {
   );
 
   return (
-    <section>
-      <ChartTitle
-        title={title}
-        icon="ri-donut-chart-fill"
-        subTitle={source}
-        as="h4"
-        look="h4"
-      />
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={options}
-        ref={chart}
-      />
-      {/* TODO : régler le problème d'icone dans le react-dsfr */}
-      <Callout hasInfoIcon={false}>
-        <CalloutText>
-          {explanation}
-        </CalloutText>
-      </Callout>
-    </section>
+    options.sum !== 0 && (
+      <section>
+        <ChartTitle
+          title={title}
+          icon="ri-donut-chart-fill"
+          subTitle={source}
+          as="h4"
+          look="h4"
+        />
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={options}
+          ref={chart}
+        />
+        {/* TODO : régler le problème d'icone dans le react-dsfr */}
+        <Callout hasInfoIcon={false}>
+          <CalloutText>
+            {explanation}
+          </CalloutText>
+        </Callout>
+      </section>
+    )
   );
 }

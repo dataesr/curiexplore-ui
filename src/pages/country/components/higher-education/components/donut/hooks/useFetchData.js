@@ -38,6 +38,15 @@ export default function useFetchData({ charts, countryCode }) {
           });
         }
 
+        const temp = subDomains.map((el) => (
+          el.y
+        ));
+
+        const sum = temp.reduce(
+          (accumulator, currentValue) => accumulator + currentValue,
+          0,
+        );
+
         setOptions({
           credits: {
             enabled: false,
@@ -73,6 +82,7 @@ export default function useFetchData({ charts, countryCode }) {
               },
             },
           }],
+          sum,
         });
       } catch (err) {
         setError(err);
