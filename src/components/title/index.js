@@ -14,6 +14,7 @@ export default function TitleComponent({ icon, title, subTitle, as, look }) {
         }
         {title}
       </Title>
+      {/* TODO: PROBLEME D'ALIGNEMENT TITRE. ex 32HYq */}
       {
         (subTitle) ? (
           <Text className="fr-mb-3w">{subTitle}</Text>
