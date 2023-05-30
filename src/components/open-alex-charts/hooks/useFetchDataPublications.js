@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const API_OPEN_ALEX_ENDPOINT = 'https://api.openalex.org/works';
+const API_OPEN_ALEX_ENDPOINT = 'https://api.openalex.org/works?mailto=bso@recherche.gouv.fr';
 
 export default function useFetchData(isoCode) {
   const [data, setData] = useState([]);
@@ -8,7 +8,7 @@ export default function useFetchData(isoCode) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const query = `${API_OPEN_ALEX_ENDPOINT}?filter=publication_year:2000-2023,institutions.country_code:${isoCode},institutions.country_code:fr&group_by=publication_year`;
+    const query = `${API_OPEN_ALEX_ENDPOINT}&filter=publication_year:2000-2023,institutions.country_code:${isoCode},institutions.country_code:fr&group_by=publication_year`;
 
     const getData = async () => {
       try {
