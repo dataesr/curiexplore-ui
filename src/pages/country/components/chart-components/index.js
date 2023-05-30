@@ -3,7 +3,6 @@ import { useOutletContext, useParams } from 'react-router-dom';
 
 import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
-import { v4 as uuidV4 } from 'uuid';
 
 import Chart from './chart';
 import Filters from './filters';
@@ -28,7 +27,6 @@ export default function ChartComponents({ charts }) {
         <Row gutters className="fr-mt-1w">
           <Col n="12">
             <Button onClick={() => setShowModal(true)} className="w-100 text-center">
-              {/* TODO : voir pourquoi l'alignement ne fonctionne pas dans le react-ds-fr */}
               <Icon name="ri-arrow-down-circle-line" />
               Comparer avec d'autres pays
               &nbsp;
@@ -40,7 +38,6 @@ export default function ChartComponents({ charts }) {
       <Row gutters>
         {charts.map((chart) => (
           <Chart
-            key={uuidV4()}
             data={chart}
             otherCodes={isoCodes}
             countryCode={isoCode}
