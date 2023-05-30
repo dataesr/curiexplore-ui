@@ -48,13 +48,18 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
         </Row>
       )}
       <Row className="fr-mb-3w">
-        <Col n="12">
+        <Col n="12" className="fr-mb-1w">
           {revealed ? (
             <>
               {Parser(data.description)}
               {(!exportView) ? (
-                <Row>
-                  <Button onClick={handleClick}>Lire moins</Button>
+                <Row className="fr-mt-1w">
+                  <Button
+                    onClick={handleClick}
+                    secondary
+                  >
+                    Lire moins
+                  </Button>
                 </Row>
               ) : null}
             </>
@@ -69,7 +74,12 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
                       </Text>
                     </Row>
                     <Row>
-                      <Button onClick={handleClick}>Lire plus</Button>
+                      <Button
+                        onClick={handleClick}
+                        secondary
+                      >
+                        Lire plus
+                      </Button>
                     </Row>
                   </Row>
                 ) : Parser(data.description)

@@ -1,25 +1,21 @@
 /* eslint-disable indent */
 import PropTypes from 'prop-types';
 import { useOutletContext, useParams } from 'react-router-dom';
-import { Row, Col, Title, Text, Link, Badge, Icon } from '@dataesr/react-dsfr';
+import { Row, Col, Text, Link, Badge, Icon, Callout } from '@dataesr/react-dsfr';
 import MapWithMarkers from '../../../../components/map-with-markers';
 
 import useGetActors from './hooks/useGetActors';
+import Title from '../../../../components/title';
 
 function WebSiteCard({ language, link, name }) {
   return (
-    <div className="fr-card fr-card--grey">
-      <div className="fr-card__body">
-        <div className="fr-card__content">
-          <h6 className="fr-card__title">
-            <Icon name="ri-global-line" />
-            <Link href={link} target="blank">
-              {`${name} (${language})`}
-            </Link>
-          </h6>
-        </div>
-      </div>
-    </div>
+    <h6 className="fr-card__title">
+      <Icon name="ri-global-line" />
+      <Link href={link} target="blank">
+        {`${name} (${language})`}
+      </Link>
+    </h6>
+
   );
 }
 
@@ -34,18 +30,12 @@ WebSiteCard.defaultProps = {
 
 function WikidataCard({ id }) {
   return (
-    <div className="fr-card fr-card--grey">
-      <div className="fr-card__body">
-        <div className="fr-card__content">
-          <h6 className="fr-card__title">
-            <Icon name="ri-wikipedia-line" />
-            <Link href={`https://www.wikidata.org/wiki/${id}`} target="blank">
-              {`Wikidata (${id})`}
-            </Link>
-          </h6>
-        </div>
-      </div>
-    </div>
+    <h6 className="fr-card__title">
+      <Icon name="ri-wikipedia-line" />
+      <Link href={`https://www.wikidata.org/wiki/${id}`} target="blank">
+        {`Wikidata (${id})`}
+      </Link>
+    </h6>
   );
 }
 WikidataCard.propTypes = {
@@ -110,21 +100,17 @@ RankingCard.propTypes = {
 
 function AddressCard({ address }) {
   return (
-    <div className="fr-card fr-card--grey">
-      <div className="fr-card__body">
-        <div className="fr-card__content">
-          <Icon name="ri-map-pin-line" size="xl" className="fr-mb-3w" />
-          {address.address && <Text className="fr-mb-0">{address.address}</Text>}
-          {address.place && <Text className="fr-mb-0">{address.place}</Text>}
-          {address.postbox && <Text className="fr-mb-0">{address.postbox}</Text>}
-          {address.postcode && <Text className="fr-mb-0">{address.postcode}</Text>}
-          {address.town && <Text className="fr-mb-0">{address.town}</Text>}
-          <Text>
-            {`${address.country}`}
-          </Text>
-        </div>
-      </div>
-    </div>
+    <>
+      <Icon name="ri-map-pin-line" size="xl" className="fr-mb-0" color="#e18b76" />
+      {address.address && <Text className="fr-mb-0-mt-1w">{address.address}</Text>}
+      {address.place && <Text className="fr-mb-0">{address.place}</Text>}
+      {address.postbox && <Text className="fr-mb-0">{address.postbox}</Text>}
+      {address.postcode && <Text className="fr-mb-0">{address.postcode}</Text>}
+      {address.city && <Text className="fr-mb-0">{address.city}</Text>}
+      <Text>
+        {`${address.country}`}
+      </Text>
+    </>
   );
 }
 AddressCard.propTypes = {
@@ -148,58 +134,61 @@ export default function Actor() {
   }
 
   const wikidata = dataActor.identifiers.find((identifier) => identifier?.type === 'wikidata')?.value || null;
+  const subtitle = dataActor?.currentName.officialName || null;
 
   return (
     <>
+      <Row className="fr-mb-2w">
+        <Title
+          as="h3"
+          className="fr-mb-0"
+          title={dataActor.displayName}
+          subTitle={subtitle}
+          icon=""
+        />
 
-      <Row>
-        <Col>
-          <Title as="h3" className="fr-mb-0">
-            {dataActor.displayName}
-          </Title>
-          {
-            dataActor.currentName.nameEn && <div><i>{dataActor.currentName.nameEn}</i></div>
-          }
-          {
-            dataActor.currentName.officialName && <div><i>{dataActor.currentName.officialName}</i></div>
-          }
-        </Col>
       </Row>
 
       {
         dataActor.descriptionFr && (
-          <Row gutters>
-            <Col n="12">
+          <Row className="fr-mb-2w">
+            <Callout hasInfoIcon={false}>
               {dataActor.descriptionFr}
-            </Col>
+            </Callout>
           </Row>
         )
       }
       <Row gutters>
         {
-        dataActor.currentLocalisation && (
-        <Col n="4">
-          <AddressCard address={dataActor.currentLocalisation} />
-        </Col>
+          dataActor.currentLocalisation.geometry && (
+            <Col n="8">
+              <MapWithMarkers data={[{ gps: dataActor.currentLocalisation.geometry.coordinates, label: dataActor.displayName, iconColor: 'blue' }]} />
+            </Col>
           )
         }
         {
-        dataActor.currentLocalisation.geometry && (
-          <Col>
-            <MapWithMarkers data={[{ gps: dataActor.currentLocalisation.geometry.coordinates, label: dataActor.displayName, iconColor: 'blue' }]} />
-          </Col>
-        )
-      }
+        dataActor.currentLocalisation && (
+        <Col n="4">
+          <Callout
+            hasInfoIcon={false}
+            colors={['#e18b76', '#eee']}
+          >
+            <AddressCard address={dataActor.currentLocalisation} />
+          </Callout>
+
+        </Col>
+          )
+        }
       </Row>
 
       {
         (dataActor.websites.length > 0 || dataActor.socialmedias.length > 0 || wikidata) && (
           <Row className="fr-pt-3w">
             <Col>
-              <Title as="h3">
-                Présence sur le web &nbsp;
-                <Badge text={dataActor.websites.length} colorFamily="green-menthe" />
-              </Title>
+              <Title
+                as="h3"
+                title="Présence sur le web"
+              />
             </Col>
           </Row>
         )
@@ -210,7 +199,12 @@ export default function Actor() {
           <Row gutters>
             {dataActor.websites.map((website) => (
               <Col n="4">
-                <WebSiteCard language={website.language} link={website.url} name="Site" />
+                <Callout
+                  hasInfoIcon={false}
+                  colors={['#009081', '#eee']}
+                >
+                  <WebSiteCard language={website.language} link={website.url} name="Site" />
+                </Callout>
               </Col>
             ))}
           </Row>
@@ -233,7 +227,12 @@ export default function Actor() {
         wikidata && (
           <Row gutters>
             <Col n="4">
-              <WikidataCard id={wikidata} />
+              <Callout
+                hasInfoIcon={false}
+                colors={['#009081', '#eee']}
+              >
+                <WikidataCard id={wikidata} />
+              </Callout>
             </Col>
           </Row>
         )

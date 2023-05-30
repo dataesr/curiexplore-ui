@@ -102,7 +102,6 @@ export default function ScimagoGraphComponent() {
 
   const chart = createRef();
 
-  // return 'scimago';
   return (
     <>
       <ChartTitle
