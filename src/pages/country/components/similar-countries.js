@@ -18,8 +18,8 @@ export default function SimilarCountriesPage() {
   const dataCountry = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
 
-  const idh = dataIDH.find((el) => el.fields.code === 'IDH').fields;
-  const idhGroupCountries = dataCountry.fields.idh_group_countries.split(',') || [];
+  const idh = dataIDH.find((el) => el.fields.code === 'IDH')?.fields || null;
+  const idhGroupCountries = dataCountry.fields.idh_group_countries?.split(',') || [];
   const borderCountries = dataCountry.fields.borders.split(',') || [];
 
   return (
@@ -61,7 +61,6 @@ export default function SimilarCountriesPage() {
               ) : (
                 ''
               )}
-              {/* {Parser(groups.find((el) => el.code === item.code).definition)} */}
             </Col>
           </Row>
           <Row gutters>
@@ -122,32 +121,38 @@ export default function SimilarCountriesPage() {
           </Row>
         </>
       ))}
-      <Row>
-        <Col>
-          <TitleCurie
-            icon="ri-earth-line"
-            title="Liste des pays/territoires ayant un Indice de Développement Humain proche"
-            subTitle={idh.date_et_origine_moissonnage}
-          />
-        </Col>
-      </Row>
-      <Row className="fr-mt-2w">
-        <Col n="12">
-          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-            {Parser(idh.definition)}
-          </Highlight>
-        </Col>
-      </Row>
-      <Row gutters>
-        {idhGroupCountries.map((iso) => (
-          <Col n="3" key={iso}>
-            <CountryCard
-              title={getLabel(iso)}
-              isoCode={iso}
-            />
-          </Col>
-        ))}
-      </Row>
+      {
+        idh && (
+          <>
+            <Row>
+              <Col>
+                <TitleCurie
+                  icon="ri-earth-line"
+                  title="Liste des pays/territoires ayant un Indice de Développement Humain proche"
+                  subTitle={idh.date_et_origine_moissonnage}
+                />
+              </Col>
+            </Row>
+            <Row className="fr-mt-2w">
+              <Col n="12">
+                <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                  {Parser(idh.definition)}
+                </Highlight>
+              </Col>
+            </Row>
+            <Row gutters>
+              {idhGroupCountries.map((iso) => (
+                <Col n="3" key={iso}>
+                  <CountryCard
+                    title={getLabel(iso)}
+                    isoCode={iso}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </>
+        )
+      }
     </Container>
   );
 }
