@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import getLabel from '../../../../../utils/getLabel';
+import formatNumber from '../../../../../utils/formatNumber';
 
 export default function useFetchData(data) {
   const [error, setError] = useState(null);
@@ -43,8 +44,10 @@ export default function useFetchData(data) {
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValueCurrentCountry) * 100 : el.fields.value,
               value: Math.fround(el.fields.value).toLocaleString(),
+              valueToPrint: formatNumber(Math.fround(el.fields.value)).toLocaleString(),
               unit: data.unit,
               ref: firstYearCurrentCountry,
+              label: getLabel(data.countryCode),
             });
           });
 
@@ -70,9 +73,11 @@ export default function useFetchData(data) {
             .map((el) => ({
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValue) * 100 : el.fields.value,
-              value: (el.fields.value.toFixed(2)).toLocaleString(),
+              value: Math.fround(el.fields.value).toLocaleString(),
+              valueToPrint: formatNumber(Math.fround(el.fields.value).toLocaleString()),
               unit: data.unit,
               ref: firstYear,
+              label: getLabel(data.otherCodes[index]),
             }));
 
           const obj = {
@@ -105,12 +110,12 @@ export default function useFetchData(data) {
       y: 0,
     },
     subtitle: {
-      text: `Source: ${data.source}`,
+      text: `Source : ${data.source}`,
     },
     tooltip: {
       enabled: true,
       formatter() {
-        return `<p><b>${this.point.x}</b> : ${this.point.value} ${this.point.unit}</p>`;
+        return `<p><b>${this.point.label}</b></p><br/><p><b>${this.point.x}</b> : ${this.point.valueToPrint} ${this.point.unit}</p>`;
       },
     },
     series,
