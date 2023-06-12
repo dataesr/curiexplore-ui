@@ -41,7 +41,6 @@ export default function FranceCooperationPage() {
             values: [years[years.length - 1]],
           },
         },
-        // sourceFields: ['id', 'label', 'acronym', 'keywords', 'type', 'participants', 'year'],
         aggregations: {
           'participants.structure.id': {
             field: 'participants.structure.id',
@@ -53,16 +52,6 @@ export default function FranceCooperationPage() {
             },
             size: 100,
           },
-          // type: {
-          //   field: 'type',
-          //   filters: {},
-          //   min_doc_count: 1,
-          //   order: {
-          //     direction: 'DESC',
-          //     type: 'COUNT',
-          //   },
-          //   size: 100,
-          // },
         },
       };
 
@@ -76,8 +65,6 @@ export default function FranceCooperationPage() {
       });
       const json = await response.json();
 
-      // idsProjects: response.data.results.map((el) => (el.value.id)),
-      // keywordsProjects: response.data.results.map((el) => ({ id: el.value.id, words: (el.value?.keywords?.en || el.value?.keywords?.fr) })),
       setDataProjects(json.facets[0].entries);
       setPending(1);
     };
@@ -208,7 +195,6 @@ export default function FranceCooperationPage() {
                   </div>
                   <div>
                     <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                    {/* <Tag small className="fr-ml-1w">{structure.nature}</Tag> */}
                     <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
                   </div>
                 </li>
@@ -240,7 +226,6 @@ export default function FranceCooperationPage() {
                   </div>
                   <div>
                     <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                    {/* <Tag small className="fr-ml-1w">{structure.nature}</Tag> */}
                     <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
                   </div>
                 </li>
