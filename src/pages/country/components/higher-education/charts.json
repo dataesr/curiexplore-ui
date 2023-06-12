@@ -57,7 +57,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Agriculture, sylviculture, halieutique et sciences vétérinaire\"",
@@ -67,7 +67,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Commerce, administration et droit\"",
@@ -77,7 +77,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés au domaine d'études non-spécifié",
@@ -87,7 +87,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Education\"",
@@ -97,7 +97,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Ingénierie, industries de transformation et construction\"",
@@ -107,7 +107,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Lettres et Arts\"",
@@ -117,7 +117,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Santé et Protection sociale\"",
@@ -127,7 +127,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences naturelles, mathématiques et statistiques\"",
@@ -137,7 +137,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences sociales, journalisme et information\"",
@@ -147,7 +147,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences, Technologies, Ingénierie et Mathématiques\"",
@@ -157,7 +157,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Services\"",
@@ -167,7 +167,7 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Technologies de l’information et de la communication\"",
@@ -177,6 +177,6 @@
     "color": "#FFCA00",
     "type": "line",
     "source": "Unesco",
-    "base100": true
+    "base100": false
   }
 ]
