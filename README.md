@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+# Curiexplore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La plateforme d'exploration dessystèmes d'enseignement supérieur, de recherche et d'innovation à l'international
 
-## Available Scripts
+CurieXplore propose un service d'aide à la compréhension des systèmes d'enseignement supérieur, de recherche et d'innovation des pays partenaires de la France.
 
-In the project directory, you can run:
+CurieXplore mobilise les statistiques de l'OCDE, de l'UNESCO ou de la Banque Mondiale. Produites selon des méthodologies communes par les instituts statistiques nationaux, ces statistiques permettent de positionner avec rigueur les pays les uns par rapport aux autres. En France, la production de ce type d'information, coordonnée par l'Institut national de la statistique et des études économiques (Insee), est assurée par les services de l'Insee et le réseau de la statistique publique. La sous-direction des systèmes d'information et des études statistiques (SIES), service statistique ministériel au sein du ministère de l'enseignement supérieur, de la recherche et de l'innovation est ainsi responsable de la production de l'information statistique sur champ de l'enseignement supérieur et de la recherche.
 
-### `npm start`
+CurieXplore combine cette information statistique avec les analyses qualitatives produites par les Conseiller.e.s de coopération et d'action culturelle (COCAC) et les Conseiller.e.s pour la science et la technologie des postes diplomatiques français à l'étranger. Ces experts partagent, au sein de CurieXplore, leur connaissance de terrain des systèmes d'enseignement supérieur, de recherche et d'innovation dans lesquels ils sont immergés.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Lancement du projet en local
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+npm start
+```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
