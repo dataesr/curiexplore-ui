@@ -5,6 +5,8 @@ import BarChart from './bar-chart';
 import useFetchData from './hooks/useFetchDataPublications';
 import getLabel from '../../utils/getLabel';
 
+const { REACT_APP_OPENALEX_RANGE } = process.env;
+
 export default function PublicationsChart({ iso2, iso3 }) {
   const { data } = useFetchData(iso2);
   const subTitle = (
@@ -22,7 +24,7 @@ export default function PublicationsChart({ iso2, iso3 }) {
         <Col n="12">
           <TitleComponent
             icon="ri-bar-chart-fill"
-            title={`Evolution du nombre de publications communes dans le temps. Collaboration entre "${getLabel(iso3)}" et "France".`}
+            title={`Evolution du nombre de publications communes dans le temps. Collaboration entre "${getLabel(iso3)}" et "France" (${REACT_APP_OPENALEX_RANGE}).`}
             as="h4"
             look="h4"
             subTitle={subTitle}
