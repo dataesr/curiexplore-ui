@@ -17,13 +17,13 @@ export default function FranceCooperationPage() {
   const [iso2, setIso2] = useState('');
   const urlProjects = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/projects/search';
   const urlStructures = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/structures/search';
+  const years = [2017, 2018, 2019];
 
   useEffect(() => {
     setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);
   }, [contextData, isoCode]);
 
   useEffect(() => {
-    const years = [2017, 2018, 2019];
     const getDataProjects = async () => {
       setPending(0);
       const body = {
@@ -133,6 +133,10 @@ export default function FranceCooperationPage() {
   const topTenFrenchTitle = (nb) => (
     <>
       Top des institutions Françaises travaillant avec le pays
+      {' '}
+      (
+      {years.join(', ')}
+      )
       <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
     </>
   );
@@ -140,6 +144,10 @@ export default function FranceCooperationPage() {
   const topTenCountryTitle = (nb) => (
     <>
       Top des institutions du pays travaillant avec la France
+      {' '}
+      (
+      {years.join(', ')}
+      )
       <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
     </>
   );
