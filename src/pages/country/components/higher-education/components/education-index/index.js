@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Callout, Row, Col, Link, Text } from '@dataesr/react-dsfr';
+import { Callout, Row, Col, Link } from '@dataesr/react-dsfr';
 import IndicatorCard from '../../../../../../components/indicator-card';
 
 import Title from '../../../../../../components/title';
@@ -14,20 +14,20 @@ export default function EducationIndex({ data }) {
   const getIndicator = (code) => {
     if (code.code === 'MOYSCO') {
       return (
-        <Text size="lead">
+        <h3 className="text-center fr-mb-0">
           {code.value.toFixed(1)}
           {' '}
           {code.unit}
-        </Text>
+        </h3>
       );
     }
     if (code.code === 'ESPSCO') {
       return (
-        <Text size="lead">
+        <h3 className="text-center fr-mb-0">
           {code.value.toFixed(1)}
           {' '}
           {code.unit}
-        </Text>
+        </h3>
       );
     }
     return null;
@@ -49,8 +49,8 @@ export default function EducationIndex({ data }) {
             <Col n="6">
               <IndicatorCard
                 badgeLabel={MOYSCO.year}
-                description={MOYSCO.label}
                 indicator={getIndicator(MOYSCO)}
+                description={MOYSCO.label}
               />
             </Col>
           )
@@ -60,8 +60,8 @@ export default function EducationIndex({ data }) {
             <Col n="6">
               <IndicatorCard
                 badgeLabel={ESPSCO.year}
-                description={ESPSCO.label}
                 indicator={getIndicator(ESPSCO)}
+                description={ESPSCO.label}
               />
             </Col>
 
