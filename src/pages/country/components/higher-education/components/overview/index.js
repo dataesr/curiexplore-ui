@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Row, Col } from '@dataesr/react-dsfr';
+import formatNumber from '../../../../../../utils/formatNumber';
 import IndicatorCard from '../../../../../../components/indicator-card';
 
 import Title from '../../../../../../components/title';
@@ -37,32 +38,27 @@ export default function Overview({ data }) {
   const getIndicator = (code) => {
     if (code.code === 'MOYSCO') {
       return (
-        <Title
-          as="h4"
-          look="h4"
-          title={`${code.value.toFixed(1)} ${code.unit}`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {code.value.toFixed(1)}
+          &nbsp;
+          {code.unit}
+        </h3>
       );
     }
     if (code.code === ID_TOTAL_STU) {
       return (
-        <Title
-          as="h4"
-          look="h4"
-          title={`${Math.floor(code.value).toLocaleString()} étudiants`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {formatNumber(Math.floor(code.value))}
+          &nbsp;étudiants
+        </h3>
       );
     }
     if (code.code === seriesCountry[0].code) {
       return (
-        <Title
-          as="h4"
-          look="h4"
-          title={`${code.value.toFixed(0)} %`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {code.value.toFixed(0)}
+          &nbsp;%
+        </h3>
       );
     }
     return null;

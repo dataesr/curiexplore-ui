@@ -2,7 +2,6 @@ import { Col, Row } from '@dataesr/react-dsfr';
 import { MapContainer } from 'react-leaflet';
 import { useParams, useOutletContext } from 'react-router-dom';
 
-import Title from '../../../../components/title';
 import CountryMap from '../../../../components/country-map';
 import ChartComponents from '../chart-components';
 
@@ -26,32 +25,32 @@ export default function CountryProfilePage() {
   // Espérance de vie à la naissance
   const ESPVIE = { ...dataIDH.find((el) => el.fields.code === 'ESPVIE')?.fields };
 
-  const getDescription = (code) => {
+  const getNumber = (code) => {
     if (code.code === 'RNB') {
       return (
-        <Title
-          as="h3"
-          title={`${Math.floor(code.value).toLocaleString()} ${code.unit}`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {Math.floor(code.value).toLocaleString()}
+          {' '}
+          {code.unit}
+        </h3>
       );
     }
     if (code.code === 'IDH') {
       return (
-        <Title
-          as="h3"
-          title={code.value}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {code.value}
+          {' '}
+          {code.unit}
+        </h3>
       );
     }
     if (code.code === 'ESPVIE') {
       return (
-        <Title
-          as="h3"
-          title={`${code.value.toFixed(1)} ${code.unit}`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {code.value.toFixed(1)}
+          {' '}
+          {code.unit}
+        </h3>
       );
     }
     return null;
@@ -88,8 +87,8 @@ export default function CountryProfilePage() {
             <Col n="4">
               <GenericCard
                 badgeLabel={RNB.year}
-                description={getDescription(RNB)}
-                title={RNB.label}
+                indicator={getNumber(RNB)}
+                description={RNB.label}
               />
             </Col>
           ) : null
@@ -99,8 +98,8 @@ export default function CountryProfilePage() {
             <Col n="4">
               <GenericCard
                 badgeLabel={IDH.year}
-                description={getDescription(IDH)}
-                title={IDH.label}
+                indicator={getNumber(IDH)}
+                description={IDH.label}
               />
             </Col>
           ) : null
@@ -110,8 +109,8 @@ export default function CountryProfilePage() {
             <Col n="4">
               <GenericCard
                 badgeLabel={ESPVIE.year}
-                description={getDescription(ESPVIE)}
-                title={ESPVIE.label}
+                indicator={getNumber(ESPVIE)}
+                description={ESPVIE.label}
               />
             </Col>
           ) : null

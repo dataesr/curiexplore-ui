@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import formatNumber from '../../../../../utils/formatNumber';
+
 export default function useFetchData(data) {
   const [isLoading, setIsLoading] = useState(false);
   const [lastYearData, setLastYearData] = useState(null);
@@ -18,7 +20,7 @@ export default function useFetchData(data) {
       const json = await response.json();
 
       setLastYear(json.records[json.records.length - 1].fields.year);
-      setLastYearData(json.records[json.records.length - 1].fields.value.toLocaleString());
+      setLastYearData(formatNumber(json.records[json.records.length - 1].fields.value, 2).toLocaleString());
       const value = Math.round((json.records[json.records.length - 1].fields.value * 100) / json.records[0].fields.value - 100);
       let valueToPrint = '';
       valueToPrint = `${(value > 0) ? '+' : ''}${value.toString()} %`;

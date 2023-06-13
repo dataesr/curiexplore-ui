@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Title, Text, Icon, Col } from '@dataesr/react-dsfr';
+import { Text, Icon, Col } from '@dataesr/react-dsfr';
 
 import useFetchDataPopulation from './hooks/useFetchDataPopulation';
 import PopulationCard from '../../../../components/generic-card/index';
@@ -12,16 +12,20 @@ export default function PopulationComponent({ data, isoCode }) {
   });
 
   const description = (
-    <>
-      <Title as="h3">
+    <Text className="fr-mb-0">
+      {data.title}
+    </Text>
+  );
+
+  const indicator = (
+    <Text className="text-center fr-mb-0">
+      <h3 className="fr-mb-0">
         {lastYearData}
-      </Title>
-      <Text>
-        {evolution.label}
-        <Icon name="ri-arrow-right-s-fill" />
-        <strong>{evolution.data}</strong>
-      </Text>
-    </>
+      </h3>
+      {evolution.label}
+      <Icon name="ri-arrow-right-s-fill" />
+      <strong>{evolution.data}</strong>
+    </Text>
   );
 
   return (
@@ -29,8 +33,8 @@ export default function PopulationComponent({ data, isoCode }) {
       <Col n="4">
         <PopulationCard
           badgeLabel={lastYear}
+          indicator={indicator}
           description={description}
-          title={data.title}
         />
       </Col>
     ) : null
