@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams, useLocation, Link as RouterLink, Outlet, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Breadcrumb, BreadcrumbItem,
@@ -13,7 +14,6 @@ import {
   Highlight,
 } from '@dataesr/react-dsfr';
 import { FormattedDate } from 'react-intl';
-import { useParams, useLocation, Link as RouterLink, Outlet, useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from 'uuid';
 import Button from '../../components/button';
 import useFetchData from './hooks/useFetchData';

@@ -1,6 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
+import ScrollToTop from './scrollToTopAuto';
+
 // import useLang from './hooks/useLang';
 import messagesFR from './translations/fr.json';
 import Layout from './layout';
@@ -31,7 +33,9 @@ export default function App() {
   return (
     <IntlProvider locale={lang} messages={messages[lang]}>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
+
           <Route element={<Layout />}>
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<HomePage />} />
