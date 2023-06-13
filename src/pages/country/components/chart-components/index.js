@@ -25,8 +25,8 @@ export default function ChartComponents({ charts }) {
     <GraphContainer>
       {(showFilters) && (
         <Row gutters className="fr-mt-1w">
-          <Col n="12">
-            <Button onClick={() => setShowModal(true)} className="w-100 text-center">
+          <Col className="fr-btns-group">
+            <Button onClick={() => setShowModal(true)} className="fr-btn text-center">
               <Icon name="ri-arrow-down-circle-line" />
               Comparer avec d'autres pays
               &nbsp;
