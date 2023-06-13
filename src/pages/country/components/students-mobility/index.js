@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { useOutletContext } from 'react-router-dom';
-import { Col, Row } from '@dataesr/react-dsfr';
+import { Text } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import MobilityCallOut from './components/mobility';
 
@@ -17,28 +17,27 @@ export default function StudentsMobilityPage() {
     blocs.push(analyse.find((el) => (el.fields.codethematique === 'A9'))?.fields || null);
     blocs.push(analyse.find((el) => (el.fields.codethematique === 'A10'))?.fields || null);
   }
+  const subTitle = (
+    <Text className="fr-mb-1w">
+      Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
+      <br />
+      L'année de référence pour les indicateurs affichés en base 100 est l'année de la première donnée disponible par indicateur par pays.
+    </Text>
+  );
 
   return (
     <>
       <MobilityCallOut />
-      <Row>
-        <Col>
-          {blocs.map((bloc) => (
-            <HtmlAmbassyBloc data={bloc} />
-          ))}
-        </Col>
-      </Row>
+      {blocs.map((bloc) => (
+        <HtmlAmbassyBloc data={bloc} />
+      ))}
       <Title
         as="h4"
         title="Les données de la mobilité étudiante"
-        subTitle="Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an."
+        subTitle={subTitle}
         icon=""
       />
-      <Row>
-        <Col n="12">
-          <ChartComponents charts={charts} />
-        </Col>
-      </Row>
+      <ChartComponents charts={charts} />
     </>
   );
 }

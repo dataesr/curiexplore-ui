@@ -1,6 +1,6 @@
-import { Col, Link, Row } from '@dataesr/react-dsfr';
+import { Col, Link, Row, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
-import TitleComponent from '../title';
+import Title from '../title';
 import BarChart from './bar-chart';
 import useFetchData from './hooks/useFetchDataThematics';
 import getLabel from '../../utils/getLabel';
@@ -10,19 +10,19 @@ const { REACT_APP_OPENALEX_RANGE } = process.env;
 export default function ThematicsChart({ iso2, iso3 }) {
   const { data } = useFetchData(iso2);
   const subTitle = (
-    <>
+    <Text>
       Requête de recherche effectuée dans
       &nbsp;
       <Link href="https://openalex.org/" target="_blank">
         OpenAlex
       </Link>
-    </>
+    </Text>
   );
   return (
     <>
       <Row className="fr-mt-1w">
         <Col n="12">
-          <TitleComponent
+          <Title
             icon="ri-bar-chart-fill"
             title={`Principaux domaines scientifiques de travail commun entre le pays "${getLabel(iso3)}" et la France (${REACT_APP_OPENALEX_RANGE}).`}
             as="h4"

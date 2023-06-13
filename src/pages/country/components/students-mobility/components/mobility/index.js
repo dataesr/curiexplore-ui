@@ -49,7 +49,7 @@ export default function MobilityCallOut() {
               En&nbsp;
               {latestYear}
               , on compte&nbsp;
-              {sumStudents.toLocaleString()}
+              {Math.floor(sumStudents).toLocaleString()}
                 &nbsp;étudiants internationaux soit&nbsp;
               {shareMobiliteStudents.toFixed(2)}
               &nbsp;% des étudiants en enseignement supérieur
@@ -57,7 +57,7 @@ export default function MobilityCallOut() {
             <ol>
               {orderedData.map((el) => (
                 <li key={uuidv4()}>
-                  {`${el.fields.origin_country_fr} : ${el.fields.value.toLocaleString()} étudiants`}
+                  {`${el.fields.origin_country_fr} : ${Math.floor(el.fields.value).toLocaleString()} étudiants`}
                 </li>
               ))}
             </ol>

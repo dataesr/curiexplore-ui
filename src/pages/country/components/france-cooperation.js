@@ -125,7 +125,7 @@ export default function FranceCooperationPage() {
 
   const subTitle = (
     <>
-      Source: &nbsp;
+      Source : &nbsp;
       <Link href="https://scanr.enseignementsup-recherche.gouv.fr/" target="_blank">
         scanR, moteur de la recherche et de l'innovation
       </Link>

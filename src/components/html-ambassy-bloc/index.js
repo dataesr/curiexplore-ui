@@ -53,7 +53,7 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
             <>
               {Parser(data.description)}
               {(!exportView) ? (
-                <Row className="fr-mt-1w">
+                <Row className="fr-mt-2w">
                   <Button
                     onClick={handleClick}
                     secondary

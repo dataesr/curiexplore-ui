@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Container, Icon, Row, Title } from '@dataesr/react-dsfr';
 
 export default function TitleComponent({ icon, title, subTitle, as, look }) {
-  const spaces = ((subTitle) ? ('fr-mb-0') : ('fr-mb-2w'));
+  const spaces = ((subTitle) ? ('fr-mb-0') : ('fr-mb-3w'));
 
   return (
     <Container fluid>
@@ -18,7 +18,7 @@ export default function TitleComponent({ icon, title, subTitle, as, look }) {
       </Row>
       {
         (subTitle) ? (
-          <Row className="fr-mb-2w fr-card__detail">{subTitle}</Row>
+          <Row className="fr-mb-3w fr-card__detail">{subTitle}</Row>
         ) : null
       }
     </Container>

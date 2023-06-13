@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { useOutletContext } from 'react-router-dom';
-import { Col, Row, Text } from '@dataesr/react-dsfr';
+import { Text } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 
@@ -36,41 +36,17 @@ export default function CountryHigherEducationPage() {
       <Overview
         data={dataIDH}
       />
-      <Row>
-        <Col>
-          <HtmlAmbassyBloc data={dataES} />
-        </Col>
-      </Row>
-      <Row>
-        <Title
-          as="h3"
-          title="Les données de l'enseignement supérieur"
-          subTitle={subTitle}
-          icon=""
-        />
-      </Row>
-      <Row className="fr-mb-1w">
-        <Col>
-          <Pyramid />
-        </Col>
-      </Row>
-      <Row className="fr-mb-1w">
-        <Col>
-          <PieChart />
-        </Col>
-      </Row>
-      <Row className="fr-mb-1w">
-        <Col>
-          <EducationIndex
-            data={dataIDH}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ChartComponents charts={charts} />
-        </Col>
-      </Row>
+      <HtmlAmbassyBloc data={dataES} />
+      <Title
+        as="h3"
+        title="Les données de l'enseignement supérieur"
+        subTitle={subTitle}
+        icon=""
+      />
+      <Pyramid />
+      <PieChart />
+      <EducationIndex data={dataIDH} />
+      <ChartComponents charts={charts} />
 
     </>
   );

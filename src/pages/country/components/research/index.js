@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
-import { Col, Row } from '@dataesr/react-dsfr';
+import { Text } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import ScimagoChart from './components/scimago';
@@ -27,32 +27,26 @@ export default function CountryResearchPage() {
     setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);
   }, [contextData, isoCode]);
 
+  const subTitle = (
+    <Text className="fr-mb-1w">
+      Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
+      <br />
+      L'année de référence pour les indicateurs affichés en base 100 est l'année de la première donnée disponible par indicateur par pays.
+    </Text>
+  );
+
   return (
     <>
-      <Row>
-        <Col n="12">
-          <HtmlAmbassyBloc data={dataRI} />
-        </Col>
-      </Row>
-      <Row>
-        <Title
-          as="h3"
-          title="Les données de la recherche et de l'innovation"
-          subTitle="Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an."
-          icon=""
-        />
-      </Row>
-      <Row>
-        <Col>
-          <ScimagoChart />
-        </Col>
-      </Row>
+      <HtmlAmbassyBloc data={dataRI} />
+      <Title
+        as="h3"
+        title="Les données de la recherche et de l'innovation"
+        subTitle={subTitle}
+        icon=""
+      />
+      <ScimagoChart />
       <ThematicsChart iso2={iso2} iso3={isoCode} />
-      <Row>
-        <Col>
-          <ChartComponents charts={charts} />
-        </Col>
-      </Row>
+      <ChartComponents charts={charts} />
     </>
   );
 }

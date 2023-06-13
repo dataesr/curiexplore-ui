@@ -56,7 +56,7 @@ export default function useFetchData({ charts, countryCode }) {
             text: "Evolution de la part des diplômés en fonction du domaine d'études",
           },
           subtitle: {
-            text: 'Source: <a href="https://www.unesco.org/fr">UNESCO</a>',
+            text: 'Source : <a href="https://www.unesco.org/fr">UNESCO</a>',
           },
           xAxis: {
             type: 'category',

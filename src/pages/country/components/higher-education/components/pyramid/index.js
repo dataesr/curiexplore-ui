@@ -17,7 +17,7 @@ export default function PyramidComponent() {
 
   const source = (
     <Text>
-      Source:&nbsp;
+      Source :&nbsp;
       <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
     </Text>
   );
