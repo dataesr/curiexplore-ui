@@ -14,11 +14,11 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
   };
 
   const subtitle = (
-    <i>
+    <>
       Rédigé en&nbsp;
       {data.submitdateclean}
       &nbsp;sous la responsabilité éditoriale du poste diplomatique
-    </i>
+    </>
   );
 
   return (

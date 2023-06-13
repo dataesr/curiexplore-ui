@@ -18,7 +18,7 @@ export default function TitleComponent({ icon, title, subTitle, as, look }) {
       </Row>
       {
         (subTitle) ? (
-          <Row className="fr-mb-2w">{subTitle}</Row>
+          <Row className="fr-mb-2w fr-card__detail">{subTitle}</Row>
         ) : null
       }
     </Container>
