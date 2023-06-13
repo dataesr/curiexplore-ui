@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
 import { Container, Row, Col, Highlight, Link, Badge, Tag } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,7 +17,9 @@ export default function FranceCooperationPage() {
   const [iso2, setIso2] = useState('');
   const urlProjects = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/projects/search';
   const urlStructures = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/structures/search';
-  const years = [2017, 2018, 2019];
+  // const years = [2017, 2018, 2019];
+
+  const years = useMemo(() => ([2017, 2018, 2019]), []);
 
   useEffect(() => {
     setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);
@@ -70,7 +72,7 @@ export default function FranceCooperationPage() {
     };
 
     getDataProjects();
-  }, [isoCode]);
+  }, [isoCode, years]);
 
   useEffect(() => {
     const getDataStructures = async () => {
