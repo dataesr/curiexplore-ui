@@ -86,7 +86,7 @@ function AnnuaireBloc({ selectedLetter }) {
                           <StructureCard
                             data={data?.campusFrance?.filter((item) => (item.iso3 === el.fields.iso3))}
                             type="campusFrance"
-                            website={el.fields.website}
+                            website={data?.campusFrance?.filter((item) => (item.iso3 === el.fields.iso3))[0]?.websites[0]?.url}
                           />
                         </Col>
                       ) : null}
@@ -96,7 +96,7 @@ function AnnuaireBloc({ selectedLetter }) {
                           <StructureCard
                             data={data?.CCI?.filter((item) => (item.iso3 === el.fields.iso3))}
                             type="cci"
-                            website={el.fields.website}
+                            website={data?.CCI?.filter((item) => (item.iso3 === el.fields.iso3))[0]?.websites[0]?.url}
                           />
                         </Col>
                       ) : null}
