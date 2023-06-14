@@ -23,6 +23,7 @@ import SimilarCountriesPage from './pages/country/components/similar-countries';
 import ExportPage from './pages/country/components/export';
 import CountryLinksPages from './pages/country/components/country-links';
 import NotFound from './pages/not-found';
+import TeamProjectPage from './pages/team-project';
 
 const messages = {
   'fr-FR': messagesFR,
@@ -56,6 +57,7 @@ export default function App() {
             </Route>
             <Route path="/annuaire" element={<DirectoryPage />} />
             <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
+            <Route path="projet-et-equipe" element={<TeamProjectPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
