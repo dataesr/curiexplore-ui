@@ -31,15 +31,9 @@ export default function HomePage() {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <RegionFilters region={region} setRegion={setRegion} />
-      </Container>
-      <Container>
-        <CountryList region={region} />
-      </Container>
-      <Container>
-        <LastUpdated />
-      </Container>
+      <RegionFilters region={region} setRegion={setRegion} />
+      <CountryList region={region} />
+      <LastUpdated />
     </>
 
   );

@@ -39,11 +39,11 @@ export default function LastUpdated() {
   if (error) return <p>Erreur</p>;
   if (!data?.length) return null;
   return (
-    <Container fluid spacing="mb-6w">
+    <Container spacing="mb-6w">
       <Row>
         <Col>
           <Title as="h3">
-            Dernères mises à jour
+            Dernières mises à jour
           </Title>
         </Col>
       </Row>

@@ -1,4 +1,4 @@
-import { Col, Row, Text } from '@dataesr/react-dsfr';
+import { Col, Row, Text, Container } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import worldGeoJSON from '../../../assets/data/custom.geo.json';
@@ -20,19 +20,22 @@ export default function CountryList({ region }) {
   const byLettersCountries = groupByLetters(filteredCountries);
   const orderedCountries = Object.entries(byLettersCountries).sort(([a], [b]) => a.localeCompare(b));
   return (
-    <Row gutters spacing="mb-6w">
-      {orderedCountries.map(([letter, countries]) => (
-        <Col n="3" key={letter}>
-          <Text className="fr-mb-1v" size="lead" bold>{letter.toUpperCase()}</Text>
-          <hr />
-          {countries.map((country) => (
-            <Row key={country.iso}>
-              <Link to={`/pays/${country.iso}`}>{country.name_fr}</Link>
-            </Row>
-          ))}
-        </Col>
-      ))}
-    </Row>
+    <Container>
+
+      <Row gutters spacing="mb-6w">
+        {orderedCountries.map(([letter, countries]) => (
+          <Col n="3" key={letter}>
+            <Text className="fr-mb-1v" size="lead" bold>{letter.toUpperCase()}</Text>
+            <hr />
+            {countries.map((country) => (
+              <Row key={country.iso}>
+                <Link to={`/pays/${country.iso}`}>{country.name_fr}</Link>
+              </Row>
+            ))}
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 CountryList.defaultProps = {
