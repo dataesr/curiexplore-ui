@@ -3,6 +3,25 @@ import { Link } from 'react-router-dom';
 import { BadgeGroup, Badge } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
 
+function getColorByCategoryLabel(categoryLabel) {
+  switch (categoryLabel) {
+  case 'Mobilité étudiante':
+    return 'blue-ecume';
+  case 'Enseignement supérieur':
+    return 'green-emeraude';
+  case 'Recherche et innovation':
+    return 'green-menthe';
+  case 'Politique publique':
+    return 'purple-glycine';
+  case 'Expertise':
+    return 'green-bourgeon';
+  case 'Financement de l\'ESRI':
+    return 'pink-macaron';
+  default:
+    return 'yellow-tournesol';
+  }
+}
+
 export default function ActorCard({
   categories,
   title,
@@ -21,8 +40,9 @@ export default function ActorCard({
                 if (categoryLabel === undefined) {
                   return null;
                 }
+                const colorFamily = getColorByCategoryLabel(categoryLabel);
                 return (
-                  <Badge text={categoryLabel} key={uuidv4()} />
+                  <Badge text={categoryLabel} colorFamily={colorFamily} key={uuidv4()} />
                 );
               })}
             </BadgeGroup>

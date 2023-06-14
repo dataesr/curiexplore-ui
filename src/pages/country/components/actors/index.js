@@ -118,40 +118,37 @@ export default function ActorsPage() {
   return (
     <>
       <Row>
-        <Col>
-          <Title as="h3">
-            <Icon name="ri-filter-line" />
-            Filtres
-          </Title>
-          <Text><i>Cliquez sur une catégorie pour restreindre les résultats</i></Text>
-        </Col>
+        {Object.keys(categories).length ? (
+          <Col>
+            <Title as="h3">
+              <Icon name="ri-filter-line" />
+              Filtres
+            </Title>
+            <Text><i>Cliquez sur une catégorie pour restreindre les résultats</i></Text>
+          </Col>
+        ) : <i>Les filtres des acteurs ne sont pas encore disponible </i>}
       </Row>
       <Row gutters>
-        <Col n="3" key={uuidv4()}>
-          <TagGroup>
-            {
-              Object.keys(categories)
-                .map((category) => (
-                  <Tag
-                    key={uuidv4()}
-                    colorFamily="yellow-tournesol"
-                    onClick={() => setCategoryFilter(category)}
-                    selected={(category === selectedCategory)}
-                  >
-                    {categoriesLabels.find((el) => el.id === category).shortLabel}
-                    &nbsp;
-                    <Badge
-                      text={categories[category].length}
-                    />
-                  </Tag>
-                ))
-            }
-          </TagGroup>
+        <Col n={Object.keys(categories).length ? '3' : '12'} key={uuidv4()}>
+          {Object.keys(categories).length ? (
+            <TagGroup>
+              {Object.keys(categories).map((category) => (
+                <Tag
+                  key={uuidv4()}
+                  colorFamily="yellow-tournesol"
+                  onClick={() => setCategoryFilter(category)}
+                  selected={category === selectedCategory}
+                >
+                  {categoriesLabels.find((el) => el.id === category).shortLabel}
+&nbsp;
+                  <Badge text={categories[category].length} />
+                </Tag>
+              ))}
+            </TagGroup>
+          ) : null}
         </Col>
-        <Col n="9" className="fr-pt-1w">
-          <MapCategoriesActors
-            actors={addressesList}
-          />
+        <Col n={Object.keys(categories).length ? '9' : '12'} className="fr-pt-1w">
+          <MapCategoriesActors actors={addressesList} />
         </Col>
       </Row>
       <Row>
