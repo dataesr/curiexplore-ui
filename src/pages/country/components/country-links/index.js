@@ -1,7 +1,26 @@
 import { useParams } from 'react-router-dom';
-import { Badge, Col, Container, Link, Row, Title } from '@dataesr/react-dsfr';
-import { v4 as uuidV4 } from 'uuid';
+import { Col, Container, Row } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
+
+import RessourceTile from './components/tile';
+
+const mappings = {
+  openData: {
+    pictogram: 'digital/data-visualization.svg',
+    badge: 'Open Data',
+    colorFamily: 'green-emeraude',
+  },
+  rapport: {
+    pictogram: 'document/document.svg',
+    badge: 'Rapport',
+    colorFamily: 'yellow-tournesol',
+  },
+  servicesNumeriques: {
+    pictogram: 'digital/internet.svg',
+    badge: 'Services numériques',
+    colorFamily: 'purple-glycine',
+  },
+};
 
 export default function CountryLinksPages() {
   const { isoCode } = useParams();
@@ -16,31 +35,19 @@ export default function CountryLinksPages() {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <ul>
-            {data.records.map((link) => (
-              <li key={uuidV4()} className="fr-mb-1w">
-                <Title as="h3" look="h6" className="fr-m-0">
-                  <Link
-                    href={link.fields.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.fields.nom}
-                  </Link>
-                  <Badge text={link.fields.table} className="fr-ml-2w" />
-                </Title>
-                <div>
-                  <i>
-                    {link.fields.admin}
-                  </i>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Col>
+    <Container fluid>
+      <Row gutters>
+        {data.records.map((link) => (
+          <Col n="12" key={link.fields.url}>
+            <RessourceTile
+              title={link.fields.nom}
+              href={link.fields.url}
+              description={link.fields.admin}
+              date={link.fields.submitdateclean}
+              {...mappings[link.fields.table]}
+            />
+          </Col>
+        ))}
       </Row>
     </Container>
   );
