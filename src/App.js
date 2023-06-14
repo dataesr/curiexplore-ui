@@ -17,7 +17,8 @@ import ActorPage from './pages/country/components/actors/[id]';
 import FranceCooperationPage from './pages/country/components/france-cooperation';
 import InternationalCooperationPage from './pages/country/components/international-cooperation';
 import StudentsMobilityPage from './pages/country/components/students-mobility';
-import ContactsAndResourcesPage from './pages/country/components/contacts-and-resources';
+import ContactPage from './pages/contact';
+import RessourcesPage from './pages/ressources/ressources';
 import DirectoryPage from './pages/directory';
 import SimilarCountriesPage from './pages/country/components/similar-countries';
 import ExportPage from './pages/country/components/export';
@@ -56,7 +57,8 @@ export default function App() {
               <Route path="export" element={<ExportPage />} replace />
             </Route>
             <Route path="/annuaire" element={<DirectoryPage />} />
-            <Route path="contacts-et-ressources" element={<ContactsAndResourcesPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="ressources" element={<RessourcesPage />} />
             <Route path="projet-et-equipe" element={<TeamProjectPage />} />
           </Route>
         </Routes>

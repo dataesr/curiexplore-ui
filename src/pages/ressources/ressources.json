@@ -1,0 +1,32 @@
+[
+  {
+    "label": "RestCountries",
+    "website": "https://restcountries.com/",
+    "badge": "referentiel",
+    "description": "RestCountries est un projet qui rassemble un nombre important d'informations sur les pays (nom, coordonnées géographiques, devises, langues, etc.)"
+  },
+  {
+    "label": "Wikidata",
+    "website": "https://www.wikidata.org/wiki/Wikidata:Main_Page",
+    "badge": "referentiel",
+    "description": "Wikidata est un projet de base de données libre éditée de manière collaborative et hébergée par la Wikimedia Foundation. […] Wikidata est une collection d'articles constitués de données et de couples clé-valeur formant un ensemble de graphes sémantiquement structuré. L'ambition est de former un graphe de connaissance unique."
+  },
+  {
+    "label": "Global Research Identifier Database (GRID)",
+    "website": "https://www.grid.ac/",
+    "badge": "referentiel",
+    "description": "GRID est un répertoire mondial d’institutions de tous types actives en matière de recherche académique (établissements d’enseignement supérieur et de recherche, agences gouvernementales, entreprises, institution sans but lucratif, institution ayant une fonction d’archivage, institutions de santé, grands équipements, etc.). Un identifiant unique est attribué à chaque institution référencée ; un ensemble de métadonnées y est associé. Les métadonnées proposées par GRID permettent notamment une mise en correspondance de l’identifiant GRID avec des identifiants ISNI, WIKIDATA ou liés aux systèmes nationaux d’archivage et de suivre les liens de filiation entre les structures. Enfin, GRID permet d’associer un site web à la plupart des institutions référencées."
+  },
+  {
+    "label": "Organisation de coopération et de développement économiques (OCDE)",
+    "website": "https://oecd.org/fr/",
+    "badge": "source",
+    "description": "L'OCDE est une organisation internationale d'études économiques, dont les pays membres ont en commun un système de gouvernement démocratique et une économie de marché. L'OCDE publie des rapports spécialisés notamment en Science, Technologie et Innovation et met à disposition des utilisateurs sa base de données associée, les principaux indicateurs de la Science et de la technologie."
+  },
+  {
+    "label": "scanR",
+    "website": "https://scanr.enseignementsup-recherche.gouv.fr/",
+    "badge": "source",
+    "description": "scanR décrit et relie entreprises et laboratoires de recherche, auteurs de travaux de recherche, (thèses, publications, brevets) et financements publics"
+  }
+]

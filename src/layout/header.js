@@ -66,11 +66,6 @@ export default function Header({ switchTheme }) {
           asLink={<RouterLink to="/annuaire">Annuaire</RouterLink>}
           current={pathname === '/annuaire'}
         />
-        <NavItem
-          title="Contacts & ressources"
-          asLink={<RouterLink to="/contacts-et-ressources">Contacts & ressources</RouterLink>}
-          current={pathname === '/contacts-et-ressources'}
-        />
       </HeaderNav>
     </HeaderWrapper>
   );

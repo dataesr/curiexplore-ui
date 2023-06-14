@@ -5,6 +5,7 @@ import {
   FooterBodyItem,
   FooterBottom,
   FooterLink,
+  Link,
   Logo,
 } from '@dataesr/react-dsfr';
 
@@ -44,17 +45,19 @@ export default function Footer() {
         <FooterLink asLink={<RouterLink to="/projet-et-equipe" />}>
           L'équipe et son projet
         </FooterLink>
-        <FooterLink asLink={<RouterLink to="/nous-contacter" />}>
+        <FooterLink asLink={<RouterLink to="contact" />}>
           Nous contacter
         </FooterLink>
-        <FooterLink asLink={<FooterLink href="https://github.com/orgs/dataesr/repositories?q=curiexplore-ui-v2&type=&language=&sort=" target="_blank" />}>
+        <FooterLink asLink={<RouterLink to="ressources" />}>
+          Ressources mobilisées
+        </FooterLink>
+        <FooterLink asLink={<Link href="https://github.com/orgs/dataesr/repositories?q=curiexplore-ui-v2&type=&language=&sort=" target="_blank" />}>
           Github
         </FooterLink>
         <FooterLink target="_blank" href={`https://github.com/dataesr/curiexplore-ui-v2/releases/tag/v${process.env.REACT_APP_VERSION}`}>
           {`Version de l'application v${process.env.REACT_APP_VERSION}`}
         </FooterLink>
       </FooterBottom>
-
     </FooterWrapper>
   );
 }
