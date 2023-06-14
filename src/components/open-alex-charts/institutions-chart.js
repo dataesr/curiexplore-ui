@@ -1,4 +1,4 @@
-import { Col, Link, Row } from '@dataesr/react-dsfr';
+import { Col, Link, Row, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import TitleComponent from '../title';
 import BarChart from './bar-chart';
@@ -11,13 +11,13 @@ export default function InstitutionsChart({ iso2, iso3 }) {
   const { data } = useFetchData(iso2);
   const sliceNumber = 15;
   const subTitle = (
-    <>
+    <Text>
       Requête de recherche effectuée dans
       &nbsp;
       <Link href="https://openalex.org/" target="_blank">
         OpenAlex
       </Link>
-    </>
+    </Text>
   );
   return (
     <>

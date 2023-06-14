@@ -134,7 +134,11 @@ export default function Actor() {
   }
 
   const wikidata = dataActor.identifiers.find((identifier) => identifier?.type === 'wikidata')?.value || null;
-  const subtitle = dataActor?.currentName.officialName || null;
+  const subtitle = (
+    <Text className="fr-mb-1w">
+      {dataActor?.currentName.officialName || null}
+    </Text>
+  );
 
   return (
     <>

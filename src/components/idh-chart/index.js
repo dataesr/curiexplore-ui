@@ -45,11 +45,11 @@ const getIcons = (countyGroup, currentGroup) => {
 
 export default function IDHChart({ group, flagUrl, idhCountry, idhAverage }) {
   const subTitle = (
-    <>
+    <Text>
       Source : catégorie d'IDH, selon l'
 
       <Link href="https://hdr.undp.org/content/human-development-report-2021-22" target="_blank">ONU en 2021</Link>
-    </>
+    </Text>
   );
   return (
     <div className="IDHChart">

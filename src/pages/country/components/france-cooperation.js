@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
-import { Container, Row, Col, Highlight, Link, Badge, Tag } from '@dataesr/react-dsfr';
+import { Container, Row, Col, Highlight, Link, Badge, Tag, Text } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
 import getLabel from '../../../utils/getLabel';
 import Title from '../../../components/title';
@@ -124,12 +124,12 @@ export default function FranceCooperationPage() {
     .slice(0, nbTop);
 
   const subTitle = (
-    <>
+    <Text>
       Source : &nbsp;
       <Link href="https://scanr.enseignementsup-recherche.gouv.fr/" target="_blank">
         scanR, moteur de la recherche et de l'innovation
       </Link>
-    </>
+    </Text>
   );
 
   const topTenFrenchTitle = (nb) => (

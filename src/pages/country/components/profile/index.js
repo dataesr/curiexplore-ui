@@ -74,7 +74,7 @@ export default function CountryProfilePage() {
           </MapContainer>
         </Col>
       </Row>
-      <Row gutters>
+      <Row gutters className="fr-mb-3w">
         {
           charts.filter((chart) => chart.type.split('-')[0] === 'custom'
             && chart.type.split('-')[0] !== 'population')
