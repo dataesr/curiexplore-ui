@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 import StructureCard from './structure-card';
+import Loader from '../../utils/Loader';
 
 import useFetchData from '../../pages/directory/hooks/useFetchData';
 import useFetchDataCountries from '../../pages/directory/hooks/useFetchDataCountry';
@@ -23,7 +24,7 @@ function AnnuaireBloc({ selectedLetter }) {
       .filter((country) => country.fields.name_fr.charAt(0).toLowerCase() === selectedLetter);
   }
 
-  if (filteredData.length === 0 || data.length === 0) { return 'Loading ...'; }
+  if (filteredData.length === 0 || data.length === 0) { return <Loader />; }
 
   const getObjAddress = (el, idCat) => {
     if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {

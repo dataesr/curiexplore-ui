@@ -18,6 +18,7 @@ import { v4 as uuidV4 } from 'uuid';
 import Button from '../../components/button';
 import useFetchData from './hooks/useFetchData';
 import CountryBadgeList from './components/country-badge-list';
+import Loader from '../../utils/Loader';
 
 const listModules = [
   'Politique ESRI',
@@ -45,7 +46,7 @@ export default function Fiche({ exportState }) {
   }, [exportState]);
 
   if (isUnknownCountry) navigate('/404');
-  if (isLoading) return <div>Loading ...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Error ...</div>;
 
   const onCheckBoxClick = (label) => {
