@@ -1,6 +1,6 @@
 # Curiexplore
 
-La plateforme d'exploration dessystèmes d'enseignement supérieur, de recherche et d'innovation à l'international
+La plateforme d'exploration des systèmes d'enseignement supérieur, de recherche et d'innovation à l'international
 
 CurieXplore propose un service d'aide à la compréhension des systèmes d'enseignement supérieur, de recherche et d'innovation des pays partenaires de la France.
 
