@@ -5,6 +5,7 @@
     "unit": "$ PPA des États-Unis",
     "sort": "-year",
     "type": "line",
+    "source":"OCDE",
     "base100": true
   },
   {
@@ -13,6 +14,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source":"OCDE",
     "base100": false
   },
   {
@@ -21,6 +23,7 @@
     "unit": "$ PPA des États-Unis",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -29,6 +32,7 @@
     "unit": "$ PPA des États-Unis",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -37,6 +41,7 @@
     "unit": "$ PPA des États-Unis",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -45,6 +50,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -53,6 +59,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -61,6 +68,7 @@
     "unit": "$ PPA des États-Unis",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -69,6 +77,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -77,6 +86,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -85,6 +95,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -93,6 +104,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -101,6 +113,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -109,6 +122,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -117,6 +131,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -125,6 +140,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -133,6 +149,7 @@
     "unit": "femmes",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -141,6 +158,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -149,6 +167,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -157,6 +176,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -165,6 +185,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -173,6 +194,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -181,6 +203,7 @@
     "unit": "personnes (ETP)",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -189,6 +212,7 @@
     "unit": "personnes (ETP)",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -197,6 +221,7 @@
     "unit": "personnes (ETP)",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -205,6 +230,7 @@
     "unit": "personnes (ETP)",
     "sort": "-year",
     "type": "line",
+    "source": "OCDE",
     "base100": true
   },
   {
@@ -213,6 +239,7 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
   },
   {
@@ -221,6 +248,43 @@
     "unit": "%",
     "sort": "-year",
     "type": "column",
+    "source": "OCDE",
     "base100": false
+  },
+  {
+    "title": "Personnel total de R-D (ETP)",
+    "code": "20000",
+    "unit": "personnes (ETP)",
+    "sort": "-year",
+    "type": "line",
+    "source": "OCDE",
+    "base100": false
+  },
+  {
+    "title": "Chercheurs (ETP)",
+    "code": "20001",
+    "unit": "personnes (ETP)",
+    "sort": "-year",
+    "type": "line",
+    "source": "OCDE",
+    "base100": true
+  },
+  {
+    "title": "Techniciens (ETP)",
+    "code": "20002",
+    "unit": "personnes (ETP)",
+    "sort": "-year",
+    "type": "line",
+    "source": "OCDE",
+    "base100": true
+  },
+  {
+    "title": "Personnel total de R-D des entreprises (ETP)",
+    "code": "BP_TT",
+    "unit": "personnes (ETP)",
+    "sort": "-year",
+    "type": "line",
+    "source": "OCDE",
+    "base100": true
   }
 ]
