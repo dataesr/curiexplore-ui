@@ -2,21 +2,18 @@
   {
     "code": "ue27",
     "label": "Europe des Vingt-Sept",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "g7",
     "label": "G7",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
   {
     "code": "g20",
     "label": "G20",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },
@@ -30,7 +27,6 @@
   {
     "code": "oecd_members",
     "label": "Membre de l'OCDE",
-    "definition": "blabla",
     "mapColor": "#0063D0",
     "mapFillColor": "#E8EDFF"
   },
@@ -67,7 +63,6 @@
   {
     "code": "european_union",
     "label": "Union européenne",
-    "definition": "blabla",
     "mapColor": "#695453",
     "mapFillColor": "#FEEBD0"
   },

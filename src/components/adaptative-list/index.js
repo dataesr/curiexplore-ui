@@ -31,6 +31,7 @@ export default function AdaptativeList({ elements, defaultN }) {
       {isMore && (
         <Col n="3">
           <Button
+            secondary
             onClick={handleMore}
           >
             Voir plus
@@ -40,6 +41,7 @@ export default function AdaptativeList({ elements, defaultN }) {
       {isLess && (
         <Col n="3">
           <Button
+            secondary
             onClick={handleLess}
           >
             Voir moins

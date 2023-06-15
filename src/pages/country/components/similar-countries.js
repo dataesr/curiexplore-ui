@@ -1,4 +1,4 @@
-import { Container, Row, Col, Highlight } from '@dataesr/react-dsfr';
+import { Container, Row, Col } from '@dataesr/react-dsfr';
 import { useOutletContext, useParams } from 'react-router-dom';
 import Parser from 'html-react-parser';
 
@@ -24,15 +24,11 @@ export default function SimilarCountriesPage() {
 
   return (
     <Container fluid spacing="mb-6w">
-      <Row className="fr-mt-5w">
-        <Col>
-          <TitleCurie
-            icon="ri-earth-line"
-            title="Liste des pays voisins"
-          />
-        </Col>
-      </Row>
-      <Row gutters>
+      <TitleCurie
+        icon="ri-earth-line"
+        title="Liste des pays voisins"
+      />
+      <Row gutters className="fr-mb-3w">
         {borderCountries.map((iso) => (
           <Col n="3" key={iso}>
             <CountryCard
@@ -44,26 +40,22 @@ export default function SimilarCountriesPage() {
       </Row>
       {checkGeographicItems(dataCountry.fields).map((item) => (
         <>
-          <Row className="fr-mt-5w">
-            <Col>
-              <TitleCurie
-                icon="ri-earth-line"
-                title={`Liste des pays/territoires membres de "${item.label}"`}
-              />
-            </Col>
-          </Row>
-          <Row className="fr-mt-2w">
+          <TitleCurie
+            icon="ri-earth-line"
+            title={`Liste des pays/territoires membres de "${item.label}"`}
+          />
+          <Row className="fr-mb-3w">
             <Col n="12">
               {groups.find((el) => el.code === item.code).definition ? (
-                <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                <>
                   {Parser(groups.find((el) => el.code === item.code).definition)}
-                </Highlight>
+                </>
               ) : (
                 ''
               )}
             </Col>
           </Row>
-          <Row gutters>
+          <Row gutters className="fr-mb-3w">
             <AdaptativeList
               elements={contextData['curiexplore-pays']
                 .filter((country) => country.fields[item.code] === 'True')
@@ -83,26 +75,22 @@ export default function SimilarCountriesPage() {
       ))}
       {checkPolicyItems(dataCountry.fields).map((item) => (
         <>
-          <Row className="fr-mt-5w">
-            <Col>
-              <TitleCurie
-                icon="ri-earth-line"
-                title={`Liste des pays/territoires membres de "${item.label}"`}
-              />
-            </Col>
-          </Row>
-          <Row className="fr-mt-2w">
+          <TitleCurie
+            icon="ri-earth-line"
+            title={`Liste des pays/territoires membres de "${item.label}"`}
+          />
+          <Row className="fr-mb-3w">
             <Col n="12">
               {groups.find((el) => el.code === item.code).definition ? (
-                <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+                <>
                   {Parser(groups.find((el) => el.code === item.code).definition)}
-                </Highlight>
+                </>
               ) : (
                 ''
               )}
             </Col>
           </Row>
-          <Row gutters>
+          <Row gutters className="fr-mb-3w">
             <AdaptativeList
               elements={contextData['curiexplore-pays']
                 .filter((country) => country.fields[item.code] === 'True')
@@ -117,30 +105,22 @@ export default function SimilarCountriesPage() {
                   </Col>
                 ))}
             />
-
           </Row>
         </>
       ))}
       {
         idh && (
           <>
-            <Row>
-              <Col>
-                <TitleCurie
-                  icon="ri-earth-line"
-                  title="Liste des pays/territoires ayant un Indice de Développement Humain proche"
-                  subTitle={idh.date_et_origine_moissonnage}
-                />
-              </Col>
-            </Row>
-            <Row className="fr-mt-2w">
+            <TitleCurie
+              icon="ri-earth-line"
+              title="Liste des territoires ayant un indice de développement humain proche"
+            />
+            <Row className="fr-mb-3w">
               <Col n="12">
-                <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
-                  {Parser(idh.definition)}
-                </Highlight>
+                {Parser(idh.definition)}
               </Col>
             </Row>
-            <Row gutters>
+            <Row gutters className="fr-mb-3w">
               {idhGroupCountries.map((iso) => (
                 <Col n="3" key={iso}>
                   <CountryCard
