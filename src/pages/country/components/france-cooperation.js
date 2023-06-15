@@ -1,10 +1,11 @@
 /* eslint-disable max-len */
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
-import { Container, Row, Col, Highlight, Link, Badge, Tag, Text } from '@dataesr/react-dsfr';
+import { Container, Row, Col, Link, Badge, Tag, Text } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
 import getLabel from '../../../utils/getLabel';
 import Title from '../../../components/title';
+import Loader from '../../../utils/Loader';
 import PublicationsChart from '../../../components/open-alex-charts/publications-chart';
 import InstitutionsChart from '../../../components/open-alex-charts/institutions-chart';
 
@@ -164,53 +165,49 @@ export default function FranceCooperationPage() {
       <Row>
         <Col n="12">
           <Title
-            icon="ri-map-pin-3-line"
-            title="Collaboration avec la France"
-            subTitle={subTitle}
+            title="Les liens avec la France"
           />
-          <Highlight colorFamily="yellow-tournesol" className="fr-pt-1w">
+          <Text className="fr-mb-3w">
             L'identification des publications communes de la France avec ses partenaires internationaux est réalisée via l'exploitation des affiliations des auteurs dans les données ouvertes décrivant les publications scientifiques. L'exploitation de ce texte libre présente de nombreuses difficultés qui ne permettent pas de garantir, à ce stade, l'exhaustivité dans la détection des publications communes de la recherche française avec ses partenaires internationaux. L'information mise à disposition via CurieXplore doit donc être prise avec distance et ne doit être considérée que comme une illustration des relations de co-publications internationales de la France.
-          </Highlight>
+          </Text>
         </Col>
       </Row>
       <PublicationsChart iso2={iso2} iso3={isoCode} />
       <InstitutionsChart iso2={iso2} iso3={isoCode} />
       {(pending < 2) ? (
         <Row>
+          <Row className="fr-mt-1w">
+            <Col n="12">
+              <Title
+                icon="ri-arrow-up-circle-line"
+                title={topTenFrenchTitle(frenchStructureWithNbProjects.length)}
+                as="h4"
+                look="h4"
+                subTitle={subTitle}
+              />
+            </Col>
+          </Row>
           <Col n="12">
-            Récupération des données depuis scanR ...
+            <Loader />
           </Col>
         </Row>
       ) : null}
       {
         (frenchStructureWithNbProjects.length > 0) ? (
-          <>
-            <Row className="fr-mt-1w">
-              <Col n="12">
-                <Title
-                  icon="ri-arrow-up-circle-line"
-                  title={topTenFrenchTitle(frenchStructureWithNbProjects.length)}
-                  as="h4"
-                  look="h4"
-                  subTitle={subTitle}
-                />
-              </Col>
-            </Row>
-            <ol>
-              {frenchStructureWithNbProjects.map((structure) => (
-                <li key={uuidv4()}>
-                  <div>
-                    {structure.label.default}
-                    {structure.acronym && (` (${structure.acronym.default})`)}
-                  </div>
-                  <div>
-                    <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                    <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </>
+          <ol>
+            {frenchStructureWithNbProjects.map((structure) => (
+              <li key={uuidv4()}>
+                <div>
+                  {structure.label.default}
+                  {structure.acronym && (` (${structure.acronym.default})`)}
+                </div>
+                <div>
+                  <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
+                  <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
+                </div>
+              </li>
+            ))}
+          </ol>
         ) : null
       }
       {

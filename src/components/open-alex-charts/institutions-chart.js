@@ -21,10 +21,10 @@ export default function InstitutionsChart({ iso2, iso3 }) {
   );
   return (
     <>
-      <Row className="fr-mt-1w">
+      <Row>
         <Col n="12">
           <TitleComponent
-            icon="ri-bar-chart-fill"
+            icon="ri-bar-chart-horizontal-fill"
             title={`Top ${sliceNumber} des institutions les plus citées dans les publications communes entre le pays "${getLabel(iso3)}" et la France (${REACT_APP_OPENALEX_RANGE}).`}
             as="h4"
             look="h4"
@@ -32,7 +32,7 @@ export default function InstitutionsChart({ iso2, iso3 }) {
           />
         </Col>
       </Row>
-      <Row>
+      <Row className="fr-mb-3w">
         <Col n="12">
           <BarChart
             categoriesText="Institutions correspondant à l'analyse de l'affiliation d'OpenAlex"

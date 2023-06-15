@@ -20,7 +20,7 @@ export default function PublicationsChart({ iso2, iso3 }) {
   );
   return (
     <>
-      <Row className="fr-mt-1w">
+      <Row>
         <Col n="12">
           <TitleComponent
             icon="ri-bar-chart-fill"
@@ -31,7 +31,7 @@ export default function PublicationsChart({ iso2, iso3 }) {
           />
         </Col>
       </Row>
-      <Row>
+      <Row className="fr-mb-3w">
         <Col n="12">
           <BarChart
             categoriesText="Années de publication"
