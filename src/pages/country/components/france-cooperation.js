@@ -174,19 +174,17 @@ export default function FranceCooperationPage() {
       </Row>
       <PublicationsChart iso2={iso2} iso3={isoCode} />
       <InstitutionsChart iso2={iso2} iso3={isoCode} />
+      <Row>
+        <Title
+          icon="ri-arrow-up-circle-line"
+          title={topTenFrenchTitle(frenchStructureWithNbProjects.length)}
+          as="h4"
+          look="h4"
+          subTitle={subTitle}
+        />
+      </Row>
       {(pending < 2) ? (
         <Row>
-          <Row className="fr-mt-1w">
-            <Col n="12">
-              <Title
-                icon="ri-arrow-up-circle-line"
-                title={topTenFrenchTitle(frenchStructureWithNbProjects.length)}
-                as="h4"
-                look="h4"
-                subTitle={subTitle}
-              />
-            </Col>
-          </Row>
           <Col n="12">
             <Loader />
           </Col>
@@ -194,7 +192,7 @@ export default function FranceCooperationPage() {
       ) : null}
       {
         (frenchStructureWithNbProjects.length > 0) ? (
-          <ol>
+          <ol className="fr-mx-3w fr-mb-3w">
             {frenchStructureWithNbProjects.map((structure) => (
               <li key={uuidv4()}>
                 <div>
@@ -210,35 +208,33 @@ export default function FranceCooperationPage() {
           </ol>
         ) : null
       }
+      <Row className="fr-mt-3w fr">
+        <Col n="12">
+          <Title
+            icon="ri-arrow-up-circle-line"
+            title={topTenCountryTitle(foreignStructureWithNbProjects.length)}
+            as="h4"
+            look="h4"
+            subTitle={subTitle}
+          />
+        </Col>
+      </Row>
       {
         (foreignStructureWithNbProjects.length > 0) ? (
-          <>
-            <Row className="fr-mt-3w">
-              <Col n="12">
-                <Title
-                  icon="ri-arrow-up-circle-line"
-                  title={topTenCountryTitle(foreignStructureWithNbProjects.length)}
-                  as="h4"
-                  look="h4"
-                  subTitle={subTitle}
-                />
-              </Col>
-            </Row>
-            <ol>
-              {foreignStructureWithNbProjects.map((structure) => (
-                <li key={uuidv4()}>
-                  <div>
-                    {structure.label.default}
-                    {structure.acronym && (` (${structure.acronym.default})`)}
-                  </div>
-                  <div>
-                    <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                    <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </>
+          <ol className="fr-mx-3w fr-mb-3w">
+            {foreignStructureWithNbProjects.map((structure) => (
+              <li key={uuidv4()}>
+                <div>
+                  {structure.label.default}
+                  {structure.acronym && (` (${structure.acronym.default})`)}
+                </div>
+                <div>
+                  <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
+                  <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
+                </div>
+              </li>
+            ))}
+          </ol>
         ) : null
       }
     </Container>
