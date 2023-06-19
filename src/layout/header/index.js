@@ -30,12 +30,12 @@ export default function Header({ switchTheme }) {
   const [isSearching, setIsSearching] = useState(false);
   const [options, setOptions] = useState([]);
   const navigate = useNavigate();
-  const allCounties = countries.map((country) => ({ nameFr: country.Pays, iso3: country.ISO_alpha3, searchLabel: country.Pays_search }));
 
   useEffect(() => {
+    const allCountries = countries.filter((country) => country.hasData === 'TRUE').map((country) => ({ nameFr: country.Pays, iso3: country.ISO_alpha3, searchLabel: country.Pays_search }));
     const getAutocompleteResult = async () => {
       setIsSearching(true);
-      setOptions(allCounties.filter((country) => country.searchLabel.indexOf(debouncedQuery) !== -1));
+      setOptions(allCountries.filter((country) => country.searchLabel.indexOf(debouncedQuery) !== -1));
       setIsSearching(false);
     };
     if (debouncedQuery) {
@@ -43,7 +43,7 @@ export default function Header({ switchTheme }) {
     } else {
       setOptions([]);
     }
-  }, [allCounties, debouncedQuery]);
+  }, [debouncedQuery]);
 
   const handleSearchRedirection = ({ iso3 }) => {
     navigate(`/pays/${iso3}`);
