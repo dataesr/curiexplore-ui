@@ -1,20 +1,21 @@
+import { useEffect, useState } from 'react';
 import {
   Link as RouterLink,
   useLocation,
+  useNavigate,
 } from 'react-router-dom';
 import {
   Badge,
-  Header as HeaderWrapper,
-  HeaderBody,
-  HeaderNav,
+  Header as HeaderWrapper, HeaderBody, HeaderNav,
   Logo,
   NavItem,
   Service,
-  Tool,
-  ToolItem,
-  ToolItemGroup,
+  Tool, ToolItem, ToolItemGroup,
 } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
+import SearchBar from '../../components/search-bar';
+import useDebounce from './hooks/useDebounce';
+import countries from '../../assets/data/countriesList.json';
 
 const {
   REACT_APP_HEADER_TAG: headerTag,
@@ -24,6 +25,36 @@ const {
 export default function Header({ switchTheme }) {
   const { pathname } = useLocation();
   const { isOpen, setIsOpen } = switchTheme;
+  const [query, setQuery] = useState('');
+  const debouncedQuery = useDebounce(query, 500);
+  const [isSearching, setIsSearching] = useState(false);
+  const [options, setOptions] = useState([]);
+  const navigate = useNavigate();
+  const allCounties = countries.map((country) => ({ nameFr: country.Pays, iso3: country.ISO_alpha3, searchLabel: country.Pays_search }));
+
+  useEffect(() => {
+    const getAutocompleteResult = async () => {
+      setIsSearching(true);
+      setOptions(allCounties.filter((country) => country.searchLabel.indexOf(debouncedQuery) !== -1));
+      setIsSearching(false);
+    };
+    if (debouncedQuery) {
+      getAutocompleteResult();
+    } else {
+      setOptions([]);
+    }
+  }, [allCounties, debouncedQuery]);
+
+  const handleSearchRedirection = ({ iso3 }) => {
+    navigate(`/pays/${iso3}`);
+    setOptions([]);
+    setQuery('');
+  };
+
+  const handleSearch = () => {
+    setOptions([]);
+    setQuery('');
+  };
 
   return (
     <HeaderWrapper>
@@ -53,6 +84,22 @@ export default function Header({ switchTheme }) {
               Changer le thème
             </ToolItem>
           </ToolItemGroup>
+
+          <SearchBar
+            size="md"
+            buttonLabel="Rechercher"
+            hideLabel
+            value={query}
+            label="Rechercher un pays"
+            placeholder="Rechercher..."
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+            options={options}
+            onSearch={handleSearch}
+            onSelect={handleSearchRedirection}
+            isSearching={isSearching}
+          />
         </Tool>
       </HeaderBody>
       <HeaderNav path={pathname}>
