@@ -125,6 +125,7 @@ export default function CountryProfilePage() {
                 flagUrl={dataCountry.fields.flag}
                 idhCountry={IDH.value}
                 idhAverage={0.732}
+                nameFr={dataCountry.fields.name_fr}
               />
             </Col>
           </Row>
