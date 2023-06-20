@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Highcharts from 'highcharts';
-import highchartsOfflineExporting from 'highcharts/modules/offline-exporting';
+import exportingModule from 'highcharts/modules/exporting';
 
-highchartsOfflineExporting(Highcharts);
+exportingModule(Highcharts);
 
 function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
   useEffect(() => {
