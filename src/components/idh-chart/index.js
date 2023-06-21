@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Highcharts from 'highcharts';
 import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
 
 exportingModule(Highcharts);
+exportingData(Highcharts);
 
 function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
   useEffect(() => {
@@ -90,22 +92,13 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
         enabled: true,
         buttons: {
           contextButton: {
-            menuItems: [
-              'viewFullscreen',
-              'printChart',
-              'downloadPNG',
-              'downloadJPEG',
-              'downloadPDF',
-            ],
+            menuItems: ['downloadCSV', 'downloadPNG'],
           },
         },
       },
       lang: {
-        viewFullscreen: 'Voir en plein écran',
-        printChart: 'Imprimer le graphique',
-        downloadPNG: 'Télécharger en PNG',
-        downloadJPEG: 'Télécharger en JPEG',
-        downloadPDF: 'Télécharger en PDF',
+        downloadPNG: 'Télécharger en format PNG',
+        downloadCSV: 'Télécharger en format CSV',
       },
       plotOptions: {
         series: {
