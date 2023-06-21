@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
+import Highcharts from 'highcharts';
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
 
 export default function useFetchData() {
+  const [options, setOptions] = useState({});
   const [data, setData] = useState();
   const [years, setYears] = useState([]);
   const [error, setError] = useState(null);
@@ -25,6 +32,27 @@ export default function useFetchData() {
         const uniqueYears = [...new Set(yearsData)];
 
         setYears(uniqueYears || []);
+        setOptions({
+          lang: {
+            downloadPNG: 'Télécharger en format PNG',
+            downloadCSV: 'Télécharger en format CSV',
+          },
+          credits: {
+            enabled: false,
+          },
+          exporting: {
+            enabled: true,
+            menuItemDefinitions: {
+              downloadPNG: {},
+              downloadCSV: {},
+            },
+            buttons: {
+              contextButton: {
+                menuItems: ['downloadCSV', 'downloadPNG'],
+              },
+            },
+          },
+        });
       } catch (err) {
         setError(err);
       }
@@ -33,5 +61,5 @@ export default function useFetchData() {
     getData();
   }, []);
 
-  return { years, data, isLoading, error };
+  return { options, years, data, isLoading, error };
 }

@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
+
 import getLabel from '../../../../../../../utils/getLabel';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
 
 export default function useFetchData({ charts, countryCode, countryCodeCurrent = 'FRA' }) {
   const [options, setOptions] = useState({});
@@ -66,8 +72,24 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
         ];
 
         setOptions({
+          lang: {
+            downloadPNG: 'Télécharger en format PNG',
+            downloadCSV: 'Télécharger en format CSV',
+          },
           credits: {
             enabled: false,
+          },
+          exporting: {
+            enabled: true,
+            menuItemDefinitions: {
+              downloadPNG: {},
+              downloadCSV: {},
+            },
+            buttons: {
+              contextButton: {
+                menuItems: ['downloadCSV', 'downloadPNG'],
+              },
+            },
           },
           chart: {
             type: 'bar',
