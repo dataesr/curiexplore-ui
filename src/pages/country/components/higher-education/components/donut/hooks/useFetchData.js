@@ -1,4 +1,10 @@
 import { useEffect, useState } from 'react';
+import Highcharts from 'highcharts';
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
 
 export default function useFetchData({ charts, countryCode }) {
   const [options, setOptions] = useState({});
@@ -48,8 +54,24 @@ export default function useFetchData({ charts, countryCode }) {
         );
 
         setOptions({
+          lang: {
+            downloadPNG: 'Télécharger en format PNG',
+            downloadCSV: 'Télécharger en format CSV',
+          },
           credits: {
             enabled: false,
+          },
+          exporting: {
+            enabled: true,
+            menuItemDefinitions: {
+              downloadPNG: {},
+              downloadCSV: {},
+            },
+            buttons: {
+              contextButton: {
+                menuItems: ['downloadCSV', 'downloadPNG'],
+              },
+            },
           },
           chart: {
             type: 'pie',
