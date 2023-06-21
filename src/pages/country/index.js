@@ -126,7 +126,7 @@ export default function Fiche({ exportState }) {
                       {dataPays.name_fr}
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                      {selected}
+                      {selected.charAt(0).toUpperCase() + selected.slice(1)}
                     </BreadcrumbItem>
                   </Breadcrumb>
                   <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">

@@ -93,7 +93,13 @@ export default function MapWithMarkers({ data, selectedCategory, activeId, style
         >
           <Popup>
             <p>
-              {item.label}
+              Nom usuel :
+              {' '}
+              {item.label.usualName}
+              <br />
+              Nom officiel :
+              {' '}
+              {item.label.officialName}
             </p>
           </Popup>
         </Marker>

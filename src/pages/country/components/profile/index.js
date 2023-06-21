@@ -8,7 +8,7 @@ import ChartComponents from '../chart-components';
 import charts from './charts.json';
 import PopulationComponent from '../chart-components/population';
 import GenericCard from '../../../../components/generic-card';
-import IDHChart from '../../../../components/idh-chart';
+import IDHComparisonChart from '../../../../components/idh-chart';
 
 export default function CountryProfilePage() {
   const { isoCode } = useParams();
@@ -120,11 +120,12 @@ export default function CountryProfilePage() {
         (Object.keys(IDH).length !== 0) ? (
           <Row>
             <Col n="12">
-              <IDHChart
+              <IDHComparisonChart
                 group={dataCountry.fields.idh_group}
                 flagUrl={dataCountry.fields.flag}
                 idhCountry={IDH.value}
                 idhAverage={0.732}
+                nameFr={dataCountry.fields.name_fr}
               />
             </Col>
           </Row>
