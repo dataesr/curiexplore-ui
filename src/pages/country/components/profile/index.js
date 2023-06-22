@@ -2,6 +2,7 @@ import { Col, Row } from '@dataesr/react-dsfr';
 import { MapContainer } from 'react-leaflet';
 import { useParams, useOutletContext } from 'react-router-dom';
 
+import Title from '../../../../components/title';
 import CountryMap from '../../../../components/country-map';
 import ChartComponents from '../chart-components';
 
@@ -58,7 +59,7 @@ export default function CountryProfilePage() {
 
   return (
     <>
-      <Row gutters>
+      <Row gutters className="fr-mb-1w">
         <Col n="12">
           <MapContainer
             zoomControl={false}
@@ -74,6 +75,11 @@ export default function CountryProfilePage() {
           </MapContainer>
         </Col>
       </Row>
+      <Title
+        as="h3"
+        title="En un clin d'oeil"
+        icon="ri-search-eye-line"
+      />
       <Row gutters className="fr-mb-3w">
         {
           charts.filter((chart) => chart.type.split('-')[0] === 'custom'

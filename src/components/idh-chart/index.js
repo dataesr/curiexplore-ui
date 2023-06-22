@@ -1,11 +1,25 @@
 import React, { useEffect } from 'react';
+import { Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import Highcharts from 'highcharts';
 import exportingModule from 'highcharts/modules/exporting';
 import exportingData from 'highcharts/modules/export-data';
 
+import ChartTitle from '../title';
+
 exportingModule(Highcharts);
 exportingData(Highcharts);
+
+const source = (
+  <Text>
+    Source :&nbsp;
+    <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
+  </Text>
+);
+
+const title = (
+  'L\'indice de développement humain du pays'
+);
 
 function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
   useEffect(() => {
@@ -13,12 +27,18 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
       chart: {
         type: 'bar',
         height: 200,
+        // TODO : gérer le padding groupe
+        groupPadding: 0,
       },
       title: {
-        text: 'Comparaison de l\'indice de développement humain avec la moyenne mondiale',
+        text: null,
       },
       xAxis: {
-        categories: [''],
+        type: 'category',
+        title: {
+          text: null,
+        },
+        lineWidth: 0,
       },
       yAxis: {
         title: {
@@ -31,27 +51,29 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           {
             from: 0,
             to: 0.549,
-            color: '#F2F2B5',
+            color: '#ffffff',
             label: {
               text: 'Faible',
               align: 'center',
               rotation: 0,
               style: {
+                fontFamily: 'Marianne',
                 color: '#333',
-                fontSize: '9px',
+                fontSize: '11px',
               },
             },
           },
           {
             from: 0.549,
             to: 0.699,
-            color: '#CEE384',
+            color: '#f6f6f6',
             label: {
               text: 'Moyen',
               align: 'center',
               rotation: 0,
               style: {
-                fontSize: '9px',
+                fontFamily: 'Marianne',
+                fontSize: '11px',
                 color: '#333',
               },
             },
@@ -59,13 +81,14 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           {
             from: 0.699,
             to: 0.8,
-            color: '#8AC45B',
+            color: '#eeeeee',
             label: {
               text: 'Elevé',
               align: 'center',
               rotation: 0,
               style: {
-                fontSize: '9px',
+                fontFamily: 'Marianne',
+                fontSize: '11px',
                 color: '#333',
               },
             },
@@ -73,12 +96,13 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           {
             from: 0.8,
             to: 1,
-            color: '#19904C',
+            color: '#e5e5e5',
             label: {
               text: 'Très élevé',
               align: 'center',
               style: {
-                fontSize: '9px',
+                fontFamily: 'Marianne',
+                fontSize: '11px',
                 color: '#333',
               },
             },
@@ -100,7 +124,16 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
         downloadPNG: 'Télécharger en format PNG',
         downloadCSV: 'Télécharger en format CSV',
       },
+      tooltip: {
+        enabled: false,
+      },
       plotOptions: {
+        column: {
+          colorByPoint: true,
+        },
+        bar: {
+          borderWidth: 0,
+        },
         series: {
           dataLabels: {
             enabled: true,
@@ -109,39 +142,32 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
       },
       series: [
         {
-          name: nameFr,
-          data: [idhCountry],
-          color: '#FFCA00',
-          dataLabels: {
-            verticalAlign: 'top',
-            align: 'left',
-            inside: true,
-            enabled: true,
-            useHTML: true,
-            color: '#FFFFFF',
-            formatter() {
-              return `<img src="${flagUrl}" style="width: 20px;  margin-right: 5px;"/>${nameFr}  ${idhCountry}`;
-            },
-          },
-        },
-        {
-          name: 'Moyenne mondiale',
-          data: [idhAverage],
-          color: '#696969',
-          dataLabels: {
-            verticalAlign: 'top',
-            align: 'left',
-            inside: true,
-            enabled: true,
-            color: '#FFFFFF',
-            format: `\u{1F30D} Moyenne mondiale ${idhAverage}`,
-          },
+          name: null,
+          data: [
+            [`${nameFr}`, idhCountry],
+            ['Moyenne mondiale', idhAverage],
+          ],
+          pointWidth: 30,
+          colors: ['#FFCA00', '#21213f'],
+          colorByPoint: true,
         },
       ],
     });
   }, [idhCountry, idhAverage, nameFr, flagUrl]);
 
-  return <div id="chartContainer" />;
+  return (
+    <section className="fr-mb-1w">
+      <ChartTitle
+        title={title}
+        icon="ri-bar-chart-horizontal-fill"
+        subTitle={source}
+        as="h4"
+        look="h4"
+      />
+      <div id="chartContainer" />
+    </section>
+
+  );
 }
 
 IDHComparisonChart.propTypes = {

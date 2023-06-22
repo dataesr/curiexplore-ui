@@ -1,16 +1,17 @@
 [
   {
-    "title": "Evolution du produit intérieur brut",
-    "code": "NY.GDP.MKTP.PP.CD",
+    "title": "Population",
+    "code": "SP.POP.TOTL",
     "sort": "-year",
-    "type": "line",
+    "type": "custom-population",
     "source": "Banque mondiale",
-    "definition": "Le PIB en PPA est le produit intérieur brut converti en dollars internationaux courants au moyen des taux de parité des pouvoirs d'achat (PPA). Un dollar international a le même pouvoir d'achat sur le PIB du pays déclarant qu'un dollar américain aux États-Unis. Le PIB est la somme de la valeur ajoutée brute de tous les producteurs résidents d'une économie plus toutes taxes sur les produits et moins les subventions non incluses dans la valeur des produits. Elle est calculée sans effectuer de déductions pour la dépréciation des biens fabriqués ou la perte de valeur ou la dégradation des ressources naturelles. Les données sont en dollars internationaux courants.",
+    "definition": "La population totale est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut légal ou de leur citoyenneté. Les valeurs indiquées sont des estimations à mi-année.",
     "base100": true
   },
   {
     "title": "Croissance de la population",
     "code": "SP.POP.GROW",
+    "unit": "%",
     "sort": "-year",
     "type": "line",
     "source": "Banque mondiale",
@@ -19,18 +20,50 @@
   {
     "title": "Population âgée de 15 à 64 ans",
     "code": "SP.POP.1564.TO",
+    "unit": "personnes",
+    "sort": "-year",
+    "type": "line",
+    "source": "Banque mondiale",
+    "definition": "Population totale âgée de 15 à 64 ans. La population est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut juridique ou de leur citoyenneté.",
+    "base100": true
+  },
+  {
+    "title": "Population active",
+    "code": "SL.TLF.TOTL.IN",
+    "unit": "personnes",
+    "sort": "-year",
+    "type": "line",
+    "source": "Banque mondiale",
+    "definition": "La population active totale comprend les personnes âgées de 15 ans et plus qui correspondent à la définition de la population active économiquement de l'Organisation internationale du Travail : toutes les personnes qui fournissent du travail pour la production de biens et de services au cours d'une période donnée. Cette définition comprend à la fois les travailleurs et les demandeurs d'emploi. Alors que les pratiques nationales varient dans le traitement des groupes tels que le personnel des forces armées et les ouvriers saisonniers ou à temps partiel, en général, la population active comprend le personnel des forces armées, les demandeurs d'emploi et les personnes à la recherche d'un premier emploi, mais exclue les femmes au foyer et les autres personnels soignants et ouvriers du secteur informel qui ne sont pas payés.",
+    "base100": true
+  },
+  {
+    "title": "Population rurale",
+    "code": "SP.RUR.TOTL",
+    "unit": "personnes",
+    "sort": "-year",
+    "type": "line",
+    "source": "Banque mondiale",
+    "definition": "La population rurale fait référence aux personnes vivant en milieu rural tel que défini par les bureaux nationaux de statistiques. Elle est calculée en faisant la différence entre la population totale et la la population urbaine.",
+    "base100": true
+  },
+  {
+    "title": "Evolution du produit intérieur brut",
+    "code": "NY.GDP.MKTP.PP.CD",
+    "unit": "$ PPA internationaux courants",
+    "sort": "-year",
+    "type": "line",
+    "source": "Banque mondiale",
+    "definition": "Le PIB en PPA est le produit intérieur brut converti en dollars internationaux courants au moyen des taux de parité des pouvoirs d'achat (PPA). Un dollar international a le même pouvoir d'achat sur le PIB du pays déclarant qu'un dollar américain aux États-Unis. Le PIB est la somme de la valeur ajoutée brute de tous les producteurs résidents d'une économie plus toutes taxes sur les produits et moins les subventions non incluses dans la valeur des produits. Elle est calculée sans effectuer de déductions pour la dépréciation des biens fabriqués ou la perte de valeur ou la dégradation des ressources naturelles. Les données sont en dollars internationaux courants.",
+    "base100": true
+  },
+  {
+    "title": "Population âgée de 15 à 64 ans",
+    "code": "SP.POP.1564.TO",
     "sort": "-year",
     "type": "custom-population",
     "source": "Banque mondiale",
     "definition": "Population totale âgée de 15 à 64 ans. La population est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut juridique ou de leur citoyenneté."
-  },
-  {
-    "title": "Population",
-    "code": "SP.POP.TOTL",
-    "sort": "-year",
-    "type": "custom-population",
-    "source": "Banque mondiale",
-    "definition": "La population totale est basée sur la définition de facto de la population, qui compte tous les résidents indépendamment de leur statut légal ou de leur citoyenneté. Les valeurs indiquées sont des estimations à mi-année."
   },
   {
     "title": "Population active",
