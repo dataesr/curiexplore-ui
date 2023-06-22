@@ -17,6 +17,9 @@ export default function CountryHigherEducationPage() {
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
   let dataES = [];
 
+  const charts1st = charts.filter((indic) => indic.theme === 'niveau');
+  const charts2nd = charts.filter((indic) => indic.theme === 'domaine');
+
   if (data.length !== 0) {
     dataES = data.find((el) => (el.fields.codethematique === 'A5'))?.fields || null;
   } else {
@@ -44,9 +47,10 @@ export default function CountryHigherEducationPage() {
         icon=""
       />
       <Pyramid />
+      <ChartComponents charts={charts1st} />
       <PieChart />
+      <ChartComponents charts={charts2nd} />
       <EducationIndex data={dataIDH} />
-      <ChartComponents charts={charts} />
 
     </>
   );
