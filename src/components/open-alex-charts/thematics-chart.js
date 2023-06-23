@@ -24,10 +24,11 @@ export default function ThematicsChart({ iso2, iso3 }) {
         <Col n="12">
           <Title
             icon="ri-bar-chart-fill"
-            title={`Principaux domaines scientifiques de travail commun entre le pays "${getLabel(iso3)}" et la France (${REACT_APP_OPENALEX_RANGE}).`}
+            title={`Principaux domaines scientifiques de travail commun entre le pays "${getLabel(iso3)}" et la France (${REACT_APP_OPENALEX_RANGE})`}
             as="h4"
             look="h4"
             subTitle={subTitle}
+            betaBadge
           />
         </Col>
       </Row>
