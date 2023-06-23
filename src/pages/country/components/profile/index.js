@@ -1,6 +1,6 @@
 import { Col, Row } from '@dataesr/react-dsfr';
 import { MapContainer } from 'react-leaflet';
-import { useParams, useOutletContext } from 'react-router-dom';
+import { useParams, useOutletContext, Link } from 'react-router-dom';
 
 import CountryMap from '../../../../components/country-map';
 import ChartComponents from '../chart-components';
@@ -58,6 +58,30 @@ export default function CountryProfilePage() {
 
   return (
     <>
+      {
+        (isoCode === 'MAC' || isoCode === 'HKG')
+          ? (
+            <Row gutters>
+              <Col n="12">
+                <Link to="/pays/CHN">Voir la fiche de la Chine</Link>
+              </Col>
+            </Row>
+          )
+          : null
+      }
+      {
+        (isoCode === 'CHN')
+          ? (
+            <Row gutters>
+              <Col n="12">
+                Voir la fiche
+                <Link to="/pays/MAC"> de Macao</Link>
+                <Link to="/pays/HKG">, de Hong-Kong</Link>
+              </Col>
+            </Row>
+          )
+          : null
+      }
       <Row gutters>
         <Col n="12">
           <MapContainer
