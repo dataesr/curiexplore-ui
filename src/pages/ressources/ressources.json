@@ -28,5 +28,23 @@
     "website": "https://scanr.enseignementsup-recherche.gouv.fr/",
     "badge": "source",
     "description": "scanR décrit et relie entreprises et laboratoires de recherche, auteurs de travaux de recherche, (thèses, publications, brevets) et financements publics"
+  },
+  {
+    "label": "SCImago Journal Rank",
+    "website": "https://www.scimagojr.com/",
+    "badge": "source",
+    "description": "SCImago Journal Rank rend accessible une list d'indicateur permettant de qualifier la production scientifique d'un pays."
+  },
+  {
+    "label": "Organisation des Nations unies pour l'éducation, la science et la culture",
+    "website": "http://data.uis.unesco.org/?lang=fr",
+    "badge": "source",
+    "description": "L'institut de statistique de l'UNESCO (ISU) est la source officielle de données comparables à l'échelle internationale sur l'éducation, la science, la culture et la communication."
+  },
+  {
+    "label": "Banque Mondiale",
+    "website": "https://donnees.banquemondiale.org/",
+    "badge": "source",
+    "description": "La Banque Mondiale produit des statistiques fiables et pertinentes à l'échelle internationale. Les statistiques sont compilées de façon normalisée ce qui permet une comparaison entre pays."
   }
 ]

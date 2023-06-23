@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
+import Highcharts from 'highcharts';
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
 import getLabel from '../../../../../utils/getLabel';
 import formatNumber from '../../../../../utils/formatNumber';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
 
 export default function useFetchData(data) {
   const [error, setError] = useState(null);
@@ -44,7 +50,7 @@ export default function useFetchData(data) {
               x: Number(el.fields.year),
               y: (data.base100 === true) ? (el.fields.value / firstValueCurrentCountry) * 100 : el.fields.value,
               value: Math.fround(el.fields.value).toLocaleString(),
-              valueToPrint: formatNumber(Math.fround(el.fields.value)).toLocaleString(),
+              valueToPrint: formatNumber(Math.fround(el.fields.value).toLocaleString()),
               unit: data.unit,
               ref: firstYearCurrentCountry,
               label: getLabel(data.countryCode),
@@ -97,8 +103,24 @@ export default function useFetchData(data) {
   }, [data.code, data.otherCodes, data.countryCode, data.sort, data.base100, data.unit]);
 
   const options = {
+    lang: {
+      downloadPNG: 'Télécharger en format PNG',
+      downloadCSV: 'Télécharger en format CSV',
+    },
     credits: {
       enabled: false,
+    },
+    exporting: {
+      enabled: true,
+      menuItemDefinitions: {
+        downloadPNG: {},
+        downloadCSV: {},
+      },
+      buttons: {
+        contextButton: {
+          menuItems: ['downloadCSV', 'downloadPNG'],
+        },
+      },
     },
     chart: {
       type: data.type,

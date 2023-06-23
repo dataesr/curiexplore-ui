@@ -19,6 +19,7 @@ export default function CountryList({ region }) {
     .map((el) => ({ name_fr: el.properties.name_fr, iso: el.properties.iso_a3 }));
   const byLettersCountries = groupByLetters(filteredCountries);
   const orderedCountries = Object.entries(byLettersCountries).sort(([a], [b]) => a.localeCompare(b));
+
   return (
     <Container>
 
