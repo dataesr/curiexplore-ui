@@ -38,7 +38,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               rotation: 0,
               style: {
                 color: '#333',
-                fontSize: '9px',
+                fontSize: '10px',
               },
             },
           },
@@ -51,7 +51,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               align: 'center',
               rotation: 0,
               style: {
-                fontSize: '9px',
+                fontSize: '10px',
                 color: '#333',
               },
             },
@@ -65,7 +65,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               align: 'center',
               rotation: 0,
               style: {
-                fontSize: '9px',
+                fontSize: '10px',
                 color: '#333',
               },
             },
@@ -78,7 +78,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               text: 'Très élevé',
               align: 'center',
               style: {
-                fontSize: '9px',
+                fontSize: '10px',
                 color: '#333',
               },
             },
@@ -113,14 +113,12 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           data: [idhCountry],
           color: '#FFCA00',
           dataLabels: {
-            verticalAlign: 'top',
             align: 'left',
             inside: true,
-            enabled: true,
             useHTML: true,
             color: '#FFFFFF',
             formatter() {
-              return `<img src="${flagUrl}" style="width: 20px;  margin-right: 5px;"/>${nameFr}  ${idhCountry}`;
+              return `<img src="${flagUrl}" style="width: 20px;margin-right: 5px;"/>${nameFr} ${idhCountry}`;
             },
           },
         },
@@ -129,10 +127,8 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           data: [idhAverage],
           color: '#696969',
           dataLabels: {
-            verticalAlign: 'top',
             align: 'left',
             inside: true,
-            enabled: true,
             color: '#FFFFFF',
             format: `\u{1F30D} Moyenne mondiale ${idhAverage}`,
           },
