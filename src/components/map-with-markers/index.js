@@ -1,5 +1,7 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import {
   MapContainer, Marker, TileLayer, Popup,
@@ -76,31 +78,34 @@ function getBounds(markers) {
   return [[67.7857004, -73.3879096], [-39.1443011, -140.8879096]];
 }
 
-export default function MapWithMarkers({ data, selectedCategory, activeId, style }) {
+export default function MapWithMarkers({ data, filteredData, selectedCategory, activeId, style }) {
   const [focus, setFocus] = useState(initFocus);
   let marker = null;
-  const renderMarkers = data.map((item) => {
+
+  const renderMarkers = filteredData?.map((item) => {
     marker = null;
-    if (!focus && activeId === item.id && item.gps.length === 2) {
-      setFocus(item.gps);
+    if (!focus && activeId === item.id && item?.currentLocalisation?.geometry?.coordinates?.length === 2) {
+      setFocus(item?.currentLocalisation?.geometry?.coordinates);
     }
-    if (item?.gps.length === 2) {
+    if (item?.currentLocalisation?.geometry?.coordinates?.length === 2) {
       marker = (
         <Marker
-          position={[item.gps[1], item.gps[0]]}
-          icon={getMarkerColorFromCategoryId(selectedCategory || item.iconColor)}
+          position={[item?.currentLocalisation?.geometry?.coordinates[1], item?.currentLocalisation?.geometry?.coordinates[0]]}
+          icon={getMarkerColorFromCategoryId(selectedCategory || item?.iconColor)}
           key={uuidV4()}
         >
           <Popup>
-            <p>
-              Nom usuel :
-              {' '}
-              {item.label.usualName}
-              <br />
-              Nom officiel :
-              {' '}
-              {item.label.officialName}
-            </p>
+            <RouterLink to={`./${item.id}`} className="fr-text--xl">
+              <p>
+                Nom usuel :
+                {' '}
+                {item?.currentName?.usualName}
+                <br />
+                Nom officiel :
+                {' '}
+                {item?.currentName?.officialName}
+              </p>
+            </RouterLink>
           </Popup>
         </Marker>
       );
@@ -139,11 +144,13 @@ MapWithMarkers.defaultProps = {
   data: [],
   selectedCategory: '',
   style: { height: '350px', width: '100%' },
+  filteredData: [],
 };
 
 MapWithMarkers.propTypes = {
   activeId: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
+  filteredData: PropTypes.arrayOf(PropTypes.object),
   selectedCategory: PropTypes.string,
   style: PropTypes.object,
 };

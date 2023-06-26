@@ -148,7 +148,7 @@ export default function ActorsPage() {
           ) : null}
         </Col>
         <Col n={Object.keys(categories).length ? '9' : '12'} className="fr-pt-1w">
-          <MapCategoriesActors actors={addressesList} />
+          <MapCategoriesActors actors={addressesList} data={filteredData} />
         </Col>
       </Row>
       <Row>
