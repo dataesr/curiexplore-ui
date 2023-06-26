@@ -59,7 +59,11 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               style: {
                 fontFamily: 'Marianne',
                 color: '#333',
+<<<<<<< HEAD
                 fontSize: '11px',
+=======
+                fontSize: '10px',
+>>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
               },
             },
           },
@@ -72,8 +76,12 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               align: 'center',
               rotation: 0,
               style: {
+<<<<<<< HEAD
                 fontFamily: 'Marianne',
                 fontSize: '11px',
+=======
+                fontSize: '10px',
+>>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
                 color: '#333',
               },
             },
@@ -87,8 +95,12 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               align: 'center',
               rotation: 0,
               style: {
+<<<<<<< HEAD
                 fontFamily: 'Marianne',
                 fontSize: '11px',
+=======
+                fontSize: '10px',
+>>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
                 color: '#333',
               },
             },
@@ -101,8 +113,12 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               text: 'Très élevé',
               align: 'center',
               style: {
+<<<<<<< HEAD
                 fontFamily: 'Marianne',
                 fontSize: '11px',
+=======
+                fontSize: '10px',
+>>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
                 color: '#333',
               },
             },
@@ -142,6 +158,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
       },
       series: [
         {
+<<<<<<< HEAD
           name: null,
           data: [
             [`${nameFr}`, idhCountry],
@@ -150,6 +167,31 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           pointWidth: 30,
           colors: ['#FFCA00', '#21213f'],
           colorByPoint: true,
+=======
+          name: nameFr,
+          data: [idhCountry],
+          color: '#FFCA00',
+          dataLabels: {
+            align: 'left',
+            inside: true,
+            useHTML: true,
+            color: '#FFFFFF',
+            formatter() {
+              return `<img src="${flagUrl}" style="width: 20px;margin-right: 5px;"/>${nameFr} ${idhCountry}`;
+            },
+          },
+        },
+        {
+          name: 'Moyenne mondiale',
+          data: [idhAverage],
+          color: '#696969',
+          dataLabels: {
+            align: 'left',
+            inside: true,
+            color: '#FFFFFF',
+            format: `\u{1F30D} Moyenne mondiale ${idhAverage}`,
+          },
+>>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
         },
       ],
     });
