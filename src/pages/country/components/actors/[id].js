@@ -199,21 +199,21 @@ export default function Actor() {
       }
 
       {
-        dataActor.websites.length > 0 && (
-          <Row gutters>
-            {dataActor.websites.map((website) => (
-              <Col n="4">
-                <Callout
-                  hasInfoIcon={false}
-                  colors={['#009081', '#eee']}
-                >
-                  <WebSiteCard language={website.language} link={website.url} name="Site" />
-                </Callout>
-              </Col>
-            ))}
-          </Row>
-        )
-      }
+  dataActor.websites.length > 0 && (
+    <Row gutters>
+      {Array.from(new Set(dataActor.websites.map((website) => website.language + website.url))).map((key) => {
+        const website = dataActor.websites.find((site) => site.language + site.url === key);
+        return (
+          <Col n="4" key={key}>
+            <Callout hasInfoIcon={false} colors={['#009081', '#eee']}>
+              <WebSiteCard language={website.language} link={website.url} name="Site" />
+            </Callout>
+          </Col>
+        );
+      })}
+    </Row>
+  )
+}
 
       {
         dataActor.socialmedias.length > 0 && (
