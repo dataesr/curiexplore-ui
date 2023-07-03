@@ -34,6 +34,8 @@ export default function Fiche({ exportState }) {
   const navigate = useNavigate();
   const selected = pathname.split('/').pop();
   const { data, isLoading, error, isUnknownCountry } = useFetchData(isoCode);
+  let actorName = '';
+
   const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
   const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
 
@@ -44,6 +46,11 @@ export default function Fiche({ exportState }) {
   useEffect(() => {
     setIsExport(exportState);
   }, [exportState]);
+
+  if (data['actors-data']) {
+    const actorData = data['actors-data']?.filter((actor) => actor?.id === selected);
+    actorName = actorData[0]?.displayName;
+  }
 
   if (isUnknownCountry) navigate('/404');
   if (isLoading) return <Loader />;
@@ -126,7 +133,7 @@ export default function Fiche({ exportState }) {
                       {dataPays.name_fr}
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                      {selected.charAt(0).toUpperCase() + selected.slice(1)}
+                      {actorName ? actorName.charAt(0).toUpperCase() + actorName.slice(1) : ''}
                     </BreadcrumbItem>
                   </Breadcrumb>
                   <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">

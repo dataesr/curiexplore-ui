@@ -96,7 +96,6 @@ export default function ActorsPage() {
 
   const filteredData = selectedCategory ? data.filter((el) => el.curieCategories.includes(selectedCategory)) : data;
 
-  // transformation des données pour le composant MapWithMarkers
   const getObjAddress = (el, idCat) => {
     if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {
       return ({
@@ -148,7 +147,7 @@ export default function ActorsPage() {
           ) : null}
         </Col>
         <Col n={Object.keys(categories).length ? '9' : '12'} className="fr-pt-1w">
-          <MapCategoriesActors actors={addressesList} />
+          <MapCategoriesActors actors={addressesList} data={filteredData} />
         </Col>
       </Row>
       <Row>
