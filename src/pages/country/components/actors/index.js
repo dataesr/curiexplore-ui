@@ -96,7 +96,6 @@ export default function ActorsPage() {
 
   const filteredData = selectedCategory ? data.filter((el) => el.curieCategories.includes(selectedCategory)) : data;
 
-  // transformation des données pour le composant MapWithMarkers
   const getObjAddress = (el, idCat) => {
     if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {
       return ({
