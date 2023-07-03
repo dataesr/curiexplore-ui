@@ -12,10 +12,9 @@ function WebSiteCard({ language, link, name }) {
     <h6 className="fr-card__title">
       <Icon name="ri-global-line" />
       <Link href={link} target="blank">
-        {`${name} (${language})`}
+        {`${name} ${language ? `(${language})` : ''}`}
       </Link>
     </h6>
-
   );
 }
 
@@ -40,6 +39,21 @@ function WikidataCard({ id }) {
 }
 WikidataCard.propTypes = {
   id: PropTypes.string.isRequired,
+};
+
+function WikipediaCard({ title }) {
+  return (
+    <h6 className="fr-card__title">
+      <Icon name="ri-wikipedia-line" />
+      <Link href={`https://en.wikipedia.org/wiki/${encodeURIComponent(title)}`} target="blank">
+        {`Wikipedia (${title})`}
+      </Link>
+    </h6>
+  );
+}
+
+WikipediaCard.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 function SocialNetworkCard({ link, name }) {
@@ -241,6 +255,18 @@ export default function Actor() {
           </Row>
         )
       }
+
+      {
+  dataActor.websites.length > 0 && (
+    <Row gutters>
+      <Col n="4">
+        <Callout hasInfoIcon={false} colors={['#009081', '#eee']}>
+          <WikipediaCard title={dataActor.displayName} />
+        </Callout>
+      </Col>
+    </Row>
+  )
+}
 
       {
         dataActor.rankings && dataActor.rankings.length > 0 && (
