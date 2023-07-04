@@ -28,6 +28,11 @@ export default function ActorsPage() {
       shortLabel: 'Enseignement supérieur',
     },
     {
+      id: 'jxv8Z',
+      label: 'Implantation de structures étrangères en France',
+      shortLabel: "France à l'étranger",
+    },
+    {
       id: 'IqD8w',
       label: "Instance étrangère de contrôle/d'évaluation",
       shortLabel: 'Contrôle/évaluation',
@@ -58,7 +63,6 @@ export default function ActorsPage() {
       shortLabel: "Financement de l'ESRI",
     },
   ];
-
   // creation des categories en fonction de la variable curieCategories et des libellés dans categories
   const categories = {};
   for (let index = 0; index < data.length; index += 1) {

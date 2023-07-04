@@ -19,7 +19,7 @@ const getMarkerColorFromCategoryId = (iconColor) => {
     case 'NsMkU':
       return blueIcon;
     case 'green':
-    case 'eYx1y':
+    case 'jxv8Z':
       return greenIcon;
     case 'red':
     case 'IqD8w':

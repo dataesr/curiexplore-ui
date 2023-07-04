@@ -9,6 +9,8 @@ function getColorByCategoryLabel(categoryLabel) {
     return 'blue-ecume';
   case 'Enseignement supérieur':
     return 'green-emeraude';
+  case "France à l'étranger":
+    return 'green-archipel';
   case 'Recherche et innovation':
     return 'green-menthe';
   case 'Politique publique':
