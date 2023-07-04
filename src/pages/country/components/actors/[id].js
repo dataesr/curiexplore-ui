@@ -140,7 +140,7 @@ export default function Actor() {
         title="Sur le web"
       />
       <Row gutters>
-        <WebSiteCard language={actorWebsitesLanguage} link={actorWebsiteUrl} name="Site" />
+        <WebSiteCard languages={actorWebsitesLanguage} links={actorWebsiteUrl} name="Site" />
         <WikipediaCard title={dataActor.displayName} nameEn={actorNameEN} />
       </Row>
 
