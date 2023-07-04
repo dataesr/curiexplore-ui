@@ -75,6 +75,7 @@ export default function Actor() {
   const actorIdentifierValues = dataActor.identifiers.map((el) => el.value);
   const actorWebsitesLanguage = dataActor.websites.map((el) => el.language);
   const actorWebsiteUrl = dataActor.websites.map((url) => url.url);
+  const actorNameEN = dataActor.currentName.nameEn;
 
   if (!dataActor) {
     return (
@@ -140,7 +141,7 @@ export default function Actor() {
       />
       <Row gutters>
         <WebSiteCard language={actorWebsitesLanguage} link={actorWebsiteUrl} name="Site" />
-        <WikipediaCard title={dataActor.displayName} />
+        <WikipediaCard title={dataActor.displayName} nameEn={actorNameEN} />
       </Row>
 
       {actorIdentifierType.length > 0 && actorIdentifierValues.length > 0 && (
