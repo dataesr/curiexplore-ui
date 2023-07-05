@@ -93,11 +93,10 @@ export default function Actor() {
 
   return (
     <Container fluid>
-      <Row className="fr-mb-2w">
+      <Row>
         <Title
           as="h3"
-          className="fr-mb-0"
-          title={dataActor.displayName}
+          title={`${dataActor.displayName}  (${dataActor.currentLocalisation.country})`}
           subTitle={subtitle}
           icon=""
         />
