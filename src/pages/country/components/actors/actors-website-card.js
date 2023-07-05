@@ -2,7 +2,7 @@ import { Callout, Col, Icon, Link } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
 export default function WebSiteCard({ languages, links, name }) {
-  if (!languages || languages.length === 0) {
+  if (!languages && languages.length === 0) {
     return null;
   }
 
@@ -14,7 +14,7 @@ export default function WebSiteCard({ languages, links, name }) {
             <h6 className="fr-card__title">
               <Icon name="ri-global-line" />
               <Link href={links[index]} target="blank">
-                {`${name} (${language})`}
+                {`${name} (${language || ''})`}
               </Link>
             </h6>
           </Callout>

@@ -154,33 +154,50 @@ export default function Fiche({ exportState }) {
                     />
                   </ButtonGroup>
                 </Row>
-                <Row spacing="mb-3v" alignItems="middle">
-                  <Title spacing="mb-1v" as="h2">
-                    {dataPays.name_fr}
-                    {' '}
-                    (
-                    {dataPays.name_native}
-                    )
-                  </Title>
-                  <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
-                  <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
-                    {' '}
-                    Mis à jour le
-                    {' '}
-                    <FormattedDate
-                      value={dataTimestamp?.submitdate}
-                      day="numeric"
-                      month="long"
-                      year="numeric"
-                    />
-                  </Text>
-                </Row>
-                <Row>
-                  <CountryBadgeList data={dataPays} geographic />
-                </Row>
-                <Row>
-                  <CountryBadgeList type="info" data={dataPays} policy />
-                </Row>
+                {!actorName ? (
+                  <>
+                    <Row spacing="mb-3v" alignItems="middle">
+                      <Title spacing="mb-1v" as="h2">
+                        {dataPays.name_fr}
+                        {' '}
+                        (
+                        {dataPays.name_native}
+                        )
+                      </Title>
+                      <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
+                      <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
+                        {' '}
+                        Mis à jour le
+                        {' '}
+                        <FormattedDate
+                          value={dataTimestamp?.submitdate}
+                          day="numeric"
+                          month="long"
+                          year="numeric"
+                        />
+                      </Text>
+                    </Row>
+                    <Row>
+                      <CountryBadgeList data={dataPays} geographic />
+                    </Row>
+                    <Row>
+                      <CountryBadgeList type="info" data={dataPays} policy />
+                    </Row>
+                  </>
+                ) : (
+                  <Row alignItems="right">
+                    <Text spacing="mb-1v ml-right" as="span" size="xs" bold={false}>
+                      Mis à jour le
+                      {' '}
+                      <FormattedDate
+                        value={dataTimestamp?.submitdate}
+                        day="numeric"
+                        month="long"
+                        year="numeric"
+                      />
+                    </Text>
+                  </Row>
+                ) }
               </Container>
               <Container fluid as="section">
                 <Outlet context={data} />
