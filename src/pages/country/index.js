@@ -119,6 +119,30 @@ export default function Fiche({ exportState }) {
                   <Icon name="ri-contacts-book-line" size="1x" />
                   Liens utiles
                 </SideMenuLink>
+                {isoCode === 'CHN' ? (
+                  <>
+                    <SideMenuLink asLink={<RouterLink to="/pays/HKG" replace />} current={(selected === '')}>
+                      <Icon name="ri-arrow-left-right-line" size="1x" />
+                      Voir la fiche de Hong-Kong
+                    </SideMenuLink>
+                    <SideMenuLink asLink={<RouterLink to="/pays/MAC" replace />} current={(selected === '')}>
+                      <Icon name="ri-arrow-left-right-line" size="1x" />
+                      Voir la fiche de Macao
+                    </SideMenuLink>
+                  </>
+                ) : null}
+                {isoCode === 'HKG' ? (
+                  <SideMenuLink asLink={<RouterLink to="/pays/CHN" replace />} current={(selected === 'liens-')}>
+                    <Icon name="ri-arrow-left-right-line" size="1x" />
+                    Voir la fiche de la Chine
+                  </SideMenuLink>
+                ) : null}
+                {isoCode === 'MAC' ? (
+                  <SideMenuLink asLink={<RouterLink to="/pays/CHN" replace />} current={(selected === '')}>
+                    <Icon name="ri-arrow-left-right-line" size="1x" />
+                    Voir la fiche de la Chine
+                  </SideMenuLink>
+                ) : null}
               </SideMenu>
             </Col>
 
