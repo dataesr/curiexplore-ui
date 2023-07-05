@@ -47,15 +47,15 @@ export default function Footer() {
           </FooterLink>
         </FooterTopCategory>
         <FooterTopCategory title="Nous suivre">
-          <FooterLink asLink={<Link href="https://scanr.enseignementsup-recherche.gouv.fr/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://twitter.com/sup_recherche" target="_blank" />}>
             {renderIcon('Twitter')}
             Twitter
           </FooterLink>
-          <FooterLink asLink={<Link href="https://data.esr.gouv.fr/FR/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://www.linkedin.com/company/enseignementsup-recherche/mycompany/" target="_blank" />}>
             {renderIcon('Linkedin')}
             Linkedin
           </FooterLink>
-          <FooterLink asLink={<Link href="https://data.enseignementsup-recherche.gouv.fr/pages/home/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://www.facebook.com/enseignementsup.recherche" target="_blank" />}>
             {renderIcon('Facebook')}
             Facebook
           </FooterLink>
