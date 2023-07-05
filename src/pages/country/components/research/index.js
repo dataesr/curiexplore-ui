@@ -5,6 +5,7 @@ import { Text } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import ScimagoChart from './components/scimago';
+import Overview from './components/overview';
 
 import Title from '../../../../components/title';
 import charts from './charts.json';
@@ -15,6 +16,7 @@ export default function CountryResearchPage() {
   const contextData = useOutletContext();
   const [iso2, setIso2] = useState('');
   const data = contextData['curiexplore-analyse'];
+  const dataOverview = contextData['curiexplore-donnees-quantitatives'];
   let dataRI = [];
 
   if (data.length !== 0) {
@@ -37,6 +39,9 @@ export default function CountryResearchPage() {
 
   return (
     <>
+      <Overview
+        data={dataOverview}
+      />
       <HtmlAmbassyBloc data={dataRI} />
       <Title
         as="h3"

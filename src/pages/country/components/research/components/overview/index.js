@@ -1,107 +1,98 @@
 import PropTypes from 'prop-types';
 import { Row, Col } from '@dataesr/react-dsfr';
-import GenericCard from '../../../../../../components/generic-card';
+import formatNumber from '../../../../../../utils/formatNumber';
+import IndicatorCard from '../../../../../../components/generic-card';
 
 import Title from '../../../../../../components/title';
-import Chart from '../../charts.json';
 
 export default function Overview({ data }) {
-  let seriesCountry = [];
-  const ID_TOTAL_STU = '25053';
+  const ID_TOTAL_PERSO = '20000';
+  const ID_CREDITS = 'C_PPP';
+  const ID_DIRD = 'G_XGDP';
 
-  // Nombre moyen d'années de scolarité
-  const MOYSCO = { ...data.find((el) => el.fields.code === 'MOYSCO')?.fields };
-
-  // Effectif total supérieur
-  const total = { ...data
+  // Effectif total personnel R-D
+  const totalRD = { ...data
     // récupérer la donnée la plus récente
     .sort((a, b) => b.fields.year - a.fields.year)
-    .find((el) => el.fields.code === '25053')?.fields };
+    .find((el) => el.fields.code === ID_TOTAL_PERSO)?.fields };
 
-  // Effectif par domaine d'études
-  for (let j = 0; j < Chart.length; j += 1) {
-    seriesCountry.push({
-      label: Chart[j].title,
-      code: Chart[j].code,
-      value: data?.filter((el) => (el.fields?.code === Chart[j].code && el.fields?.year === total.year))
-        .map((el) => Math.round(el.fields?.value))
-        ?.[0] || 0,
-      year: total.year,
-    });
-  }
+  // Total des Crédits budgétaires
+  const totalCB = { ...data
+    // récupérer la donnée la plus récente
+    .sort((a, b) => b.fields.year - a.fields.year)
+    .find((el) => el.fields.code === ID_CREDITS)?.fields };
 
-  seriesCountry.sort((a, b) => b.value - a.value);
-  seriesCountry = seriesCountry.slice(0, 1);
+  // DIRD en % du PIB
+  const totalDIRD = { ...data
+    // récupérer la donnée la plus récente
+    .sort((a, b) => b.fields.year - a.fields.year)
+    .find((el) => el.fields.code === ID_DIRD)?.fields };
 
-  const getDescription = (code) => {
-    if (code.code === 'MOYSCO') {
+  const getIndicator = (code) => {
+    if (code.code === ID_TOTAL_PERSO) {
       return (
-        <Title
-          as="h3"
-          title={`${code.value.toFixed(1)} ${code.unit}`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {formatNumber(Math.floor(code.value))}
+          &nbsp;personnels
+        </h3>
       );
     }
-    if (code.code === ID_TOTAL_STU) {
+    if (code.code === ID_CREDITS) {
       return (
-        <Title
-          as="h3"
-          title={`${code.value.toFixed(0)}`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {formatNumber(Math.floor(code.value))}
+          &nbsp;$ PPA des États-Unis
+        </h3>
       );
     }
-    if (code.code === seriesCountry[0].code) {
+    if (code.code === ID_DIRD) {
       return (
-        <Title
-          as="h3"
-          title={`${code.value.toFixed(0)}% de l'effectif total scolarisé`}
-          icon=""
-        />
+        <h3 className="text-center fr-mb-0">
+          {code.value.toFixed(2)}
+          &nbsp;% du PIB
+        </h3>
       );
     }
     return null;
   };
+
   return (
     <>
-      <Row>
-        <Title
-          as="h3"
-          title="En un clin d'oeil"
-          icon="ri-search-eye-line"
-        />
-      </Row>
+      <Title
+        as="h3"
+        title="En un clin d'oeil"
+        icon="ri-search-eye-line"
+      />
       <Row gutters className="fr-mb-1w">
         {
-          (Object.keys(total).length !== 0) ? (
+          (Object.keys(totalRD).length !== 0) ? (
             <Col n="4">
-              <GenericCard
-                badgeLabel={total.year}
-                description={getDescription(total)}
-                title={total.label}
+              <IndicatorCard
+                badgeLabel={totalRD.year}
+                indicator={getIndicator(totalRD)}
+                description={totalRD.label}
               />
             </Col>
           ) : null
         }
         {
-          (Object.keys(seriesCountry[0]).length !== 0) ? (
+          (Object.keys(totalCB).length !== 0) ? (
             <Col n="4">
-              <GenericCard
-                badgeLabel={seriesCountry[0].year}
-                description={getDescription(seriesCountry[0])}
-                title={seriesCountry[0].label}
+              <IndicatorCard
+                badgeLabel={totalCB.year}
+                indicator={getIndicator(totalCB)}
+                description={totalCB.label}
               />
             </Col>
           ) : null
         }
         {
-          (Object.keys(MOYSCO).length !== 0) ? (
+          (Object.keys(totalDIRD).length !== 0) ? (
             <Col n="4">
-              <GenericCard
-                badgeLabel={MOYSCO.year}
-                description={getDescription(MOYSCO)}
-                title={MOYSCO.label}
+              <IndicatorCard
+                badgeLabel={totalDIRD.year}
+                indicator={getIndicator(totalDIRD)}
+                description={totalDIRD.label}
               />
             </Col>
           ) : null
