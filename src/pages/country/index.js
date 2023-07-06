@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Breadcrumb, BreadcrumbItem,
   ButtonGroup,
-  Col, Container, Row,
+  Col, Container, Row, Link,
   Icon,
   Modal, ModalClose, ModalContent, ModalTitle,
   SideMenu, SideMenuLink,
@@ -38,6 +38,7 @@ export default function Fiche({ exportState }) {
 
   const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
   const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
+  const campusFrance = dataPays?.cf_mobility;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [exportList, setExportList] = useState([]);
@@ -143,6 +144,14 @@ export default function Fiche({ exportState }) {
                     Voir la fiche de la Chine
                   </SideMenuLink>
                 ) : null}
+                {
+                  campusFrance ? (
+                    <SideMenuLink asLink={<Link href={`${campusFrance}`} target="_blank" />} current={(selected === '')}>
+                      <Icon name="ri-arrow-left-right-line" size="1x" />
+                      Voir la fiche Campus France
+                    </SideMenuLink>
+                  ) : null
+                }
               </SideMenu>
             </Col>
 
@@ -160,7 +169,7 @@ export default function Fiche({ exportState }) {
                       {actorName ? actorName.charAt(0).toUpperCase() + actorName.slice(1) : ''}
                     </BreadcrumbItem>
                   </Breadcrumb>
-                  <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">
+                  <ButtonGroup isInlineFrom="xs" className="fr-mt-2v fr-ml-auto">
                     <Button
                       tertiary
                       borderless
@@ -169,13 +178,13 @@ export default function Fiche({ exportState }) {
                       onClick={() => setIsModalOpen(!isModalOpen)}
                       icon="ri-download-2-fill"
                     />
-                    <Button
-                      tertiary
-                      borderless
-                      rounded
-                      title="Télécharger les données"
-                      icon="ri-file-excel-line"
-                    />
+                    {/*                     <Button
+                        tertiary
+                        borderless
+                        rounded
+                        title="Télécharger les données"
+                        icon="ri-file-excel-line"
+                      /> */}
                   </ButtonGroup>
                 </Row>
                 {!actorName ? (
