@@ -144,24 +144,6 @@
     "base100": false
   },
   {
-    "title": "Femmes chercheurs (personnes physiques)",
-    "code": "TH_WRS",
-    "unit": "femmes",
-    "sort": "-year",
-    "type": "line",
-    "source": "OCDE",
-    "base100": false
-  },
-  {
-    "title": "Femmes chercheurs en pourcentage du total des chercheurs (personnes physiques)",
-    "code": "TH_WRXRS",
-    "unit": "%",
-    "sort": "-year",
-    "type": "line",
-    "source": "OCDE",
-    "base100": false
-  },
-  {
     "title": "Pourcentage de la DIRD financée par d'autres sources nationales",
     "code": "G_XFON",
     "unit": "%",
@@ -250,5 +232,23 @@
     "type": "line",
     "source": "OCDE",
     "base100": true
+  },
+  {
+    "title": "Femmes chercheurs (personnes physiques)",
+    "code": "TH_WRS",
+    "unit": "femmes",
+    "sort": "-year",
+    "type": "line",
+    "source": "OCDE",
+    "base100": false
+  },
+  {
+    "title": "Femmes chercheurs en pourcentage du total des chercheurs (personnes physiques)",
+    "code": "TH_WRXRS",
+    "unit": "%",
+    "sort": "-year",
+    "type": "line",
+    "source": "OCDE",
+    "base100": false
   }
 ]
