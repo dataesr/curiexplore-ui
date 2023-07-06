@@ -6,7 +6,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "budget"
   },
   {
     "title": "Dépenses en recherche fondamentale en pourcentage du PIB",
@@ -15,7 +16,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intramuros de R-D du secteur de l'enseignement supérieur (DIRDES), à prix courants ($ PPA)",
@@ -24,7 +26,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intramuros de R-D du secteur de l'État (DIRDET), à prix courants ($ PPA)",
@@ -33,7 +36,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D du secteur des entreprises à prix courants, à prix courants ($ PPA)",
@@ -42,7 +46,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D en pourcentage du PIB",
@@ -51,7 +56,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D financée par les entreprises en pourcentage du PIB",
@@ -60,7 +66,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D par habitant, à prix courants ($PPA)",
@@ -69,7 +76,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D des entreprises en pourcentage du PIB",
@@ -78,7 +86,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D des entreprises financées par les entreprises en pourcentage de la valeur ajoutée dans l'industrie",
@@ -87,7 +96,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D de l'enseignement supérieur (DIRDES) en pourcentage du PIB",
@@ -96,7 +106,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Dépenses intérieures de R-D de l'Etat en pourcentage du PIB",
@@ -105,7 +116,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans les services",
@@ -114,7 +126,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans l'industrie aérospatiale",
@@ -123,7 +136,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans l'industrie des ordinateurs, articles électroniques et optiques",
@@ -132,7 +146,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises exécutées dans l'industrie pharmaceutique",
@@ -141,7 +156,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage de la DIRD financée par d'autres sources nationales",
@@ -150,7 +166,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises financées par le reste du monde",
@@ -159,7 +176,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises financées par les entreprises",
@@ -168,7 +186,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D des entreprises financées par l'État",
@@ -177,7 +196,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D de l'enseignement supérieur financées par les entreprises",
@@ -186,7 +206,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Pourcentage des dépenses intérieures en R-D de l'Etat financées par les entreprises",
@@ -195,7 +216,8 @@
     "sort": "-year",
     "type": "column",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "budget"
   },
   {
     "title": "Personnel total de R-D (ETP)",
@@ -204,7 +226,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "personnel"
   },
   {
     "title": "Chercheurs (ETP)",
@@ -213,7 +236,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "personnel"
   },
   {
     "title": "Techniciens (ETP)",
@@ -222,7 +246,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "personnel"
   },
   {
     "title": "Personnel total de R-D des entreprises (ETP)",
@@ -231,7 +256,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": true
+    "base100": true,
+    "theme": "personnel"
   },
   {
     "title": "Femmes chercheurs (personnes physiques)",
@@ -240,7 +266,8 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "personnel"
   },
   {
     "title": "Femmes chercheurs en pourcentage du total des chercheurs (personnes physiques)",
@@ -249,6 +276,7 @@
     "sort": "-year",
     "type": "line",
     "source": "OCDE",
-    "base100": false
+    "base100": false,
+    "theme": "personnel"
   }
 ]
