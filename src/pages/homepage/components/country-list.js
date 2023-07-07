@@ -51,22 +51,22 @@ export default function CountryList({ region }) {
         ))}
         {!showAllCountries && (
           <Col n="12">
-            <Button type="button" onClick={() => setShowAllCountries(true)}>
+            <Button secondary type="button" onClick={() => setShowAllCountries(true)}>
               Voir tous les pays
             </Button>
           </Col>
         )}
         {showAllCountries && !showABCDCountries && (
           <Col n="12">
-            <Button type="button" onClick={() => setShowABCDCountries(true)}>
+            <Button secondary type="button" onClick={() => setShowABCDCountries(true)}>
               Afficher moins
             </Button>
           </Col>
         )}
         {showAllCountries && showABCDCountries && (
           <Col n="12">
-            <Button type="button" onClick={() => setShowABCDCountries(false)}>
-              Afficher plus
+            <Button secondary type="button" onClick={() => setShowABCDCountries(false)}>
+              Voir tous les pays
             </Button>
           </Col>
         )}
