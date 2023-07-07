@@ -25,6 +25,7 @@ import ExportPage from './pages/country/components/export';
 import CountryLinksPages from './pages/country/components/country-links';
 import NotFound from './pages/not-found';
 import TeamProjectPage from './pages/team-project';
+import MentionsLegalesPage from './pages/mentions-legales';
 
 const messages = {
   'fr-FR': messagesFR,
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="ressources" element={<RessourcesPage />} />
             <Route path="projet-et-equipe" element={<TeamProjectPage />} />
+            <Route path="mentions-legales" element={<MentionsLegalesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
