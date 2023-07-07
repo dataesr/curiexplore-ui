@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem, Title } from '@dataesr/react-dsfr';
 
 import logoMEAE from '../assets/img/logo-meae.svg';
-// import logoMESR from '../assets/img/logo-mesr.svg';
+import logoMESR from '../assets/img/logo-mesr.svg';
 
 export default function MentionsLegalesPage() {
   return (
@@ -80,7 +80,7 @@ export default function MentionsLegalesPage() {
         </Col>
         <Col n="12 md-4">
           {/* TODO: LOGO MESR */}
-          <img src={logoMEAE} className="fr-responsive-img" alt="Logo du Ministère de l'Europe et des Affaires étrangères" style={{ width: 200 }} aria-hidden />
+          <img src={logoMESR} className="fr-responsive-img" alt="Logo du Ministère de l'Europe et des Affaires étrangères" aria-hidden />
         </Col>
       </Row>
       <Row>
