@@ -86,11 +86,18 @@ export default function MentionsLegalesPage() {
       <Row>
         <Text>
           <b>
-            Hébergement
+            Prestataire d’hébergement
           </b>
           <br />
-          {/* TODO: TEXTE HEBERGEMENT */}
-          Lorem Ipsum
+          OVH
+          <br />
+          RCS Roubaix – Tourcoing 424 761 419 00045
+          <br />
+          Code APE 6202A
+          <br />
+          N° TVA : FR 22 424 761 419
+          <br />
+          Siège social : 2 rue Kellermann - 59100 Roubaix - France.
         </Text>
       </Row>
     </Container>
