@@ -25,16 +25,16 @@ jobs:
       - name: Build image
         run: docker build -f Dockerfile -t ${{ github.repository }} .
 
-      - name: Get Tag
-        id: version
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/heads/}
+      - name: 🏷️ Get tag
+        id: tag
+        run: echo "tag=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
 
       - name: Push image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository }}
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          docker tag ${{ github.repository }} $IMAGE_ID:${{ steps.version.outputs.tag }}
-          docker push $IMAGE_ID:${{ steps.version.outputs.tag }}
+          docker tag ${{ github.repository }} $IMAGE_ID:${{ steps.tag.outputs.tag }}
+          docker push $IMAGE_ID:${{ steps.tag.outputs.tag }}
 
   deploy:
     name: Update production deployment
