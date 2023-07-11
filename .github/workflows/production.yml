@@ -1,15 +1,15 @@
-name: Staging deployment
+name: Production deployment
 
 on:
   push:
-    branches:
-      - staging
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 env:
   # Must match k8s deployment name
   DEPLOYMENT: curiexplore-ui
   DEPLOYMENT_NAMESPACE: curiexplore
-  DEPLOYMENT_URL: https://curiexplore.staging.dataesr.ovh
+  DEPLOYMENT_URL: https://curiexplore.enseignementsup-recherche.gouv.fr/
   MM_NOTIFICATION_CHANNEL: bots
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
           docker push $IMAGE_ID:${{ steps.version.outputs.tag }}
 
   deploy:
-    name: Update staging deployment
+    name: Update production deployment
     runs-on: ubuntu-latest
     needs: publish-ghcr
     steps:
@@ -48,7 +48,7 @@ jobs:
         id: kubectl-deploy
         uses: dataesr/kubectl-deploy@v1.1
         env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DOAD_STAGING }}
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DOAD_PROD }}
         with:
           namespace: ${{ env.DEPLOYMENT_NAMESPACE }}
           restart: ${{ env.DEPLOYMENT }}
