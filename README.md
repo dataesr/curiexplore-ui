@@ -8,6 +8,7 @@ CurieXplore mobilise les statistiques de l'OCDE, de l'UNESCO ou de la Banque Mon
 
 CurieXplore combine cette information statistique avec les analyses qualitatives produites par les Conseiller.e.s de coopération et d'action culturelle (COCAC) et les Conseiller.e.s pour la science et la technologie des postes diplomatiques français à l'étranger. Ces experts partagent, au sein de CurieXplore, leur connaissance de terrain des systèmes d'enseignement supérieur, de recherche et d'innovation dans lesquels ils sont immergés.
 
+
 ## Lancement du projet en local
 
 ```sh
@@ -15,3 +16,12 @@ npm start
 ```
 
 
+## Deployment
+
+To deploy in production, simply run this command from your staging branch :
+
+```sh
+npm run deploy --level=[patch|minor|major]
+```
+
+:warning: Obviously, only members of the [dataesr organization](https://github.com/dataesr/) have rights to push on the repo.
