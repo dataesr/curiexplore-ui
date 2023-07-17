@@ -28,6 +28,11 @@ export default function ActorsPage() {
       shortLabel: 'Enseignement supérieur',
     },
     {
+      id: 'jxv8Z',
+      label: 'Implantation de structures étrangères en France',
+      shortLabel: "France à l'étranger",
+    },
+    {
       id: 'IqD8w',
       label: "Instance étrangère de contrôle/d'évaluation",
       shortLabel: 'Contrôle/évaluation',
@@ -58,7 +63,6 @@ export default function ActorsPage() {
       shortLabel: "Financement de l'ESRI",
     },
   ];
-
   // creation des categories en fonction de la variable curieCategories et des libellés dans categories
   const categories = {};
   for (let index = 0; index < data.length; index += 1) {
@@ -96,7 +100,6 @@ export default function ActorsPage() {
 
   const filteredData = selectedCategory ? data.filter((el) => el.curieCategories.includes(selectedCategory)) : data;
 
-  // transformation des données pour le composant MapWithMarkers
   const getObjAddress = (el, idCat) => {
     if (el.currentLocalisation?.geometry?.coordinates?.length === 2) {
       return ({
@@ -148,7 +151,7 @@ export default function ActorsPage() {
           ) : null}
         </Col>
         <Col n={Object.keys(categories).length ? '9' : '12'} className="fr-pt-1w">
-          <MapCategoriesActors actors={addressesList} />
+          <MapCategoriesActors actors={addressesList} data={filteredData} />
         </Col>
       </Row>
       <Row>

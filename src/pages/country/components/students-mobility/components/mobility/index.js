@@ -37,6 +37,13 @@ export default function MobilityCallOut() {
 
   const shareMobiliteStudents = (sumStudents * 100) / totalStudents;
 
+  if (!latestYear) {
+    return (
+      <div>
+        - Aucune donnée disponible -
+      </div>
+    );
+  }
   return (
     <Row>
       <Col>

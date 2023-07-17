@@ -35,7 +35,7 @@ export default function Header({ switchTheme }) {
     const allCountries = countries.filter((country) => country.hasData === 'TRUE').map((country) => ({ nameFr: country.Pays, iso3: country.ISO_alpha3, searchLabel: country.Pays_search }));
     const getAutocompleteResult = async () => {
       setIsSearching(true);
-      setOptions(allCountries.filter((country) => country.searchLabel.indexOf(debouncedQuery) !== -1));
+      setOptions(allCountries.filter((country) => country.searchLabel.indexOf(debouncedQuery.toLowerCase()) !== -1));
       setIsSearching(false);
     };
     if (debouncedQuery) {

@@ -5,25 +5,27 @@ import ScrollToTop from './scrollToTopAuto';
 
 // import useLang from './hooks/useLang';
 import messagesFR from './translations/fr.json';
-import Layout from './layout';
-import HomePage from './pages/homepage';
-import Country from './pages/country';
-import CountryProfilePage from './pages/country/components/profile';
-import CountryHigherEducationPage from './pages/country/components/higher-education';
-import CountryResearchPage from './pages/country/components/research';
-import CountryPolicyPage from './pages/country/components/policy';
-import ActorsPage from './pages/country/components/actors';
+import AccessibilityPage from './pages/accessibility';
 import ActorPage from './pages/country/components/actors/[id]';
-import FranceCooperationPage from './pages/country/components/france-cooperation';
-import InternationalCooperationPage from './pages/country/components/international-cooperation';
-import StudentsMobilityPage from './pages/country/components/students-mobility';
+import ActorsPage from './pages/country/components/actors';
 import ContactPage from './pages/contact';
-import RessourcesPage from './pages/ressources/ressources';
-import DirectoryPage from './pages/directory';
-import SimilarCountriesPage from './pages/country/components/similar-countries';
-import ExportPage from './pages/country/components/export';
+import Country from './pages/country';
+import CountryHigherEducationPage from './pages/country/components/higher-education';
 import CountryLinksPages from './pages/country/components/country-links';
+import CountryPolicyPage from './pages/country/components/policy';
+import CountryProfilePage from './pages/country/components/profile';
+import CountryResearchPage from './pages/country/components/research';
+import DirectoryPage from './pages/directory';
+import ExportPage from './pages/country/components/export';
+import FranceCooperationPage from './pages/country/components/france-cooperation';
+import HomePage from './pages/homepage';
+import InternationalCooperationPage from './pages/country/components/international-cooperation';
+import Layout from './layout';
+import MentionsLegalesPage from './pages/mentions-legales';
 import NotFound from './pages/not-found';
+import RessourcesPage from './pages/ressources/ressources';
+import SimilarCountriesPage from './pages/country/components/similar-countries';
+import StudentsMobilityPage from './pages/country/components/students-mobility';
 import TeamProjectPage from './pages/team-project';
 
 const messages = {
@@ -37,7 +39,6 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-
           <Route element={<Layout />}>
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<HomePage />} />
@@ -60,6 +61,8 @@ export default function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="ressources" element={<RessourcesPage />} />
             <Route path="projet-et-equipe" element={<TeamProjectPage />} />
+            <Route path="mentions-legales" element={<MentionsLegalesPage />} />
+            <Route path="accessibilite" element={<AccessibilityPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

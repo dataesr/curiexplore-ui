@@ -1,0 +1,8 @@
+node_modules
+build
+doc
+k8s
+.dockerignore
+Dockerfile
+.github
+deployment

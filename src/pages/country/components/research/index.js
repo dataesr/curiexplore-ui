@@ -5,6 +5,7 @@ import { Text } from '@dataesr/react-dsfr';
 import ChartComponents from '../chart-components';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import ScimagoChart from './components/scimago';
+import Overview from './components/overview';
 
 import Title from '../../../../components/title';
 import charts from './charts.json';
@@ -15,7 +16,11 @@ export default function CountryResearchPage() {
   const contextData = useOutletContext();
   const [iso2, setIso2] = useState('');
   const data = contextData['curiexplore-analyse'];
+  const dataOverview = contextData['curiexplore-donnees-quantitatives'];
   let dataRI = [];
+
+  const charts1st = charts.filter((indic) => indic.theme === 'budget');
+  const charts2nd = charts.filter((indic) => indic.theme === 'personnel');
 
   if (data.length !== 0) {
     dataRI = data.find((el) => (el.fields.codethematique === 'A6')).fields || null;
@@ -37,16 +42,34 @@ export default function CountryResearchPage() {
 
   return (
     <>
+      <Overview
+        data={dataOverview}
+      />
       <HtmlAmbassyBloc data={dataRI} />
       <Title
         as="h3"
         title="Les données de la recherche et de l'innovation"
-        subTitle={subTitle}
         icon=""
       />
       <ScimagoChart />
       <ThematicsChart iso2={iso2} iso3={isoCode} />
-      <ChartComponents charts={charts} />
+      <Title
+        as="h4"
+        look="h4"
+        title="Les données financières de la recherche et de l'innovation"
+        subTitle={subTitle}
+        icon=""
+      />
+      <ChartComponents charts={charts1st} />
+      <Title
+        as="h4"
+        look="h4"
+        title="Les données du personnel de la recherche et de l'innovation"
+        subTitle={subTitle}
+        icon=""
+      />
+      <ChartComponents charts={charts2nd} />
+
     </>
   );
 }

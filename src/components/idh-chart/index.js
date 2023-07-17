@@ -1,25 +1,13 @@
 import React, { useEffect } from 'react';
-import { Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import Highcharts from 'highcharts';
 import exportingModule from 'highcharts/modules/exporting';
 import exportingData from 'highcharts/modules/export-data';
 
-import ChartTitle from '../title';
+import ChartTitle from '../title/index';
 
 exportingModule(Highcharts);
 exportingData(Highcharts);
-
-const source = (
-  <Text>
-    Source :&nbsp;
-    <a href="https://www.unesco.org/fr" target="_blank" rel="noreferrer">UNESCO</a>
-  </Text>
-);
-
-const title = (
-  'L\'indice de développement humain du pays'
-);
 
 function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
   useEffect(() => {
@@ -59,11 +47,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               style: {
                 fontFamily: 'Marianne',
                 color: '#333',
-<<<<<<< HEAD
                 fontSize: '11px',
-=======
-                fontSize: '10px',
->>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
               },
             },
           },
@@ -76,12 +60,8 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               align: 'center',
               rotation: 0,
               style: {
-<<<<<<< HEAD
                 fontFamily: 'Marianne',
                 fontSize: '11px',
-=======
-                fontSize: '10px',
->>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
                 color: '#333',
               },
             },
@@ -95,12 +75,8 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               align: 'center',
               rotation: 0,
               style: {
-<<<<<<< HEAD
                 fontFamily: 'Marianne',
                 fontSize: '11px',
-=======
-                fontSize: '10px',
->>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
                 color: '#333',
               },
             },
@@ -113,12 +89,8 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
               text: 'Très élevé',
               align: 'center',
               style: {
-<<<<<<< HEAD
                 fontFamily: 'Marianne',
                 fontSize: '11px',
-=======
-                fontSize: '10px',
->>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
                 color: '#333',
               },
             },
@@ -158,7 +130,6 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
       },
       series: [
         {
-<<<<<<< HEAD
           name: null,
           data: [
             [`${nameFr}`, idhCountry],
@@ -167,31 +138,6 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
           pointWidth: 30,
           colors: ['#FFCA00', '#21213f'],
           colorByPoint: true,
-=======
-          name: nameFr,
-          data: [idhCountry],
-          color: '#FFCA00',
-          dataLabels: {
-            align: 'left',
-            inside: true,
-            useHTML: true,
-            color: '#FFFFFF',
-            formatter() {
-              return `<img src="${flagUrl}" style="width: 20px;margin-right: 5px;"/>${nameFr} ${idhCountry}`;
-            },
-          },
-        },
-        {
-          name: 'Moyenne mondiale',
-          data: [idhAverage],
-          color: '#696969',
-          dataLabels: {
-            align: 'left',
-            inside: true,
-            color: '#FFFFFF',
-            format: `\u{1F30D} Moyenne mondiale ${idhAverage}`,
-          },
->>>>>>> 6003b9c6d87a57088617f0506ba3b381c418371a
         },
       ],
     });
@@ -200,15 +146,14 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
   return (
     <section className="fr-mb-1w">
       <ChartTitle
-        title={title}
+        title="L'indice de développement humain"
         icon="ri-bar-chart-horizontal-fill"
-        subTitle={source}
+        subTitle=""
         as="h4"
         look="h4"
       />
       <div id="chartContainer" />
     </section>
-
   );
 }
 

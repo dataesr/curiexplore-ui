@@ -20,7 +20,7 @@ export default function SimilarCountriesPage() {
 
   const idh = dataIDH.find((el) => el.fields.code === 'IDH')?.fields || null;
   const idhGroupCountries = dataCountry.fields.idh_group_countries?.split(',') || [];
-  const borderCountries = dataCountry.fields.borders.split(',') || [];
+  const borderCountries = dataCountry.fields.borders?.split(',') || [];
 
   return (
     <Container fluid spacing="mb-6w">

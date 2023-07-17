@@ -32,7 +32,6 @@ export default function useFetchData(isoCode) {
         allData.forEach((dataset) => {
           if (dataset?.parameters?.dataset) saveData[dataset.parameters.dataset] = dataset.records;
           else saveData['actors-data'] = dataset;
-
           if (dataset?.parameters?.dataset === 'curiexplore-pays') {
             setIsUnknownCountry(!dataset.records.map((el) => el.fields.iso3).includes(isoCode));
           }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Breadcrumb, BreadcrumbItem,
   ButtonGroup,
-  Col, Container, Row,
+  Col, Container, Row, Link,
   Icon,
   Modal, ModalClose, ModalContent, ModalTitle,
   SideMenu, SideMenuLink,
@@ -34,8 +34,11 @@ export default function Fiche({ exportState }) {
   const navigate = useNavigate();
   const selected = pathname.split('/').pop();
   const { data, isLoading, error, isUnknownCountry } = useFetchData(isoCode);
+  let actorName = '';
+
   const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
   const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
+  const campusFrance = dataPays?.cf_mobility;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [exportList, setExportList] = useState([]);
@@ -44,6 +47,11 @@ export default function Fiche({ exportState }) {
   useEffect(() => {
     setIsExport(exportState);
   }, [exportState]);
+
+  if (data['actors-data']) {
+    const actorData = data['actors-data']?.filter((actor) => actor?.id === selected);
+    actorName = actorData[0]?.displayName;
+  }
 
   if (isUnknownCountry) navigate('/404');
   if (isLoading) return <Loader />;
@@ -112,6 +120,38 @@ export default function Fiche({ exportState }) {
                   <Icon name="ri-contacts-book-line" size="1x" />
                   Liens utiles
                 </SideMenuLink>
+                {isoCode === 'CHN' ? (
+                  <>
+                    <SideMenuLink asLink={<RouterLink to="/pays/HKG" replace />} current={(selected === '')}>
+                      <Icon name="ri-arrow-left-right-line" size="1x" />
+                      Voir la fiche de Hong-Kong
+                    </SideMenuLink>
+                    <SideMenuLink asLink={<RouterLink to="/pays/MAC" replace />} current={(selected === '')}>
+                      <Icon name="ri-arrow-left-right-line" size="1x" />
+                      Voir la fiche de Macao
+                    </SideMenuLink>
+                  </>
+                ) : null}
+                {isoCode === 'HKG' ? (
+                  <SideMenuLink asLink={<RouterLink to="/pays/CHN" replace />} current={(selected === 'liens-')}>
+                    <Icon name="ri-arrow-left-right-line" size="1x" />
+                    Voir la fiche de la Chine
+                  </SideMenuLink>
+                ) : null}
+                {isoCode === 'MAC' ? (
+                  <SideMenuLink asLink={<RouterLink to="/pays/CHN" replace />} current={(selected === '')}>
+                    <Icon name="ri-arrow-left-right-line" size="1x" />
+                    Voir la fiche de la Chine
+                  </SideMenuLink>
+                ) : null}
+                {
+                  campusFrance ? (
+                    <SideMenuLink asLink={<Link href={`${campusFrance}`} target="_blank" />} current={(selected === '')}>
+                      <Icon name="ri-arrow-left-right-line" size="1x" />
+                      Voir la fiche Campus France
+                    </SideMenuLink>
+                  ) : null
+                }
               </SideMenu>
             </Col>
 
@@ -126,10 +166,10 @@ export default function Fiche({ exportState }) {
                       {dataPays.name_fr}
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                      {selected.charAt(0).toUpperCase() + selected.slice(1)}
+                      {actorName ? actorName.charAt(0).toUpperCase() + actorName.slice(1) : ''}
                     </BreadcrumbItem>
                   </Breadcrumb>
-                  <ButtonGroup isInlineFrom="xs" className="fr-mt-1v fr-ml-auto">
+                  <ButtonGroup isInlineFrom="xs" className="fr-mt-2v fr-ml-auto">
                     <Button
                       tertiary
                       borderless
@@ -138,42 +178,59 @@ export default function Fiche({ exportState }) {
                       onClick={() => setIsModalOpen(!isModalOpen)}
                       icon="ri-download-2-fill"
                     />
-                    <Button
-                      tertiary
-                      borderless
-                      rounded
-                      title="Télécharger les données"
-                      icon="ri-file-excel-line"
-                    />
+                    {/*                     <Button
+                        tertiary
+                        borderless
+                        rounded
+                        title="Télécharger les données"
+                        icon="ri-file-excel-line"
+                      /> */}
                   </ButtonGroup>
                 </Row>
-                <Row spacing="mb-3v" alignItems="middle">
-                  <Title spacing="mb-1v" as="h2">
-                    {dataPays.name_fr}
-                    {' '}
-                    (
-                    {dataPays.name_native}
-                    )
-                  </Title>
-                  <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
-                  <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
-                    {' '}
-                    Mis à jour le
-                    {' '}
-                    <FormattedDate
-                      value={dataTimestamp?.submitdate}
-                      day="numeric"
-                      month="long"
-                      year="numeric"
-                    />
-                  </Text>
-                </Row>
-                <Row>
-                  <CountryBadgeList data={dataPays} geographic />
-                </Row>
-                <Row>
-                  <CountryBadgeList type="info" data={dataPays} policy />
-                </Row>
+                {!actorName ? (
+                  <>
+                    <Row spacing="mb-3v" alignItems="middle">
+                      <Title spacing="mb-1v" as="h2">
+                        {dataPays.name_fr}
+                        {' '}
+                        (
+                        {dataPays.name_native}
+                        )
+                      </Title>
+                      <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
+                      <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
+                        {' '}
+                        Mis à jour le
+                        {' '}
+                        <FormattedDate
+                          value={dataTimestamp?.submitdate}
+                          day="numeric"
+                          month="long"
+                          year="numeric"
+                        />
+                      </Text>
+                    </Row>
+                    <Row>
+                      <CountryBadgeList data={dataPays} geographic />
+                    </Row>
+                    <Row>
+                      <CountryBadgeList type="info" data={dataPays} policy />
+                    </Row>
+                  </>
+                ) : (
+                  <Row alignItems="right">
+                    <Text spacing="mb-1v ml-right" as="span" size="xs" bold={false}>
+                      Mis à jour le
+                      {' '}
+                      <FormattedDate
+                        value={dataTimestamp?.submitdate}
+                        day="numeric"
+                        month="long"
+                        year="numeric"
+                      />
+                    </Text>
+                  </Row>
+                ) }
               </Container>
               <Container fluid as="section">
                 <Outlet context={data} />

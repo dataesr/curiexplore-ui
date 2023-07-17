@@ -24,10 +24,11 @@ export default function PublicationsChart({ iso2, iso3 }) {
         <Col n="12">
           <TitleComponent
             icon="ri-bar-chart-fill"
-            title={`Evolution du nombre de publications communes dans le temps. Collaboration entre "${getLabel(iso3)}" et "France" (${REACT_APP_OPENALEX_RANGE}).`}
+            title={`Evolution du nombre de publications communes dans le temps. Collaboration entre "${getLabel(iso3)}" et "France" (${REACT_APP_OPENALEX_RANGE})`}
             as="h4"
             look="h4"
             subTitle={subTitle}
+            betaBadge
           />
         </Col>
       </Row>

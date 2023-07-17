@@ -1,67 +1,15 @@
 /* eslint-disable indent */
 import PropTypes from 'prop-types';
 import { useOutletContext, useParams } from 'react-router-dom';
-import { Row, Col, Text, Link, Badge, Icon, Callout } from '@dataesr/react-dsfr';
+import { Row, Col, Text, Link, Badge, Icon, Callout, Container } from '@dataesr/react-dsfr';
 import MapWithMarkers from '../../../../components/map-with-markers';
 
 import useGetActors from './hooks/useGetActors';
 import Title from '../../../../components/title';
-
-function WebSiteCard({ language, link, name }) {
-  return (
-    <h6 className="fr-card__title">
-      <Icon name="ri-global-line" />
-      <Link href={link} target="blank">
-        {`${name} (${language})`}
-      </Link>
-    </h6>
-
-  );
-}
-
-WebSiteCard.propTypes = {
-  language: PropTypes.string,
-  link: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-};
-WebSiteCard.defaultProps = {
-  language: null,
-};
-
-function WikidataCard({ id }) {
-  return (
-    <h6 className="fr-card__title">
-      <Icon name="ri-wikipedia-line" />
-      <Link href={`https://www.wikidata.org/wiki/${id}`} target="blank">
-        {`Wikidata (${id})`}
-      </Link>
-    </h6>
-  );
-}
-WikidataCard.propTypes = {
-  id: PropTypes.string.isRequired,
-};
-
-function SocialNetworkCard({ link, name }) {
-  return (
-    <div className="fr-card fr-card--grey">
-      <div className="fr-card__body">
-        <div className="fr-card__content">
-          <h6 className="fr-card__title">
-            <Icon name={`ri-${name}-line`} />
-            <Link href={link} target="blank">
-              {`${name}`}
-            </Link>
-          </h6>
-        </div>
-      </div>
-    </div>
-  );
-}
-SocialNetworkCard.propTypes = {
-  link: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-};
+import Identifiers from './actors-identifiers-card';
+import WebSiteCard from './actors-website-card';
+import WikipediaCard from './actors-wikipedia-card';
+import SocialNetworkCard from './actors-socialMedias-card';
 
 function RankingCard({ link, name }) {
   let rankingName = '';
@@ -122,8 +70,12 @@ export default function Actor() {
   const data = contextData['actors-data'];
   const actors = useGetActors(data || []);
   const { actorId } = useParams();
-
   const dataActor = actors.find((actor) => actor.id === actorId);
+  const actorIdentifierType = dataActor.identifiers.map((el) => el.type);
+  const actorIdentifierValues = dataActor.identifiers.map((el) => el.value);
+  const actorWebsitesLanguage = dataActor.websites.map((el) => el.language);
+  const actorWebsiteUrl = dataActor.websites.map((url) => url.url);
+  const actorNameEN = dataActor.currentName.nameEn;
 
   if (!dataActor) {
     return (
@@ -133,7 +85,6 @@ export default function Actor() {
     );
   }
 
-  const wikidata = dataActor.identifiers.find((identifier) => identifier?.type === 'wikidata')?.value || null;
   const subtitle = (
     <Text className="fr-mb-1w">
       {dataActor?.currentName.officialName || null}
@@ -141,16 +92,14 @@ export default function Actor() {
   );
 
   return (
-    <>
-      <Row className="fr-mb-2w">
+    <Container fluid>
+      <Row>
         <Title
           as="h3"
-          className="fr-mb-0"
-          title={dataActor.displayName}
+          title={`${dataActor.displayName}  (${dataActor.currentLocalisation.country})`}
           subTitle={subtitle}
           icon=""
         />
-
       </Row>
 
       {
@@ -184,63 +133,27 @@ export default function Actor() {
           )
         }
       </Row>
+      <Title
+        as="h3"
+        className="fr-mt-1"
+        title="Sur le web"
+      />
+      <Row gutters>
+        <WebSiteCard languages={actorWebsitesLanguage} links={actorWebsiteUrl} name="Site" />
+        <WikipediaCard title={dataActor.displayName} nameEn={actorNameEN} />
+      </Row>
 
-      {
-        (dataActor.websites.length > 0 || dataActor.socialmedias.length > 0 || wikidata) && (
-          <Row className="fr-pt-3w">
-            <Col>
-              <Title
-                as="h3"
-                title="Présence sur le web"
-              />
-            </Col>
-          </Row>
-        )
-      }
-
-      {
-        dataActor.websites.length > 0 && (
-          <Row gutters>
-            {dataActor.websites.map((website) => (
-              <Col n="4">
-                <Callout
-                  hasInfoIcon={false}
-                  colors={['#009081', '#eee']}
-                >
-                  <WebSiteCard language={website.language} link={website.url} name="Site" />
-                </Callout>
-              </Col>
-            ))}
-          </Row>
-        )
-      }
-
-      {
-        dataActor.socialmedias.length > 0 && (
-          <Row gutters>
-            {dataActor.socialmedias.map((socialmedia) => (
-              <Col n="4">
-                <SocialNetworkCard link={socialmedia.link} name={socialmedia.name} />
-              </Col>
-            ))}
-          </Row>
-        )
-      }
-
-      {
-        wikidata && (
-          <Row gutters>
-            <Col n="4">
-              <Callout
-                hasInfoIcon={false}
-                colors={['#009081', '#eee']}
-              >
-                <WikidataCard id={wikidata} />
-              </Callout>
-            </Col>
-          </Row>
-        )
-      }
+      {actorIdentifierType.length > 0 && actorIdentifierValues.length > 0 && (
+        <>
+          <Title
+            as="h3"
+            className="fr-mb-0"
+            title="Identifiants"
+          />
+          <Identifiers type={actorIdentifierType} identifiersId={actorIdentifierValues} />
+        </>
+)}
+      <SocialNetworkCard actorId={actorId} />
 
       {
         dataActor.rankings && dataActor.rankings.length > 0 && (
@@ -263,6 +176,6 @@ export default function Actor() {
           </>
         )
       }
-    </>
+    </Container>
   );
 }
