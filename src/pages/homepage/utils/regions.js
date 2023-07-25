@@ -1,9 +1,9 @@
 export default {
   Monde: 'world',
-  'Afrique du nord et Moyen-Orient': 'Middle East & North Africa',
-  'Afrique et Océan Indien': 'Sub-Saharan Africa',
-  'Amérique du nord': 'North America',
-  'Amérique du sud': 'Latin America & Caribbean',
-  'Asie-Océanie': 'East Asia & Pacific',
-  'Union Européenne et Turquie': 'Europe & Central Asia',
+  'Afrique du Nord et Moyen-Orient': 'Middle East & North Africa',
+  'Afrique subsaharienne': 'Sub-Saharan Africa',
+  'Amérique du Nord': 'North America',
+  'Amérique latine et Caraïbes': 'Latin America & Caribbean',
+  'Asie de l\'Est et Pacifique': 'East Asia & Pacific',
+  'Europe et Asie centrale': 'Europe & Central Asia',
 };
