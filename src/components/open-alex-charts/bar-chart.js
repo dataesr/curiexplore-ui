@@ -4,6 +4,12 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { Highlight } from '@dataesr/react-dsfr';
 
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
+
 export default function BarChart({ categoriesText, data, height, slice, type }) {
   const top = data
     .slice(0, slice)
@@ -16,11 +22,29 @@ export default function BarChart({ categoriesText, data, height, slice, type }) 
   }];
 
   const options = {
+    lang: {
+      downloadPNG: 'Télécharger en format PNG',
+      downloadCSV: 'Télécharger en format CSV',
+    },
+    credits: {
+      enabled: false,
+    },
+    exporting: {
+      enabled: true,
+      menuItemDefinitions: {
+        downloadPNG: {},
+        downloadCSV: {},
+      },
+      buttons: {
+        contextButton: {
+          menuItems: ['downloadCSV', 'downloadPNG'],
+        },
+      },
+    },
     chart: {
       type,
       height,
     },
-    credits: { enabled: false },
     legend: { enabled: false },
     series,
     title: { text: '' },

@@ -4,9 +4,14 @@ import { useParams } from 'react-router-dom';
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
 
 import useFetchData from './hooks/useFetchData';
 import ChartTitle from '../../../../../../components/title';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
 
 const allColumns = ['documents', 'citable_documents', 'citations', 'self_citations', 'citations_per_document', 'h_index'];
 
@@ -45,6 +50,25 @@ export default function ScimagoGraphComponent() {
   seriesData.push(serieOfCountry);
 
   const options = {
+    lang: {
+      downloadPNG: 'Télécharger en format PNG',
+      downloadCSV: 'Télécharger en format CSV',
+    },
+    credits: {
+      enabled: false,
+    },
+    exporting: {
+      enabled: true,
+      menuItemDefinitions: {
+        downloadPNG: {},
+        downloadCSV: {},
+      },
+      buttons: {
+        contextButton: {
+          menuItems: ['downloadCSV', 'downloadPNG'],
+        },
+      },
+    },
     chart: {
       type: 'scatter',
       zoomType: 'xy',
@@ -95,9 +119,6 @@ export default function ScimagoGraphComponent() {
       },
     },
     series: seriesData,
-    credits: {
-      enabled: false,
-    },
   };
 
   const chart = createRef();

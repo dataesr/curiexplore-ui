@@ -1,9 +1,17 @@
 import { Col, Link, Row, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
+
+import Highcharts from 'highcharts';
+import exportingModule from 'highcharts/modules/exporting';
+import exportingData from 'highcharts/modules/export-data';
 import Title from '../title';
+
 import BarChart from './bar-chart';
 import useFetchData from './hooks/useFetchDataThematics';
 import getLabel from '../../utils/getLabel';
+
+exportingModule(Highcharts);
+exportingData(Highcharts);
 
 const { REACT_APP_OPENALEX_RANGE } = process.env;
 
@@ -18,6 +26,7 @@ export default function ThematicsChart({ iso2, iso3 }) {
       </Link>
     </Text>
   );
+
   return (
     <>
       <Row className="fr-mt-1w">
