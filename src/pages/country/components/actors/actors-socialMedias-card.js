@@ -46,7 +46,7 @@ function SocialNetworkCard({ actorId }) {
                   <Icon name={`ri-${socialmedia.type}-line`} />
                   {renderIcon(socialmedia.type)}
                   <Link href={socialmedia.account} target="_blank">
-                    {`${socialmedia.type}`}
+                    {socialmedia.type}
                   </Link>
                 </h6>
               </Callout>
