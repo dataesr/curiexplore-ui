@@ -127,7 +127,7 @@ export default function ScimagoGraphComponent() {
     <>
       <ChartTitle
         title="Classement SCImago"
-        icon="ri-bar-chart-horizontal-fill"
+        icon="ri-bubble-chart-fill"
         subTitle="Source : SCImago, (n.d.). SJR — SCImago Journal & Country Rank [Portal]"
         as="h4"
         look="h4"

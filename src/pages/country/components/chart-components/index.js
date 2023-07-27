@@ -4,11 +4,12 @@ import { useOutletContext, useParams } from 'react-router-dom';
 import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
+import Title from '../../../../components/title';
 import Chart from './chart';
 import Filters from './filters';
 import { GraphContainer } from '../../../../components/graph';
 
-export default function ChartComponents({ charts }) {
+export default function ChartComponents({ charts, title, icon }) {
   const { isoCode } = useParams();
 
   const contextData = useOutletContext();
@@ -24,16 +25,24 @@ export default function ChartComponents({ charts }) {
   return (
     <GraphContainer>
       {(showFilters) && (
-        <Row gutters className="fr-mt-1w">
-          <Col className="fr-btns-group">
-            <Button onClick={() => setShowModal(true)} className="fr-btn text-center">
-              <Icon name="ri-arrow-down-circle-line" />
-              Comparer avec d'autres pays
-              &nbsp;
-              <Icon name="ri-arrow-down-circle-line" />
-            </Button>
-          </Col>
-        </Row>
+        <>
+          <Title
+            as="h4"
+            look="h4"
+            title={title}
+            icon={icon}
+          />
+          <Row gutters>
+            <Col className="fr-btns-group">
+              <Button onClick={() => setShowModal(true)} className="fr-btn text-center">
+                <Icon name="ri-arrow-down-circle-line" />
+                Comparer avec d'autres pays
+                &nbsp;
+                <Icon name="ri-arrow-down-circle-line" />
+              </Button>
+            </Col>
+          </Row>
+        </>
       )}
       <Row gutters>
         {charts.map((chart) => (
@@ -57,9 +66,17 @@ export default function ChartComponents({ charts }) {
         </ModalContent>
       </Modal>
     </GraphContainer>
+
   );
 }
 
 ChartComponents.propTypes = {
   charts: PropTypes.array.isRequired,
+  title: PropTypes.string,
+  icon: PropTypes.string,
+};
+
+ChartComponents.defaultProps = {
+  title: null,
+  icon: null,
 };
