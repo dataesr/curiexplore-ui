@@ -32,7 +32,7 @@ export default function ThematicsChart({ iso2, iso3 }) {
       <Row className="fr-mt-1w">
         <Col n="12">
           <Title
-            icon="ri-bar-chart-fill"
+            icon="ri-bar-chart-horizontal-fill"
             title={`Principaux domaines scientifiques de travail commun entre le pays "${getLabel(iso3)}" et la France (${REACT_APP_OPENALEX_RANGE})`}
             as="h4"
             look="h4"

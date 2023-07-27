@@ -50,26 +50,18 @@ export default function CountryResearchPage() {
         as="h3"
         title="Les données de la recherche et de l'innovation"
         icon=""
+        subTitle={subTitle}
       />
       <ScimagoChart />
       <ThematicsChart iso2={iso2} iso3={isoCode} />
-      <Title
-        as="h4"
-        look="h4"
+      <ChartComponents
         title="Les données financières de la recherche et de l'innovation"
-        subTitle={subTitle}
-        icon=""
+        charts={charts1st}
       />
-      <ChartComponents charts={charts1st} />
-      <Title
-        as="h4"
-        look="h4"
+      <ChartComponents
         title="Les données du personnel de la recherche et de l'innovation"
-        subTitle={subTitle}
-        icon=""
+        charts={charts2nd}
       />
-      <ChartComponents charts={charts2nd} />
-
     </>
   );
 }
