@@ -146,7 +146,7 @@ export default function Fiche({ exportState }) {
                 ) : null}
                 {
                   campusFrance ? (
-                    <SideMenuLink asLink={<Link href={`${campusFrance}`} target="_blank" />} current={(selected === '')}>
+                    <SideMenuLink asLink={<Link href={campusFrance} target="_blank" />} current={(selected === '')}>
                       <Icon name="ri-arrow-left-right-line" size="1x" />
                       Voir la fiche Campus France
                     </SideMenuLink>

@@ -33,7 +33,7 @@ function RankingCard({ link, name }) {
           <h6 className="fr-card__title">
             <Icon name="ri-file-list-3-line" />
             <Link href={link} target="blank">
-              {`${rankingName}`}
+              {rankingName}
             </Link>
           </h6>
         </div>
@@ -56,7 +56,7 @@ function AddressCard({ address }) {
       {address.postcode && <Text className="fr-mb-0">{address.postcode}</Text>}
       {address.city && <Text className="fr-mb-0">{address.city}</Text>}
       <Text>
-        {`${address.country}`}
+        {address.country}
       </Text>
     </>
   );
