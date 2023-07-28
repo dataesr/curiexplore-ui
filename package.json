@@ -26,7 +26,7 @@
   "scripts": {
     "build": "react-scripts build",
     "deploy": "git switch main && git pull origin main --rebase --tags && git merge origin staging && npm version $npm_config_level && git push origin main --tags && git switch staging",
-    "deploy-windows": "git switch main && git pull origin main --rebase --tags && git merge origin staging && npm version %npm_config_level% && git push origin main --tags && git switch staging",
+    "deploy-windows": "git switch main && git pull origin main --rebase --tags && git merge origin staging && npm version %npm_package_config_level% && git push origin main --tags && git switch staging",
     "eject": "react-scripts eject",
     "lint": "eslint --fix src/**/*.js",
     "start": "react-scripts start",
