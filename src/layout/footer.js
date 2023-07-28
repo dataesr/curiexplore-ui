@@ -27,7 +27,7 @@ export default function Footer() {
           <FooterLink asLink={<RouterLink to="ressources" />}>
             Ressources mobilisées
           </FooterLink>
-          <FooterLink asLink={<Link href="https://github.com/orgs/dataesr/repositories?q=curiexplore-ui-v2&type=&language=&sort=" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://github.com/dataesr/curiexplore-ui" target="_blank" />}>
             {renderIcon('Github')}
             Github
           </FooterLink>
