@@ -20,8 +20,15 @@ npm start
 
 To deploy in production, simply run this command from your staging branch :
 
+**Linux**
+
 ```sh
 npm run deploy --level=[patch|minor|major]
 ```
 
+**Windows**
+
+```sh
+npm run deploy-windows --level=[patch|minor|major]
+```
 :warning: Obviously, only members of the [dataesr organization](https://github.com/dataesr/) have rights to push on the repo.
