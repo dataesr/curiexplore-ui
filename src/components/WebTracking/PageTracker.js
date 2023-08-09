@@ -1,4 +1,4 @@
-import { useMatomo } from '@datapunt/matomo-tracker-react';
+import { useMatomo } from '@jonkoops/matomo-tracker-react';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';

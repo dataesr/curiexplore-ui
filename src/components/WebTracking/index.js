@@ -1,4 +1,4 @@
-import { createInstance, MatomoProvider } from '@datapunt/matomo-tracker-react';
+import { createInstance, MatomoProvider } from '@jonkoops/matomo-tracker-react';
 import PropTypes from 'prop-types';
 
 function WebTracking({ children }) {
