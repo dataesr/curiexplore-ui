@@ -28,6 +28,7 @@ import SimilarCountriesPage from './pages/country/components/similar-countries';
 import StudentsMobilityPage from './pages/country/components/students-mobility';
 import TeamProjectPage from './pages/team-project';
 import WebTracking from './components/WebTracking';
+import PageTracker from './components/WebTracking/PageTracker';
 
 const messages = {
   'fr-FR': messagesFR,
@@ -43,8 +44,8 @@ export default function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="*" element={<NotFound />} />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/pays/:isoCode" element={<Country />}>
+              <Route path="/" element={<PageTracker><HomePage /></PageTracker>} />
+              <Route path="/pays/:isoCode" element={<PageTracker><Country /></PageTracker>}>
                 <Route path="" element={<Navigate to="profil" replace />} />
                 <Route path="profil" element={<CountryProfilePage />} />
                 <Route path="enseignement-sup" element={<CountryHigherEducationPage />} />
@@ -59,8 +60,8 @@ export default function App() {
                 <Route path="liens-utiles" element={<CountryLinksPages />} />
                 <Route path="export" element={<ExportPage />} replace />
               </Route>
-              <Route path="/annuaire" element={<DirectoryPage />} />
-              <Route path="contact" element={<ContactPage />} />
+              <Route path="/annuaire" element={<PageTracker><DirectoryPage /></PageTracker>} />
+              <Route path="contact" element={<PageTracker><ContactPage /></PageTracker>} />
               <Route path="ressources" element={<RessourcesPage />} />
               <Route path="projet-et-equipe" element={<TeamProjectPage />} />
               <Route path="mentions-legales" element={<MentionsLegalesPage />} />
