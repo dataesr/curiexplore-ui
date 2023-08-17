@@ -3,6 +3,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --silent
 COPY . .
+ARG MODE=production
+ENV ENV_FILE=.env.$MODE
+RUN if [ ! -f "$ENV_FILE" ]; then echo "$ENV_FILE does not exist. Using default"; fi
+RUN if [[ -f "$ENV_FILE" && $ENV_FILE != ".env.production" ]]; then cp -f $ENV_FILE .env.production; fi
 RUN npm run build
 
 # production environment
