@@ -11,9 +11,9 @@ function SocialNetworkCard({ actorId }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_PAYSAGE_API_SOCIAL_MEDIAS}${actorId}/social-medias`,
+          `${process.env.REACT_APP_PAYSAGE_API_URL}/structures/${actorId}/social-medias`,
           {
-            headers: { 'X-API-KEY': process.env.REACT_APP_PAYSAGE_KEY },
+            headers: { 'X-API-KEY': process.env.REACT_APP_PAYSAGE_API_KEY },
           },
         );
         const jsonData = await response.json();

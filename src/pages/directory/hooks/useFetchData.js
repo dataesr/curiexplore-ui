@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
 const {
-  REACT_APP_PAYSAGE_API_ENDPOINT,
   REACT_APP_CATEGORY_CAMPUSFRANCE,
-  REACT_APP_CATEGORY_EMBASSY,
   REACT_APP_CATEGORY_CCI,
+  REACT_APP_CATEGORY_EMBASSY,
+  REACT_APP_PAYSAGE_API_URL,
 } = process.env;
 
-const getEndPoint = (categoryId) => `${REACT_APP_PAYSAGE_API_ENDPOINT}?filters[curieCategories]=${categoryId}`;
+const getEndPoint = (categoryId) => `${REACT_APP_PAYSAGE_API_URL}/curiexplore/actors?filters[curieCategories]=${categoryId}`;
 const categories = [REACT_APP_CATEGORY_CAMPUSFRANCE, REACT_APP_CATEGORY_EMBASSY, REACT_APP_CATEGORY_CCI];
 const categoriesName = ['campusFrance', 'embassy', 'CCI'];
 

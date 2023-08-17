@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY, REACT_APP_PAYSAGE_API_ENDPOINT } = process.env;
+const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY, REACT_APP_PAYSAGE_API_URL } = process.env;
 const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
 
 export default function useFetchData(isoCode) {
@@ -19,7 +19,7 @@ export default function useFetchData(isoCode) {
       `${ENDPOINT_V1}&dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
       `${ENDPOINT_V1}&dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
-      `${REACT_APP_PAYSAGE_API_ENDPOINT}?filters[iso3]=${isoCode}`,
+      `${REACT_APP_PAYSAGE_API_URL}/curiexplore/actors?filters[iso3]=${isoCode}`,
       `${ENDPOINT_V1}&dataset=curiexplore-donnees-quantitatives&q=&rows=-1&facet=country_code&refine.country_code=${isoCode}`,
     ];
 
