@@ -9,12 +9,11 @@ CurieXplore mobilise les statistiques de l'OCDE, de l'UNESCO ou de la Banque Mon
 CurieXplore combine cette information statistique avec les analyses qualitatives produites par les Conseiller.e.s de coopération et d'action culturelle (COCAC) et les Conseiller.e.s pour la science et la technologie des postes diplomatiques français à l'étranger. Ces experts partagent, au sein de CurieXplore, leur connaissance de terrain des systèmes d'enseignement supérieur, de recherche et d'innovation dans lesquels ils sont immergés.
 
 
-## Lancement du projet en local
+## Install and run app
 
 ```sh
-npm start
+npm i && npm start
 ```
-
 
 ## Deployment
 

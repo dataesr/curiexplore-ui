@@ -1,0 +1,53 @@
+{
+  "name": "curiexplore-ui",
+  "version": "2.0.6",
+  "private": true,
+  "dependencies": {
+    "@dataesr/react-dsfr": "^3.4.13",
+    "@jonkoops/matomo-tracker-react": "^0.7.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "classnames": "^2.3.2",
+    "highcharts": "^10.3.2",
+    "highcharts-react-official": "^3.1.0",
+    "html-react-parser": "^3.0.4",
+    "i": "^0.3.7",
+    "leaflet": "^1.9.3",
+    "npm": "^9.8.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intl": "^6.2.5",
+    "react-leaflet": "^4.2.0",
+    "react-router-dom": "^6.4.5",
+    "react-scripts": "5.0.1",
+    "react-to-print": "^2.14.12",
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix src/**/*.js",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint-config-airbnb": "^19.0.4",
+    "sass": "^1.56.1"
+  }
+}

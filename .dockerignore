@@ -1,8 +1,14 @@
-node_modules
-build
-doc
-k8s
+# Github
+**/.git
+.github
+
+# Docker
 .dockerignore
 Dockerfile
-.github
-deployment
+
+# NPM
+**/node_modules
+npm-debug.log
+
+# Misc
+**/.DS_Store
