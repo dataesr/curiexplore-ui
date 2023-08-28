@@ -8,15 +8,12 @@ export default function useFetchData(data) {
   const [evolution, setEvolution] = useState({ label: null, data: null });
   const [lastYear, setLastYear] = useState(null);
 
-  const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY } = process.env;
-  const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
-  const baseUrl = '&dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true';
-  const query = `${ENDPOINT_V1}${baseUrl}&refine.code=${data.code}&sort=${data.sort}&refine.country_code=${data.countryCode}`;
-
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true);
-      const response = await fetch(query);
+      const baseUrl = '/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true';
+      const url = `${baseUrl}&refine.code=${data.code}&sort=${data.sort}&refine.country_code=${data.countryCode}`;
+      const response = await fetch(url);
       const json = await response.json();
 
       setLastYear(json.records[json.records.length - 1].fields.year);
@@ -32,7 +29,7 @@ export default function useFetchData(data) {
     };
 
     getData();
-  }, [query]);
+  }, [data.code, data.countryCode, data.sort]);
 
   return { lastYearData, evolution, lastYear, isLoading };
 }

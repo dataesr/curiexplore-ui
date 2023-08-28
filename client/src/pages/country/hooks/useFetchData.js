@@ -1,26 +1,25 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY, REACT_APP_PAYSAGE_API_URL } = process.env;
-const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
+const { REACT_APP_PAYSAGE_API_URL } = process.env;
 
 export default function useFetchData(isoCode) {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isUnknownCountry, setIsUnknownCountry] = useState(false);
 
   useEffect(() => {
     const queries = [
-      `${ENDPOINT_V1}&dataset=curiexplore-pays&q=&rows=-1&facet=iso3`,
-      `${ENDPOINT_V1}&dataset=ccp-survey-information-generale&q=&rows=-1&refine.isoalpha3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=ccp-survey-politique-francophone&q=&rows=-1&facet=isoalpha3&refine.isoalpha3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-analyse&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-policy-ocde&q=&rows=-1&sort=startdate&facet=iso3&refine.iso3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
+      '/api/opendatasoft?dataset=curiexplore-pays&q=&rows=-1&facet=iso3',
+      `/api/opendatasoft?dataset=ccp-survey-information-generale&q=&rows=-1&refine.isoalpha3=${isoCode}`,
+      `/api/opendatasoft?dataset=ccp-survey-politique-francophone&q=&rows=-1&facet=isoalpha3&refine.isoalpha3=${isoCode}`,
+      `/api/opendatasoft?dataset=curiexplore-analyse&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
+      `/api/opendatasoft?dataset=curiexplore-policy-ocde&q=&rows=-1&sort=startdate&facet=iso3&refine.iso3=${isoCode}`,
+      `/api/opendatasoft?dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
+      `/api/opendatasoft?dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
+      `/api/opendatasoft?dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
       `${REACT_APP_PAYSAGE_API_URL}/curiexplore/actors?filters[iso3]=${isoCode}`,
-      `${ENDPOINT_V1}&dataset=curiexplore-donnees-quantitatives&q=&rows=-1&facet=country_code&refine.country_code=${isoCode}`,
+      `/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&q=&rows=-1&facet=country_code&refine.country_code=${isoCode}`,
     ];
 
     const getData = async () => {

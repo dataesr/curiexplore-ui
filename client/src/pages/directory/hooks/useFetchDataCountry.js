@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_ODS_API_KEY, REACT_APP_ODS_API_ENDPOINT } = process.env;
-const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
-
 export default function useFetchDataCountries() {
   const [dataCountries, setDataCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -10,7 +7,7 @@ export default function useFetchDataCountries() {
 
   useEffect(() => {
     const queries = [
-      `${ENDPOINT_V1}&dataset=curiexplore-pays&q=&rows=-1&facet=iso3`,
+      '/api/opendatasoft?dataset=curiexplore-pays&q=&rows=-1&facet=iso3',
     ];
 
     const getData = async () => {

@@ -6,15 +6,11 @@ export default function useFetchData({ isoCode }) {
   const [data, setData] = useState(false);
 
   useEffect(() => {
-    const { REACT_APP_ODS_API_ENDPOINT, REACT_APP_ODS_API_KEY } = process.env;
-    const ENDPOINT_V1 = `${REACT_APP_ODS_API_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
-    const baseUrl = '&dataset=curiexplore-ressources';
-    const query = `${ENDPOINT_V1}${baseUrl}&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`;
-
     const getData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(query);
+        const url = `/api/opendatasoft?dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`;
+        const response = await fetch(url);
         const json = await response.json();
 
         setData(json);
