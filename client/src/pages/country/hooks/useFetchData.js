@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_PAYSAGE_API_URL } = process.env;
-
 export default function useFetchData(isoCode) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
@@ -18,7 +16,7 @@ export default function useFetchData(isoCode) {
       `/api/opendatasoft?dataset=curiexplore-ressources&q=&rows=-1&facet=iso3&refine.iso3=${isoCode}`,
       `/api/opendatasoft?dataset=mobilite-internationale-etudiants&q=&rows=-1&sort=year&facet=country_code&refine.country_code=${isoCode}`,
       `/api/opendatasoft?dataset=curiexplore-timestamp&q=&rows=-1&sort=submitdate&facet=isoalpha3&refine.iso3=${isoCode}`,
-      `${REACT_APP_PAYSAGE_API_URL}/curiexplore/actors?filters[iso3]=${isoCode}`,
+      `/api/paysage/curiexplore/actors?filters[iso3]=${isoCode}`,
       `/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&q=&rows=-1&facet=country_code&refine.country_code=${isoCode}`,
     ];
 
@@ -46,5 +44,5 @@ export default function useFetchData(isoCode) {
     getData();
   }, [isoCode]);
 
-  return { data, isLoading, error, isUnknownCountry };
+  return { data, isLoading, isUnknownCountry, error };
 }
