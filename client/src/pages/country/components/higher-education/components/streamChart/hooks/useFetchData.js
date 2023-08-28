@@ -6,7 +6,7 @@ export default function useFetchData({ charts, countryCode }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const baseUrl = '/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true&facet=year';
+    const baseUrl = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true&facet=year`;
     let url = `${baseUrl}&refine.country_code=${countryCode}`;
     for (let index = 0; index < charts.length; index += 1) {
       url += `&refine.code=${charts[index].code}`;

@@ -14,7 +14,7 @@ export default function useFetchData(data) {
   const [series, setSeries] = useState([]);
 
   useEffect(() => {
-    const baseUrl = '/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true';
+    const baseUrl = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true`;
     let url = `${baseUrl}&refine.code=${data.code}&sort=${data.sort}&refine.country_code=${data.countryCode}`;
     for (let index = 0; index < data.otherCodes.length; index += 1) {
       url += `&refine.country_code=${data.otherCodes[index]}`;

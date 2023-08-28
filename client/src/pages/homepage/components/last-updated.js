@@ -1,17 +1,14 @@
 import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 import { useEffect, useState } from 'react';
 import { FormattedDate } from 'react-intl';
-import CountryCard from '../../../components/country-card';
 
-const API_ODS_ENDPOINT = 'https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search';
-const { REACT_APP_ODS_API_KEY } = process.env;
-const ENDPOINT_V1 = `${API_ODS_ENDPOINT}/?apikey=${REACT_APP_ODS_API_KEY}`;
+import CountryCard from '../../../components/country-card';
 
 function useLastUpdates() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const query = `${ENDPOINT_V1}&dataset=curiexplore-timestamp&q=&rows=8&sort=submitdate&facet=isoalpha3`;
+  const query = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-timestamp&q=&rows=8&sort=submitdate&facet=isoalpha3`;
 
   useEffect(() => {
     const getData = async () => {

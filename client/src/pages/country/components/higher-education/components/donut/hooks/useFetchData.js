@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
-import exportingModule from 'highcharts/modules/exporting';
 import exportingData from 'highcharts/modules/export-data';
+import exportingModule from 'highcharts/modules/exporting';
+import { useEffect, useState } from 'react';
 
 exportingModule(Highcharts);
 exportingData(Highcharts);
 
 export default function useFetchData({ charts, countryCode }) {
-  const [options, setOptions] = useState({});
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [options, setOptions] = useState({});
   const [title, setTitle] = useState(null);
 
   useEffect(() => {
-    const baseUrl = '/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&sort=year&disjunctive.code=true&disjunctive.country_code=true&facet=year';
+    const baseUrl = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&sort=year&disjunctive.code=true&disjunctive.country_code=true&facet=year`;
     let url = `${baseUrl}&refine.country_code=${countryCode}`;
     for (let index = 0; index < charts.length; index += 1) {
       url += `&refine.code=${charts[index].code}`;

@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 
 export default function useFetchDataCountries() {
   const [dataCountries, setDataCountries] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
     const queries = [
-      '/api/opendatasoft?dataset=curiexplore-pays&q=&rows=-1&facet=iso3',
+      `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-pays&q=&rows=-1&facet=iso3`,
     ];
 
     const getData = async () => {
@@ -28,5 +28,5 @@ export default function useFetchDataCountries() {
     getData();
   }, []);
 
-  return { dataCountries, isLoading, error };
+  return { dataCountries, error, isLoading };
 }

@@ -1,8 +1,9 @@
 import { Callout, Col, Icon, Link, Row } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { renderIcon } from '../../../../utils/renderSocialMediasIcon';
+
 import Title from '../../../../components/title';
+import { renderIcon } from '../../../../utils/renderSocialMediasIcon';
 
 function SocialNetworkCard({ actorId }) {
   const [data, setData] = useState(null);
@@ -10,7 +11,7 @@ function SocialNetworkCard({ actorId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/paysage/structures/${actorId}/social-medias`);
+        const response = await fetch(`${process.env.REACT_APP_CURIEXPLORE_API}/paysage/structures/${actorId}/social-medias`);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {

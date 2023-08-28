@@ -11,7 +11,7 @@ export default function useFetchData(data) {
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true);
-      const baseUrl = '/api/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true';
+      const baseUrl = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-donnees-quantitatives&rows=-1&disjunctive.code=true&disjunctive.country_code=true`;
       const url = `${baseUrl}&refine.code=${data.code}&sort=${data.sort}&refine.country_code=${data.countryCode}`;
       const response = await fetch(url);
       const json = await response.json();

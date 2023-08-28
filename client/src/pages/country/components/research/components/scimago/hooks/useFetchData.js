@@ -10,7 +10,7 @@ export default function useFetchData() {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const url = '/api/opendatasoft?dataset=ccp-scimago&rows=5000&facet=year';
+        const url = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=ccp-scimago&rows=5000&facet=year`;
         const response = await fetch(url);
         const json = await response.json();
         setData(json.records);

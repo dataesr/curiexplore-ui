@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
+import { Container, Row, Col, Link, Badge, Tag, Text } from '@dataesr/react-dsfr';
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
-import { Container, Row, Col, Link, Badge, Tag, Text } from '@dataesr/react-dsfr';
 import { v4 as uuidv4 } from 'uuid';
-import getLabel from '../../../utils/getLabel';
-import Title from '../../../components/title';
-import Loader from '../../../utils/Loader';
+
 import PublicationsChart from '../../../components/open-alex-charts/publications-chart';
 import InstitutionsChart from '../../../components/open-alex-charts/institutions-chart';
+import Title from '../../../components/title';
+import getLabel from '../../../utils/getLabel';
+import Loader from '../../../utils/Loader';
 
 export default function FranceCooperationPage() {
   const { isoCode } = useParams();
@@ -18,8 +19,6 @@ export default function FranceCooperationPage() {
   const [iso2, setIso2] = useState('');
   const urlProjects = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/projects/search';
   const urlStructures = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/structures/search';
-  // const years = [2017, 2018, 2019];
-
   const years = useMemo(() => ([2017, 2018, 2019]), []);
 
   useEffect(() => {
