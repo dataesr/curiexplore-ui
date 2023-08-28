@@ -11,8 +11,16 @@ CurieXplore combine cette information statistique avec les analyses qualitatives
 
 ## Install and run app
 
+In local
+
 ```sh
 npm i && npm start
+```
+
+To locally run the app just like the staging, run :
+
+```sh
+npm run start:staging
 ```
 
 ## Deployment
