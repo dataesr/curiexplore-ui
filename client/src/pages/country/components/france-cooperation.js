@@ -17,8 +17,8 @@ export default function FranceCooperationPage() {
   const [dataStructuresProjects, setDataStructuresProjects] = useState([]);
   const [pending, setPending] = useState(0);
   const [iso2, setIso2] = useState('');
-  const urlProjects = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/projects/search';
-  const urlStructures = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/structures/search';
+  const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/projects/search`;
+  const urlStructures = `${process.env.REACT_APP_SCANR_API_URL}/structures/search`;
   const years = useMemo(() => ([2017, 2018, 2019]), []);
 
   useEffect(() => {
