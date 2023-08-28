@@ -72,7 +72,7 @@ export default function FranceCooperationPage() {
     };
 
     getDataProjects();
-  }, [isoCode, years]);
+  }, [isoCode, urlProjects, years]);
 
   useEffect(() => {
     const getDataStructures = async () => {
@@ -104,7 +104,7 @@ export default function FranceCooperationPage() {
     };
 
     if (pending === 1) getDataStructures();
-  }, [dataProjects, pending]);
+  }, [dataProjects, pending, urlStructures]);
 
   // add number of projects in dataStructuresProjects
   const dataStructuresProjectsWithNbProjects = dataStructuresProjects.map((structure) => ({
