@@ -10,12 +10,7 @@ function SocialNetworkCard({ actorId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_PAYSAGE_API_URL}/structures/${actorId}/social-medias`,
-          {
-            headers: { 'X-API-KEY': process.env.REACT_APP_PAYSAGE_API_KEY },
-          },
-        );
+        const response = await fetch(`/api/paysage/structures/${actorId}/social-medias`);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
