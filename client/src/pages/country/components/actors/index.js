@@ -144,7 +144,7 @@ export default function ActorsPage() {
                 >
                   {categoriesLabels.find((el) => el.id === category).shortLabel}
 &nbsp;
-                  <Badge text={`${categories[category].length}`} />
+                  <Badge text={categories[category].length.toString()} />
                 </Tag>
               ))}
             </TagGroup>

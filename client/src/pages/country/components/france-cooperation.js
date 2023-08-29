@@ -139,7 +139,7 @@ export default function FranceCooperationPage() {
       (
       {years.join(', ')}
       )
-      <Badge className="fr-ml-1w" color="yellow-tournesol" text={`${nb}`} />
+      <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
     </>
   );
 
@@ -150,7 +150,7 @@ export default function FranceCooperationPage() {
       (
       {years.join(', ')}
       )
-      <Badge className="fr-ml-1w" color="yellow-tournesol" text={`${nb}`} />
+      <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
     </>
   );
 
@@ -176,7 +176,7 @@ export default function FranceCooperationPage() {
       <Row>
         <Title
           icon="ri-arrow-up-circle-line"
-          title={topTenFrenchTitle(frenchStructureWithNbProjects.length)}
+          title={topTenFrenchTitle(frenchStructureWithNbProjects.length.toString())}
           as="h4"
           look="h4"
           subTitle={subTitle}
@@ -211,7 +211,7 @@ export default function FranceCooperationPage() {
         <Col n="12">
           <Title
             icon="ri-arrow-up-circle-line"
-            title={topTenCountryTitle(foreignStructureWithNbProjects.length)}
+            title={topTenCountryTitle(foreignStructureWithNbProjects.length.toString())}
             as="h4"
             look="h4"
             subTitle={subTitle}

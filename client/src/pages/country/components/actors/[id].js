@@ -162,7 +162,7 @@ export default function Actor() {
               <Col>
                 <Title as="h3">
                   Présence dans les classements internationnaux &nbsp;
-                  <Badge text={`${dataActor.rankings.length}`} colorFamily="green-menthe" />
+                  <Badge text={dataActor.rankings.length.toString()} colorFamily="green-menthe" />
                 </Title>
               </Col>
             </Row>
