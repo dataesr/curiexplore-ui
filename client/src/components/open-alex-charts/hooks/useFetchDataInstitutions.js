@@ -7,8 +7,7 @@ import exportingData from 'highcharts/modules/export-data';
 exportingModule(Highcharts);
 exportingData(Highcharts);
 
-const API_OPEN_ALEX_ENDPOINT = 'https://api.openalex.org/works?mailto=bso@recherche.gouv.fr';
-const { REACT_APP_OPENALEX_RANGE } = process.env;
+const { REACT_APP_OPENALEX_RANGE, REACT_APP_OPENALEX_URL } = process.env;
 
 export default function useFetchData(isoCode) {
   const [options, setOptions] = useState({});
@@ -17,7 +16,7 @@ export default function useFetchData(isoCode) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const query = `${API_OPEN_ALEX_ENDPOINT}&filter=publication_year:${REACT_APP_OPENALEX_RANGE},institutions.country_code:${isoCode},institutions.country_code:fr&group_by=authorships.institutions.id`;
+    const query = `${REACT_APP_OPENALEX_URL}&filter=publication_year:${REACT_APP_OPENALEX_RANGE},institutions.country_code:${isoCode},institutions.country_code:fr&group_by=authorships.institutions.id`;
     const getData = async () => {
       try {
         setIsLoading(true);

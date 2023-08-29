@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_OPENALEX_RANGE } = process.env;
-
-const API_OPEN_ALEX_ENDPOINT = 'https://api.openalex.org/works?mailto=bso@recherche.gouv.fr';
+const { REACT_APP_OPENALEX_RANGE, REACT_APP_OPENALEX_URL } = process.env;
 
 export default function useFetchData(isoCode) {
   const [data, setData] = useState([]);
@@ -10,7 +8,7 @@ export default function useFetchData(isoCode) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const query = `${API_OPEN_ALEX_ENDPOINT}&filter=publication_year:${REACT_APP_OPENALEX_RANGE},institutions.country_code:${isoCode},institutions.country_code:fr&group_by=concepts.id`;
+    const query = `${REACT_APP_OPENALEX_URL}&filter=publication_year:${REACT_APP_OPENALEX_RANGE},institutions.country_code:${isoCode},institutions.country_code:fr&group_by=concepts.id`;
 
     const getData = async () => {
       try {
