@@ -1,8 +1,9 @@
 import { Col, Link, Row, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
-import TitleComponent from '../title';
+
 import BarChart from './bar-chart';
 import useFetchData from './hooks/useFetchDataPublications';
+import TitleComponent from '../title';
 import getLabel from '../../utils/getLabel';
 
 const { REACT_APP_OPENALEX_RANGE } = process.env;
@@ -18,17 +19,18 @@ export default function PublicationsChart({ iso2, iso3 }) {
       </Link>
     </Text>
   );
+
   return (
     <>
       <Row>
         <Col n="12">
           <TitleComponent
-            icon="ri-bar-chart-fill"
-            title={`Evolution du nombre de publications communes dans le temps. Collaboration entre "${getLabel(iso3)}" et "France" (${REACT_APP_OPENALEX_RANGE})`}
             as="h4"
+            betaBadge
+            icon="ri-bar-chart-fill"
             look="h4"
             subTitle={subTitle}
-            betaBadge
+            title={`Evolution du nombre de publications communes dans le temps. Collaboration entre "${getLabel(iso3)}" et "France" (${REACT_APP_OPENALEX_RANGE})`}
           />
         </Col>
       </Row>
