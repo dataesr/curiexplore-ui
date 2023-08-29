@@ -139,7 +139,7 @@ export default function FranceCooperationPage() {
       (
       {years.join(', ')}
       )
-      <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
+      <Badge className="fr-ml-1w" color="yellow-tournesol" text={`${nb}`} />
     </>
   );
 
@@ -150,7 +150,7 @@ export default function FranceCooperationPage() {
       (
       {years.join(', ')}
       )
-      <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
+      <Badge className="fr-ml-1w" color="yellow-tournesol" text={`${nb}`} />
     </>
   );
 
