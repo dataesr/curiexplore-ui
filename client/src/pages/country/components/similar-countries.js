@@ -1,15 +1,14 @@
 import { Container, Row, Col } from '@dataesr/react-dsfr';
-import { useOutletContext, useParams } from 'react-router-dom';
 import Parser from 'html-react-parser';
+import { useOutletContext, useParams } from 'react-router-dom';
 
+import groups from '../../../assets/data/groups.json';
+import AdaptativeList from '../../../components/adaptative-list';
 import CountryCard from '../../../components/country-card';
-import getLabel from '../../../utils/getLabel';
 import TitleCurie from '../../../components/title';
 import checkGeographicItems from '../../../utils/checkGeographicItems';
 import checkPolicyItems from '../../../utils/checkPolicyItems';
-import AdaptativeList from '../../../components/adaptative-list';
-
-import groups from '../../../assets/data/groups.json';
+import getLabel from '../../../utils/getLabel';
 
 export default function SimilarCountriesPage() {
   const contextData = useOutletContext();
@@ -62,10 +61,10 @@ export default function SimilarCountriesPage() {
                 .map((country) => (
                   <Col n="3">
                     <CountryCard
-                      title={getLabel(country.fields.iso3)}
-                      isoCode={country.fields.iso3}
                       color={groups.find((el) => el.code === item.code).mapColor}
                       fillColor={groups.find((el) => el.code === item.code).mapFillColor}
+                      isoCode={country.fields.iso3}
+                      title={getLabel(country.fields.iso3)}
                     />
                   </Col>
                 ))}
@@ -97,10 +96,10 @@ export default function SimilarCountriesPage() {
                 .map((country) => (
                   <Col n="3">
                     <CountryCard
-                      title={getLabel(country.fields.iso3)}
-                      isoCode={country.fields.iso3}
                       color={groups.find((el) => el.code === item.code).mapColor}
                       fillColor={groups.find((el) => el.code === item.code).mapFillColor}
+                      isoCode={country.fields.iso3}
+                      title={getLabel(country.fields.iso3)}
                     />
                   </Col>
                 ))}
@@ -124,8 +123,8 @@ export default function SimilarCountriesPage() {
               {idhGroupCountries.map((iso) => (
                 <Col n="3" key={iso}>
                   <CountryCard
-                    title={getLabel(iso)}
                     isoCode={iso}
+                    title={getLabel(iso)}
                   />
                 </Col>
               ))}

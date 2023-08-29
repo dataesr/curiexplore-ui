@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MapContainer } from 'react-leaflet';
+
 import CountryMap from '../country-map';
 
-export default function CountryCard({ isoCode, title, description, color, fillColor }) {
+export default function CountryCard({ color, description, fillColor, isoCode, title }) {
   return (
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey">
       <div className="fr-card__header">
@@ -44,7 +45,7 @@ CountryCard.defaultProps = {
 };
 CountryCard.propTypes = {
   color: PropTypes.string,
-  description: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  description: PropTypes.oneOfType([PropTypes.node, PropTypes.object, PropTypes.string]),
   fillColor: PropTypes.string,
   isoCode: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

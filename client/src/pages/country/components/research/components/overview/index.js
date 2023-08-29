@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
 import { Row, Col } from '@dataesr/react-dsfr';
-import formatNumber from '../../../../../../utils/formatNumber';
-import IndicatorCard from '../../../../../../components/generic-card';
+import PropTypes from 'prop-types';
 
+import IndicatorCard from '../../../../../../components/generic-card';
 import Title from '../../../../../../components/title';
+import formatNumber from '../../../../../../utils/formatNumber';
 
 export default function Overview({ data }) {
   const ID_TOTAL_PERSO = '20000';

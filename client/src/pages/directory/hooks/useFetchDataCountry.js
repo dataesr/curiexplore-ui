@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export default function useFetchDataCountries() {
   const [dataCountries, setDataCountries] = useState([]);
   const [error, setError] = useState();
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const queries = [
