@@ -1,26 +1,22 @@
+import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon } from '@dataesr/react-dsfr';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
 
-import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon } from '@dataesr/react-dsfr';
-import PropTypes from 'prop-types';
-
-import Title from '../../../../components/title';
 import Chart from './chart';
-import Filters from './filters';
 import { GraphContainer } from '../../../../components/graph';
+import Title from '../../../../components/title';
+import Filters from './filters';
 
 export default function ChartComponents({ charts, title, icon }) {
   const { isoCode } = useParams();
-
   const contextData = useOutletContext();
   const dataCountry = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const bordersIsoCodes = dataCountry.fields.borders?.split(',') || [];
   const [isoCodes, setIsoCodes] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showFilters, setShowFilters] = useState(false); // seulement si au moins 1 graph d'affiché
-  const onChangeFilters = (newIsoCodes) => {
-    setIsoCodes(newIsoCodes);
-  };
+  const onChangeFilters = (newIsoCodes) => setIsoCodes(newIsoCodes);
 
   return (
     <GraphContainer>
@@ -28,9 +24,9 @@ export default function ChartComponents({ charts, title, icon }) {
         <>
           <Title
             as="h4"
+            icon={icon}
             look="h4"
             title={title}
-            icon={icon}
           />
           <Row gutters>
             <Col className="fr-btns-group">
@@ -47,10 +43,10 @@ export default function ChartComponents({ charts, title, icon }) {
       <Row gutters>
         {charts.map((chart) => (
           <Chart
-            data={chart}
-            otherCodes={isoCodes}
             countryCode={isoCode}
+            data={chart}
             hasDataHandler={setShowFilters}
+            otherCodes={isoCodes}
           />
         ))}
       </Row>
@@ -60,8 +56,8 @@ export default function ChartComponents({ charts, title, icon }) {
           <Filters
             bordersIsoCodes={bordersIsoCodes}
             currentIsoCode={isoCode}
-            selectedIsoCodes={isoCodes}
             onChangeFilters={onChangeFilters}
+            selectedIsoCodes={isoCodes}
           />
         </ModalContent>
       </Modal>

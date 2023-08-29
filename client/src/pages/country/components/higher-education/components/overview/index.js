@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
 import { Row, Col } from '@dataesr/react-dsfr';
-import formatNumber from '../../../../../../utils/formatNumber';
-import IndicatorCard from '../../../../../../components/indicator-card';
+import PropTypes from 'prop-types';
 
+import IndicatorCard from '../../../../../../components/indicator-card';
 import Title from '../../../../../../components/title';
 // Récupération des données affichées dans le donut
 import charts from '../donut/charts.json';
+import formatNumber from '../../../../../../utils/formatNumber';
 
 export default function Overview({ data }) {
   let seriesCountry = [];
@@ -68,8 +68,8 @@ export default function Overview({ data }) {
     <>
       <Title
         as="h3"
-        title="En un clin d'oeil"
         icon="ri-search-eye-line"
+        title="En un clin d'oeil"
       />
       <Row gutters className="fr-mb-1w">
         {

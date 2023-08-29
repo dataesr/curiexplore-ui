@@ -12,5 +12,5 @@ export default function GraphTitle({ children }) {
 }
 
 GraphTitle.propTypes = {
-  children: PropTypes.oneOf([PropTypes.node, PropTypes.string]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 };

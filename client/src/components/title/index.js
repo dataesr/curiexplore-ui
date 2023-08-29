@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { Badge, Container, Icon, Row, Title } from '@dataesr/react-dsfr';
+import PropTypes from 'prop-types';
 
 export default function TitleComponent({ as, betaBadge, icon, look, subTitle, title }) {
   const spaces = ((subTitle) ? ('fr-mb-0') : ('fr-mb-3w'));
@@ -33,8 +33,8 @@ TitleComponent.propTypes = {
   betaBadge: PropTypes.bool,
   icon: PropTypes.string,
   look: PropTypes.string,
-  subTitle: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
 TitleComponent.defaultProps = {

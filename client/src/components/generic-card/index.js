@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import { Badge, BadgeGroup } from '@dataesr/react-dsfr';
+import PropTypes from 'prop-types';
 
 export default function PopulationCard({
   badgeLabel,
-  indicator,
   description,
+  indicator,
 }) {
   return (
     <div className="fr-card fr-card--no-border fr-card--shadow">
@@ -26,12 +26,12 @@ export default function PopulationCard({
 
 PopulationCard.propTypes = {
   badgeLabel: PropTypes.string,
-  indicator: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  indicator: PropTypes.object,
 };
 
 PopulationCard.defaultProps = {
   badgeLabel: null,
-  indicator: null,
   description: null,
+  indicator: null,
 };

@@ -33,8 +33,8 @@ export default function PopulationComponent({ data, isoCode }) {
       <Col n="4">
         <PopulationCard
           badgeLabel={lastYear}
-          indicator={indicator}
           description={description}
+          indicator={indicator}
         />
       </Col>
     ) : null

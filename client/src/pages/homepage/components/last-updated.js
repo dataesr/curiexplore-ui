@@ -5,9 +5,10 @@ import { FormattedDate } from 'react-intl';
 import CountryCard from '../../../components/country-card';
 
 function useLastUpdates() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState();
+
   const query = `${process.env.REACT_APP_CURIEXPLORE_API}/opendatasoft?dataset=curiexplore-timestamp&q=&rows=8&sort=submitdate&facet=isoalpha3`;
 
   useEffect(() => {
@@ -26,11 +27,12 @@ function useLastUpdates() {
     getData();
   }, [query]);
 
-  return { data, isLoading, error };
+  return { data, error, isLoading };
 }
 
 export default function LastUpdated() {
-  const { data, isLoading, error } = useLastUpdates();
+  const { data, error, isLoading } = useLastUpdates();
+
   if (!data) return null;
   if (isLoading) return <p>Loading</p>;
   if (error) return <p>Erreur</p>;

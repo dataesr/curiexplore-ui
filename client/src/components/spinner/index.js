@@ -1,8 +1,9 @@
-import React, { useEffect, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
-import './spinner.scss';
 import { Row, Text } from '@dataesr/react-dsfr';
+import PropTypes from 'prop-types';
+import React, { useEffect, useMemo } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import './spinner.scss';
 
 function Spinner({ size }) {
   const id = useMemo(() => uuidv4(), []);
@@ -25,7 +26,7 @@ Spinner.defaultProps = {
   size: 48,
 };
 
-function OverlaySpinner({ text, size }) {
+function OverlaySpinner({ size, text }) {
   return (
     <Row alignItems="center" justifyContent="middle" className="spinner-overlay">
       <Spinner size={size} />
@@ -38,8 +39,8 @@ OverlaySpinner.propTypes = {
   text: PropTypes.string,
 };
 OverlaySpinner.defaultProps = {
-  text: null,
   size: 48,
+  text: null,
 };
 
 function PageSpinner({ size }) {
@@ -48,9 +49,8 @@ function PageSpinner({ size }) {
 PageSpinner.propTypes = {
   size: PropTypes.number,
 };
-
 PageSpinner.defaultProps = {
   size: 48,
 };
 
-export { Spinner, OverlaySpinner, PageSpinner };
+export { OverlaySpinner, PageSpinner, Spinner };

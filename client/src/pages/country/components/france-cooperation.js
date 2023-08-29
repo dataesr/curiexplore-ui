@@ -17,8 +17,8 @@ export default function FranceCooperationPage() {
   const [dataStructuresProjects, setDataStructuresProjects] = useState([]);
   const [pending, setPending] = useState(0);
   const [iso2, setIso2] = useState('');
-  const urlProjects = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/projects/search';
-  const urlStructures = 'https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/structures/search';
+  const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/projects/search`;
+  const urlStructures = `${process.env.REACT_APP_SCANR_API_URL}/structures/search`;
   const years = useMemo(() => ([2017, 2018, 2019]), []);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export default function FranceCooperationPage() {
     };
 
     getDataProjects();
-  }, [isoCode, years]);
+  }, [isoCode, urlProjects, years]);
 
   useEffect(() => {
     const getDataStructures = async () => {
@@ -104,7 +104,7 @@ export default function FranceCooperationPage() {
     };
 
     if (pending === 1) getDataStructures();
-  }, [dataProjects, pending]);
+  }, [dataProjects, pending, urlStructures]);
 
   // add number of projects in dataStructuresProjects
   const dataStructuresProjectsWithNbProjects = dataStructuresProjects.map((structure) => ({
@@ -176,7 +176,7 @@ export default function FranceCooperationPage() {
       <Row>
         <Title
           icon="ri-arrow-up-circle-line"
-          title={topTenFrenchTitle(frenchStructureWithNbProjects.length)}
+          title={topTenFrenchTitle(frenchStructureWithNbProjects.length.toString())}
           as="h4"
           look="h4"
           subTitle={subTitle}
@@ -211,7 +211,7 @@ export default function FranceCooperationPage() {
         <Col n="12">
           <Title
             icon="ri-arrow-up-circle-line"
-            title={topTenCountryTitle(foreignStructureWithNbProjects.length)}
+            title={topTenCountryTitle(foreignStructureWithNbProjects.length.toString())}
             as="h4"
             look="h4"
             subTitle={subTitle}

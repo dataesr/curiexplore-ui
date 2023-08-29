@@ -87,7 +87,7 @@ export default function CountryProfilePage() {
               && chart.type.split('-')[0] !== 'population',
           )
           .map((el) => (
-            <PopulationComponent isoCode={isoCode} data={el} />
+            <PopulationComponent isoCode={isoCode} data={el} key={isoCode} />
           ))}
         {Object.keys(RNB).length !== 0 ? (
           <Col n="4">

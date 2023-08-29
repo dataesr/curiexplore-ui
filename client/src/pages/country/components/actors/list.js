@@ -18,7 +18,7 @@ function List({ actors, categoriesLabels }) {
             <Icon name="ri-file-list-line" />
             Liste des acteurs
             &nbsp;
-            <Badge text={actors.length} colorFamily="green-menthe" />
+            <Badge text={actors.length.toString()} colorFamily="green-menthe" />
           </Title>
         </Col>
       </Row>

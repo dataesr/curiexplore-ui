@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export default function useFetchData({ isoCode }) {
   const [data, setData] = useState();
   const [error, setError] = useState();
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {

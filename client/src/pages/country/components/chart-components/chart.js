@@ -1,5 +1,4 @@
 import { Col } from '@dataesr/react-dsfr';
-
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import PropTypes from 'prop-types';
@@ -8,20 +7,19 @@ import useFetchData from './hooks/useFetchData';
 
 import './custom-style.scss';
 
-export default function Chart({ data, otherCodes, countryCode, hasDataHandler }) {
+export default function Chart({ countryCode, data, hasDataHandler, otherCodes }) {
   const { options } = useFetchData({
+    base100: data.base100,
     code: data.code,
+    countryCode,
+    otherCodes,
     sort: data.sort,
+    source: data.source,
     title: data.title,
     type: data.type,
-    otherCodes,
-    countryCode,
-    source: data.source,
-    base100: data.base100,
     unit: data.unit,
   });
 
-  // test des données
   let nbEmpty = 0;
   options.series.forEach((el) => {
     if (el.data.length === 0) nbEmpty += 1;
@@ -38,7 +36,7 @@ export default function Chart({ data, otherCodes, countryCode, hasDataHandler })
         options={options}
       />
       {
-        data.description && (
+        data?.description && (
           <div className="chart-description">
             {data.description}
           </div>
@@ -49,8 +47,8 @@ export default function Chart({ data, otherCodes, countryCode, hasDataHandler })
 }
 
 Chart.propTypes = {
-  data: PropTypes.object.isRequired,
-  otherCodes: PropTypes.array.isRequired,
   countryCode: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
   hasDataHandler: PropTypes.func.isRequired,
+  otherCodes: PropTypes.array.isRequired,
 };
