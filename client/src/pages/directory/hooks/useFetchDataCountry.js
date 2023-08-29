@@ -22,6 +22,7 @@ export default function useFetchDataCountries() {
         setDataCountries(saveData);
         setIsLoading(false);
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.error(err);
         setError(err);
       }

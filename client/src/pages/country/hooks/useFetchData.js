@@ -36,6 +36,7 @@ export default function useFetchData(isoCode) {
         setData(saveData);
         setIsLoading(false);
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.error(err);
         setError(err);
       }

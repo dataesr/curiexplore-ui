@@ -28,6 +28,7 @@ export default function useFetchData() {
         setData(saveData);
         setIsLoading(false);
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.error(err);
         setError(err);
       }
