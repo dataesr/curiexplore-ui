@@ -8,12 +8,11 @@ import {
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-import StructureCard from './structure-card';
-import Loader from '../../utils/Loader';
-
+import MapWithMarkers from '../map-with-markers';
 import useFetchData from '../../pages/directory/hooks/useFetchData';
 import useFetchDataCountries from '../../pages/directory/hooks/useFetchDataCountry';
-import MapWithMarkers from '../map-with-markers';
+import StructureCard from './structure-card';
+import Loader from '../../utils/Loader';
 
 function AnnuaireBloc({ selectedLetter }) {
   const { data } = useFetchData();

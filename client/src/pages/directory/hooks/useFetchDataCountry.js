@@ -13,7 +13,7 @@ export default function useFetchDataCountries() {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const queriesFetch = queries.map((query) => (fetch(query).then((response) => (response.json()))));
+        const queriesFetch = queries.map((query) => fetch(query).then((response) => response.json()));
         const allData = await Promise.all(queriesFetch);
         const saveData = {};
         allData.forEach((dataset) => {
@@ -22,6 +22,7 @@ export default function useFetchDataCountries() {
         setDataCountries(saveData);
         setIsLoading(false);
       } catch (err) {
+        console.error(err);
         setError(err);
       }
     };

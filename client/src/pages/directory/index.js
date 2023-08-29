@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
 import { Container, Col, Row, Text } from '@dataesr/react-dsfr';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
 import AnnuaireBloc from '../../components/directory-blocs/annuaire-bloc';
 
 export default function DirectoryPage() {
