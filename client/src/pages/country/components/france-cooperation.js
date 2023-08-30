@@ -8,7 +8,6 @@ import PublicationsChart from '../../../components/open-alex-charts/publications
 import InstitutionsChart from '../../../components/open-alex-charts/institutions-chart';
 import Title from '../../../components/title';
 import getLabel from '../../../utils/getLabel';
-import Loader from '../../../utils/Loader';
 
 export default function FranceCooperationPage() {
   const { isoCode } = useParams();
@@ -33,13 +32,13 @@ export default function FranceCooperationPage() {
         query: '',
         filters: {
           'participants.structure.address.country': {
-            type: 'MultiValueSearchFilter',
             op: 'any',
+            type: 'MultiValueSearchFilter',
             values: [getLabel(isoCode, true)],
           },
           year: {
-            type: 'MultiValueSearchFilter',
             op: 'any',
+            type: 'MultiValueSearchFilter',
             values: [years[years.length - 1]],
           },
         },
@@ -89,18 +88,22 @@ export default function FranceCooperationPage() {
         },
       };
 
-      const response = await fetch(urlStructures, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      });
-      const json = await response.json();
+      if (dataProjects.length !== 0) {
+        const response = await fetch(urlStructures, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        });
+        const json = await response.json();
 
-      setDataStructuresProjects(json.results.map((structure) => structure.value));
-      setPending(2);
+        if (json.results) {
+          setDataStructuresProjects(json.results.map((structure) => structure.value));
+          setPending(2);
+        }
+      }
     };
 
     if (pending === 1) getDataStructures();
@@ -173,67 +176,66 @@ export default function FranceCooperationPage() {
       </Row>
       <PublicationsChart iso2={iso2} iso3={isoCode} />
       <InstitutionsChart iso2={iso2} iso3={isoCode} />
-      <Row>
-        <Title
-          icon="ri-arrow-up-circle-line"
-          title={topTenFrenchTitle(frenchStructureWithNbProjects.length.toString())}
-          as="h4"
-          look="h4"
-          subTitle={subTitle}
-        />
-      </Row>
-      {(pending < 2) ? (
-        <Row>
-          <Col n="12">
-            <Loader />
-          </Col>
-        </Row>
-      ) : null}
       {
         (frenchStructureWithNbProjects.length > 0) ? (
-          <ol className="fr-mx-3w fr-mb-3w">
-            {frenchStructureWithNbProjects.map((structure) => (
-              <li key={uuidv4()}>
-                <div>
-                  {structure.label.default}
-                  {structure.acronym && (` (${structure.acronym.default})`)}
-                </div>
-                <div>
-                  <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                  <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <>
+            <Row className="fr-mt-3w fr">
+              <Col n="12">
+                <Title
+                  icon="ri-arrow-up-circle-line"
+                  title={topTenFrenchTitle(frenchStructureWithNbProjects.length.toString())}
+                  as="h4"
+                  look="h4"
+                  subTitle={subTitle}
+                />
+              </Col>
+            </Row>
+            <ol className="fr-mx-3w fr-mb-3w">
+              {frenchStructureWithNbProjects.map((structure) => (
+                <li key={uuidv4()}>
+                  <div>
+                    {structure.label.default}
+                    {structure.acronym && (` (${structure.acronym.default})`)}
+                  </div>
+                  <div>
+                    <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
+                    <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </>
         ) : null
       }
-      <Row className="fr-mt-3w fr">
-        <Col n="12">
-          <Title
-            icon="ri-arrow-up-circle-line"
-            title={topTenCountryTitle(foreignStructureWithNbProjects.length.toString())}
-            as="h4"
-            look="h4"
-            subTitle={subTitle}
-          />
-        </Col>
-      </Row>
       {
         (foreignStructureWithNbProjects.length > 0) ? (
-          <ol className="fr-mx-3w fr-mb-3w">
-            {foreignStructureWithNbProjects.map((structure) => (
-              <li key={uuidv4()}>
-                <div>
-                  {structure.label.default}
-                  {structure.acronym && (` (${structure.acronym.default})`)}
-                </div>
-                <div>
-                  <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                  <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <>
+            <Row className="fr-mt-3w fr">
+              <Col n="12">
+                <Title
+                  icon="ri-arrow-up-circle-line"
+                  title={topTenCountryTitle(foreignStructureWithNbProjects.length.toString())}
+                  as="h4"
+                  look="h4"
+                  subTitle={subTitle}
+                />
+              </Col>
+            </Row>
+            <ol className="fr-mx-3w fr-mb-3w">
+              {foreignStructureWithNbProjects.map((structure) => (
+                <li key={uuidv4()}>
+                  <div>
+                    {structure.label.default}
+                    {structure.acronym && (` (${structure.acronym.default})`)}
+                  </div>
+                  <div>
+                    <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
+                    <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </>
         ) : null
       }
     </Container>
