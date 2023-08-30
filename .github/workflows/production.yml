@@ -14,7 +14,7 @@ env:
 
 jobs:
   publish-ghcr:
-    name: Publish docker image
+    name: Publish Docker image
     runs-on: ubuntu-latest
     steps:
       - name: 🏁 Checkout
@@ -24,7 +24,7 @@ jobs:
         id: tag
         run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-      - name: 🔑 Login docker registry
+      - name: 🔑 Login Docker
         run: docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build client
@@ -54,6 +54,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: 🏷️ Get tag
         id: tag
         run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
@@ -63,6 +64,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/config/changelog.js
+
       - name: 📦 Create release
         uses: softprops/action-gh-release@v1
         env:
@@ -96,7 +98,7 @@ jobs:
     steps:
       - uses: dataesr/mm-notifier-action@v1
         with:
-          deployment_url: ${{ needs.deploy.outputs.deployment_url }}
+          deployment_url: ${{ env.DEPLOYMENT_URL }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          mattermost_channel: bots
+          mattermost_channel: ${{ env.MM_NOTIFICATION_CHANNEL}}
           mattermost_webhook_url: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
