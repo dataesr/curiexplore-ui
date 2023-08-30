@@ -22,5 +22,8 @@
     "server": "npm -w server run dev",
     "start": "npm run dev",
     "start:staging": "npm ci --silent && npm run build --mode=staging && npm run -w server start"
+  },
+  "optionalDependencies": {
+    "win-node-env": "^0.6.1"
   }
 }
