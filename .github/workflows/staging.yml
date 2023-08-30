@@ -14,7 +14,7 @@ env:
 
 jobs:
   publish-ghcr:
-    name: Publish docker image
+    name: Publish Docker image
     runs-on: ubuntu-latest
     steps:
       - name: 🏁 Checkout

@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.join(path.resolve(), 'dist')));
 }
 
-app.get('/api/docs/specs.json', (req, res) => { res.status(200).json(apiDocument); });
+app.get('/api/docs/specs.json', (req, res) => res.status(200).json(apiDocument));
 
 app.use(OAV.middleware({
   apiSpec,
@@ -31,6 +31,8 @@ app.use(OAV.middleware({
 }));
 
 app.use('/api', router);
+
+app.get('/*', (req, res) => res.sendFile(path.join(path.resolve(), 'dist/index.html')));
 
 app.use(handleErrors);
 
