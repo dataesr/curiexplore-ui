@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 
-const { REACT_APP_OPENALEX_RANGE, REACT_APP_OPENALEX_URL } = process.env;
-
 export default function useFetchData(isoCode) {
   const [data, setData] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const query = `${REACT_APP_OPENALEX_URL}&filter=publication_year:${REACT_APP_OPENALEX_RANGE},institutions.country_code:${isoCode},institutions.country_code:fr&group_by=concepts.id`;
+    // eslint-disable-next-line max-len
+    const query = `${process.env.REACT_APP_CURIEXPLORE_API}/openalex?filter=publication_year:${process.env.REACT_APP_OPENALEX_RANGE},institutions.country_code:${isoCode},institutions.country_code:fr&group_by=concepts.id`;
 
     const getData = async () => {
       try {
