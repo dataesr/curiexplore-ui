@@ -1,6 +1,6 @@
 {
   "name": "curiexplore-ui",
-  "version": "2.1.4",
+  "version": "2.2.4",
   "private": true,
   "type": "module",
   "workspaces": [
