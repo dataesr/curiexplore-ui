@@ -10,7 +10,7 @@ export default function HomePage() {
   const [region, setRegion] = useState('world');
   return (
     <>
-      <Container fluid>
+      <Container fluid aria-hidden>
         <Row gutters>
           <Col n="12">
             <MapContainer
