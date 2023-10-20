@@ -59,7 +59,7 @@ function AnnuaireBloc({ selectedLetter }) {
                     <Title as="h2" className="d-inline">
                       {`${el.fields.name_fr} (${el.fields.name_native})`}
                     </Title>
-                    <img alt="Drapeau" className="fr-ml-2w" src={el.fields.flag} height="40px" />
+                    <img alt="" className="fr-ml-2w" src={el.fields.flag} height="40px" />
                   </Link>
                 </Row>
                 <Row gutters>
