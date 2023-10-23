@@ -10,6 +10,7 @@ import Identifiers from './actors-identifiers-card';
 import WebSiteCard from './actors-website-card';
 import WikipediaCard from './actors-wikipedia-card';
 import SocialNetworkCard from './actors-socialMedias-card';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 function RankingCard({ link, name }) {
   let rankingName = '';
@@ -77,6 +78,8 @@ export default function Actor() {
   const actorWebsiteUrl = dataActor.websites.map((url) => url.url);
   const actorNameEN = dataActor.currentName.nameEn;
 
+  useTitle(`Curiexplore - ${dataActor.displayName}`);
+
   if (!dataActor) {
     return (
       <div>
@@ -120,16 +123,16 @@ export default function Actor() {
           )
         }
         {
-        dataActor.currentLocalisation && (
-        <Col n="4">
-          <Callout
-            hasInfoIcon={false}
-            colors={['#e18b76', '#eee']}
-          >
-            <AddressCard address={dataActor.currentLocalisation} />
-          </Callout>
+          dataActor.currentLocalisation && (
+            <Col n="4">
+              <Callout
+                hasInfoIcon={false}
+                colors={['#e18b76', '#eee']}
+              >
+                <AddressCard address={dataActor.currentLocalisation} />
+              </Callout>
 
-        </Col>
+            </Col>
           )
         }
       </Row>
@@ -152,7 +155,7 @@ export default function Actor() {
           />
           <Identifiers type={actorIdentifierType} identifiersId={actorIdentifierValues} />
         </>
-)}
+      )}
       <SocialNetworkCard actorId={actorId} />
 
       {

@@ -3,8 +3,11 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 
 import image1 from '../assets/img/mail-send.svg';
+import { useTitle } from '../hooks/usePageTitle';
 
 export default function ContactsAndResourcesPage() {
+  useTitle('Curiexplore - Contacts');
+
   return (
     <Container>
       <Breadcrumb>

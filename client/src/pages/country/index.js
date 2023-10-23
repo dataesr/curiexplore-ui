@@ -44,6 +44,8 @@ export default function Fiche({ exportState }) {
   const [exportList, setExportList] = useState([]);
   const [isExport, setIsExport] = useState(false);
 
+  document.title = `Curiexplore - ${dataPays.name_fr}`;
+
   useEffect(() => {
     setIsExport(exportState);
   }, [exportState]);
@@ -230,7 +232,7 @@ export default function Fiche({ exportState }) {
                       />
                     </Text>
                   </Row>
-                ) }
+                )}
               </Container>
               <Container fluid as="section">
                 <Outlet context={data} />

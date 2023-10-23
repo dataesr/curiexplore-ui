@@ -15,11 +15,13 @@ import './styles/custom.scss';
 import List from './list';
 
 import MapCategoriesActors from './map-categories-actors';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 export default function ActorsPage() {
   const contextData = useOutletContext();
   const data = contextData['actors-data'];
   const [selectedCategory, setSelectedCategory] = useState(null);
+  useTitle('Curiexplore - Les acteurs');
 
   const categoriesLabels = [
     {
@@ -143,7 +145,7 @@ export default function ActorsPage() {
                   selected={category === selectedCategory}
                 >
                   {categoriesLabels.find((el) => el.id === category).shortLabel}
-&nbsp;
+                  &nbsp;
                   <Badge text={categories[category].length.toString()} />
                 </Tag>
               ))}

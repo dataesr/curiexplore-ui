@@ -3,6 +3,7 @@ import { Container, Col, Row, Text } from '@dataesr/react-dsfr';
 import { useState } from 'react';
 
 import AnnuaireBloc from '../../components/directory-blocs/annuaire-bloc';
+import { useTitle } from '../../hooks/usePageTitle';
 
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'y', 'z'];
 
@@ -32,6 +33,7 @@ Filter.propTypes = {
 
 export default function DirectoryPage() {
   const [selectedLetter, setSelectedLetter] = useState('a');
+  useTitle('Curiexplore - Annuaire');
   return (
     <Container as="section">
       <Filter selectedLetter={selectedLetter} setSelectedLetterHandler={() => setSelectedLetter()} />

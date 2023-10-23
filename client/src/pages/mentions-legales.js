@@ -4,8 +4,11 @@ import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem, Title } from '@d
 
 import logoMEAE from '../assets/img/logo-meae.svg';
 import logoMESR from '../assets/img/logo-mesr.svg';
+import { useTitle } from '../hooks/usePageTitle';
 
 export default function MentionsLegalesPage() {
+  useTitle('Curiexplore - Mentions légales');
+
   return (
     <Container>
       <Breadcrumb>

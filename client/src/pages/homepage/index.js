@@ -5,9 +5,11 @@ import WorldMap from './components/world-map';
 import RegionFilters from './components/region-filters';
 import CountryList from './components/country-list';
 import LastUpdated from './components/last-updated';
+import { useTitle } from '../../hooks/usePageTitle';
 
 export default function HomePage() {
   const [region, setRegion] = useState('world');
+  useTitle('Curiexplore - Accueil');
   return (
     <>
       <Container fluid aria-hidden>

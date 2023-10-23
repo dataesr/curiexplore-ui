@@ -4,6 +4,7 @@ import { Col, Container, Row, Title, Breadcrumb, BreadcrumbItem } from '@dataesr
 
 import RessourceTile from '../country/components/country-links/components/tile';
 import ressources from './ressources.json';
+import { useTitle } from '../../hooks/usePageTitle';
 
 const mappings = {
   referentiel: {
@@ -19,6 +20,8 @@ const mappings = {
 };
 
 export default function RessourcesPage() {
+  useTitle('Curiexplore - Ressources');
+
   return (
     <Container className="fr-mb-3w">
       <Breadcrumb>

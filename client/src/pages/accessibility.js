@@ -1,8 +1,11 @@
 /* eslint-disable max-len */
 import { Link as RouterLink } from 'react-router-dom';
 import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem, Title } from '@dataesr/react-dsfr';
+import { useTitle } from '../hooks/usePageTitle';
 
 export default function MentionsLegalesPage() {
+  useTitle('Curiexplore - Accessibilité');
+
   return (
     <Container>
       <Breadcrumb>

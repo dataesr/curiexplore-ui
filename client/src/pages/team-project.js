@@ -3,8 +3,11 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import image1 from '../assets/img/human-cooperation.svg';
+import { useTitle } from '../hooks/usePageTitle';
 
 export default function ProjetEtEquipe() {
+  useTitle("Curiexplore - L'équipe et son projet");
+
   return (
     <Container>
       <Breadcrumb>
