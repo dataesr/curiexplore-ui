@@ -19,6 +19,7 @@ import Button from '../../components/button';
 import useFetchData from './hooks/useFetchData';
 import CountryBadgeList from './components/country-badge-list';
 import Loader from '../../utils/Loader';
+import { useTitle } from '../../hooks/usePageTitle';
 
 const listModules = [
   'Politique ESRI',
@@ -44,7 +45,7 @@ export default function Fiche({ exportState }) {
   const [exportList, setExportList] = useState([]);
   const [isExport, setIsExport] = useState(false);
 
-  document.title = `Curiexplore - ${dataPays.name_fr}`;
+  useTitle(`Curiexplore - ${dataPays?.name_fr || ''}`);
 
   useEffect(() => {
     setIsExport(exportState);
