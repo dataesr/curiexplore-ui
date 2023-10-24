@@ -6,7 +6,7 @@ import MapWithMarkers from '../../../../components/map-with-markers';
 
 function MapList({ actors, data }) {
   return (
-    <Row>
+    <Row aria-hidden>
       <Col>
         <MapWithMarkers
           data={actors}
