@@ -200,7 +200,7 @@ export default function Fiche({ exportState }) {
                         {dataPays.name_native}
                         )
                       </Title>
-                      <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
+                      <img alt="" className="fr-ml-2w" src={dataPays.flag} height="40px" />
                       <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
                         {' '}
                         Mis à jour le
