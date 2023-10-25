@@ -125,7 +125,7 @@ export default function ActorsPage() {
       <Row>
         {Object.keys(categories).length ? (
           <Col>
-            <Title as="h3">
+            <Title as="h2">
               <Icon name="ri-filter-line" />
               Filtres
             </Title>

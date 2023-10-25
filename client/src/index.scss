@@ -51,6 +51,9 @@ code {
   --CCI-color: #3e3e3E;
   --embassy-color: #cac426;
 }
+.not-bold {
+  font-weight: normal;
+}
 
 .d-inline {
   display: inline;
@@ -60,8 +63,27 @@ code {
   text-align: center;
 }
 
+.is-bold {
+  font-weight: 800;
+}
+
+.extra-large-text {
+  font-size: 1.7rem;
+}
+
 .text-right {
   text-align: right;
+}
+
+.fr-card-container {
+  position: relative;
+
+  .badge-container {
+    position: absolute;
+    top: -0.1rem;
+    left: -1.2rem;
+    padding: 0.5rem;
+  }
 }
 
 .w-100 {

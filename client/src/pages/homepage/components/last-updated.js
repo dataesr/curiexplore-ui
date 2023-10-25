@@ -41,7 +41,7 @@ export default function LastUpdated() {
     <Container spacing="mb-6w">
       <Row>
         <Col>
-          <Title as="h3">
+          <Title as="h2">
             Dernières mises à jour
           </Title>
         </Col>

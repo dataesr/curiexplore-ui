@@ -149,7 +149,7 @@ function IDHComparisonChart({ idhCountry, idhAverage, flagUrl, nameFr }) {
         title="L'indice de développement humain"
         icon="ri-bar-chart-horizontal-fill"
         subTitle=""
-        as="h4"
+        as="h2"
         look="h4"
       />
       <div id="chartContainer" />

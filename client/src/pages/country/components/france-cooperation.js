@@ -167,6 +167,7 @@ export default function FranceCooperationPage() {
       <Row>
         <Col n="12">
           <Title
+            as="h2"
             title="Les liens avec la France"
           />
           <Text className="fr-mb-3w">
@@ -184,7 +185,7 @@ export default function FranceCooperationPage() {
                 <Title
                   icon="ri-arrow-up-circle-line"
                   title={topTenFrenchTitle(frenchStructureWithNbProjects.length.toString())}
-                  as="h4"
+                  as="h3"
                   look="h4"
                   subTitle={subTitle}
                 />
@@ -215,7 +216,7 @@ export default function FranceCooperationPage() {
                 <Title
                   icon="ri-arrow-up-circle-line"
                   title={topTenCountryTitle(foreignStructureWithNbProjects.length.toString())}
-                  as="h4"
+                  as="h3"
                   look="h4"
                   subTitle={subTitle}
                 />

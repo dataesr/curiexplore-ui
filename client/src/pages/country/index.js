@@ -193,7 +193,7 @@ export default function Fiche({ exportState }) {
                 {!actorName ? (
                   <>
                     <Row spacing="mb-3v" alignItems="middle">
-                      <Title spacing="mb-1v" as="h2">
+                      <Title spacing="mb-1v" as="h1">
                         {dataPays.name_fr}
                         {' '}
                         (

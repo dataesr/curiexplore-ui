@@ -32,7 +32,7 @@ export default function StudentsMobilityPage() {
         <HtmlAmbassyBloc data={bloc} />
       ))}
       <Title
-        as="h4"
+        as="h3"
         title="Les données de la mobilité étudiante"
         subTitle={subTitle}
         icon=""

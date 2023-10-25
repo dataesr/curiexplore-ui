@@ -33,29 +33,29 @@ export default function CountryProfilePage() {
   const getNumber = (code) => {
     if (code.code === 'RNB') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {Math.floor(code.value).toLocaleString()}
           {' '}
           {code.unit}
-        </h3>
+        </p>
       );
     }
     if (code.code === 'IDH') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value}
           {' '}
           {code.unit}
-        </h3>
+        </p>
       );
     }
     if (code.code === 'ESPVIE') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value.toFixed(1)}
           {' '}
           {code.unit}
-        </h3>
+        </p>
       );
     }
     return null;
@@ -79,7 +79,7 @@ export default function CountryProfilePage() {
           </MapContainer>
         </Col>
       </Row>
-      <Title as="h3" title="En un clin d'oeil" icon="ri-search-eye-line" />
+      <Title as="h2" title="En un clin d'oeil" icon="ri-search-eye-line" />
       <Row gutters className="fr-mb-3w">
         {charts
           .filter(

@@ -18,44 +18,44 @@ export default function Footer() {
     <FooterWrapper>
       <FooterTop>
         <FooterTopCategory title="Liens">
-          <FooterLink asLink={<RouterLink to="/projet-et-equipe" />}>
+          <FooterLink asLink={<RouterLink to="/projet-et-equipe" title="lien vers l'équipe et son projet" />}>
             L'équipe et son projet
           </FooterLink>
-          <FooterLink asLink={<RouterLink to="contact" />}>
+          <FooterLink asLink={<RouterLink to="contact" title="nous contacter" />}>
             Nous contacter
           </FooterLink>
-          <FooterLink asLink={<RouterLink to="ressources" />}>
+          <FooterLink asLink={<RouterLink to="ressources" title="les ressources mobilisées" />}>
             Ressources mobilisées
           </FooterLink>
-          <FooterLink asLink={<Link href="https://github.com/dataesr/curiexplore-ui" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://github.com/dataesr/curiexplore-ui" title="vers notre page Github" target="_blank" />}>
             {renderIcon('Github')}
             Github
           </FooterLink>
         </FooterTopCategory>
         <FooterTopCategory title="Voir aussi">
-          <FooterLink asLink={<Link href="https://scanr.enseignementsup-recherche.gouv.fr/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://scanr.enseignementsup-recherche.gouv.fr/" title="vers scanR" target="_blank" />}>
             scanR
           </FooterLink>
-          <FooterLink asLink={<Link href="https://data.esr.gouv.fr/FR/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://data.esr.gouv.fr/FR/" title="vers #dataESR" target="_blank" />}>
             #dataESR
           </FooterLink>
-          <FooterLink asLink={<Link href="https://data.enseignementsup-recherche.gouv.fr/pages/home/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://data.enseignementsup-recherche.gouv.fr/pages/home/" title="vers la plateforme Open Data" target="_blank" />}>
             Plateforme Open Data
           </FooterLink>
-          <FooterLink asLink={<Link href="https://barometredelascienceouverte.esr.gouv.fr/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://barometredelascienceouverte.esr.gouv.fr/" title="vers le Baromètre de la Science Ouverte" target="_blank" />}>
             Baromètre de la Science Ouverte
           </FooterLink>
         </FooterTopCategory>
         <FooterTopCategory title="Nous suivre">
-          <FooterLink asLink={<Link href="https://twitter.com/sup_recherche" target="_blank" />}>
+          <FooterLink as="h2" asLink={<Link href="https://twitter.com/sup_recherche" title="vers notre page Twitter" target="_blank" />}>
             {renderIcon('Twitter')}
             Twitter
           </FooterLink>
-          <FooterLink asLink={<Link href="https://www.linkedin.com/company/enseignementsup-recherche/mycompany/" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://www.linkedin.com/company/enseignementsup-recherche/mycompany/" title="vers notre page Linkedin" target="_blank" />}>
             {renderIcon('Linkedin')}
             Linkedin
           </FooterLink>
-          <FooterLink asLink={<Link href="https://www.facebook.com/enseignementsup.recherche" target="_blank" />}>
+          <FooterLink asLink={<Link href="https://www.facebook.com/enseignementsup.recherche" title="vers notre page Facebook" target="_blank" />}>
             {renderIcon('Facebook')}
             Facebook
           </FooterLink>

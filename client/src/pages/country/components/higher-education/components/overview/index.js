@@ -38,27 +38,27 @@ export default function Overview({ data }) {
   const getIndicator = (code) => {
     if (code.code === 'MOYSCO') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value.toFixed(1)}
           &nbsp;
           {code.unit}
-        </h3>
+        </p>
       );
     }
     if (code.code === ID_TOTAL_STU) {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {formatNumber(Math.floor(code.value))}
           &nbsp;étudiants
-        </h3>
+        </p>
       );
     }
     if (code.code === seriesCountry[0].code) {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value.toFixed(0)}
           &nbsp;%
-        </h3>
+        </p>
       );
     }
     return null;
@@ -67,7 +67,7 @@ export default function Overview({ data }) {
   return (
     <>
       <Title
-        as="h3"
+        as="h2"
         icon="ri-search-eye-line"
         title="En un clin d'oeil"
       />

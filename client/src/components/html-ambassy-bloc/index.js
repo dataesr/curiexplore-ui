@@ -27,7 +27,7 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
         <Row>
           <Col>
             <Title
-              as="h3"
+              as="h2"
               title={data.thematique}
               subTitle={subtitle}
               icon=""
@@ -38,7 +38,7 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
         <Row>
           <Col>
             <Title
-              as="h3"
+              as="h2"
               look="h4"
               title={data.thematique}
               subTitle={subtitle}

@@ -24,6 +24,7 @@ export default function SimilarCountriesPage() {
   return (
     <Container fluid spacing="mb-6w">
       <TitleCurie
+        as="h2"
         icon="ri-earth-line"
         title="Liste des pays voisins"
       />

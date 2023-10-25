@@ -85,7 +85,7 @@ export default function StructureCard({ data, type, website }) {
       <Container className={`fr-card fr-card--grey ${type}-border-card fr-pb-1w`}>
         <Row className="fr-pt-1w">
           <Col>
-            <Title as="h3" look="h4">{labels.cardTitle}</Title>
+            <Title as="h2" look="h4">{labels.cardTitle}</Title>
           </Col>
           {website ? (
             <Col n="4" className="text-right">

@@ -25,7 +25,7 @@ export default function InstitutionsChart({ iso2, iso3 }) {
       <Row>
         <Col n="12">
           <TitleComponent
-            as="h4"
+            as="h3"
             betaBadge
             icon="ri-bar-chart-horizontal-fill"
             look="h4"
