@@ -8,7 +8,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": true,
-    "theme": "niveau"
+    "theme": "niveau",
+    "description": ""
   },
   {
     "title": "Effectif total scolarisé en licence ou équivalent (niveau 6 de la CITE)",
@@ -19,7 +20,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": true,
-    "theme": "niveau"
+    "theme": "niveau",
+    "description": ""
   },
   {
     "title": "Effectif total scolarisé en master ou équivalent (niveau 7 de la CITE)",
@@ -30,7 +32,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": true,
-    "theme": "niveau"
+    "theme": "niveau",
+    "description": ""
   },
   {
     "title": "Effectif total scolarisé en doctorat ou équivalent (niveau 8 de la CITE)",
@@ -41,7 +44,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": true,
-    "theme": "niveau"
+    "theme": "niveau",
+    "description": ""
   },
   {
     "title": "Effectif total scolarisé dans l'enseignement supérieur",
@@ -52,7 +56,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": true,
-    "theme": "niveau"
+    "theme": "niveau",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans d'autres domaines d'études que les Sciences",
@@ -63,7 +68,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Agriculture, sylviculture, halieutique et sciences vétérinaire\"",
@@ -74,7 +80,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Commerce, administration et droit\"",
@@ -85,7 +92,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés au domaine d'études non-spécifié",
@@ -96,7 +104,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Education\"",
@@ -107,7 +116,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Ingénierie, industries de transformation et construction\"",
@@ -118,7 +128,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Lettres et Arts\"",
@@ -129,7 +140,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Santé et Protection sociale\"",
@@ -140,7 +152,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences naturelles, mathématiques et statistiques\"",
@@ -151,7 +164,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences sociales, journalisme et information\"",
@@ -162,7 +176,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Sciences, Technologies, Ingénierie et Mathématiques\"",
@@ -173,7 +188,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Services\"",
@@ -184,7 +200,8 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   },
   {
     "title": "Part des diplômés dans le domaine d'études \"Technologies de l’information et de la communication\"",
@@ -195,6 +212,7 @@
     "type": "line",
     "source": "Unesco",
     "base100": false,
-    "theme": "domaine"
+    "theme": "domaine",
+    "description": ""
   }
 ]

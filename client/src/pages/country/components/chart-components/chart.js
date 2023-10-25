@@ -1,11 +1,18 @@
 import { Col } from '@dataesr/react-dsfr';
 import Highcharts from 'highcharts';
+import HCExportingData from 'highcharts/modules/export-data';
+import HCExporting from 'highcharts/modules/exporting';
+// import HCAccessibility from 'highcharts/modules/accessibility';
 import HighchartsReact from 'highcharts-react-official';
 import PropTypes from 'prop-types';
 
 import useFetchData from './hooks/useFetchData';
 
 import './custom-style.scss';
+
+HCExporting(Highcharts);
+HCExportingData(Highcharts);
+require('highcharts/modules/accessibility')(Highcharts);
 
 export default function Chart({ countryCode, data, hasDataHandler, otherCodes }) {
   const { options } = useFetchData({
@@ -27,6 +34,12 @@ export default function Chart({ countryCode, data, hasDataHandler, otherCodes })
   if (nbEmpty === options.series.length) {
     return null;
   }
+
+  options.accessibility = {
+    enabled: true,
+    description: data.description,
+  };
+
   hasDataHandler(true);
 
   return (
