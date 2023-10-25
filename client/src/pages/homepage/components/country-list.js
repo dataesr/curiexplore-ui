@@ -42,13 +42,13 @@ export default function CountryList({ region }) {
               {letter.toUpperCase()}
             </Title>
             <hr />
-            {countries.map((country) => (
-              <ul key={country.iso}>
+            <ul>
+              {countries.map((country) => (
                 <li key={country.iso}>
                   <Link to={`/pays/${country.iso}`}>{country.name_fr}</Link>
                 </li>
-              </ul>
-            ))}
+              ))}
+            </ul>
           </Col>
         ))}
         {!showAllCountries && (
