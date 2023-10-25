@@ -10,18 +10,22 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 function Filter({ selectedLetter, setSelectedLetterHandler }) {
   return (
     <Row gutters>
-      <Col n="12" className="fr-mt-3w text-center">
-        {letters.map((letter) => (
-          <button
-            key={`${letter}-key`}
-            onClick={() => setSelectedLetterHandler(letter)}
-            style={(letter === selectedLetter) ? { fontWeight: 'bold', textDecoration: 'underline' } : null}
-            aria-current={(letter === selectedLetter)}
-            type="button"
-          >
-            <Text>{letter}</Text>
-          </button>
-        ))}
+      <Col n="12" className="fr-mt-3w text-center d-inline">
+        <ul className="d-inline">
+          {letters.map((letter) => (
+            <li className="d-inline">
+              <button
+                key={`${letter}-key`}
+                onClick={() => setSelectedLetterHandler(letter)}
+                style={(letter === selectedLetter) ? { fontWeight: 'bold', textDecoration: 'underline' } : null}
+                aria-current={(letter === selectedLetter)}
+                type="button"
+              >
+                <Text>{letter}</Text>
+              </button>
+            </li>
+          ))}
+        </ul>
       </Col>
     </Row>
   );
