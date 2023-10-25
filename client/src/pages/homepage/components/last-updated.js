@@ -34,14 +34,15 @@ export default function LastUpdated() {
   const { data, error, isLoading } = useLastUpdates();
 
   if (!data) return null;
-  if (isLoading) return <p>Loading</p>;
+  if (isLoading) return <p>Chargement</p>;
   if (error) return <p>Erreur</p>;
   if (!data?.length) return null;
+
   return (
     <Container spacing="mb-6w">
       <Row>
         <Col>
-          <Title as="h2">
+          <Title as="h2" title="dernière mise à jour">
             Dernières mises à jour
           </Title>
         </Col>
@@ -52,7 +53,7 @@ export default function LastUpdated() {
             <CountryCard
               title={fields.pays}
               description={(
-                <>
+                <p title="Dernière mise à jour">
                   Mis à jour le
                   {' '}
                   <FormattedDate
@@ -60,8 +61,9 @@ export default function LastUpdated() {
                     day="numeric"
                     month="long"
                     year="numeric"
+                    aria-labelledby="last-updates-heading"
                   />
-                </>
+                </p>
               )}
               isoCode={fields.iso3}
             />
