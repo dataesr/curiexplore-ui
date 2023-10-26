@@ -1,4 +1,4 @@
-import { Badge, BadgeGroup, Text } from '@dataesr/react-dsfr';
+import { Badge, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
 export default function PopulationCard({
@@ -9,17 +9,15 @@ export default function PopulationCard({
   return (
     <div className="fr-card fr-card--no-border fr-card--shadow text-center fr-card-container">
       <div className="fr-card__content">
-        <div className="badge-container">
-          <BadgeGroup>
-            <Badge text={badgeLabel} className="" />
-          </BadgeGroup>
-        </div>
         <Text as="h3" className="not-bold">
           {description}
         </Text>
         <p>
           {indicator}
         </p>
+        <div className="badge-container" title="Année concernée">
+          <Badge text={badgeLabel} />
+        </div>
       </div>
     </div>
   );
