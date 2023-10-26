@@ -100,6 +100,7 @@ const SearchBar = forwardRef((props, ref) => {
       onFocus={() => setShowOptions(true)}
       role="search"
       className={classNames(styles.form, _className)}
+      id="a11ySearch"
     >
       <div className={styles.searchbar}>
         <label className={_classNameLabel} htmlFor={inputId.current}>
