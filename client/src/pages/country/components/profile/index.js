@@ -90,7 +90,7 @@ export default function CountryProfilePage() {
             <PopulationComponent isoCode={isoCode} data={el} key={isoCode} />
           ))}
         {Object.keys(RNB).length !== 0 ? (
-          <Col n="4">
+          <Col n="12 md-4">
             <GenericCard
               badgeLabel={RNB.year}
               indicator={getNumber(RNB)}
@@ -99,7 +99,7 @@ export default function CountryProfilePage() {
           </Col>
         ) : null}
         {Object.keys(IDH).length !== 0 ? (
-          <Col n="4">
+          <Col n="12 md-4">
             <GenericCard
               badgeLabel={IDH.year}
               indicator={getNumber(IDH)}
@@ -108,7 +108,7 @@ export default function CountryProfilePage() {
           </Col>
         ) : null}
         {Object.keys(ESPVIE).length !== 0 ? (
-          <Col n="4">
+          <Col n="12 md-4">
             <GenericCard
               badgeLabel={ESPVIE.year}
               indicator={getNumber(ESPVIE)}

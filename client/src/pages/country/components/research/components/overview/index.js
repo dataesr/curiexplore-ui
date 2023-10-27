@@ -11,22 +11,28 @@ export default function Overview({ data }) {
   const ID_DIRD = 'G_XGDP';
 
   // Effectif total personnel R-D
-  const totalRD = { ...data
-    // récupérer la donnée la plus récente
-    .sort((a, b) => b.fields.year - a.fields.year)
-    .find((el) => el.fields.code === ID_TOTAL_PERSO)?.fields };
+  const totalRD = {
+    ...data
+      // récupérer la donnée la plus récente
+      .sort((a, b) => b.fields.year - a.fields.year)
+      .find((el) => el.fields.code === ID_TOTAL_PERSO)?.fields,
+  };
 
   // Total des Crédits budgétaires
-  const totalCB = { ...data
-    // récupérer la donnée la plus récente
-    .sort((a, b) => b.fields.year - a.fields.year)
-    .find((el) => el.fields.code === ID_CREDITS)?.fields };
+  const totalCB = {
+    ...data
+      // récupérer la donnée la plus récente
+      .sort((a, b) => b.fields.year - a.fields.year)
+      .find((el) => el.fields.code === ID_CREDITS)?.fields,
+  };
 
   // DIRD en % du PIB
-  const totalDIRD = { ...data
-    // récupérer la donnée la plus récente
-    .sort((a, b) => b.fields.year - a.fields.year)
-    .find((el) => el.fields.code === ID_DIRD)?.fields };
+  const totalDIRD = {
+    ...data
+      // récupérer la donnée la plus récente
+      .sort((a, b) => b.fields.year - a.fields.year)
+      .find((el) => el.fields.code === ID_DIRD)?.fields,
+  };
 
   const getIndicator = (code) => {
     if (code.code === ID_TOTAL_PERSO) {
@@ -66,7 +72,7 @@ export default function Overview({ data }) {
       <Row gutters className="fr-mb-1w">
         {
           (Object.keys(totalRD).length !== 0) ? (
-            <Col n="4">
+            <Col n="12 md-4">
               <IndicatorCard
                 badgeLabel={totalRD.year}
                 indicator={getIndicator(totalRD)}
@@ -77,7 +83,7 @@ export default function Overview({ data }) {
         }
         {
           (Object.keys(totalCB).length !== 0) ? (
-            <Col n="4">
+            <Col n="12 md-4">
               <IndicatorCard
                 badgeLabel={totalCB.year}
                 indicator={getIndicator(totalCB)}
@@ -88,7 +94,7 @@ export default function Overview({ data }) {
         }
         {
           (Object.keys(totalDIRD).length !== 0) ? (
-            <Col n="4">
+            <Col n="12 md-4">
               <IndicatorCard
                 badgeLabel={totalDIRD.year}
                 indicator={getIndicator(totalDIRD)}

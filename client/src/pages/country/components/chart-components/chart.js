@@ -43,7 +43,7 @@ export default function Chart({ countryCode, data, hasDataHandler, otherCodes })
   hasDataHandler(true);
 
   return (
-    <Col n="6">
+    <Col n="12 md-6">
       <HighchartsReact
         highcharts={Highcharts}
         options={options}

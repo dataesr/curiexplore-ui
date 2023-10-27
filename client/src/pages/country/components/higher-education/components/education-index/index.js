@@ -46,7 +46,7 @@ export default function EducationIndex({ data }) {
       <Row gutters className="fr-mb-1w">
         {
           MOYSCO.year && (
-            <Col n="6">
+            <Col n="12 md-6">
               <IndicatorCard
                 badgeLabel={MOYSCO.year}
                 indicator={getIndicator(MOYSCO)}
@@ -57,7 +57,7 @@ export default function EducationIndex({ data }) {
         }
         {
           ESPSCO.year && (
-            <Col n="6">
+            <Col n="12 md-6">
               <IndicatorCard
                 badgeLabel={ESPSCO.year}
                 indicator={getIndicator(ESPSCO)}
