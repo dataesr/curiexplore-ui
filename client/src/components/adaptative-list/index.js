@@ -29,7 +29,7 @@ export default function AdaptativeList({ elements, defaultN }) {
     <>
       {list}
       {isMore && (
-        <Col n="3">
+        <Col n="12 md-3">
           <Button
             secondary
             onClick={handleMore}
@@ -39,7 +39,7 @@ export default function AdaptativeList({ elements, defaultN }) {
         </Col>
       )}
       {isLess && (
-        <Col n="3">
+        <Col n="12 md-3">
           <Button
             secondary
             onClick={handleLess}

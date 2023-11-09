@@ -9,10 +9,10 @@ export default function RessourceTile({ pictogram, title, href, description, bad
         <div className="fr-badge-group">
           <Badge isSmall text={badge} colorFamily={colorFamily} />
         </div>
-        <h2 className="fr-tile__title fr-m-0">
+        <h2 className="fr-tile__title fr-m-0" title="Titre dans la langue du pays">
           <a className="fr-tile__link" target="_blank" rel="noopener noreferrer" href={href}>{title}</a>
         </h2>
-        <p className="fr-card__detail">{description}</p>
+        <p className="fr-card__detail" title="Description dans la langue du pays">{description}</p>
         <p className="fr-card__detail">{date}</p>
       </div>
       <div className="fr-tile__img tile-img">

@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Container fluid aria-hidden>
-        <Row gutters>
+        <Row>
           <Col n="12">
             <MapContainer
               zoomControl={false}

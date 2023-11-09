@@ -30,7 +30,7 @@ export default function PopulationComponent({ data, isoCode }) {
 
   return (
     (evolution.data !== null) ? (
-      <Col n="4">
+      <Col n="12 md-4">
         <PopulationCard
           badgeLabel={lastYear}
           description={description}

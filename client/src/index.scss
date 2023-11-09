@@ -51,6 +51,7 @@ code {
   --CCI-color: #3e3e3E;
   --embassy-color: #cac426;
 }
+
 .not-bold {
   font-weight: normal;
 }
@@ -126,4 +127,11 @@ code {
 .highcharts-subtitle {
   fill: var(--text-default-grey) !important;
   font-family: 'Marianne' !important;
+}
+
+// accessibilité
+.skipLinks-a11y {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
 }

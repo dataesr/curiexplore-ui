@@ -14,7 +14,7 @@ export default function Layout() {
       <Header switchTheme={{ isOpen: isSwitchThemeOpen, setIsOpen: setIsSwitchThemeOpen }} />
       <SwitchTheme isOpen={isSwitchThemeOpen} setIsOpen={setIsSwitchThemeOpen} />
       <div role="alert" id="notice-container" />
-      <Container as="main" role="main" fluid>
+      <Container as="main" role="main" fluid id="a11yContent">
         <Outlet />
       </Container>
       <ScrollToTop />
