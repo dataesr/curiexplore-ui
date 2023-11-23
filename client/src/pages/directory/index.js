@@ -40,7 +40,7 @@ export default function DirectoryPage() {
   useTitle('Curiexplore - Annuaire');
   return (
     <Container as="section">
-      <Filter selectedLetter={selectedLetter} setSelectedLetterHandler={() => setSelectedLetter()} />
+      <Filter selectedLetter={selectedLetter} setSelectedLetterHandler={setSelectedLetter} />
       <AnnuaireBloc selectedLetter={selectedLetter} />
     </Container>
   );
