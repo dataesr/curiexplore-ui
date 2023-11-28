@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterTop>
-        <FooterTopCategory title="Liens">
+        <FooterTopCategory>
           <FooterLink asLink={<RouterLink to="/projet-et-equipe" title="lien vers l'équipe et son projet" />}>
             L'équipe et son projet
           </FooterLink>
@@ -32,7 +32,7 @@ export default function Footer() {
             Github
           </FooterLink>
         </FooterTopCategory>
-        <FooterTopCategory title="Voir aussi">
+        <FooterTopCategory>
           <FooterLink asLink={<Link href="https://scanr.enseignementsup-recherche.gouv.fr/" title="vers scanR" target="_blank" />}>
             scanR
           </FooterLink>
@@ -46,7 +46,7 @@ export default function Footer() {
             Baromètre de la Science Ouverte
           </FooterLink>
         </FooterTopCategory>
-        <FooterTopCategory title="Nous suivre">
+        <FooterTopCategory>
           <FooterLink as="h2" asLink={<Link href="https://twitter.com/sup_recherche" title="vers notre page Twitter" target="_blank" />}>
             {renderIcon('Twitter')}
             Twitter

@@ -1,10 +1,12 @@
 import { useOutletContext } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import HtmlAmbassyBloc from '../../../components/html-ambassy-bloc';
+import { useTitle } from '../../../hooks/usePageTitle';
 
 export default function InternationalCooperationPage() {
   const contextData = useOutletContext();
   const data = contextData['curiexplore-analyse'];
+  useTitle('Coopération internationale - Curiexplore');
 
   const blocs = [];
   if (data.length === 0) {

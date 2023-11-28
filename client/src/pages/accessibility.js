@@ -4,7 +4,7 @@ import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem, Title } from '@d
 import { useTitle } from '../hooks/usePageTitle';
 
 export default function MentionsLegalesPage() {
-  useTitle('Curiexplore - Accessibilité');
+  useTitle('Accessibilité - CurieXplore');
 
   return (
     <Container>

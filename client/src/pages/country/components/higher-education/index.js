@@ -10,12 +10,14 @@ import PieChart from './components/donut/index';
 import Pyramid from './components/pyramid/index';
 import EducationIndex from './components/education-index';
 import Overview from './components/overview';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 export default function CountryHigherEducationPage() {
   const contextData = useOutletContext();
   const data = contextData['curiexplore-analyse'];
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];
   let dataES = [];
+  useTitle('Enseignement supérieur - Curiexplore');
 
   const charts1st = charts.filter((indic) => indic.theme === 'niveau');
   const charts2nd = charts.filter((indic) => indic.theme === 'domaine');

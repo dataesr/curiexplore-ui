@@ -38,7 +38,7 @@ export default function CountryList({ region }) {
       <Row gutters spacing="mb-6w">
         {countriesToShow.map(([letter, countries]) => (
           <Col n="3" key={letter}>
-            <Title as="h2" look="h6" className="fr-mb-1v" size="lead" bold>
+            <Title as="h3" look="h6" className="fr-mb-1v" size="lead" bold>
               {letter.toUpperCase()}
             </Title>
             <hr />

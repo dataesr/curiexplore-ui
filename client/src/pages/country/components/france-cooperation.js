@@ -8,6 +8,7 @@ import PublicationsChart from '../../../components/open-alex-charts/publications
 import InstitutionsChart from '../../../components/open-alex-charts/institutions-chart';
 import Title from '../../../components/title';
 import getLabel from '../../../utils/getLabel';
+import { useTitle } from '../../../hooks/usePageTitle';
 
 export default function FranceCooperationPage() {
   const { isoCode } = useParams();
@@ -19,6 +20,7 @@ export default function FranceCooperationPage() {
   const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/projects/search`;
   const urlStructures = `${process.env.REACT_APP_SCANR_API_URL}/structures/search`;
   const years = useMemo(() => ([2017, 2018, 2019]), []);
+  useTitle('Coopération française - CurieXplore');
 
   useEffect(() => {
     setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);

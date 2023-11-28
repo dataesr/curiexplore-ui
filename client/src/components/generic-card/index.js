@@ -12,12 +12,12 @@ export default function PopulationCard({
         <Text as="h3" className="not-bold">
           {description}
         </Text>
-        <p>
-          {indicator}
-        </p>
         <div className="badge-container" title="Année concernée">
           <Badge text={badgeLabel} />
         </div>
+        <p>
+          {indicator}
+        </p>
       </div>
     </div>
   );

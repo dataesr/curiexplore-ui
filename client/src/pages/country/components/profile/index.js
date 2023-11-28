@@ -65,18 +65,20 @@ export default function CountryProfilePage() {
     <>
       <Row gutters className="fr-mb-1w">
         <Col n="12">
-          <MapContainer
-            zoomControl={false}
-            scrollWheelZoom={false}
-            attributionControl={false}
-            style={{
-              height: '400px',
-              backgroundColor: '#FFCA00',
-              position: 'relative',
-            }}
-          >
-            <CountryMap isoCode={isoCode} />
-          </MapContainer>
+          <div aria-hidden>
+            <MapContainer
+              zoomControl={false}
+              scrollWheelZoom={false}
+              attributionControl={false}
+              style={{
+                height: '400px',
+                backgroundColor: '#FFCA00',
+                position: 'relative',
+              }}
+            >
+              <CountryMap isoCode={isoCode} />
+            </MapContainer>
+          </div>
         </Col>
       </Row>
       <Title as="h2" title="En un clin d'oeil" icon="ri-search-eye-line" />

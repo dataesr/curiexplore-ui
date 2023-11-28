@@ -6,7 +6,7 @@ import image1 from '../assets/img/mail-send.svg';
 import { useTitle } from '../hooks/usePageTitle';
 
 export default function ContactsAndResourcesPage() {
-  useTitle('Curiexplore - Contacts');
+  useTitle('Contacts - Curiexplore');
 
   return (
     <Container>

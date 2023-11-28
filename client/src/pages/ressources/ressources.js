@@ -20,7 +20,7 @@ const mappings = {
 };
 
 export default function RessourcesPage() {
-  useTitle('Curiexplore - Ressources');
+  useTitle('Ressources - Curiexplore');
 
   return (
     <Container className="fr-mb-3w">

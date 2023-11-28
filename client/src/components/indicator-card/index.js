@@ -9,14 +9,14 @@ export default function IndicatorCard({
   return (
     <div className="fr-card fr-card--no-border fr-card--shadow text-center fr-card-container">
       <div className="fr-card__content">
+        <Text as="h3" className="not-bold">
+          {description}
+        </Text>
         <div className="badge-container">
           <BadgeGroup>
             <Badge text={badgeLabel} className="" />
           </BadgeGroup>
         </div>
-        <Text as="h3" className="not-bold">
-          {description}
-        </Text>
         <p className="is-bold extra-large-text">
           {indicator}
         </p>

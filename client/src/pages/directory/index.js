@@ -37,7 +37,7 @@ Filter.propTypes = {
 
 export default function DirectoryPage() {
   const [selectedLetter, setSelectedLetter] = useState('a');
-  useTitle('Curiexplore - Annuaire');
+  useTitle('Annuaire - Curiexplore');
   return (
     <Container as="section">
       <Filter selectedLetter={selectedLetter} setSelectedLetterHandler={setSelectedLetter} />

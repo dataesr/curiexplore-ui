@@ -7,7 +7,7 @@ import logoMESR from '../assets/img/logo-mesr.svg';
 import { useTitle } from '../hooks/usePageTitle';
 
 export default function MentionsLegalesPage() {
-  useTitle('Curiexplore - Mentions légales');
+  useTitle('Mentions légales - Curiexplore');
 
   return (
     <Container>

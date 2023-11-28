@@ -6,7 +6,7 @@ import image1 from '../assets/img/human-cooperation.svg';
 import { useTitle } from '../hooks/usePageTitle';
 
 export default function ProjetEtEquipe() {
-  useTitle("Curiexplore - L'équipe et son projet");
+  useTitle("L'équipe et son projet - Curiexplore");
 
   return (
     <Container>

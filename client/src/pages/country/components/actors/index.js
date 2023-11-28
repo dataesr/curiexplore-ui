@@ -21,7 +21,7 @@ export default function ActorsPage() {
   const contextData = useOutletContext();
   const data = contextData['actors-data'];
   const [selectedCategory, setSelectedCategory] = useState(null);
-  useTitle('Curiexplore - Les acteurs');
+  useTitle('Les acteurs - Curiexplore');
 
   const categoriesLabels = [
     {
@@ -153,7 +153,9 @@ export default function ActorsPage() {
           ) : null}
         </Col>
         <Col n={Object.keys(categories).length ? '9' : '12'} className="fr-pt-1w">
-          <MapCategoriesActors actors={addressesList} data={filteredData} />
+          <div aria-hidden>
+            <MapCategoriesActors actors={addressesList} data={filteredData} />
+          </div>
         </Col>
       </Row>
       <Row>

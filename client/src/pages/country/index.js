@@ -45,7 +45,7 @@ export default function Fiche({ exportState }) {
   const [exportList, setExportList] = useState([]);
   const [isExport, setIsExport] = useState(false);
 
-  useTitle(`Curiexplore - ${dataPays?.name_fr || ''}`);
+  useTitle(`${dataPays?.name_fr || ''} - Curiexplore`);
 
   useEffect(() => {
     setIsExport(exportState);

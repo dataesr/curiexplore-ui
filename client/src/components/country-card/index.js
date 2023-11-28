@@ -10,18 +10,20 @@ export default function CountryCard({ color, description, fillColor, isoCode, ti
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey">
       <div className="fr-card__header">
         <div className="fr-card__img">
-          <MapContainer
-            zoomControl={false}
-            scrollWheelZoom={false}
-            attributionControl={false}
-            style={{
-              height: '150px',
-              backgroundColor: color,
-              position: 'relative',
-            }}
-          >
-            <CountryMap isoCode={isoCode} color={color} fillColor={fillColor} hasCapital={false} />
-          </MapContainer>
+          <div aria-hidden>
+            <MapContainer
+              zoomControl={false}
+              scrollWheelZoom={false}
+              attributionControl={false}
+              style={{
+                height: '150px',
+                backgroundColor: color,
+                position: 'relative',
+              }}
+            >
+              <CountryMap isoCode={isoCode} color={color} fillColor={fillColor} hasCapital={false} />
+            </MapContainer>
+          </div>
         </div>
       </div>
       <div className="fr-card__body">

@@ -10,6 +10,7 @@ import Overview from './components/overview';
 import Title from '../../../../components/title';
 import charts from './charts.json';
 import ThematicsChart from '../../../../components/open-alex-charts/thematics-chart';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 export default function CountryResearchPage() {
   const { isoCode } = useParams();
@@ -18,6 +19,7 @@ export default function CountryResearchPage() {
   const data = contextData['curiexplore-analyse'];
   const dataOverview = contextData['curiexplore-donnees-quantitatives'];
   let dataRI = [];
+  useTitle('Recherche et Innovation - CurieXplore');
 
   const charts1st = charts.filter((indic) => indic.theme === 'budget');
   const charts2nd = charts.filter((indic) => indic.theme === 'personnel');

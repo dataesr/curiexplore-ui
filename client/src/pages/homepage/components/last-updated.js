@@ -53,7 +53,7 @@ export default function LastUpdated() {
             <CountryCard
               title={fields.pays}
               description={(
-                <p title="Dernière mise à jour">
+                <p>
                   Mis à jour le
                   {' '}
                   <FormattedDate

@@ -63,7 +63,7 @@ function AnnuaireBloc({ selectedLetter }) {
                   </Link>
                 </Row>
                 <Row gutters>
-                  <Col n="12 md-6">
+                  <Col n="12 md-6" aria-hidden>
                     <MapWithMarkers
                       data={addressesList.filter((item) => item !== null && item.iso3 === el.fields.iso3)}
                       style={{ height: '430px' }}

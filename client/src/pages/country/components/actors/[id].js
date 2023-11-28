@@ -78,7 +78,7 @@ export default function Actor() {
   const actorWebsiteUrl = dataActor.websites.map((url) => url.url);
   const actorNameEN = dataActor.currentName.nameEn;
 
-  useTitle(`Curiexplore - ${dataActor.displayName}`);
+  useTitle(`${dataActor.displayName} - Curiexplore`);
 
   if (!dataActor) {
     return (
@@ -117,7 +117,7 @@ export default function Actor() {
       <Row gutters>
         {
           dataActor.currentLocalisation.geometry && (
-            <Col n="8">
+            <Col n="8" aria-hidden>
               <MapWithMarkers data={[{ gps: dataActor.currentLocalisation.geometry.coordinates, label: dataActor.displayName, iconColor: 'blue' }]} />
             </Col>
           )

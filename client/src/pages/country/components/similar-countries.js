@@ -1,6 +1,7 @@
 import { Container, Row, Col } from '@dataesr/react-dsfr';
 import Parser from 'html-react-parser';
 import { useOutletContext, useParams } from 'react-router-dom';
+import { useTitle } from '../../../hooks/usePageTitle';
 
 import groups from '../../../assets/data/groups.json';
 import AdaptativeList from '../../../components/adaptative-list';
@@ -13,6 +14,7 @@ import getLabel from '../../../utils/getLabel';
 export default function SimilarCountriesPage() {
   const contextData = useOutletContext();
   const { isoCode } = useParams();
+  useTitle('Pays similaires - CurieXplore');
 
   const dataCountry = contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode);
   const dataIDH = contextData['curiexplore-donnees-quantitatives'];

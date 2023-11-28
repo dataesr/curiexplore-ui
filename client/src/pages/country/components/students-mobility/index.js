@@ -7,10 +7,12 @@ import MobilityCallOut from './components/mobility';
 import Title from '../../../../components/title';
 import HtmlAmbassyBloc from '../../../../components/html-ambassy-bloc';
 import charts from './charts.json';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 export default function StudentsMobilityPage() {
   const contextData = useOutletContext();
   const analyse = contextData['curiexplore-analyse'];
+  useTitle('Mobilité étudiante - CurieXplore');
 
   const blocs = [];
   if (analyse.length !== 0) {

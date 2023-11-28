@@ -18,6 +18,8 @@ import SearchBar from '../../components/search-bar';
 import useDebounce from './hooks/useDebounce';
 import countries from '../../assets/data/countriesList.json';
 
+import logoCuriexplore from '../../assets/img/logo-curiexplore.svg';
+
 const {
   REACT_APP_HEADER_TAG: headerTag,
   REACT_APP_HEADER_TAG: headerTagColor,
@@ -89,12 +91,11 @@ export default function Header({ switchTheme }) {
           <Service
             title={(
               <>
-                CurieXplore
+                <img alt="Logo CurieXplore" src={logoCuriexplore} className="fr-responsive-img" style={{ width: '200px' }} />
                 {headerTag && <Badge text={headerTag} type={(!headerTagColor) ? 'info' : undefined} isSmall colorFamily={headerTagColor} />}
               </>
             )}
-            description="La plateforme d'exploration des systèmes d'enseignement supérieur,
-          de recherche et d'innovation à l'international"
+            description=""
           />
           <Tool closeButtonLabel="fermer" className="extend">
             <ToolItemGroup>
