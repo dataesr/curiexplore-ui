@@ -52,6 +52,7 @@ export default function Chart({ countryCode, data, hasDataHandler, otherCodes })
         data?.description && (
           <div className="chart-description">
             {data.description}
+            {' '}
           </div>
         )
       }

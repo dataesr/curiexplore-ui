@@ -11,12 +11,12 @@ export default function WebSiteCard({ languages, links, name }) {
       {languages.map((language, index) => (
         <Col key={index} n="12 md-6">
           <Callout hasInfoIcon={false} colors={['#F5E498', '#eee']}>
-            <h6 className="fr-card__title">
+            <h3 className="fr-card__title">
               <Icon name="ri-global-line" />
               <Link href={links[index]} target="blank">
                 {`${name} (${language || ''})`}
               </Link>
-            </h6>
+            </h3>
           </Callout>
         </Col>
       ))}

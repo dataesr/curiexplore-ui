@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-import { Callout, CalloutText, Text } from '@dataesr/react-dsfr';
+import { Callout, Text } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
@@ -61,13 +61,13 @@ export default function PyramidComponent() {
         </li>
       </ul>
       Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des
-      statistiques comparables à un niveau international. Voir le&nbsp;
+      statistiques comparables à un niveau international. Voir la&nbsp;
       <a
         href="https://uis.unesco.org/sites/default/files/documents/international-standard-classification-of-education-isced-2011-fr.pdf"
         target="_blank"
         rel="noreferrer"
       >
-        détail
+        documentation de l'indicateur
       </a>
       .
     </Text>
@@ -89,9 +89,7 @@ export default function PyramidComponent() {
           ref={chart}
         />
         <Callout hasInfoIcon={false}>
-          <CalloutText>
-            {explanation}
-          </CalloutText>
+          {explanation}
         </Callout>
       </section>
     )

@@ -127,7 +127,7 @@ export default function ActorsPage() {
           <Col>
             <Title as="h2">
               <Icon name="ri-filter-line" />
-              Filtres
+              Filtrez les acteurs du pays
             </Title>
             <Text><i>Cliquez sur une catégorie pour restreindre les résultats</i></Text>
           </Col>

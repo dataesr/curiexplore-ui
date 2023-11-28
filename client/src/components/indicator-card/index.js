@@ -17,9 +17,9 @@ export default function IndicatorCard({
             <Badge text={badgeLabel} className="" />
           </BadgeGroup>
         </div>
-        <p className="is-bold extra-large-text">
+        <div className="is-bold extra-large-text">
           {indicator}
-        </p>
+        </div>
       </div>
     </div>
   );

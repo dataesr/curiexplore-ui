@@ -88,12 +88,12 @@ function Identifiers({ type, identifiersId }) {
       {type.map((el, index) => (
         <Col n="12 md-4" key={index}>
           <Callout hasInfoIcon={false} colors={['#5958A8', '#eee']}>
-            <h6 className="fr-card__title">
+            <h3 className="fr-card__title">
               <Icon name="ri-wikipedia-line" />
               <Link href={getLink({ type: el, value: identifiersId[index] })} target="_blank">
                 {`${el.charAt(0).toUpperCase() + el.slice(1)} (${identifiersId[index]})`}
               </Link>
-            </h6>
+            </h3>
           </Callout>
         </Col>
       ))}

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
-import { Col, Container, Row, Button, Text } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Button, Text, Icon } from '@dataesr/react-dsfr';
 import { useState } from 'react';
 
 import Title from '../title';
@@ -18,6 +18,8 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
       Rédigé en&nbsp;
       {data.submitdateclean}
       &nbsp;sous la responsabilité éditoriale du poste diplomatique
+      <br />
+
     </>
   );
 
@@ -49,6 +51,9 @@ export default function HtmlAmbassyBloc({ data, exportView }) {
       )}
       <Row className="fr-mb-3w">
         <Col n="12" className="fr-mb-1w">
+          <Icon name="ri-error-warning-line" color="var(--border-default-blue-ecume)" />
+          Certains des éléments ci-dessous peuvent être dans la langue d'origine.
+          <br />
           {revealed ? (
             <>
               {Parser(data.description)}

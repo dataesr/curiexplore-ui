@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-import { Callout, CalloutText, Text } from '@dataesr/react-dsfr';
+import { Callout, Text } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
 
 import charts from './charts.json';
@@ -29,13 +29,13 @@ export default function PieChartComponent() {
       .
       Cet outil est issu des classifications économiques et sociales des Nations Unies et permet d'établir des
       statistiques comparables à un niveau international. La dernière version date de 2013 et s'applique aux données à partir de
-      2016, voir le&nbsp;
+      2016, voir la&nbsp;
       <a
         href="https://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-fr.pdf"
         target="_blank"
         rel="noreferrer"
       >
-        détail
+        documentation de l'indicateur
       </a>
       .
     </Text>
@@ -58,9 +58,7 @@ export default function PieChartComponent() {
         />
         {/* TODO : régler le problème d'icone dans le react-dsfr */}
         <Callout hasInfoIcon={false}>
-          <CalloutText>
-            {explanation}
-          </CalloutText>
+          {explanation}
         </Callout>
       </section>
     )

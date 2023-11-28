@@ -98,7 +98,7 @@ export default function Actor() {
     <Container fluid>
       <Row>
         <Title
-          as="h3"
+          as="h1"
           title={`${dataActor.displayName}  (${dataActor.currentLocalisation.country})`}
           subTitle={subtitle}
           icon=""
@@ -137,7 +137,7 @@ export default function Actor() {
         }
       </Row>
       <Title
-        as="h3"
+        as="h2"
         className="fr-mt-1"
         title="Sur le web"
       />
@@ -149,7 +149,7 @@ export default function Actor() {
       {actorIdentifierType.length > 0 && actorIdentifierValues.length > 0 && (
         <>
           <Title
-            as="h3"
+            as="h2"
             className="fr-mb-0"
             title="Identifiants"
           />
@@ -163,7 +163,7 @@ export default function Actor() {
           <>
             <Row className="fr-pt-3w">
               <Col>
-                <Title as="h3">
+                <Title as="h2">
                   Présence dans les classements internationnaux &nbsp;
                   <Badge text={dataActor.rankings.length.toString()} colorFamily="green-menthe" />
                 </Title>
