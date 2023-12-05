@@ -75,6 +75,9 @@ export default function ProjetEtEquipe() {
                 Délégation aux Affaires européennes et internationales
               </ul>
               <ul>
+                Département ingénierie et science des données
+                {' '}
+                <br />
                 Sous-direction des systèmes d'information et des études statistiques (Direction générale de la recherche et de l'innovation/Direction générale de l'enseignement supérieur et de l'insertion professionnelle)
               </ul>
             </li>

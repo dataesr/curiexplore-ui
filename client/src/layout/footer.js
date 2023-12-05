@@ -92,7 +92,7 @@ export default function Footer() {
           Mentions Légales
         </FooterLink>
         <FooterLink asLink={<RouterLink to="/accessibilite" />}>
-          Accessibilité
+          Accessibilité : partiellement conforme
         </FooterLink>
 
         <FooterLink target="_blank" href={`https://github.com/dataesr/curiexplore-ui-v2/releases/tag/v${process.env.REACT_APP_VERSION}`}>

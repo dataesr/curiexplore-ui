@@ -21,7 +21,7 @@ export default function StudentsMobilityPage() {
   }
   const subTitle = (
     <Text className="fr-mb-1w">
-      Les informations présentes ci-dessous sont collectées par le département des outils d'aide à la décision du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
+      Les informations présentes ci-dessous sont collectées par le département ingénierie et science des données du Ministère de l'enseignement supérieur et de la recherche (MESR) et sont mises à jour 1 à 2 fois par an.
       <br />
       L'année de référence pour les indicateurs affichés en base 100 est l'année de la première donnée disponible par indicateur par pays.
     </Text>

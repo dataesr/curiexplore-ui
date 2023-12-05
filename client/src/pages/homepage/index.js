@@ -15,7 +15,7 @@ export default function HomePage() {
       <Container fluid>
         <Row>
           <Col offset="2" n="8">
-            <Title as="h1" className="fr-m-4w text-center">
+            <Title as="h1" look="h2" className="fr-m-4w text-center">
               La plateforme d'exploration des systèmes d'enseignement supérieur,
               de recherche et d'innovation à l'international
             </Title>

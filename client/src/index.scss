@@ -9,6 +9,18 @@ code {
     monospace;
 }
 
+.ul-styled {
+  list-style-type: disc !important;
+
+  >li {
+    list-style: inherit;
+    margin-bottom: 0;
+  }
+
+  padding-left: 1rem !important;
+  margin-bottom: 1rem;
+}
+
 .stick {
   position: sticky;
   top: 0;

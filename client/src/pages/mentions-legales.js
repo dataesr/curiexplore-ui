@@ -68,7 +68,7 @@ export default function MentionsLegalesPage() {
             <br />
             Sous-direction des systèmes d'information et des études statistiques (SIES)
             <br />
-            Département des outils d'aide à la décision
+            Département ingénierie et science des données
             <br />
           </Text>
           <Text>
