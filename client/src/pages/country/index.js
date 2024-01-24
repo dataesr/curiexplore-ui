@@ -37,7 +37,7 @@ export default function Fiche({ exportState }) {
   const { data, isLoading, error, isUnknownCountry } = useFetchData(isoCode);
   let actorName = '';
 
-  const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
+  const dataPays = data['curiexplore-pays']?.filter((country) => country.fields.curiexplore === 'TRUE').find((country) => country.fields.iso3 === isoCode).fields;
   const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
   const campusFrance = dataPays?.cf_mobility;
 
