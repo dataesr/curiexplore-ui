@@ -21,7 +21,7 @@ export default function ContactsAndResourcesPage() {
       <Row>
         <Col n="12 md-8">
           <Text>
-            CurieXplore est un outil évolutif, destiné à évoluer et à héberger de nouvelles foncitonnalités. L'expérience utilisateur contribue de manière fondamentale à ces évolutions. Vous avez des questions, des remarques, des suggestions ?
+            CurieXplore est un outil évolutif, destiné à évoluer et à héberger de nouvelles fonctionnalités. L'expérience utilisateur contribue de manière fondamentale à ces évolutions. Vous avez des questions, des remarques, des suggestions ?
           </Text>
           <Text>
             N'hésitez pas à nous contacter pour les partager avec nous.

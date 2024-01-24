@@ -12,10 +12,22 @@
     "description": "Wikidata est un projet de base de données libre éditée de manière collaborative et hébergée par la Wikimedia Foundation. […] Wikidata est une collection d'articles constitués de données et de couples clé-valeur formant un ensemble de graphes sémantiquement structuré. L'ambition est de former un graphe de connaissance unique."
   },
   {
-    "label": "Global Research Identifier Database (GRID)",
-    "website": "https://www.grid.ac/",
+    "label": "Research Organization Registry (ROR)",
+    "website": "https://ror.org/",
     "badge": "referentiel",
-    "description": "GRID est un répertoire mondial d’institutions de tous types actives en matière de recherche académique (établissements d’enseignement supérieur et de recherche, agences gouvernementales, entreprises, institution sans but lucratif, institution ayant une fonction d’archivage, institutions de santé, grands équipements, etc.). Un identifiant unique est attribué à chaque institution référencée ; un ensemble de métadonnées y est associé. Les métadonnées proposées par GRID permettent notamment une mise en correspondance de l’identifiant GRID avec des identifiants ISNI, WIKIDATA ou liés aux systèmes nationaux d’archivage et de suivre les liens de filiation entre les structures. Enfin, GRID permet d’associer un site web à la plupart des institutions référencées."
+    "description": "ROR est un répertoire mondial d’institutions de tous types actives en matière de recherche académique (établissements d’enseignement supérieur et de recherche, agences gouvernementales, entreprises, institution sans but lucratif, institution ayant une fonction d’archivage, institutions de santé, grands équipements, etc.). Un identifiant unique est attribué à chaque institution référencée ; un ensemble de métadonnées y est associé. Les métadonnées proposées par ROR permettent notamment une mise en correspondance de l’identifiant ROR avec des identifiants ISNI, WIKIDATA ou liés aux systèmes nationaux d’archivage et de suivre les liens de filiation entre les structures. Enfin, ROR permet d’associer un site web à la plupart des institutions référencées."
+  },
+  {
+    "label": "Banque Mondiale",
+    "website": "https://donnees.banquemondiale.org/",
+    "badge": "source",
+    "description": "La Banque Mondiale produit des statistiques fiables et pertinentes à l'échelle internationale. Les statistiques sont compilées de façon normalisée ce qui permet une comparaison entre pays."
+  },
+  {
+    "label": "OpenAlex",
+    "website": "https://openalex.org/",
+    "badge": "source",
+    "description": "OpenAlex, proposé par Our Research, est un catalogue d’articles scientifiques, d’auteurs, et d’institutions accessible en mode d'accès ouvert."
   },
   {
     "label": "Organisation de coopération et de développement économiques (OCDE)",
@@ -24,27 +36,21 @@
     "description": "L'OCDE est une organisation internationale d'études économiques, dont les pays membres ont en commun un système de gouvernement démocratique et une économie de marché. L'OCDE publie des rapports spécialisés notamment en Science, Technologie et Innovation et met à disposition des utilisateurs sa base de données associée, les principaux indicateurs de la Science et de la technologie."
   },
   {
-    "label": "scanR",
-    "website": "https://scanr.enseignementsup-recherche.gouv.fr/",
-    "badge": "source",
-    "description": "scanR décrit et relie entreprises et laboratoires de recherche, auteurs de travaux de recherche, (thèses, publications, brevets) et financements publics"
-  },
-  {
-    "label": "SCImago Journal Rank",
-    "website": "https://www.scimagojr.com/",
-    "badge": "source",
-    "description": "SCImago Journal Rank rend accessible une list d'indicateur permettant de qualifier la production scientifique d'un pays."
-  },
-  {
     "label": "Organisation des Nations unies pour l'éducation, la science et la culture",
     "website": "http://data.uis.unesco.org/?lang=fr",
     "badge": "source",
     "description": "L'institut de statistique de l'UNESCO (ISU) est la source officielle de données comparables à l'échelle internationale sur l'éducation, la science, la culture et la communication."
   },
   {
-    "label": "Banque Mondiale",
-    "website": "https://donnees.banquemondiale.org/",
+    "label": "scanR",
+    "website": "https://scanr.enseignementsup-recherche.gouv.fr/",
     "badge": "source",
-    "description": "La Banque Mondiale produit des statistiques fiables et pertinentes à l'échelle internationale. Les statistiques sont compilées de façon normalisée ce qui permet une comparaison entre pays."
+    "description": "scanR décrit et relie, pour la recherche française, entreprises et laboratoires de recherche, auteurs de travaux de recherche, (thèses, publications, brevets) et financements publics"
+  },
+  {
+    "label": "SCImago Journal Rank",
+    "website": "https://www.scimagojr.com/",
+    "badge": "source",
+    "description": "SCImago Journal Rank rend accessible une liste d'indicateurs permettant de qualifier la production scientifique d'un pays."
   }
 ]

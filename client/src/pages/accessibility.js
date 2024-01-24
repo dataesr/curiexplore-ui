@@ -25,7 +25,7 @@ export default function MentionsLegalesPage() {
             Déclaration d'accessibilité
           </Title>
           <Text>
-            Le Ministère de l'Enseignement Supérieur et de la Recherhe s’engage à rendre son site « CurieXplore » accessible conformément à l’article 47 de la loi n° 2005-102 du 11 février 2005. À cette fin, elle met en œuvre la stratégie et les actions suivantes : réalisation d'un audit de conformité en 2023.
+            Le Ministère de l'Enseignement Supérieur et de la Recherche s’engage à rendre son site « CurieXplore » accessible conformément à l’article 47 de la loi n° 2005-102 du 11 février 2005. À cette fin, elle met en œuvre la stratégie et les actions suivantes : réalisation d'un audit de conformité en 2023.
           </Text>
           <Text>
             Cette déclaration d’accessibilité s’applique à CurieXplore.
@@ -40,7 +40,7 @@ export default function MentionsLegalesPage() {
             Résultats des tests
           </Title>
           <Text>
-            L’audit de conformité réalisé par la société Empreinte Digitale puis par le département ingénierie et science des données révèle que 87.04% des critères RGAA sont respectés.
+            L’audit de conformité réalisé par la société Empreinte Digitale puis par le département Ingénierie et science des données révèle que 87.04% des critères RGAA sont respectés.
           </Text>
           <Title as="h3">
             Contenus inaccessibles
@@ -52,14 +52,14 @@ export default function MentionsLegalesPage() {
             Non conformité
           </Title>
           <Text>
-            Ne sont listées ici que les non-conformités jugées les plus impactantes et présentes en quantités importantes dans les pages de l’échantillon. Sur demande, le résultat complet de l’audit peut être mis à disposition.
+            Ne sont listées ici que les non-conformités jugées les plus sévères et présentes en quantités importantes dans les pages de l’échantillon. Sur demande, le résultat complet de l’audit peut être mis à disposition.
           </Text>
           <ul className="ul-styled">
             <li>
-              L’utilisation de composants JavaScript non accessibles aux technologies d’assistance.
+              Composants modals : l’utilisation de composants JavaScript non accessibles aux technologies d’assistance.
             </li>
             <li>
-              Document non accessible
+              Exports PDF non accessibles
             </li>
           </ul>
           <Title as="h2">
@@ -236,10 +236,10 @@ export default function MentionsLegalesPage() {
             Voies de recours
           </Title>
           <Text>
-            Si vous constatez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité du site, que vous nous le signalez et que vous ne parvenez pas à obtenir une réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des droits. Plusieurs moyens sont à votre disposition :
+            Si vous constatez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité du site, que vous nous le signalez et que vous ne parvenez pas à obtenir une réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des droits.
           </Text>
           <Text>
-            Cette procédure est à utiliser dans le cas suivant. Vous avez signalé au responsable du site internet un défaut d'accessibilité qui vous empêche d'accéder à un contenu ou à un des services du portail et vous n'avez pas obtenu de réponse satisfaisante.
+            Plusieurs moyens sont à votre disposition :
           </Text>
           <ul className="ul-styled">
             <li>
