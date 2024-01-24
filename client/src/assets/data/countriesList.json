@@ -1431,7 +1431,7 @@
         "ISO_alpha3": "VAT",
         "Pays": "Saint-Si\u00e8ge",
         "Pays_eng": "Holy See",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "saint-Siege"
     },
     {
@@ -1741,6 +1741,13 @@
         "Pays_eng": "Vanuatu",
         "hasData": "TRUE",
         "Pays_search": "vanuatu"
+    },
+    {
+        "ISO_alpha3": "VAT",
+        "Pays": "Vatican",
+        "Pays_eng": "Holy See",
+        "hasData": "TRUE",
+        "Pays_search": "vatican"
     },
     {
         "ISO_alpha3": "VEN",
