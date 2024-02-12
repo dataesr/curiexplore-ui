@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
+import presetZoom from './preset-zoom.json';
 import worldGeoJSON from '../../assets/data/custom.geo.json';
 import capitalsList from '../../assets/data/capitalsList.json';
 
@@ -51,7 +52,19 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
     .addTo(map)
     .getBounds();
 
-  if (Object.keys(mapper)?.length) map.fitBounds(mapper);
+  const worldBounds = [
+    [-90, -180],
+    [90, 180],
+  ];
+
+  const customZoom = presetZoom.filter((el) => el.iso3 === isoCode)?.[0]?.zoom;
+
+  if (Object.keys(mapper)?.length) {
+    const maxZoomLevel = customZoom !== undefined ? customZoom : 4;
+    map.fitBounds(mapper, { maxZoom: maxZoomLevel });
+  } else {
+    map.fitBounds(worldBounds, { maxZoom: 17 });
+  }
 
   if (hasCapital) {
     const { city: capitalName, lat, lng } = capitalsList.find(
