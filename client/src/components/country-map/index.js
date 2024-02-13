@@ -45,10 +45,11 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
 
   const defaultStyle = { color, weight: 1, fillOpacity: 1, fillColor };
 
-  L.geoJson(allCountriesGeoJSON, { style: defaultStyle }).addTo(map);
+  L.geoJson(allCountriesGeoJSON, { style: defaultStyle })
+    .addTo(map);
 
   const mapper = L
-    .geoJson(countryGeoJSON, { style: { ...defaultStyle, fillColor: '#fff' } })
+    .geoJson(countryGeoJSON, { style: { ...defaultStyle, fillColor: '#efcb3a' } })
     .addTo(map)
     .getBounds();
 
@@ -80,16 +81,16 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
       .addTo(map);
   }
 
-  // if (markers?.length) {
-  //   markers.map((marker) => L.marker([marker.lat, marker.lng], { icon: getIcon(marker.color) }).addTo(map));
-  // }
+  /*   if (markers?.length) {
+    markers.map((marker) => L.marker([marker.lat, marker.lng], { icon: getIcon(marker.color) }).addTo(map));
+  } */
 
   return null;
 }
 
 CountryMap.defaultProps = {
-  color: '#FFCA00',
-  fillColor: '#FCD17B',
+  color: '#f6f6f6',
+  fillColor: '#dddddd',
   hasCapital: true,
   markers: null,
 };

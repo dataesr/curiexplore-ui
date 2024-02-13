@@ -72,7 +72,7 @@ export default function CountryProfilePage() {
               attributionControl={false}
               style={{
                 height: '400px',
-                backgroundColor: '#FFCA00',
+                backgroundColor: '#f6f6f6',
                 position: 'relative',
               }}
             >
