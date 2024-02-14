@@ -15,7 +15,7 @@ export default function HomePage() {
       <Container fluid>
         <Row>
           <Col offset="2" n="8">
-            <Title as="h1" look="h2" className="fr-m-4w text-center">
+            <Title as="h1" look="h3" className="fr-m-4w home-title">
               La plateforme d'exploration des systèmes d'enseignement supérieur,
               de recherche et d'innovation à l'international
             </Title>
@@ -33,7 +33,7 @@ export default function HomePage() {
                 maxBounds={[[85, -180], [-85, 180]]}
                 style={{
                   height: '710px',
-                  backgroundColor: '#FFCA00',
+                  backgroundColor: '#f6f6f6',
                   position: 'relative',
                 }}
               >

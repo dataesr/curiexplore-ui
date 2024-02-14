@@ -5,7 +5,7 @@ import { MapContainer } from 'react-leaflet';
 import { Title } from '@dataesr/react-dsfr';
 import CountryMap from '../country-map';
 
-export default function CountryCard({ color, description, fillColor, isoCode, title }) {
+export default function CountryCard({ color, description, fillColor, fillColorCountry, isoCode, title }) {
   return (
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey">
       <div className="fr-card__header">
@@ -21,7 +21,7 @@ export default function CountryCard({ color, description, fillColor, isoCode, ti
                 position: 'relative',
               }}
             >
-              <CountryMap isoCode={isoCode} color={color} fillColor={fillColor} hasCapital={false} />
+              <CountryMap isoCode={isoCode} color={color} fillColor={fillColor} fillColorCountry={fillColorCountry} hasCapital={false} />
             </MapContainer>
           </div>
         </div>
@@ -44,14 +44,16 @@ export default function CountryCard({ color, description, fillColor, isoCode, ti
 }
 
 CountryCard.defaultProps = {
-  color: '#21ab8e',
+  color: '#478558',
   description: '',
-  fillColor: '#34bab5',
+  fillColor: '#204129',
+  fillColorCountry: '#ffffff',
 };
 CountryCard.propTypes = {
   color: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.node, PropTypes.object, PropTypes.string]),
   fillColor: PropTypes.string,
+  fillColorCountry: PropTypes.string,
   isoCode: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

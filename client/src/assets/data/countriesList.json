@@ -1033,7 +1033,7 @@
         "Pays": "Ile Maurice",
         "Pays_eng": "Mauritius",
         "hasData": "TRUE",
-        "Pays_search": "ile Maurice"
+        "Pays_search": "ile maurice"
     },
     {
         "ISO_alpha3": "MRT",
@@ -1403,7 +1403,7 @@
         "ISO_alpha3": "SMR",
         "Pays": "Saint-Marin",
         "Pays_eng": "San Marino",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "saint-Marin"
     },
     {
@@ -1545,6 +1545,13 @@
         "Pays_eng": "Somalia",
         "hasData": "TRUE",
         "Pays_search": "somalie"
+    },
+    {
+        "ISO_alpha3": "SOL",
+        "Pays": "Somaliland",
+        "Pays_eng": "Somaliland",
+        "hasData": "TRUE",
+        "Pays_search": "somaliland"
     },
     {
         "ISO_alpha3": "SDN",

@@ -2,86 +2,100 @@
   {
     "code": "ue27",
     "label": "Europe des Vingt-Sept",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#c6c6fb",
+    "mapFillColor": "#8585f6",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "g7",
     "label": "G7",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#00bbc3",
+    "mapFillColor": "#006A6F",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "g20",
     "label": "G20",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#fbabac",
+    "mapFillColor": "#f95c5e",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "bologne",
     "label": "Processus de bologne",
-    "mapColor": "#0063D0",
     "definition": "<p>Le processus de Bologne compte 48 états membres. Il permet la convergence des <strong>systèmes d'enseignement supérieur</strong> des états signataires de la Déclaration de Bologne, notamment en facilitant la reconnaissance des diplômes, aidant à une structuration des études supérieures comparables (licence et master), favorisant la mobilité, parmi d'autres objectifs. Parmi ses multiples actions, le programme Erasmus+ s'est développé au-delà des pays euroopéens et le recours au système des crédits (E.C.T.S.) s'est très largement diffusé. (voir <a href='https://www.enseignementsup-recherche.gouv.fr/fr/le-processus-de-bologne-questions-reponses-47254' target='_blank'>faq du MESR</a>)</p>",
-    "mapFillColor": "#E8EDFF"
+    "mapColor": "#c6c6fb",
+    "mapFillColor": "#8585f6",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "oecd_members",
     "label": "Membre de l'OCDE",
-    "mapColor": "#0063D0",
-    "mapFillColor": "#E8EDFF"
+    "mapColor": "#ff8e76",
+    "mapFillColor": "#d64d00",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "euro_area",
     "label": "Zone euro",
-    "mapColor": "#0063D0",
-    "mapFillColor": "#E8EDFF"
+    "mapColor": "#8b9eda",
+    "mapFillColor": "#465F9D",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "sub_saharan_africa",
     "label": "Afrique et Océan Indien",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "middle_east_north_africa",
     "label": "Afrique du Nord et Moyen-Orient",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "central_america_caraibes",
     "label": "Amérique centrale et Caraïbes",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "asia_oceania",
     "label": "Asie-Océanie",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "european_union",
     "label": "Union européenne",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#c6c6fb",
+    "mapFillColor": "#8585f6",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "continental_europe",
     "label": "Europe continentale",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "south_america",
     "label": "Amérique du sud",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   },
   {
     "code": "north_america",
     "label": "Amérique du nord",
-    "mapColor": "#695453",
-    "mapFillColor": "#FEEBD0"
+    "mapColor": "#e08e73",
+    "mapFillColor": "#8D533E",
+    "mapFillColorCountry": "#ffffff"
   }
 ]

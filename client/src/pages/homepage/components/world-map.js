@@ -17,23 +17,27 @@ export default function WorldMap({ region, color, fillColor }) {
       click: () => { if (feature.properties.iso_a3 !== 'FRA') { navigate(`/pays/${feature.properties.iso_a3}`); } },
     });
   };
+
   const regionGeoJSON = {
     ...worldGeoJSON,
     features: worldGeoJSON.features.filter((el) => (el.properties.region_wb === region)),
   };
+
   const allCountriesGeoJSON = {
     ...worldGeoJSON,
     features: worldGeoJSON.features.filter((el) => (el.properties.region_wb !== region)),
   };
+
   const defaultStyle = { color, weight: 1, fillOpacity: 1, fillColor };
   L.geoJson(allCountriesGeoJSON, { style: defaultStyle, onEachFeature }).addTo(map);
-  L.geoJson(regionGeoJSON, { style: { ...defaultStyle, fillColor: '#fff' }, onEachFeature }).addTo(map);
+  L.geoJson(regionGeoJSON, { style: { ...defaultStyle, fillColor: '#ffffff' }, onEachFeature }).addTo(map);
   return null;
 }
+
 WorldMap.defaultProps = {
   region: null,
-  color: '#ffca00',
-  fillColor: '#273962',
+  color: '#efcb3a',
+  fillColor: '#efcb3a',
 };
 
 WorldMap.propTypes = {

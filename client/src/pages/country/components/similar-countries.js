@@ -66,6 +66,7 @@ export default function SimilarCountriesPage() {
                     <CountryCard
                       color={groups.find((el) => el.code === item.code).mapColor}
                       fillColor={groups.find((el) => el.code === item.code).mapFillColor}
+                      fillColorCountry={groups.find((el) => el.code === item.code).mapFillColorCountry}
                       isoCode={country.fields.iso3}
                       title={getLabel(country.fields.iso3)}
                     />
@@ -101,6 +102,7 @@ export default function SimilarCountriesPage() {
                     <CountryCard
                       color={groups.find((el) => el.code === item.code).mapColor}
                       fillColor={groups.find((el) => el.code === item.code).mapFillColor}
+                      fillColorCountry={groups.find((el) => el.code === item.code).mapFillColorCountry}
                       isoCode={country.fields.iso3}
                       title={getLabel(country.fields.iso3)}
                     />

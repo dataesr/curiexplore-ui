@@ -23,7 +23,7 @@ const getIcon = (color = '#0078f3') => L.divIcon({
   iconAnchor: [18, 36],
 });
 
-export default function CountryMap({ isoCode, color, fillColor, hasCapital, markers }) {
+export default function CountryMap({ isoCode, color, fillColor, fillColorCountry, hasCapital, markers }) {
   const map = useMap();
 
   // L.mapper();
@@ -49,7 +49,7 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
     .addTo(map);
 
   const mapper = L
-    .geoJson(countryGeoJSON, { style: { ...defaultStyle, fillColor: '#efcb3a' } })
+    .geoJson(countryGeoJSON, { style: { ...defaultStyle, fillColor: fillColorCountry } })
     .addTo(map)
     .getBounds();
 
@@ -72,7 +72,7 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
       (capital) => (capital.iso3 === isoCode && capital.capital === 'primary'),
     );
     L
-      .circle([lat, lng], { color: 'black', radius: 200, weight: 5 })
+      .circle([lat, lng], { color: '#3a3a3a', radius: 200, weight: 5 })
       .bindTooltip(capitalName, {
         permanent: true,
         direction: 'center',
@@ -91,6 +91,7 @@ export default function CountryMap({ isoCode, color, fillColor, hasCapital, mark
 CountryMap.defaultProps = {
   color: '#f6f6f6',
   fillColor: '#dddddd',
+  fillColorCountry: '#efcb3a',
   hasCapital: true,
   markers: null,
 };
@@ -100,5 +101,6 @@ CountryMap.propTypes = {
   markers: PropTypes.array,
   color: PropTypes.string,
   fillColor: PropTypes.string,
+  fillColorCountry: PropTypes.string,
   hasCapital: PropTypes.bool,
 };
