@@ -1,4 +1,7 @@
-import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon, Text } from '@dataesr/react-dsfr';
+import { Button, Col, Row, Icon, Text } from '@dataesr/react-dsfr';
+// eslint-disable-next-line import/no-unresolved
+import { Modal, ModalTitle, ModalContent } from '@dataesr/dsfr-plus';
+
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';

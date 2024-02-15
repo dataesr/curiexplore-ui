@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
+import { Modal, ModalTitle, ModalContent } from '@dataesr/dsfr-plus';
 import {
   Button,
   Col,
@@ -8,7 +10,7 @@ import {
   Row,
   Text,
   Title,
-  Modal, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
+} from '@dataesr/react-dsfr';
 
 function AddressCard({ address, displayName }) {
   return (
