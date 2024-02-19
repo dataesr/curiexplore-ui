@@ -33,7 +33,7 @@ export default function ActorCard({
     <div className="fr-card fr-enlarge-link fr-card--sm fr-card--no-border fr-card--grey ">
       <div className="fr-card__body">
         <div className="fr-card__content fr-pb-1w">
-          <Title as="h4" look="h6" className="fr-card__title">
+          <Title as="h4" look="h6">
             <Link to={url}>{title}</Link>
           </Title>
           <p className="fr-card__desc">

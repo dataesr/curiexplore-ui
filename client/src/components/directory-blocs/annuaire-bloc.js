@@ -54,7 +54,7 @@ function AnnuaireBloc({ selectedLetter }) {
           ))
             ? (
               <>
-                <Row alignItems="middle" className="fr-pb-1w">
+                <Row alignItems="middle" className="fr-pb-3w">
                   <Link href={`../pays/${el.fields.iso3}`}>
                     <Title as="h1" className="d-inline">
                       {`${el.fields.name_fr} (${el.fields.name_native})`}

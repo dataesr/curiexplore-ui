@@ -38,7 +38,7 @@ export default function CountryCard({ color, description, fillColor, fillColorCo
           </div>
         </div>
       </div>
-      <span className="ri-xl icon-left ds-fr--v-middle ri-arrow-right-line ds-fr-card-icon" aria-label="Flèche vers la droite" />
+      {/* <span className="ri-xl icon-left ds-fr--v-middle ri-arrow-right-line ds-fr-card-icon" aria-label="Flèche vers la droite" /> */}
     </div>
   );
 }

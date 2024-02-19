@@ -29,11 +29,15 @@ function AddressCard({ address, displayName }) {
                 <br />
                 {address.city && <Text className="d-inline" bold>{address.city}</Text>}
               </div>
-              <div>
+              <div className="fr-pt-1w">
                 {address.phonenumber && (
                   <Text className="d-inline">
                     <Icon name="ri-phone-fill">
-                      {address.phonenumber}
+                      <a
+                        href={`tel: ${address.phonenumber}`}
+                      >
+                        {address.phonenumber}
+                      </a>
                     </Icon>
                   </Text>
                 )}
@@ -91,7 +95,7 @@ export default function StructureCard({ data, type, website }) {
   return (
     <>
       <Container className={`fr-card fr-card--grey ${type}-border-card fr-pb-1w`}>
-        <Row className="fr-pt-1w">
+        <Row className="fr-p-1w">
           <Col>
             <Title as="h2" look="h4">{labels.cardTitle}</Title>
           </Col>
@@ -109,7 +113,7 @@ export default function StructureCard({ data, type, website }) {
             </Col>
           ) : ''}
         </Row>
-        <Row>
+        <Row className="fr-p-1w">
           <Col>
             {data?.length === 1 && (
               <>
@@ -127,7 +131,11 @@ export default function StructureCard({ data, type, website }) {
                 {data[0].currentLocalisation.phonenumber && (
                   <Text className="d-inline">
                     <Icon name="ri-phone-fill">
-                      {data[0].currentLocalisation.phonenumber}
+                      <a
+                        href={`tel: ${data[0].currentLocalisation.phonenumber}`}
+                      >
+                        {data[0].currentLocalisation.phonenumber}
+                      </a>
                     </Icon>
                   </Text>
                 )}
