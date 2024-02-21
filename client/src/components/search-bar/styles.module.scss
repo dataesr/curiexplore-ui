@@ -2,7 +2,6 @@
   width: 100%;
 }
 .searchbar {
-  flex-flow: row 1;
   width: 100%;
 }
 .label {
@@ -37,7 +36,7 @@
     border-radius: 0 0 .5rem .5rem;
     background-color: var(--background-default-grey);
     box-shadow: 0 6px 18px 0 var(--border-default-grey);
-    position: absolute;
+    // position: absolute;
     top: 0;
     right: 0;
     left: 0;

@@ -12,7 +12,9 @@ export default function Layout() {
   return (
     <>
       <Header switchTheme={{ isOpen: isSwitchThemeOpen, setIsOpen: setIsSwitchThemeOpen }} />
-      <SwitchTheme isOpen={isSwitchThemeOpen} setIsOpen={setIsSwitchThemeOpen} />
+      <div className="fr-radio-group">
+        <SwitchTheme isOpen={isSwitchThemeOpen} setIsOpen={setIsSwitchThemeOpen} />
+      </div>
       <div role="alert" id="notice-container" />
       <Container as="main" role="main" fluid id="a11yContent">
         <Outlet />
