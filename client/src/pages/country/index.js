@@ -6,15 +6,13 @@ import {
   ButtonGroup,
   Col, Container, Row, Link,
   Icon,
+  Modal, ModalClose, ModalContent, ModalTitle,
   SideMenu, SideMenuLink,
   Text,
   Title,
   Checkbox,
   Highlight,
 } from '@dataesr/react-dsfr';
-// eslint-disable-next-line import/no-unresolved
-import { Modal, ModalTitle, ModalContent, ModalClose } from '@dataesr/dsfr-plus';
-
 import { FormattedDate } from 'react-intl';
 import { v4 as uuidV4 } from 'uuid';
 import Button from '../../components/button';
@@ -39,7 +37,7 @@ export default function Fiche({ exportState }) {
   const { data, isLoading, error, isUnknownCountry } = useFetchData(isoCode);
   let actorName = '';
 
-  // const dataPays = data['curiexplore-pays']?.filter((country) => country?.fields?.curiexplore === 'TRUE').find((country) => country?.fields?.iso3 === isoCode)?.fields;
+  // const dataPays = data['curiexplore-pays']?.filter((country) => country.fields.curiexplore === 'TRUE').find((country) => country.fields.iso3 === isoCode).fields;
   const dataPays = data['curiexplore-pays']?.find((country) => country.fields.iso3 === isoCode).fields;
   const dataTimestamp = data['curiexplore-timestamp']?.[0]?.fields;
   const campusFrance = dataPays?.cf_mobility;
