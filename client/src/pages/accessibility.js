@@ -56,23 +56,23 @@ export default function MentionsLegalesPage() {
           </Text>
           <ul className="ul-styled">
             <li>
-              Composants modals : l’utilisation de composants JavaScript non accessibles aux technologies d’assistance.
+              Composants modals : l’utilisation de composants JavaScript non accessibles aux technologies d’assistance;
             </li>
             <li>
-              Exports PDF non accessibles
+              Exports PDF non accessibles.
             </li>
           </ul>
           <Title as="h2">
             Établissement de cette déclaration d’accessibilité
           </Title>
           <Text>
-            Cette déclaration a été établie en octobre 2023.
+            Cette déclaration a été établie en décembre 2023.
             {' '}
             <br />
             Elle a été mise à jour :
             <ul className="ul-styled">
               <li>
-                en décembre 2023
+                en février 2024.
               </li>
             </ul>
           </Text>
