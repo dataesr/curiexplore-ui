@@ -1,4 +1,4 @@
-import { Callout, Col, Icon, Link, Title } from '@dataesr/react-dsfr';
+import { Callout, Col, Icon, Link } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
 export default function WikipediaCard({ title, nameEn }) {
@@ -6,7 +6,7 @@ export default function WikipediaCard({ title, nameEn }) {
     (title && nameEn) && (
       <Col n="12 md-6">
         <Callout hasInfoIcon={false} colors={['#F5E498', '#eee']}>
-          <Title as="h3" look="h6">
+          <h3 className="fr-card__title">
             <Icon name="ri-wikipedia-line" />
             <Link
               href={`https://en.wikipedia.org/wiki/${encodeURIComponent(nameEn?.replace(/\s/g, '_'))}`}
@@ -15,7 +15,7 @@ export default function WikipediaCard({ title, nameEn }) {
             >
               {`Wikipedia (${title})`}
             </Link>
-          </Title>
+          </h3>
         </Callout>
       </Col>
     )

@@ -1,4 +1,4 @@
-import { Callout, Col, Icon, Link, Row, Title } from '@dataesr/react-dsfr';
+import { Callout, Col, Icon, Link, Row } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
 function Identifiers({ type, identifiersId }) {
@@ -88,12 +88,12 @@ function Identifiers({ type, identifiersId }) {
       {type.map((el, index) => (
         <Col n="12 md-4" key={index}>
           <Callout hasInfoIcon={false} colors={['#5958A8', '#eee']}>
-            <Title as="h3" look="h6">
+            <h3 className="fr-card__title">
               <Icon name="ri-wikipedia-line" />
               <Link href={getLink({ type: el, value: identifiersId[index] })} target="_blank">
                 {`${el.charAt(0).toUpperCase() + el.slice(1)} (${identifiersId[index]})`}
               </Link>
-            </Title>
+            </h3>
           </Callout>
         </Col>
       ))}

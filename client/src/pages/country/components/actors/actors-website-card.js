@@ -1,4 +1,4 @@
-import { Callout, Col, Icon, Link, Title } from '@dataesr/react-dsfr';
+import { Callout, Col, Icon, Link } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 
 export default function WebSiteCard({ languages, links, name }) {
@@ -11,12 +11,12 @@ export default function WebSiteCard({ languages, links, name }) {
       {languages.map((language, index) => (
         <Col key={index} n="12 md-6">
           <Callout hasInfoIcon={false} colors={['#F5E498', '#eee']}>
-            <Title as="h3" look="h6">
+            <h3 className="fr-card__title">
               <Icon name="ri-global-line" />
               <Link href={links[index]} target="blank">
                 {`${name} (${language || ''})`}
               </Link>
-            </Title>
+            </h3>
           </Callout>
         </Col>
       ))}

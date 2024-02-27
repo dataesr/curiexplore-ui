@@ -1,8 +1,8 @@
-import { Callout, Col, Icon, Link, Row, Title } from '@dataesr/react-dsfr';
+import { Callout, Col, Icon, Link, Row } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-import Titre from '../../../../components/title';
+import Title from '../../../../components/title';
 import { renderIcon } from '../../../../utils/renderSocialMediasIcon';
 
 function SocialNetworkCard({ actorId }) {
@@ -26,7 +26,7 @@ function SocialNetworkCard({ actorId }) {
   return (
     data?.data?.length > 0 && (
       <>
-        <Titre
+        <Title
           as="h2"
           className="fr-mb-0"
           title=" Réseaux sociaux"
@@ -38,13 +38,13 @@ function SocialNetworkCard({ actorId }) {
                 hasInfoIcon={false}
                 colors={['#9A99F5', '#eee']}
               >
-                <Title as="h3" look="h6">
+                <h3 className="fr-card__title">
                   <Icon name={`ri-${socialmedia.type}-line`} />
                   {renderIcon(socialmedia.type)}
                   <Link href={socialmedia.account} target="_blank">
                     {socialmedia.type}
                   </Link>
-                </Title>
+                </h3>
               </Callout>
             </Col>
           ))}
