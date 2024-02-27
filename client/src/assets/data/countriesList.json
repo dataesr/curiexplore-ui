@@ -1790,12 +1790,5 @@
         "Pays_eng": "Quebec",
         "hasData": "TRUE",
         "Pays_search": "Quebec"
-    },
-    {
-        "ISO_alpha3": "OED",
-        "Pays": "OCDE",
-        "Pays_eng": "OECD",
-        "hasData": "FALSE",
-        "Pays_search": "oCDE"
     }
 ]
