@@ -37,7 +37,7 @@ export default function ExportPage() {
     policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A3'))?.fields || null);
     policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A4'))?.fields || null);
     dataES = dataAnalyse.find((el) => (el.fields.codethematique === 'A5'))?.fields || null;
-    dataRI = dataAnalyse.find((el) => (el.fields.codethematique === 'A6')).fields || null;
+    dataRI = dataAnalyse.find((el) => (el.fields.codethematique === 'A6'))?.fields || null;
 
     cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A7'))?.fields || null);
     cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A8'))?.fields || null);
@@ -64,7 +64,7 @@ export default function ExportPage() {
             {dataPays.name_native}
             )
           </Title>
-          <img alt="Drapeau" className="fr-ml-2w" src={dataPays.flag} height="40px" />
+          <img alt="" className="fr-ml-2w" src={dataPays.flag} height="40px" />
           <Text spacing="mb-1v ml-auto" as="span" size="xs" bold={false}>
             {' '}
             Mis à jour le

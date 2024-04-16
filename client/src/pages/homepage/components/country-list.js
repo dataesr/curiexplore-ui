@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row, Text, Container, Button } from '@dataesr/react-dsfr';
+import { Col, Row, Container, Button, Title } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import worldGeoJSON from '../../../assets/data/custom.geo.json';
@@ -38,15 +38,17 @@ export default function CountryList({ region }) {
       <Row gutters spacing="mb-6w">
         {countriesToShow.map(([letter, countries]) => (
           <Col n="3" key={letter}>
-            <Text className="fr-mb-1v" size="lead" bold>
+            <Title as="h3" look="h6" className="fr-mb-1v" size="lead" bold>
               {letter.toUpperCase()}
-            </Text>
+            </Title>
             <hr />
-            {countries.map((country) => (
-              <Row key={country.iso}>
-                <Link to={`/pays/${country.iso}`}>{country.name_fr}</Link>
-              </Row>
-            ))}
+            <ul>
+              {countries.map((country) => (
+                <li key={country.iso}>
+                  <Link to={`/pays/${country.iso}`}>{country.name_fr}</Link>
+                </li>
+              ))}
+            </ul>
           </Col>
         ))}
         {!showAllCountries && (

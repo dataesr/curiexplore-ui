@@ -71,6 +71,9 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
           lang: {
             downloadPNG: 'Télécharger en format PNG',
             downloadCSV: 'Télécharger en format CSV',
+            accessibility: {
+              chartContainerLabel: title,
+            },
           },
           credits: {
             enabled: false,
@@ -155,7 +158,7 @@ export default function useFetchData({ charts, countryCode, countryCodeCurrent =
       setIsLoading(false);
     };
     getData();
-  }, [charts, countryCode, countryCodeCurrent]);
+  }, [charts, countryCode, countryCodeCurrent, title]);
 
   return { options, title, isLoading, error };
 }

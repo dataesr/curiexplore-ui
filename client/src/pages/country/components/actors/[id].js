@@ -10,6 +10,7 @@ import Identifiers from './actors-identifiers-card';
 import WebSiteCard from './actors-website-card';
 import WikipediaCard from './actors-wikipedia-card';
 import SocialNetworkCard from './actors-socialMedias-card';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 function RankingCard({ link, name }) {
   let rankingName = '';
@@ -77,6 +78,8 @@ export default function Actor() {
   const actorWebsiteUrl = dataActor.websites.map((url) => url.url);
   const actorNameEN = dataActor.currentName.nameEn;
 
+  useTitle(`${dataActor.displayName} - Curiexplore`);
+
   if (!dataActor) {
     return (
       <div>
@@ -95,7 +98,7 @@ export default function Actor() {
     <Container fluid>
       <Row>
         <Title
-          as="h3"
+          as="h1"
           title={`${dataActor.displayName}  (${dataActor.currentLocalisation.country})`}
           subTitle={subtitle}
           icon=""
@@ -114,27 +117,27 @@ export default function Actor() {
       <Row gutters>
         {
           dataActor.currentLocalisation.geometry && (
-            <Col n="8">
+            <Col n="8" aria-hidden>
               <MapWithMarkers data={[{ gps: dataActor.currentLocalisation.geometry.coordinates, label: dataActor.displayName, iconColor: 'blue' }]} />
             </Col>
           )
         }
         {
-        dataActor.currentLocalisation && (
-        <Col n="4">
-          <Callout
-            hasInfoIcon={false}
-            colors={['#e18b76', '#eee']}
-          >
-            <AddressCard address={dataActor.currentLocalisation} />
-          </Callout>
+          dataActor.currentLocalisation && (
+            <Col n="4">
+              <Callout
+                hasInfoIcon={false}
+                colors={['#e18b76', '#eee']}
+              >
+                <AddressCard address={dataActor.currentLocalisation} />
+              </Callout>
 
-        </Col>
+            </Col>
           )
         }
       </Row>
       <Title
-        as="h3"
+        as="h2"
         className="fr-mt-1"
         title="Sur le web"
       />
@@ -146,13 +149,13 @@ export default function Actor() {
       {actorIdentifierType.length > 0 && actorIdentifierValues.length > 0 && (
         <>
           <Title
-            as="h3"
+            as="h2"
             className="fr-mb-0"
             title="Identifiants"
           />
           <Identifiers type={actorIdentifierType} identifiersId={actorIdentifierValues} />
         </>
-)}
+      )}
       <SocialNetworkCard actorId={actorId} />
 
       {
@@ -160,7 +163,7 @@ export default function Actor() {
           <>
             <Row className="fr-pt-3w">
               <Col>
-                <Title as="h3">
+                <Title as="h2">
                   Présence dans les classements internationnaux &nbsp;
                   <Badge text={dataActor.rankings.length.toString()} colorFamily="green-menthe" />
                 </Title>

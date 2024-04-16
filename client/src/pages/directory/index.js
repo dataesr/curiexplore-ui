@@ -1,39 +1,47 @@
+import PropTypes from 'prop-types';
 import { Container, Col, Row, Text } from '@dataesr/react-dsfr';
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useState } from 'react';
 
 import AnnuaireBloc from '../../components/directory-blocs/annuaire-bloc';
+import { useTitle } from '../../hooks/usePageTitle';
+
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'y', 'z'];
+
+function Filter({ selectedLetter, setSelectedLetterHandler }) {
+  return (
+    <Row gutters>
+      <Col n="12" className="fr-mt-3w text-center d-inline">
+        <ul className="d-inline">
+          {letters.map((letter) => (
+            <li className="d-inline">
+              <button
+                key={`${letter}-key`}
+                onClick={() => setSelectedLetterHandler(letter)}
+                style={(letter === selectedLetter) ? { fontWeight: 'bold', textDecoration: 'underline' } : null}
+                aria-current={(letter === selectedLetter)}
+                type="button"
+              >
+                <Text>{letter}</Text>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </Col>
+    </Row>
+  );
+}
+Filter.propTypes = {
+  selectedLetter: PropTypes.string.isRequired,
+  setSelectedLetterHandler: PropTypes.func.isRequired,
+};
 
 export default function DirectoryPage() {
   const [selectedLetter, setSelectedLetter] = useState('a');
-  const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'y', 'z'];
-
-  const LettersBloc = () => (
-    letters.map((currentLetter) => (
-      <button
-        key={uuidv4()}
-        onClick={() => setSelectedLetter(currentLetter)}
-        style={(currentLetter === selectedLetter) ? { fontWeight: 'bold', textDecoration: 'underline' } : null}
-        type="button"
-      >
-        <Text>{currentLetter}</Text>
-      </button>
-    ))
-  );
-
+  useTitle('Annuaire - Curiexplore');
   return (
     <Container as="section">
-      <Row gutters>
-        <Col n="12" className="fr-mt-3w text-center">
-          {LettersBloc()}
-        </Col>
-      </Row>
+      <Filter selectedLetter={selectedLetter} setSelectedLetterHandler={setSelectedLetter} />
       <AnnuaireBloc selectedLetter={selectedLetter} />
-      <Row gutters>
-        <Col n="12" className="fr-mt-3w text-center">
-          {LettersBloc()}
-        </Col>
-      </Row>
     </Container>
   );
 }

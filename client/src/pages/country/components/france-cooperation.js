@@ -8,6 +8,7 @@ import PublicationsChart from '../../../components/open-alex-charts/publications
 import InstitutionsChart from '../../../components/open-alex-charts/institutions-chart';
 import Title from '../../../components/title';
 import getLabel from '../../../utils/getLabel';
+import { useTitle } from '../../../hooks/usePageTitle';
 
 export default function FranceCooperationPage() {
   const { isoCode } = useParams();
@@ -19,6 +20,7 @@ export default function FranceCooperationPage() {
   const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/projects/search`;
   const urlStructures = `${process.env.REACT_APP_SCANR_API_URL}/structures/search`;
   const years = useMemo(() => ([2017, 2018, 2019]), []);
+  useTitle('Coopération française - CurieXplore');
 
   useEffect(() => {
     setIso2(contextData['curiexplore-pays'].find((country) => country.fields.iso3 === isoCode).fields.iso2);
@@ -167,6 +169,7 @@ export default function FranceCooperationPage() {
       <Row>
         <Col n="12">
           <Title
+            as="h2"
             title="Les liens avec la France"
           />
           <Text className="fr-mb-3w">
@@ -184,7 +187,7 @@ export default function FranceCooperationPage() {
                 <Title
                   icon="ri-arrow-up-circle-line"
                   title={topTenFrenchTitle(frenchStructureWithNbProjects.length.toString())}
-                  as="h4"
+                  as="h3"
                   look="h4"
                   subTitle={subTitle}
                 />
@@ -215,7 +218,7 @@ export default function FranceCooperationPage() {
                 <Title
                   icon="ri-arrow-up-circle-line"
                   title={topTenCountryTitle(foreignStructureWithNbProjects.length.toString())}
-                  as="h4"
+                  as="h3"
                   look="h4"
                   subTitle={subTitle}
                 />

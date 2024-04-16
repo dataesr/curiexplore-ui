@@ -1,0 +1,238 @@
+[
+    {
+        "iso3": "GIB",
+        "zoom": 5
+    },
+    {
+        "iso3": "TLS",
+        "zoom": 5
+    },
+    {
+        "iso3": "MAC",
+        "zoom": 5
+    },
+    {
+        "iso3": "CA-QC",
+        "zoom": 4
+    },
+    {
+        "iso3": "BHS",
+        "zoom": 4
+    },
+    {
+        "iso3": "BTN",
+        "zoom": 5
+    },
+    {
+        "iso3": "BIH",
+        "zoom": 5
+    },
+    {
+        "iso3": "ALB",
+        "zoom": 5
+    },
+    {
+        "iso3": "ARM",
+        "zoom": 5
+    },
+    {
+        "iso3": "AZE",
+        "zoom": 5
+    },
+    {
+        "iso3": "BLZ",
+        "zoom": 5
+    },
+    {
+        "iso3": "BRN",
+        "zoom": 5
+    },
+    {
+        "iso3": "BGR",
+        "zoom": 5
+    },
+    {
+        "iso3": "CYP",
+        "zoom": 5
+    },
+    {
+        "iso3": "SMR",
+        "zoom": 6
+    },
+    {
+        "iso3": "GAB",
+        "zoom": 5
+    },
+    {
+        "iso3": "GMB",
+        "zoom": 6
+    },
+    {
+        "iso3": "GNQ",
+        "zoom": 6
+    },
+    {
+        "iso3": "GEO",
+        "zoom": 5
+    },
+    {
+        "iso3": "HKG",
+        "zoom": 6
+    },
+    {
+        "iso3": "HUN",
+        "zoom": 5
+    },
+    {
+        "iso3": "IDN",
+        "zoom": 3
+    },
+    {
+        "iso3": "ISR",
+        "zoom": 6
+    },
+    {
+        "iso3": "ITA",
+        "zoom": 6
+    },
+    {
+        "iso3": "JOR",
+        "zoom": 5
+    },
+    {
+        "iso3": "KAZ",
+        "zoom": 3
+    },
+    {
+        "iso3": "KOS",
+        "zoom": 5
+    },
+    {
+        "iso3": "LIE",
+        "zoom": 7
+    },
+    {
+        "iso3": "LBN",
+        "zoom": 5
+    },
+    {
+        "iso3": "LTU",
+        "zoom": 5
+    },
+    {
+        "iso3": "LUX",
+        "zoom": 6
+    },
+    {
+        "iso3": "MKD",
+        "zoom": 6
+    },
+    {
+        "iso3": "MDA",
+        "zoom": 5
+    },
+    {
+        "iso3": "MNG",
+        "zoom": 3
+    },
+    {
+        "iso3": "MNE",
+        "zoom": 6
+    },
+    {
+        "iso3": "NZL",
+        "zoom": 3
+    },
+    {
+        "iso3": "PSE",
+        "zoom": 7
+    },
+    {
+        "iso3": "NLD",
+        "zoom": 5
+    },
+    {
+        "iso3": "PRT",
+        "zoom": 5
+    },
+    {
+        "iso3": "PRI",
+        "zoom": 5
+    },
+    {
+        "iso3": "QAT",
+        "zoom": 5
+    },
+    {
+        "iso3": "ROU",
+        "zoom": 5
+    },
+    {
+        "iso3": "CZE",
+        "zoom": 5
+    },
+    {
+        "iso3": "SRB",
+        "zoom": 5
+    },
+    {
+        "iso3": "SGP",
+        "zoom": 5
+    },
+    {
+        "iso3": "SVK",
+        "zoom": 5
+    },
+    {
+        "iso3": "SVN",
+        "zoom": 5
+    },
+    {
+        "iso3": "CHE",
+        "zoom": 5
+    },
+    {
+        "iso3": "SYR",
+        "zoom": 5
+    },
+    {
+        "iso3": "TJK",
+        "zoom": 5
+    },
+    {
+        "iso3": "TWN",
+        "zoom": 5
+    },
+    {
+        "iso3": "TUN",
+        "zoom": 5
+    },
+    {
+        "iso3": "TUR",
+        "zoom": 5
+    },
+    {
+        "iso3": "UKR",
+        "zoom": 5
+    },
+    {
+        "iso3": "VAT",
+        "zoom": 7
+    },
+    {
+        "iso3": "VUT",
+        "zoom": 3
+    },
+    {
+        "iso3": "HRV",
+        "zoom": 5
+    },
+    {
+        "iso3": "MLT",
+        "zoom": 5
+    },
+    {
+        "iso3": "WSM",
+        "zoom": 2
+    }
+]

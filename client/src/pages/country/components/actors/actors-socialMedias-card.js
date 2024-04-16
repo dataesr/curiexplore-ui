@@ -27,7 +27,7 @@ function SocialNetworkCard({ actorId }) {
     data?.data?.length > 0 && (
       <>
         <Title
-          as="h3"
+          as="h2"
           className="fr-mb-0"
           title=" Réseaux sociaux"
         />
@@ -38,13 +38,13 @@ function SocialNetworkCard({ actorId }) {
                 hasInfoIcon={false}
                 colors={['#9A99F5', '#eee']}
               >
-                <h6 className="fr-card__title">
+                <h3 className="fr-card__title">
                   <Icon name={`ri-${socialmedia.type}-line`} />
                   {renderIcon(socialmedia.type)}
                   <Link href={socialmedia.account} target="_blank">
                     {socialmedia.type}
                   </Link>
-                </h6>
+                </h3>
               </Callout>
             </Col>
           ))}

@@ -15,10 +15,12 @@ export default function Overview({ data }) {
   const MOYSCO = { ...data.find((el) => el.fields.code === 'MOYSCO')?.fields };
 
   // Effectif total supérieur
-  const total = { ...data
-    // récupérer la donnée la plus récente
-    .sort((a, b) => b.fields.year - a.fields.year)
-    .find((el) => el.fields.code === '25053')?.fields };
+  const total = {
+    ...data
+      // récupérer la donnée la plus récente
+      .sort((a, b) => b.fields.year - a.fields.year)
+      .find((el) => el.fields.code === '25053')?.fields,
+  };
 
   // Effectif par domaine d'études
   for (let j = 0; j < charts.length; j += 1) {
@@ -38,27 +40,27 @@ export default function Overview({ data }) {
   const getIndicator = (code) => {
     if (code.code === 'MOYSCO') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value.toFixed(1)}
           &nbsp;
           {code.unit}
-        </h3>
+        </p>
       );
     }
     if (code.code === ID_TOTAL_STU) {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {formatNumber(Math.floor(code.value))}
           &nbsp;étudiants
-        </h3>
+        </p>
       );
     }
     if (code.code === seriesCountry[0].code) {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value.toFixed(0)}
           &nbsp;%
-        </h3>
+        </p>
       );
     }
     return null;
@@ -67,14 +69,14 @@ export default function Overview({ data }) {
   return (
     <>
       <Title
-        as="h3"
+        as="h2"
         icon="ri-search-eye-line"
         title="En un clin d'oeil"
       />
       <Row gutters className="fr-mb-1w">
         {
           (Object.keys(total).length !== 0) ? (
-            <Col n="4">
+            <Col n="12 md-4">
               <IndicatorCard
                 badgeLabel={total.year}
                 indicator={getIndicator(total)}
@@ -85,7 +87,7 @@ export default function Overview({ data }) {
         }
         {
           ((Object.keys(seriesCountry[0]).length !== 0) && (seriesCountry[0].value !== 0)) ? (
-            <Col n="4">
+            <Col n="12 md-4">
               <IndicatorCard
                 badgeLabel={seriesCountry[0].year}
                 indicator={getIndicator(seriesCountry[0])}
@@ -96,7 +98,7 @@ export default function Overview({ data }) {
         }
         {
           (Object.keys(MOYSCO).length !== 0) ? (
-            <Col n="4">
+            <Col n="12 md-4">
               <IndicatorCard
                 badgeLabel={MOYSCO.year}
                 indicator={getIndicator(MOYSCO)}

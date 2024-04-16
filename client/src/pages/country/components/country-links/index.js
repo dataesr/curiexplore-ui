@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { Col, Container, Row } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Text, Icon } from '@dataesr/react-dsfr';
 import useFetchData from './hooks/useFetchData';
 
 import RessourceTile from './components/tile';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 const mappings = {
   openData: {
@@ -25,6 +26,7 @@ const mappings = {
 export default function CountryLinksPages() {
   const { isoCode } = useParams();
   const { data, isLoading } = useFetchData({ isoCode });
+  useTitle('Liens utiles - Curiexplore');
 
   if (isLoading) {
     return <div>Chargement en cours ...</div>;
@@ -36,6 +38,15 @@ export default function CountryLinksPages() {
 
   return (
     <Container fluid>
+      <Row>
+        <Col>
+          <Text>
+            <Icon name="ri-error-warning-line" color="var(--border-default-blue-ecume)" />
+            Certains des éléments ci-dessous peuvent être dans la langue d'origine.
+          </Text>
+        </Col>
+
+      </Row>
       <Row gutters>
         {data.records.map((link) => (
           <Col n="12" key={link.fields.url}>

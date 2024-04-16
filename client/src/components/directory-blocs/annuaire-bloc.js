@@ -56,14 +56,14 @@ function AnnuaireBloc({ selectedLetter }) {
               <>
                 <Row alignItems="middle" className="fr-pb-1w">
                   <Link href={`../pays/${el.fields.iso3}`}>
-                    <Title as="h2" className="d-inline">
+                    <Title as="h1" className="d-inline">
                       {`${el.fields.name_fr} (${el.fields.name_native})`}
                     </Title>
-                    <img alt="Drapeau" className="fr-ml-2w" src={el.fields.flag} height="40px" />
+                    <img alt="" className="fr-ml-2w" src={el.fields.flag} height="40px" />
                   </Link>
                 </Row>
                 <Row gutters>
-                  <Col n="12 md-6">
+                  <Col n="12 md-6" aria-hidden>
                     <MapWithMarkers
                       data={addressesList.filter((item) => item !== null && item.iso3 === el.fields.iso3)}
                       style={{ height: '430px' }}

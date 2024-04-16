@@ -5,5 +5,6 @@ export default {
   'Amérique du Nord': 'North America',
   'Amérique latine et Caraïbes': 'Latin America & Caribbean',
   'Asie de l\'Est et Pacifique': 'East Asia & Pacific',
+  'Asie du Sud': 'South Asia',
   'Europe et Asie centrale': 'Europe & Central Asia',
 };

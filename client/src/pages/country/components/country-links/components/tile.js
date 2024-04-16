@@ -6,13 +6,13 @@ export default function RessourceTile({ pictogram, title, href, description, bad
   return (
     <div className="fr-tile fr-enlarge-link fr-tile--horizontal">
       <div className="fr-tile__body fr-m-3w">
+        <h2 className="fr-tile__title fr-m-0" title="Titre dans la langue du pays">
+          <a className="fr-tile__link" target="_blank" rel="noopener noreferrer" href={href}>{title}</a>
+        </h2>
         <div className="fr-badge-group">
           <Badge isSmall text={badge} colorFamily={colorFamily} />
         </div>
-        <h4 className="fr-tile__title fr-m-0">
-          <a className="fr-tile__link" target="_blank" rel="noopener noreferrer" href={href}>{title}</a>
-        </h4>
-        <p className="fr-card__detail">{description}</p>
+        <p className="fr-card__detail" title="Description dans la langue du pays">{description}</p>
         <p className="fr-card__detail">{date}</p>
       </div>
       <div className="fr-tile__img tile-img">

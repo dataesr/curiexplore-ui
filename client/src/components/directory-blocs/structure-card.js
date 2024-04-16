@@ -15,23 +15,29 @@ function AddressCard({ address, displayName }) {
     <div className="fr-card fr-card--grey fr-mb-2w">
       <div className="fr-card__body">
         <div className="fr-card__content">
-          <Icon name="ri-map-pin-line" size="xl">
-            <strong>{displayName}</strong>
-          </Icon>
-          <div className="fr-pt-3w">
-            {address.address && <Text className="d-inline">{address.address}</Text>}
-            {' - '}
-            {address.city && <Text className="d-inline" bold>{address.city}</Text>}
-          </div>
-          <div>
-            {address.phonenumber && (
-              <Text className="d-inline">
-                <Icon name="ri-phone-fill">
-                  {address.phonenumber}
+          <ul>
+            <li>
+              <Text as="h2">
+                <Icon name="ri-map-pin-line" size="xl">
+                  <strong>{displayName}</strong>
                 </Icon>
               </Text>
-            )}
-          </div>
+              <div className="fr-pt-3w">
+                {address.address && <Text className="d-inline">{address.address}</Text>}
+                <br />
+                {address.city && <Text className="d-inline" bold>{address.city}</Text>}
+              </div>
+              <div>
+                {address.phonenumber && (
+                  <Text className="d-inline">
+                    <Icon name="ri-phone-fill">
+                      {address.phonenumber}
+                    </Icon>
+                  </Text>
+                )}
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -85,7 +91,7 @@ export default function StructureCard({ data, type, website }) {
       <Container className={`fr-card fr-card--grey ${type}-border-card fr-pb-1w`}>
         <Row className="fr-pt-1w">
           <Col>
-            <Title as="h3" look="h4">{labels.cardTitle}</Title>
+            <Title as="h2" look="h4">{labels.cardTitle}</Title>
           </Col>
           {website ? (
             <Col n="4" className="text-right">

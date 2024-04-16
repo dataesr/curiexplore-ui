@@ -9,6 +9,18 @@ code {
     monospace;
 }
 
+.ul-styled {
+  list-style-type: disc !important;
+
+  >li {
+    list-style: inherit;
+    margin-bottom: 0;
+  }
+
+  padding-left: 1rem !important;
+  margin-bottom: 1rem;
+}
+
 .stick {
   position: sticky;
   top: 0;
@@ -52,6 +64,16 @@ code {
   --embassy-color: #cac426;
 }
 
+.home-title {
+  font-weight: normal;
+  text-align: center;
+  color: #000091 !important;
+}
+
+.not-bold {
+  font-weight: normal;
+}
+
 .d-inline {
   display: inline;
 }
@@ -60,8 +82,27 @@ code {
   text-align: center;
 }
 
+.is-bold {
+  font-weight: 800;
+}
+
+.extra-large-text {
+  font-size: 1.7rem;
+}
+
 .text-right {
   text-align: right;
+}
+
+.fr-card-container {
+  position: relative;
+
+  .badge-container {
+    position: absolute;
+    top: -0.1rem;
+    left: -1.2rem;
+    padding: 0.5rem;
+  }
 }
 
 .w-100 {
@@ -104,4 +145,11 @@ code {
 .highcharts-subtitle {
   fill: var(--text-default-grey) !important;
   font-family: 'Marianne' !important;
+}
+
+// accessibilité
+.skipLinks-a11y {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
 }

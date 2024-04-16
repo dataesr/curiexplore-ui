@@ -15,11 +15,13 @@ import './styles/custom.scss';
 import List from './list';
 
 import MapCategoriesActors from './map-categories-actors';
+import { useTitle } from '../../../../hooks/usePageTitle';
 
 export default function ActorsPage() {
   const contextData = useOutletContext();
   const data = contextData['actors-data'];
   const [selectedCategory, setSelectedCategory] = useState(null);
+  useTitle('Les acteurs - Curiexplore');
 
   const categoriesLabels = [
     {
@@ -123,9 +125,9 @@ export default function ActorsPage() {
       <Row>
         {Object.keys(categories).length ? (
           <Col>
-            <Title as="h3">
+            <Title as="h2">
               <Icon name="ri-filter-line" />
-              Filtres
+              Filtrez les acteurs du pays
             </Title>
             <Text><i>Cliquez sur une catégorie pour restreindre les résultats</i></Text>
           </Col>
@@ -143,7 +145,7 @@ export default function ActorsPage() {
                   selected={category === selectedCategory}
                 >
                   {categoriesLabels.find((el) => el.id === category).shortLabel}
-&nbsp;
+                  &nbsp;
                   <Badge text={categories[category].length.toString()} />
                 </Tag>
               ))}
@@ -151,7 +153,9 @@ export default function ActorsPage() {
           ) : null}
         </Col>
         <Col n={Object.keys(categories).length ? '9' : '12'} className="fr-pt-1w">
-          <MapCategoriesActors actors={addressesList} data={filteredData} />
+          <div aria-hidden>
+            <MapCategoriesActors actors={addressesList} data={filteredData} />
+          </div>
         </Col>
       </Row>
       <Row>

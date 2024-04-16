@@ -3,8 +3,11 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 
 import image1 from '../assets/img/mail-send.svg';
+import { useTitle } from '../hooks/usePageTitle';
 
 export default function ContactsAndResourcesPage() {
+  useTitle('Contacts - Curiexplore');
+
   return (
     <Container>
       <Breadcrumb>
@@ -18,7 +21,7 @@ export default function ContactsAndResourcesPage() {
       <Row>
         <Col n="12 md-8">
           <Text>
-            CurieXplore est un outil évolutif, destiné à évoluer et à héberger de nouvelles foncitonnalités. L'expérience utilisateur contribue de manière fondamentale à ces évolutions. Vous avez des questions, des remarques, des suggestions ?
+            CurieXplore est un outil évolutif, destiné à évoluer et à héberger de nouvelles fonctionnalités. L'expérience utilisateur contribue de manière fondamentale à ces évolutions. Vous avez des questions, des remarques, des suggestions ?
           </Text>
           <Text>
             N'hésitez pas à nous contacter pour les partager avec nous.

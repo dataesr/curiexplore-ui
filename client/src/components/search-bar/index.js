@@ -100,6 +100,7 @@ const SearchBar = forwardRef((props, ref) => {
       onFocus={() => setShowOptions(true)}
       role="search"
       className={classNames(styles.form, _className)}
+      id="a11ySearch"
     >
       <div className={styles.searchbar}>
         <label className={_classNameLabel} htmlFor={inputId.current}>
@@ -118,15 +119,16 @@ const SearchBar = forwardRef((props, ref) => {
             </button>
           )}
           <input
-            ref={ref}
             className="fr-input"
-            placeholder={placeholder}
-            type="search"
             id={inputId.current}
-            value={value}
-            onKeyDown={handleOnKeyDown}
             onFocus={() => setIsScopeSelected(false)}
+            onKeyDown={handleOnKeyDown}
+            placeholder={placeholder}
+            ref={ref}
             style={{ paddingLeft: `calc(${inputPadding}px + 1rem)` }}
+            title="Champ de recherche d'un pays"
+            type="search"
+            value={value}
             {...remainingProps}
           />
           {onSearch && (

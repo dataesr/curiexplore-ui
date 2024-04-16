@@ -120,7 +120,7 @@ export default function MapWithMarkers({ data, filteredData, selectedCategory, a
   }, [focus, setFocus, activeId]);
 
   return (
-    <div className="map-container shadow-light">
+    <div className="map-container shadow-light" aria-hidden>
       <MapContainer
         bounds={getBounds(data)}
         center={focus}

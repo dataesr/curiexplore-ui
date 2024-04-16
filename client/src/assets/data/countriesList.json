@@ -381,7 +381,7 @@
         "ISO_alpha3": "CUW",
         "Pays": "Cura\u00e7ao",
         "Pays_eng": "Cura\u00e7ao",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "curacao"
     },
     {
@@ -402,7 +402,7 @@
         "ISO_alpha3": "DMA",
         "Pays": "Dominique",
         "Pays_eng": "Dominica",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "dominique"
     },
     {
@@ -507,7 +507,7 @@
         "ISO_alpha3": "SGS",
         "Pays": "G\u00e9orgie du Sud-et-les \u00celes Sandwich du Sud",
         "Pays_eng": "South Georgia and the South Sandwich Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "georgie du Sud-et-les Iles Sandwich du Sud"
     },
     {
@@ -521,7 +521,7 @@
         "ISO_alpha3": "GIB",
         "Pays": "Gibraltar",
         "Pays_eng": "Gibraltar",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "gibraltar"
     },
     {
@@ -535,28 +535,28 @@
         "ISO_alpha3": "GRD",
         "Pays": "Grenade",
         "Pays_eng": "Grenada",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "grenade"
     },
     {
         "ISO_alpha3": "GRL",
         "Pays": "Groenland",
         "Pays_eng": "Greenland",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "groenland"
     },
     {
         "ISO_alpha3": "GLP",
         "Pays": "Guadeloupe",
         "Pays_eng": "Guadeloupe",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "guadeloupe"
     },
     {
         "ISO_alpha3": "GUM",
         "Pays": "Guam",
         "Pays_eng": "Guam",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "guam"
     },
     {
@@ -570,7 +570,7 @@
         "ISO_alpha3": "GGY",
         "Pays": "Guernesey",
         "Pays_eng": "Guernsey",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "guernesey"
     },
     {
@@ -605,7 +605,7 @@
         "ISO_alpha3": "GUF",
         "Pays": "Guyane fran\u00e7aise",
         "Pays_eng": "French Guiana",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "guyane francaise"
     },
     {
@@ -633,42 +633,42 @@
         "ISO_alpha3": "BVT",
         "Pays": "\u00cele Bouvet",
         "Pays_eng": "Bouvet Island",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "ile Bouvet"
     },
     {
         "ISO_alpha3": "CXR",
         "Pays": "\u00cele Christmas",
         "Pays_eng": "Christmas Island",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "ile Christmas"
     },
     {
         "ISO_alpha3": "IMN",
         "Pays": "\u00cele de Man",
         "Pays_eng": "Isle of Man",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "ile de Man"
     },
     {
         "ISO_alpha3": "HMD",
         "Pays": "\u00cele Heard-et-\u00celes MacDonald",
         "Pays_eng": "Heard Island and McDonald Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "ile Heard-et-Iles MacDonald"
     },
     {
         "ISO_alpha3": "NFK",
         "Pays": "\u00cele Norfolk",
         "Pays_eng": "Norfolk Island",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "ile Norfolk"
     },
     {
         "ISO_alpha3": "CYM",
         "Pays": "\u00celes Ca\u00efmanes",
         "Pays_eng": "Cayman Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Caimanes"
     },
     {
@@ -682,34 +682,34 @@
         "ISO_alpha3": "ALA",
         "Pays": "\u00celes d'\u00c5land",
         "Pays_eng": "\u00c5land Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles d'Aland"
     },
     {
         "ISO_alpha3": "CCK",
         "Pays": "\u00celes des Cocos (Keeling)",
         "Pays_eng": "Cocos (Keeling) Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles des Cocos (Keeling)"
     },
     {
         "ISO_alpha3": "FLK",
         "Pays": "\u00celes Falkland (Malvinas)",
         "Pays_eng": "Falkland Islands (Malvinas)",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Falkland (Malvinas)"
     },
     {
         "ISO_alpha3": "FRO",
         "Pays": "\u00celes F\u00e9ro\u00e9",
         "Pays_eng": "Faroe Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Feroe"
     },
     {
         "ISO_alpha3": "FJI",
         "Pays": "Iles Fidji",
-        "Pays_eng": "Marshall Islands",
+        "Pays_eng": "Republic of Fiji",
         "hasData": "TRUE",
         "Pays_search": "iles Fidji"
     },
@@ -717,21 +717,21 @@
         "ISO_alpha3": "MNP",
         "Pays": "\u00celes Mariannes du Nord",
         "Pays_eng": "Northern Mariana Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Mariannes du Nord"
     },
     {
         "ISO_alpha3": "MHL",
         "Pays": "\u00celes Marshall",
         "Pays_eng": "Marshall Islands",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "iles Marshall"
     },
     {
         "ISO_alpha3": "UMI",
         "Pays": "\u00celes mineures \u00e9loign\u00e9es des \u00c9tats-Unis",
         "Pays_eng": "United States Minor Outlying Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles mineures eloignees des Etats-Unis"
     },
     {
@@ -745,35 +745,35 @@
         "ISO_alpha3": "SJM",
         "Pays": "\u00celes Svalbard-et-Jan Mayen",
         "Pays_eng": "Svalbard and Jan Mayen Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Svalbard-et-Jan Mayen"
     },
     {
         "ISO_alpha3": "TCA",
         "Pays": "\u00celes Turques-et-Ca\u00efques",
         "Pays_eng": "Turks and Caicos Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Turques-et-Caiques"
     },
     {
         "ISO_alpha3": "VIR",
         "Pays": "\u00celes Vierges am\u00e9ricaines",
         "Pays_eng": "United States Virgin Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Vierges americaines"
     },
     {
         "ISO_alpha3": "VGB",
         "Pays": "\u00celes Vierges britanniques",
         "Pays_eng": "British Virgin Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Vierges britanniques"
     },
     {
         "ISO_alpha3": "WLF",
         "Pays": "\u00celes Wallis-et-Futuna",
         "Pays_eng": "Wallis and Futuna Islands",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "iles Wallis-et-Futuna"
     },
     {
@@ -850,7 +850,7 @@
         "ISO_alpha3": "JEY",
         "Pays": "Jersey",
         "Pays_eng": "Jersey",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "jersey"
     },
     {
@@ -885,7 +885,7 @@
         "ISO_alpha3": "KIR",
         "Pays": "Kiribati",
         "Pays_eng": "Kiribati",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "kiribati"
     },
     {
@@ -1025,7 +1025,7 @@
         "ISO_alpha3": "MTQ",
         "Pays": "Martinique",
         "Pays_eng": "Martinique",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "martinique"
     },
     {
@@ -1033,7 +1033,7 @@
         "Pays": "Ile Maurice",
         "Pays_eng": "Mauritius",
         "hasData": "TRUE",
-        "Pays_search": "ile Maurice"
+        "Pays_search": "ile maurice"
     },
     {
         "ISO_alpha3": "MRT",
@@ -1046,7 +1046,7 @@
         "ISO_alpha3": "MYT",
         "Pays": "Mayotte",
         "Pays_eng": "Mayotte",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "mayotte"
     },
     {
@@ -1060,7 +1060,7 @@
         "ISO_alpha3": "FSM",
         "Pays": "Etats f\u00e9d\u00e9r\u00e9s de Micron\u00e9sie",
         "Pays_eng": "Micronesia (Federated States of)",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "etats federes de Micronesie"
     },
     {
@@ -1102,7 +1102,7 @@
         "ISO_alpha3": "MSR",
         "Pays": "Montserrat",
         "Pays_eng": "Montserrat",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "montserrat"
     },
     {
@@ -1123,7 +1123,7 @@
         "ISO_alpha3": "NRU",
         "Pays": "Nauru",
         "Pays_eng": "Nauru",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "nauru"
     },
     {
@@ -1158,7 +1158,7 @@
         "ISO_alpha3": "NIU",
         "Pays": "Niou\u00e9",
         "Pays_eng": "Niue",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "nioue"
     },
     {
@@ -1172,7 +1172,7 @@
         "ISO_alpha3": "NCL",
         "Pays": "Nouvelle-Cal\u00e9donie",
         "Pays_eng": "New Caledonia",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "nouvelle-Caledonie"
     },
     {
@@ -1181,13 +1181,6 @@
         "Pays_eng": "New Zealand",
         "hasData": "TRUE",
         "Pays_search": "nouvelle-Zelande"
-    },
-    {
-        "ISO_alpha3": "OED",
-        "Pays": "OCDE",
-        "Pays_eng": "OECD",
-        "hasData": "FALSE",
-        "Pays_search": "oCDE"
     },
     {
         "ISO_alpha3": "OMN",
@@ -1263,7 +1256,7 @@
         "ISO_alpha3": "PCN",
         "Pays": "Pitcairn",
         "Pays_eng": "Pitcairn",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "pitcairn"
     },
     {
@@ -1277,14 +1270,14 @@
         "ISO_alpha3": "PYF",
         "Pays": "Polyn\u00e9sie fran\u00e7aise",
         "Pays_eng": "French Polynesia",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "polynesie francaise"
     },
     {
         "ISO_alpha3": "PRI",
         "Pays": "Porto Rico",
         "Pays_eng": "Puerto Rico",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "porto Rico"
     },
     {
@@ -1347,7 +1340,7 @@
         "ISO_alpha3": "REU",
         "Pays": "R\u00e9union",
         "Pays_eng": "R\u00e9union",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "reunion"
     },
     {
@@ -1382,70 +1375,70 @@
         "ISO_alpha3": "ESH",
         "Pays": "Sahara occidental",
         "Pays_eng": "Western Sahara",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "sahara occidental"
     },
     {
         "ISO_alpha3": "BLM",
         "Pays": "Saint-Barth\u00e9lemy",
         "Pays_eng": "Saint Barth\u00e9lemy",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "saint-Barthelemy"
     },
     {
         "ISO_alpha3": "KNA",
         "Pays": "Saint-Kitts-et-Nevis",
         "Pays_eng": "Saint Kitts and Nevis",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "saint-Kitts-et-Nevis"
     },
     {
         "ISO_alpha3": "SMR",
         "Pays": "Saint-Marin",
         "Pays_eng": "San Marino",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "saint-Marin"
     },
     {
         "ISO_alpha3": "MAF",
         "Pays": "Saint-Martin (partie fran\u00e7aise)",
         "Pays_eng": "Saint Martin (French Part)",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "saint-Martin (partie francaise)"
     },
     {
         "ISO_alpha3": "SXM",
         "Pays": "Saint-Martin (partie n\u00e9erlandaise)",
         "Pays_eng": "Sint Maarten (Dutch part)",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "saint-Martin (partie neerlandaise)"
     },
     {
         "ISO_alpha3": "SPM",
         "Pays": "Saint-Pierre-et-Miquelon",
         "Pays_eng": "Saint Pierre and Miquelon",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "saint-Pierre-et-Miquelon"
     },
     {
         "ISO_alpha3": "VAT",
         "Pays": "Saint-Si\u00e8ge",
         "Pays_eng": "Holy See",
-        "hasData": null,
+        "hasData": "TRUE",
         "Pays_search": "saint-Siege"
     },
     {
         "ISO_alpha3": "VCT",
         "Pays": "Saint-Vincent-et-les Grenadines",
         "Pays_eng": "Saint Vincent and the Grenadines",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "saint-Vincent-et-les Grenadines"
     },
     {
         "ISO_alpha3": "SHN",
         "Pays": "Sainte-H\u00e9l\u00e8ne",
         "Pays_eng": "Saint Helena",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "sainte-Helene"
     },
     {
@@ -1473,14 +1466,14 @@
         "ISO_alpha3": "ASM",
         "Pays": "Samoa am\u00e9ricaines",
         "Pays_eng": "American Samoa",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "samoa americaines"
     },
     {
         "ISO_alpha3": "STP",
         "Pays": "Sao Tom\u00e9-et-Principe",
         "Pays_eng": "Sao Tome and Principe",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "sao Tome-et-Principe"
     },
     {
@@ -1501,7 +1494,7 @@
         "ISO_alpha3": "",
         "Pays": "Sercq",
         "Pays_eng": "Sark",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "sercq"
     },
     {
@@ -1545,6 +1538,13 @@
         "Pays_eng": "Somalia",
         "hasData": "TRUE",
         "Pays_search": "somalie"
+    },
+    {
+        "ISO_alpha3": "SOL",
+        "Pays": "Somaliland",
+        "Pays_eng": "Somaliland",
+        "hasData": "TRUE",
+        "Pays_search": "somaliland"
     },
     {
         "ISO_alpha3": "SDN",
@@ -1634,14 +1634,14 @@
         "ISO_alpha3": "ATF",
         "Pays": "Terres australes fran\u00e7aises",
         "Pays_eng": "French Southern Territories",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "terres australes francaises"
     },
     {
         "ISO_alpha3": "IOT",
         "Pays": "Territoire britannique de l'oc\u00e9an Indien",
         "Pays_eng": "British Indian Ocean Territory",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "territoire britannique de l'ocean Indien"
     },
     {
@@ -1669,7 +1669,7 @@
         "ISO_alpha3": "TKL",
         "Pays": "Tok\u00e9laou",
         "Pays_eng": "Tokelau",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "tokelaou"
     },
     {
@@ -1711,7 +1711,7 @@
         "ISO_alpha3": "TUV",
         "Pays": "Tuvalu",
         "Pays_eng": "Tuvalu",
-        "hasData": null,
+        "hasData": "FALSE",
         "Pays_search": "tuvalu"
     },
     {
@@ -1741,6 +1741,13 @@
         "Pays_eng": "Vanuatu",
         "hasData": "TRUE",
         "Pays_search": "vanuatu"
+    },
+    {
+        "ISO_alpha3": "VAT",
+        "Pays": "Vatican",
+        "Pays_eng": "Holy See",
+        "hasData": "TRUE",
+        "Pays_search": "vatican"
     },
     {
         "ISO_alpha3": "VEN",
@@ -1783,5 +1790,12 @@
         "Pays_eng": "Quebec",
         "hasData": "TRUE",
         "Pays_search": "Quebec"
+    },
+    {
+        "ISO_alpha3": "OED",
+        "Pays": "OCDE",
+        "Pays_eng": "OECD",
+        "hasData": "FALSE",
+        "Pays_search": "oCDE"
     }
 ]

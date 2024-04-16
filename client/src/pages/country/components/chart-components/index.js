@@ -1,4 +1,4 @@
-import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon } from '@dataesr/react-dsfr';
+import { Button, Col, Row, Modal, ModalContent, ModalTitle, Icon, Text } from '@dataesr/react-dsfr';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
@@ -53,6 +53,11 @@ export default function ChartComponents({ charts, title, icon }) {
       <Modal isOpen={showModal} size="lg" hide={() => setShowModal(false)}>
         <ModalTitle>Sélection d'un ou plusieurs pays</ModalTitle>
         <ModalContent>
+          <Text>
+            <i>
+              Cliquez sur un pays ou un groupe de pays afin de mettre à jour les graphiques. Plusieurs sélections sont possibles.
+            </i>
+          </Text>
           <Filters
             bordersIsoCodes={bordersIsoCodes}
             currentIsoCode={isoCode}

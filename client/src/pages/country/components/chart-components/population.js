@@ -18,19 +18,19 @@ export default function PopulationComponent({ data, isoCode }) {
   );
 
   const indicator = (
-    <Text className="text-center fr-mb-0">
-      <h3 className="fr-mb-0">
+    <>
+      <p className="text-center fr-mb-1 is-bold extra-large-text">
         {lastYearData}
-      </h3>
+      </p>
       {evolution.label}
       <Icon name="ri-arrow-right-s-fill" />
-      <strong>{evolution.data}</strong>
-    </Text>
+      <Text size="sm" as="span">{evolution.data}</Text>
+    </>
   );
 
   return (
     (evolution.data !== null) ? (
-      <Col n="4">
+      <Col n="12 md-4">
         <PopulationCard
           badgeLabel={lastYear}
           description={description}

@@ -33,29 +33,29 @@ export default function CountryProfilePage() {
   const getNumber = (code) => {
     if (code.code === 'RNB') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {Math.floor(code.value).toLocaleString()}
           {' '}
           {code.unit}
-        </h3>
+        </p>
       );
     }
     if (code.code === 'IDH') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value}
           {' '}
           {code.unit}
-        </h3>
+        </p>
       );
     }
     if (code.code === 'ESPVIE') {
       return (
-        <h3 className="text-center fr-mb-0">
+        <p className="text-center fr-mb-0 is-bold extra-large-text">
           {code.value.toFixed(1)}
           {' '}
           {code.unit}
-        </h3>
+        </p>
       );
     }
     return null;
@@ -65,21 +65,23 @@ export default function CountryProfilePage() {
     <>
       <Row gutters className="fr-mb-1w">
         <Col n="12">
-          <MapContainer
-            zoomControl={false}
-            scrollWheelZoom={false}
-            attributionControl={false}
-            style={{
-              height: '400px',
-              backgroundColor: '#FFCA00',
-              position: 'relative',
-            }}
-          >
-            <CountryMap isoCode={isoCode} />
-          </MapContainer>
+          <div aria-hidden>
+            <MapContainer
+              zoomControl={false}
+              scrollWheelZoom={false}
+              attributionControl={false}
+              style={{
+                height: '400px',
+                backgroundColor: '#f6f6f6',
+                position: 'relative',
+              }}
+            >
+              <CountryMap isoCode={isoCode} />
+            </MapContainer>
+          </div>
         </Col>
       </Row>
-      <Title as="h3" title="En un clin d'oeil" icon="ri-search-eye-line" />
+      <Title as="h2" title="En un clin d'oeil" icon="ri-search-eye-line" />
       <Row gutters className="fr-mb-3w">
         {charts
           .filter(
@@ -90,7 +92,7 @@ export default function CountryProfilePage() {
             <PopulationComponent isoCode={isoCode} data={el} key={isoCode} />
           ))}
         {Object.keys(RNB).length !== 0 ? (
-          <Col n="4">
+          <Col n="12 md-4">
             <GenericCard
               badgeLabel={RNB.year}
               indicator={getNumber(RNB)}
@@ -99,7 +101,7 @@ export default function CountryProfilePage() {
           </Col>
         ) : null}
         {Object.keys(IDH).length !== 0 ? (
-          <Col n="4">
+          <Col n="12 md-4">
             <GenericCard
               badgeLabel={IDH.year}
               indicator={getNumber(IDH)}
@@ -108,7 +110,7 @@ export default function CountryProfilePage() {
           </Col>
         ) : null}
         {Object.keys(ESPVIE).length !== 0 ? (
-          <Col n="4">
+          <Col n="12 md-4">
             <GenericCard
               badgeLabel={ESPVIE.year}
               indicator={getNumber(ESPVIE)}

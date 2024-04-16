@@ -1,4 +1,4 @@
-import { Row, Col, Title } from '@dataesr/react-dsfr';
+import { Row, Col } from '@dataesr/react-dsfr';
 import './annuaire.scss';
 import PropTypes from 'prop-types';
 import StructureCard from './structure-card';

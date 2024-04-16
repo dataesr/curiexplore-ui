@@ -4,8 +4,11 @@ import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem, Title } from '@d
 
 import logoMEAE from '../assets/img/logo-meae.svg';
 import logoMESR from '../assets/img/logo-mesr.svg';
+import { useTitle } from '../hooks/usePageTitle';
 
 export default function MentionsLegalesPage() {
+  useTitle('Mentions légales - Curiexplore');
+
   return (
     <Container>
       <Breadcrumb>
@@ -32,11 +35,10 @@ export default function MentionsLegalesPage() {
       </Row>
       <Row className="fr-mb-3w">
         <Col n="12 md-8">
+          <Title as="h2" look="h6">
+            Le ministère de l'Europe et des Affaires étrangères
+          </Title>
           <Text>
-            <b>
-              Le ministère de l'Europe et des Affaires étrangères
-            </b>
-            <br />
             Direction générale de la mondialisation, de la culture, de l'enseignement et du développement international
             <br />
             Sous-direction de l'Enseignement supérieur et de la Recherche
@@ -56,18 +58,17 @@ export default function MentionsLegalesPage() {
       </Row>
       <Row className="fr-mb-3w">
         <Col n="12 md-8">
+          <Title as="h2" look="h6">
+            Le ministère de l'Enseignement supérieur et de la Recherche
+          </Title>
           <Text>
-            <b>
-              Le ministère de l'Enseignement supérieur et de la Recherche
-            </b>
-            <br />
             Direction générale de l'enseignement supérieur et de l'insertion professionnelle
             <br />
             Direction générale de la recherche et de l'innovation
             <br />
             Sous-direction des systèmes d'information et des études statistiques (SIES)
             <br />
-            Département des outils d'aide à la décision
+            Département ingénierie et science des données
             <br />
           </Text>
           <Text>
@@ -84,21 +85,22 @@ export default function MentionsLegalesPage() {
         </Col>
       </Row>
       <Row>
-        <Text>
-          <b>
+        <Col n="12 md-8">
+          <Title as="h2" look="h6">
             Prestataire d’hébergement
-          </b>
-          <br />
-          OVH
-          <br />
-          RCS Roubaix – Tourcoing 424 761 419 00045
-          <br />
-          Code APE 6202A
-          <br />
-          N° TVA : FR 22 424 761 419
-          <br />
-          Siège social : 2 rue Kellermann - 59100 Roubaix - France.
-        </Text>
+          </Title>
+          <Text>
+            OVH
+            <br />
+            RCS Roubaix – Tourcoing 424 761 419 00045
+            <br />
+            Code APE 6202A
+            <br />
+            N° TVA : FR 22 424 761 419
+            <br />
+            Siège social : 2 rue Kellermann - 59100 Roubaix - France.
+          </Text>
+        </Col>
       </Row>
     </Container>
   );
