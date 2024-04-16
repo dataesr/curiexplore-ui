@@ -25,7 +25,7 @@ export default function CountryResearchPage() {
   const charts2nd = charts.filter((indic) => indic.theme === 'personnel');
 
   if (data.length !== 0) {
-    dataRI = data.find((el) => (el.fields.codethematique === 'A6')).fields || null;
+    dataRI = data.find((el) => (el.fields.codethematique === 'A6'))?.fields || null;
   } else {
     dataRI = '';
   }

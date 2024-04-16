@@ -37,7 +37,7 @@ export default function ExportPage() {
     policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A3'))?.fields || null);
     policyBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A4'))?.fields || null);
     dataES = dataAnalyse.find((el) => (el.fields.codethematique === 'A5'))?.fields || null;
-    dataRI = dataAnalyse.find((el) => (el.fields.codethematique === 'A6')).fields || null;
+    dataRI = dataAnalyse.find((el) => (el.fields.codethematique === 'A6'))?.fields || null;
 
     cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A7'))?.fields || null);
     cooperationBlocs.push(dataAnalyse.find((el) => (el.fields.codethematique === 'A8'))?.fields || null);
