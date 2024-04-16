@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Breadcrumb, BreadcrumbItem,
   ButtonGroup,
-  Col, Container, Row, Link,
+  Callout, Col, Container, Row, Link,
   Icon,
   Modal, ModalClose, ModalContent, ModalTitle,
   SideMenu, SideMenuLink,
@@ -75,6 +75,41 @@ export default function Fiche({ exportState }) {
     setIsModalOpen(false);
     setIsExport(false);
   };
+
+  const explanation = (
+    <Text>
+      Depuis la guerre d'agression entreprise par la Fédération de Russie le 24 février 2022, la circulaire du ministère de l'Enseignement
+      supérieur et de la recherche du 28 février 2022 définit le cadre applicable à l'accueil des étudiants et des chercheurs de nationalité russe :
+      {' '}
+      <br />
+      <ul>
+        <li>
+          - les étudiants, chercheurs et enseignants-chercheurs russes qui travaillent dans nos laboratoires peuvent poursuivre leurs activités ;
+        </li>
+        <li>
+          - les coopérations bilatérales, sauf exception dûment justifiée et validée, sont suspendues ;
+        </li>
+        <li>
+          - les mobilités individuelles entrantes demeurent possibles.
+        </li>
+
+      </ul>
+      Dans le contexte d'une situation intérieure volatile, il est formellement déconseillé de se rendre dans l'ensemble du territoire de la Russie.
+      Pour vous tenir informés des conseils aux voyageurs: consulter
+      {' '}
+      <a
+        href="https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/russie/#securite"
+        target="_blank"
+        rel="noreferrer"
+      >
+        la page diplomatie de la Russie.
+      </a>
+      <br />
+      {' '}
+      <br />
+      Le service de coopération et d'action culturelle de l'ambassade de France en Russie se tient à votre disposition.
+    </Text>
+  );
 
   if (!dataPays) return null;
   return (
@@ -235,6 +270,13 @@ export default function Fiche({ exportState }) {
                     </Text>
                   </Row>
                 )}
+
+                {isoCode === 'RUS' ? (
+                  <Callout hasInfoIcon={false}>
+                    {explanation}
+                  </Callout>
+                ) : null}
+
               </Container>
               <Container fluid as="section">
                 <Outlet context={data} />
