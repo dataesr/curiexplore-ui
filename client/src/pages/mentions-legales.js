@@ -1,9 +1,15 @@
 /* eslint-disable max-len */
 import { Link as RouterLink } from 'react-router-dom';
-import { Col, Container, Row, Text, Breadcrumb, BreadcrumbItem, Title } from '@dataesr/react-dsfr';
+import {
+  Col,
+  Container,
+  Row,
+  Text,
+  Breadcrumb,
+  BreadcrumbItem,
+  Title,
+} from '@dataesr/react-dsfr';
 
-import logoMEAE from '../assets/img/logo-meae.svg';
-import logoMESR from '../assets/img/logo-mesr.svg';
 import { useTitle } from '../hooks/usePageTitle';
 
 export default function MentionsLegalesPage() {
@@ -12,25 +18,17 @@ export default function MentionsLegalesPage() {
   return (
     <Container>
       <Breadcrumb>
-        <BreadcrumbItem asLink={<RouterLink to="/" />}>
-          Accueil
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          Mentions légales
-        </BreadcrumbItem>
+        <BreadcrumbItem asLink={<RouterLink to="/" />}>Accueil</BreadcrumbItem>
+        <BreadcrumbItem>Mentions légales</BreadcrumbItem>
       </Breadcrumb>
       <Row>
         <Col>
-          <Title as="h1">
-            Mentions Légales
-          </Title>
+          <Title as="h1">Mentions Légales</Title>
         </Col>
       </Row>
       <Row>
         <Col n="12">
-          <Text>
-            Ce service est mis en place par :
-          </Text>
+          <Text>Ce service est mis en place par :</Text>
         </Col>
       </Row>
       <Row className="fr-mb-3w">
@@ -39,7 +37,8 @@ export default function MentionsLegalesPage() {
             Le ministère de l'Europe et des Affaires étrangères
           </Title>
           <Text>
-            Direction générale de la mondialisation, de la culture, de l'enseignement et du développement international
+            Direction générale de la mondialisation, de la culture, de
+            l'enseignement et du développement international
             <br />
             Sous-direction de l'Enseignement supérieur et de la Recherche
             <br />
@@ -52,21 +51,20 @@ export default function MentionsLegalesPage() {
             </b>
           </Text>
         </Col>
-        <Col n="12 md-4">
-          <img src={logoMEAE} className="fr-responsive-img" alt="Logo du Ministère de l'Europe et des Affaires étrangères" style={{ width: 200 }} aria-hidden />
-        </Col>
       </Row>
       <Row className="fr-mb-3w">
         <Col n="12 md-8">
           <Title as="h2" look="h6">
-            Le ministère de l'Enseignement supérieur et de la Recherche
+            Le ministère chargé de l'Enseignement supérieur et de la Recherche
           </Title>
           <Text>
-            Direction générale de l'enseignement supérieur et de l'insertion professionnelle
+            Direction générale de l'enseignement supérieur et de l'insertion
+            professionnelle
             <br />
             Direction générale de la recherche et de l'innovation
             <br />
-            Sous-direction des systèmes d'information et des études statistiques (SIES)
+            Sous-direction des systèmes d'information et des études statistiques
+            (SIES)
             <br />
             Département ingénierie et science des données
             <br />
@@ -79,15 +77,11 @@ export default function MentionsLegalesPage() {
             </b>
           </Text>
         </Col>
-        <Col n="12 md-4">
-          {/* TODO: LOGO MESR */}
-          <img src={logoMESR} className="fr-responsive-img" alt="Logo du Ministère de l'Europe et des Affaires étrangères" aria-hidden />
-        </Col>
       </Row>
       <Row>
         <Col n="12 md-8">
           <Title as="h2" look="h6">
-            Prestataire d’hébergement
+            Hébergement
           </Title>
           <Text>
             OVH

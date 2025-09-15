@@ -63,6 +63,19 @@ export default function ProjetEtEquipe() {
                 <li>
                   Direction générale de la mondialisation, de la culture, de l'enseignement et du développement international
                 </li>
+                <Row className="fr-pt-1w">
+                  <Col n="4">
+                    <p className="fr-logo">
+                      Ministère
+                      <br />
+                      De l'Europe
+                      <br />
+                      et des affaires
+                      <br />
+                      étrangères
+                    </p>
+                  </Col>
+                </Row>
               </ul>
             </li>
           </Text>
@@ -83,6 +96,34 @@ export default function ProjetEtEquipe() {
                   <br />
                   Sous-direction des systèmes d'information et des études statistiques (Direction générale de la recherche et de l'innovation/Direction générale de l'enseignement supérieur et de l'insertion professionnelle)
                 </li>
+                <Row className="fr-pt-1w">
+                  <Col n="4">
+                    <p className="fr-logo">
+                      Ministère
+                      <br />
+                      chargé
+                      <br />
+                      de l'enseignement
+                      <br />
+                      supérieur
+                      <br />
+                      et de la recherche
+                    </p>
+                  </Col>
+                  <Col>
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 1167.77 752.85"
+                      width="50%"
+                    >
+                      <use
+                        className="fr-text-black-white--grey"
+                        href="logo-sies.svg#sies-logo-text"
+                      />
+                      <use href="logo-sies.svg#sies-logo-artwork" />
+                    </svg>
+                  </Col>
+                </Row>
               </ul>
             </li>
           </Text>
