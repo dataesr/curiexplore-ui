@@ -54,7 +54,7 @@ export default function LastUpdated() {
               title={fields.pays}
               description={(
                 <p>
-                  Mis à jour le
+                  Mise à jour le
                   {' '}
                   <FormattedDate
                     value={fields?.submitdate}
