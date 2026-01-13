@@ -64,22 +64,25 @@ export default function CountryProfilePage() {
   return (
     <>
       <Row gutters className="fr-mb-1w">
-        <Col n="12">
-          <div aria-hidden>
-            <MapContainer
-              zoomControl={false}
-              scrollWheelZoom={false}
-              attributionControl={false}
-              style={{
-                height: '400px',
-                backgroundColor: '#f6f6f6',
-                position: 'relative',
-              }}
-            >
-              <CountryMap isoCode={isoCode} />
-            </MapContainer>
-          </div>
-        </Col>
+        {isoCode !== 'MAR' ? (
+          <Col n="12">
+            <div aria-hidden>
+              <MapContainer
+                zoomControl={false}
+                scrollWheelZoom={false}
+                attributionControl={false}
+                style={{
+                  height: '400px',
+                  backgroundColor: '#f6f6f6',
+                  position: 'relative',
+                }}
+              >
+                <CountryMap isoCode={isoCode} />
+              </MapContainer>
+            </div>
+          </Col>
+        ) : null}
+
       </Row>
       <Title as="h2" title="En un clin d'oeil" icon="ri-search-eye-line" />
       <Row gutters className="fr-mb-3w">
