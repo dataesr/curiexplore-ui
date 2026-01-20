@@ -297,7 +297,7 @@ export default function Fiche({ exportState }) {
         </ModalTitle>
         <ModalContent>
           <Highlight colorFamily="yellow-tournesol">
-            Seuls les données éditoriales rensignées par les ambassades sont exportables.
+            Seuls les données éditoriales renseignées par les ambassades sont exportables.
           </Highlight>
           <p>
             <ul>
