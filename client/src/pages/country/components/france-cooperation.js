@@ -17,8 +17,8 @@ export default function FranceCooperationPage() {
   const [dataStructuresProjects, setDataStructuresProjects] = useState([]);
   const [pending, setPending] = useState(0);
   const [iso2, setIso2] = useState('');
-  const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/projects/search`;
-  const urlStructures = `${process.env.REACT_APP_SCANR_API_URL}/structures/search`;
+  const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/scanr-projects/_search`;
+  const urlStructures = `${process.env.REACT_APP_SCANR_API_URL}/scanr-organizations/_search`;
   const years = useMemo(() => ([2017, 2018, 2019]), []);
   useTitle('Coopération française - CurieXplore');
 
@@ -30,30 +30,27 @@ export default function FranceCooperationPage() {
     const getDataProjects = async () => {
       setPending(0);
       const body = {
-        pageSize: 0,
-        query: '',
-        filters: {
-          'participants.structure.address.country': {
-            op: 'any',
-            type: 'MultiValueSearchFilter',
-            values: [getLabel(isoCode, true)],
-          },
-          year: {
-            op: 'any',
-            type: 'MultiValueSearchFilter',
-            values: [years[years.length - 1]],
+        size: 0,
+        query: {
+          bool: {
+            filter: [{
+              term: {
+                'participants.structure.mainAddress.country.keyword': getLabel(isoCode, true),
+              } },
+            {
+              terms: {
+                year: years,
+              } },
+
+            ],
           },
         },
         aggregations: {
-          'participants.structure.id': {
-            field: 'participants.structure.id',
-            filters: {},
-            min_doc_count: 1,
-            order: {
-              direction: 'DESC',
-              type: 'COUNT',
+          by_structure: {
+            terms: {
+              field: 'participants.structure.id.keyword',
+              size: 100,
             },
-            size: 100,
           },
         },
       };
@@ -68,7 +65,7 @@ export default function FranceCooperationPage() {
       });
       const json = await response.json();
 
-      setDataProjects(json.facets[0].entries);
+      setDataProjects(json.aggregations.by_structure.buckets);
       setPending(1);
     };
 
@@ -78,14 +75,16 @@ export default function FranceCooperationPage() {
   useEffect(() => {
     const getDataStructures = async () => {
       const body = {
-        pageSize: 10000,
-        query: '',
-        sourceFields: ['id', 'label', 'acronym', 'address', 'nature', 'isFrench'],
-        filters: {
-          id: {
-            type: 'MultiValueSearchFilter',
-            op: 'any',
-            values: dataProjects.map((structure) => structure.value),
+        size: 10000,
+        query: {
+          bool: {
+            filter: [
+              {
+                terms: {
+                  id: dataProjects.map((structure) => structure.key),
+                },
+              },
+            ],
           },
         },
       };
@@ -101,8 +100,8 @@ export default function FranceCooperationPage() {
         });
         const json = await response.json();
 
-        if (json.results) {
-          setDataStructuresProjects(json.results.map((structure) => structure.value));
+        if (json.hits) {
+          setDataStructuresProjects(json.hits.hits.map((structure) => structure._source));
           setPending(2);
         }
       }
@@ -114,17 +113,16 @@ export default function FranceCooperationPage() {
   // add number of projects in dataStructuresProjects
   const dataStructuresProjectsWithNbProjects = dataStructuresProjects.map((structure) => ({
     ...structure,
-    nbProjects: dataProjects.find((el) => el.value === structure.id).count,
+    nbProjects: structure?.projects?.length ?? 0,
   }));
 
   const nbTop = 5;
-
   const frenchStructureWithNbProjects = dataStructuresProjectsWithNbProjects
-    .filter((structure) => structure.address[0].country.toLowerCase() === 'france')
+    .filter((structure) => structure?.address[0]?.country?.toLowerCase() === 'france')
     .sort((a, b) => b.nbProjects - a.nbProjects)
     .slice(0, nbTop);
   const foreignStructureWithNbProjects = dataStructuresProjectsWithNbProjects
-    .filter((structure) => structure.address[0].country.toLowerCase() === getLabel(isoCode, true).toLowerCase())
+    .filter((structure) => structure?.address[0]?.country?.toLowerCase() === getLabel(isoCode, true).toLowerCase())
     .sort((a, b) => b.nbProjects - a.nbProjects)
     .slice(0, nbTop);
 
@@ -197,12 +195,15 @@ export default function FranceCooperationPage() {
               {frenchStructureWithNbProjects.map((structure) => (
                 <li key={uuidv4()}>
                   <div>
-                    {structure.label.default}
-                    {structure.acronym && (` (${structure.acronym.default})`)}
+                    {structure?.label?.fr ?? structure?.label?.default ?? 'Pas de libellé de structure'}
+                    {structure?.acronym && (structure?.acronym?.fr || structure?.acronym?.default) && (` (${structure?.acronym?.fr ?? structure?.acronym?.default ?? ''})`)}
                   </div>
                   <div>
                     <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                    <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
+                    <Tag small className="fr-ml-1w">
+                      {structure?.address[0]?.country}
+                      {structure?.address?.[0]?.city && (`/ ${structure?.address[0]?.city}`) }
+                    </Tag>
                   </div>
                 </li>
               ))}
@@ -228,12 +229,15 @@ export default function FranceCooperationPage() {
               {foreignStructureWithNbProjects.map((structure) => (
                 <li key={uuidv4()}>
                   <div>
-                    {structure.label.default}
-                    {structure.acronym && (` (${structure.acronym.default})`)}
+                    {structure?.label?.fr ?? structure?.label?.default ?? 'Pas de libellé de structure'}
+                    {structure?.acronym && (structure?.acronym?.fr || structure?.acronym?.default) && (` (${structure?.acronym?.fr ?? structure?.acronym?.default ?? ''})`)}
                   </div>
                   <div>
                     <Tag small>{getNbProjectsWithLabel(structure.nbProjects)}</Tag>
-                    <Tag small className="fr-ml-1w">{`${structure.address[0].country}/${structure.address[0].city}`}</Tag>
+                    <Tag small className="fr-ml-1w">
+                      {structure?.address[0]?.country}
+                      {structure?.address?.[0]?.city && (`/ ${structure?.address[0]?.city}`) }
+                    </Tag>
                   </div>
                 </li>
               ))}

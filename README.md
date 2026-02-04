@@ -23,6 +23,9 @@ To locally build and run the app just like the staging, execute :
 npm run start:staging
 ```
 
+Node 18
+
+
 ## Deployment
 
 To deploy in production, simply run this command from your staging branch :
@@ -36,6 +39,7 @@ npm run deploy --level=[patch|minor|major]
 **Windows**
 
 ```sh
+npm version patch
 npm run deploy-windows --level=[patch|minor|major]
 ```
 :warning: Obviously, only members of the [dataesr organization](https://github.com/dataesr/) have rights to push on the repo.

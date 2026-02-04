@@ -18,13 +18,13 @@ export default function useFetchData(isoCode) {
       try {
         setIsLoading(true);
         const allData = await fetch(query).then((response) => response.json());
-        setData(allData.group_by);
+        setData(allData?.group_by ?? []);
         setIsLoading(false);
       } catch (err) {
         setError(err);
       }
     };
-    getData();
+    if (isoCode?.length > 0) getData();
   }, [isoCode]);
 
   return { data, error, isLoading };
