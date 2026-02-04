@@ -55,7 +55,7 @@ export default function BarChart({ categoriesText, data, height, slice, type }) 
   if (data?.length === 0) {
     return (
       <Highlight colorFamily="yellow-tournesol" size="sm" className="fr-ml-0 fr-my-1w">
-        <i>No data to display for this graph</i>
+        <i>Pas de données disponibles pour afficher ce graphique</i>
       </Highlight>
     );
   }

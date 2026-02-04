@@ -23,6 +23,9 @@ To locally build and run the app just like the staging, execute :
 npm run start:staging
 ```
 
+Node 18
+
+
 ## Deployment
 
 To deploy in production, simply run this command from your staging branch :
