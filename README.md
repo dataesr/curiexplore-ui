@@ -36,6 +36,7 @@ npm run deploy --level=[patch|minor|major]
 **Windows**
 
 ```sh
+npm version patch
 npm run deploy-windows --level=[patch|minor|major]
 ```
 :warning: Obviously, only members of the [dataesr organization](https://github.com/dataesr/) have rights to push on the repo.
