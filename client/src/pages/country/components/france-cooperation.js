@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Container, Row, Col, Link, Badge, Tag, Text } from '@dataesr/react-dsfr';
+import { Container, Row, Col, Link, Tag, Text } from '@dataesr/react-dsfr';
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -15,7 +15,7 @@ export default function FranceCooperationPage() {
   const contextData = useOutletContext();
   const [dataProjects, setDataProjects] = useState([]);
   const [iso2, setIso2] = useState('');
-  const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/scanr-projects/_search`;
+  const urlProjects = `${process.env.REACT_APP_SCANR_API_URL}/${process.env.REACT_APP_ES_INDEX_PROJECTS}/_search`;
   const years = useMemo(() => ([2023, 2024, 2025]), []);
   useTitle('Coopération française - CurieXplore');
 
@@ -95,23 +95,21 @@ export default function FranceCooperationPage() {
 
   const topTenFrenchTitle = (nb) => (
     <>
-      Top des institutions Françaises travaillant avec le pays
+      {`Top ${nb} des institutions Françaises travaillant avec le pays`}
       {' '}
       (
       {years.join(', ')}
       )
-      <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
     </>
   );
 
   const topTenCountryTitle = (nb) => (
     <>
-      Top des institutions du pays travaillant avec la France
+      {`Top ${nb} des institutions du pays travaillant avec la France`}
       {' '}
       (
       {years.join(', ')}
       )
-      <Badge className="fr-ml-1w" color="yellow-tournesol" text={nb} />
     </>
   );
 
