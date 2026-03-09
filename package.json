@@ -13,7 +13,9 @@
   "scripts": {
     "build": "rm -rf server/dist && npm -w client run build -- --mode ${npm_config_mode}",
     "client": "npm -w client run start",
-    "deploy": "git switch main && git pull origin main --rebase --tags && git merge origin staging && npm version $npm_config_level && git push origin main --tags && git switch staging",
+    "predeploy": "git switch main && git pull origin main --rebase --tags && git merge origin staging",
+    "deploy": "npm version",
+    "postdeploy": "git push origin main --tags && git switch staging && git merge origin main && git push",
     "deploy-windows": "git switch main && git pull origin main --rebase --tags && git merge origin staging && npm version %npm_config_level% && git push origin main --tags && git switch staging",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "preview": "npm run build --mode=${npm_config_mode} && npm -w server start",

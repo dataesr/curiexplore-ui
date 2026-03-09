@@ -33,7 +33,7 @@ To deploy in production, simply run this command from your staging branch :
 **Linux**
 
 ```sh
-npm run deploy --level=[patch|minor|major]
+npm run deploy -- [patch|minor|major]
 ```
 
 **Windows**
