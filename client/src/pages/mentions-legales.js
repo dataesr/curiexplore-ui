@@ -34,7 +34,7 @@ export default function MentionsLegalesPage() {
       <Row className="fr-mb-3w">
         <Col n="12 md-8">
           <Title as="h2" look="h6">
-            Le ministère de l'Europe et des Affaires étrangères
+            Le Ministère de l'Europe et des Affaires étrangères
           </Title>
           <Text>
             Direction générale de la mondialisation, de la culture, de
@@ -55,7 +55,7 @@ export default function MentionsLegalesPage() {
       <Row className="fr-mb-3w">
         <Col n="12 md-8">
           <Title as="h2" look="h6">
-            Le ministère chargé de l'Enseignement supérieur et de la Recherche
+            Le Ministère de l'Enseignement supérieur, de la Recherche et de l'Espace
           </Title>
           <Text>
             Direction générale de l'enseignement supérieur et de l'insertion
@@ -63,10 +63,9 @@ export default function MentionsLegalesPage() {
             <br />
             Direction générale de la recherche et de l'innovation
             <br />
-            Sous-direction des systèmes d'information et des études statistiques
-            (SIES)
+            Délégation au numérique et aux données (DENUM)
             <br />
-            Département ingénierie et science des données
+            Département Ingénierie et science des données
             <br />
           </Text>
           <Text>
